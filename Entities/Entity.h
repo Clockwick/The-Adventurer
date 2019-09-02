@@ -23,10 +23,13 @@ public:
     virtual ~Entity();
 
     //Functions
- virtual void render(sf::RenderTarget* target) = 0;
- virtual void update(const float &deltaTime) = 0;
+ virtual void render(sf::RenderTarget* target);
+ virtual void update(const float &deltaTime);
+ virtual void move(const float& deltaTime, const float x, const float y);
 
 protected:
+    sf::RectangleShape shape;
+    float movementSpeed;
 
 
 private:

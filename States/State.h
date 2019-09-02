@@ -16,7 +16,7 @@ public:
     const bool& getQuit() const;
 
 
-private:
+protected:
     std::vector <sf::Texture> textures;
     sf::RenderWindow* window;
 

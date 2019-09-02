@@ -55,8 +55,8 @@ State.h
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
 
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
-Entity.h
-/Users/arthris/CLionProjects/GujarunSFML/States/Entity.h
+../Entities/Entity.h
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
 
 /Users/arthris/CLionProjects/GujarunSFML/main.cpp
 iostream
