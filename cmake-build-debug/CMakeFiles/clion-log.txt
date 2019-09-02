@@ -1,0 +1,7 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/arthris/CLionProjects/GujarunSFML
+-- Found SFML 2.5.1 in /usr/local/cellar/sfml/2.5.1/lib/cmake/SFML
+-- SFML_INCLUDE_DIR: /usr/local/cellar/sfml/2.5.1/include
+-- SFML_LIBRARIES: /usr/local/cellar/sfml/2.5.1/lib
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug
