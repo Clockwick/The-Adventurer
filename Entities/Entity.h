@@ -24,8 +24,8 @@ public:
 
     //Functions
  virtual void render(sf::RenderTarget* target);
- virtual void update(const float &deltaTime);
- virtual void move(const float& deltaTime, const float x, const float y);
+ virtual void update(const float &dt);
+ virtual void move(const float& dt, const float x, const float y);
 
 protected:
     sf::RectangleShape shape;

@@ -17,7 +17,7 @@ GameState::~GameState() {
 
 void GameState::update(const float &dt) {
 
-    updateKeybinds(dt);
+    this->updateInput(dt);
 
     this->player.update(dt);
 
@@ -26,12 +26,35 @@ void GameState::update(const float &dt) {
 
 void GameState::render(sf::RenderTarget *target) {
 
-    this->player.render(this->window);
+    if(!target)
+    {
+        target = this->window;
+    }
+
+
+    this->player.render(target);
 }
 
 
-void GameState::updateKeybinds(const float &dt) {
+void GameState::updateInput(const float &dt) {
     this->checkForQuit();
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    {
+        this->player.move(dt, -1.0f, 0.0f);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        this->player.move(dt, 0.0f, 1.0f);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        this->player.move(dt, 1.0f, 0.0f);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    {
+        this->player.move(dt, 0.0f, -1.0f);
+    }
 
 
 }

@@ -12,7 +12,7 @@ public:
     virtual void render(sf::RenderTarget* target = nullptr) = 0;
     virtual void update(const float& dt) = 0;
     virtual void checkForQuit();
-    virtual void updateKeybinds(const float& dt) = 0;
+    virtual void updateInput(const float& dt) = 0;
     const bool& getQuit() const;
 
 
