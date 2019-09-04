@@ -20,6 +20,7 @@ private:
     //Variables
     sf::Font font;
     sf::RectangleShape background;
+    Button* gamestates_btn;
     //Functions
     void initFonts();
 
