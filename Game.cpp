@@ -88,12 +88,11 @@ void Game::run() {
 }
 
 void Game::initWindow() {
-    /* IMPORT FROM "window.ini" FILE*/ // not success yet#
+    /* IMPORT FROM "window.ini" FILE*/
     std::cout << "System Initialize..." << std::endl;
-    std::cout << "Ready!"<< std::endl;
     sf::VideoMode window_bounds(1440, 1080);
     std::ifstream ifs;
-    ifs.open("~/CLionProjects/GujarunSFML/config/window.ini");
+    ifs.open("config/window.ini");
     std::string title = "None";
     unsigned int framerate_limited = 120;
     bool vertical_sync_enabled = false;
@@ -107,7 +106,7 @@ void Game::initWindow() {
         ifs >> framerate_limited;
         ifs >> vertical_sync_enabled;
 
-        std::cout << "Say something" << std::endl;
+        std::cout << "Import file from config/window.ini" << std::endl;
 
 
 
@@ -117,15 +116,15 @@ void Game::initWindow() {
     this->window = new sf::RenderWindow(window_bounds, title);
     this->window->setFramerateLimit(framerate_limited);
     this->window->setVerticalSyncEnabled(vertical_sync_enabled);
-
+    std::cout << "Ready!"<< std::endl;
 
 
 
 }
 
 void Game::initstates() {
+    this->states.push(new Mainmenu(this->window));
     this->states.push(new GameState(this->window));
-
 }
 
 void Game::endApps() {

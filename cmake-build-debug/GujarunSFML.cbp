@@ -106,6 +106,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/States/State.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/main.cpp">
 			<Option target="GujarunSFML"/>
 		</Unit>

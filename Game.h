@@ -4,7 +4,7 @@
 
 #ifndef GUJARUNSFML_GAME_H
 #define GUJARUNSFML_GAME_H
-#include "States/GameState.h"
+#include "States/mainmenuState.h"
 
 class Game{
 public:

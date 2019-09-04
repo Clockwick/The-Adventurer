@@ -231,6 +231,33 @@ States/State.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/State.cpp.s
 .PHONY : States/State.cpp.s
 
+States/mainmenuState.o: States/mainmenuState.cpp.o
+
+.PHONY : States/mainmenuState.o
+
+# target to build an object file
+States/mainmenuState.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o
+.PHONY : States/mainmenuState.cpp.o
+
+States/mainmenuState.i: States/mainmenuState.cpp.i
+
+.PHONY : States/mainmenuState.i
+
+# target to preprocess a source file
+States/mainmenuState.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.i
+.PHONY : States/mainmenuState.cpp.i
+
+States/mainmenuState.s: States/mainmenuState.cpp.s
+
+.PHONY : States/mainmenuState.s
+
+# target to generate assembly for a file
+States/mainmenuState.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.s
+.PHONY : States/mainmenuState.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -279,6 +306,9 @@ help:
 	@echo "... States/State.o"
 	@echo "... States/State.i"
 	@echo "... States/State.s"
+	@echo "... States/mainmenuState.o"
+	@echo "... States/mainmenuState.i"
+	@echo "... States/mainmenuState.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
