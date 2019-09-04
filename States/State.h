@@ -13,15 +13,19 @@ public:
     virtual void update(const float& dt) = 0;
     virtual void checkForQuit();
     virtual void updateInput(const float& dt) = 0;
+    virtual void updateMousePos() ;
     const bool& getQuit() const;
 
 
 protected:
     std::vector <sf::Texture> textures;
     sf::RenderWindow* window;
-
+    sf::Vector2i mousePosScreen;
+    sf::Vector2i mousePosWindow;
+    sf::Vector2f mousePosView;
 
     bool quit;
+private:
 
 };
 

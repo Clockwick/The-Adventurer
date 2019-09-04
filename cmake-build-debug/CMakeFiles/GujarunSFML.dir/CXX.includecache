@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/Users/arthris/CLionProjects/GujarunSFML/Button.h
+
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
 iostream
 -
@@ -37,8 +39,18 @@ Game.h
 /Users/arthris/CLionProjects/GujarunSFML/Game.h
 States/mainmenuState.h
 /Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
+States/GameState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
+
+/Users/arthris/CLionProjects/GujarunSFML/States/GameState.cpp
+GameState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
 
 /Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
+State.h
+/Users/arthris/CLionProjects/GujarunSFML/States/State.h
+
+/Users/arthris/CLionProjects/GujarunSFML/States/State.cpp
 State.h
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
 
@@ -46,9 +58,25 @@ State.h
 ../Entities/Entity.h
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
 
+/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.cpp
+mainmenuState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
+
 /Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
 GameState.h
 /Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
+../Button.h
+/Users/arthris/CLionProjects/GujarunSFML/Button.h
+
+/Users/arthris/CLionProjects/GujarunSFML/main.cpp
+iostream
+-
+SFML/Graphics.hpp
+-
+States/State.h
+/Users/arthris/CLionProjects/GujarunSFML/States/State.h
+Game.h
+/Users/arthris/CLionProjects/GujarunSFML/Game.h
 
 /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 SFML/System.hpp

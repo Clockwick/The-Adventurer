@@ -1,5 +1,6 @@
 
 #include "GameState.h"
+#include "../Button.h"
 
 #ifndef GUJARUNSFML_MAINMENUSTATE_H
 #define GUJARUNSFML_MAINMENUSTATE_H
@@ -16,7 +17,12 @@ public:
 
 
 private:
+    //Variables
+    sf::Font font;
     sf::RectangleShape background;
+    //Functions
+    void initFonts();
+
 
 };
 

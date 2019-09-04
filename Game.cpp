@@ -124,7 +124,7 @@ void Game::initWindow() {
 
 void Game::initstates() {
     this->states.push(new Mainmenu(this->window));
-    this->states.push(new GameState(this->window));
+
 }
 
 void Game::endApps() {

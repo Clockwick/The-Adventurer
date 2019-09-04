@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/arthris/CLionProjects/GujarunSFML/Button.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Button.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Game.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/States/GameState.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o"
