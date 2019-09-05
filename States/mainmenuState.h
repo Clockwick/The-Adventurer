@@ -8,7 +8,7 @@
 class Mainmenu : public State
 {
 public:
-    Mainmenu(sf::RenderWindow* window);
+    Mainmenu(sf::RenderWindow* window, std::stack <State*>* states);
     virtual ~Mainmenu();
     void endState();
     void update(const float& dt);

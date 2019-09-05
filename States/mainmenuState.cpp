@@ -1,8 +1,8 @@
 
 #include "mainmenuState.h"
 
-Mainmenu::Mainmenu(sf::RenderWindow* window)
-: State(window)
+Mainmenu::Mainmenu(sf::RenderWindow* window, std::stack <State*>* states)
+: State(window, states)
 {
     this->initFonts();
     this->initButtons();
@@ -28,11 +28,6 @@ void Mainmenu::update(const float &dt) {
     this->updateMousePos();
     this->updateButtons();
 
-    //QUIT GAME
-    if (this->buttons["EXIT_STATE"]->isPressed())
-    {
-
-    }
 
 
 
@@ -59,7 +54,7 @@ void Mainmenu::updateInput(const float &dt) {
 
 void Mainmenu::endState() {
     //Working!!
-
+     std::cout << "Ending MainMenuState" << std::endl;
 
 
 }
@@ -98,6 +93,12 @@ void Mainmenu::updateButtons() {
 
         it.second->update(this->mousePosView) ;
     }
+    if (this->buttons["GAME_STATE"]->isPressed())
+    {
+        this->states->push(new GameState(this->window, this->states));
+
+    }
+
     if (this->buttons["EXIT_STATE"]->isPressed())
     {
         this->quit = 1;

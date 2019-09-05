@@ -6,7 +6,7 @@
 class State
 {
 public:
-    State(sf::RenderWindow* window);
+    State(sf::RenderWindow* window, std::stack <State*>* states);
     virtual ~State();
     virtual void endState() = 0;
     virtual void render(sf::RenderTarget* target = nullptr) = 0;
@@ -15,6 +15,7 @@ public:
     virtual void updateInput(const float& dt) = 0;
     virtual void updateMousePos() ;
     const bool& getQuit() const;
+    std::stack <State*>* states;
 
 
 protected:

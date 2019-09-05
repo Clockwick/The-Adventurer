@@ -5,8 +5,8 @@
 #include "GameState.h"
 
 
-GameState::GameState(sf::RenderWindow* window)
-: State(window)
+GameState::GameState(sf::RenderWindow* window, std::stack <State*>* states)
+: State(window, states)
 {
 
 }
