@@ -14,6 +14,9 @@ public:
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
     void updateInput(const float& dt);
+    void initButtons();
+    void updateButtons();
+    void renderButtons(sf::RenderTarget* target = nullptr);
 
 
 private:
@@ -21,6 +24,7 @@ private:
     sf::Font font;
     sf::RectangleShape background;
     Button* gamestates_btn;
+    std::map <std::string, Button*> buttons;
     //Functions
     void initFonts();
 

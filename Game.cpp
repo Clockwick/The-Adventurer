@@ -116,7 +116,6 @@ void Game::initWindow() {
     this->window = new sf::RenderWindow(window_bounds, title);
     this->window->setFramerateLimit(framerate_limited);
     this->window->setVerticalSyncEnabled(vertical_sync_enabled);
-    std::cout << "Ready!"<< std::endl;
 
 
 

@@ -12,19 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Fonts/RobotoCondensed-Regular.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Button.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Button.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Button.h" beforeDir="false" afterPath="$PROJECT_DIR$/Button.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fonts/BeautyMountainsPersonalUse-od7z.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/mainmenuState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/mainmenuState.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/mainmenuState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/mainmenuState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Button.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Button.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -123,7 +117,7 @@
       <workItem from="1567482820837" duration="774000" />
       <workItem from="1567496429348" duration="23000" />
       <workItem from="1567576940155" duration="5789000" />
-      <workItem from="1567607770858" duration="5901000" />
+      <workItem from="1567607770858" duration="9550000" />
     </task>
     <servers />
   </component>
