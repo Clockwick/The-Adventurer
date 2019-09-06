@@ -15,16 +15,20 @@ public:
     void render(sf::RenderTarget* target = nullptr);
     void updateInput(const float& dt);
     void initButtons();
+    void initBackground();
+    void initVariables();
     void updateButtons();
     void renderButtons(sf::RenderTarget* target = nullptr);
 
 
 private:
     //Variables
+
     sf::Font font;
     sf::RectangleShape background;
     Button* gamestates_btn;
     std::map <std::string, Button*> buttons;
+    sf::Texture backgroundTexture;
     //Functions
     void initFonts();
 

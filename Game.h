@@ -25,17 +25,20 @@ public:
     void updateSFMLEvent();
 
 
+
 private:
     std::stack <State*> states;
     //INITIALIZATION
     void initWindow();
     void initstates();
-
+    void initVariables();
     //Variables
     sf::Clock dtClock;
     sf::Event event;
     sf::RenderWindow* window;
-
+    std::vector <sf::VideoMode> videoModes;
+    bool fullscreen = false;
+    sf::ContextSettings window_settings;
     float deltaTime;
 
 

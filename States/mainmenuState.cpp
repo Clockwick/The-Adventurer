@@ -4,12 +4,11 @@
 Mainmenu::Mainmenu(sf::RenderWindow* window, std::stack <State*>* states)
 : State(window, states)
 {
+    this->initVariables();
+    this->initBackground();
     this->initFonts();
     this->initButtons();
 
-
-    this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
-    this->background.setFillColor(sf::Color::Red);
 
 }
 
@@ -20,6 +19,28 @@ Mainmenu::~Mainmenu() {
 
 
     }
+}
+//Initializer
+void Mainmenu::initBackground() {
+    this->background.setSize(
+            sf::Vector2f(
+                    static_cast<float>(this->window->getSize().x), static_cast<float>(this->window->getSize().y)
+                    )
+                    );
+
+    if(!this->backgroundTexture.loadFromFile("resources/images/background/MainmenuBg.jpg"))
+    {
+        std::cout << "ERROR:MAINMENUSTATE Failed to load BackgroundImage" << std::endl;
+
+
+    }
+    this->background.setTexture(&this->backgroundTexture);
+    std::cout << "Successfully Loaded BackgroundImage" << std::endl;
+}
+
+void Mainmenu::initVariables() {
+
+
 }
 
 void Mainmenu::update(const float &dt) {
@@ -43,6 +64,20 @@ void Mainmenu::render(sf::RenderTarget *target) {
 
     target->draw(this->background);
     this->renderButtons(target);
+
+    //For Checking (x,y) from Mouse
+    /*
+    sf::Text mouseText;
+    mouseText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
+    mouseText.setFont(this->font);
+    mouseText.setCharacterSize(16);
+    mouseText.setFillColor(sf::Color::Black);
+    std::stringstream ss;
+    ss << "(" <<this->mousePosView.x << "," << this->mousePosView.y << ")" <<std::endl;
+    mouseText.setString(ss.str());
+
+    target->draw(mouseText);
+     */
 }
 
 
@@ -66,21 +101,28 @@ void Mainmenu::initFonts() {
     }
     else
     {
-        std::cout << "Successfully Load Fonts" << std::endl;
+        std::cout << "Successfully Loaded Fonts" << std::endl;
 
     }
 }
 
 void Mainmenu::initButtons() {
-    this->buttons["GAME_STATE"] = new Button(1440/2 - 150,1080/2 - 300,300,150,
+
+    this->buttons["GAME_STATE"] = new Button(1280,798,300,150,
                                       &this->font, "Start Game",
                                       sf::Color(70,70,70,200),
                                       sf::Color(150,150,150,200),sf::Color(20,20,20,200)
     );
-    this->buttons["EXIT_STATE"] = new Button(1440/2 - 150,1080/2 - 100,300,150,
+    this->buttons["SETTING_STATE"] = new Button(1280,998,300,150,
+                                             &this->font, "Setting",
+                                             sf::Color(70,70,70,200),
+                                             sf::Color(150,150,150,200),sf::Color(20,20,20,200)
+    );
+    this->buttons["EXIT_STATE"] = new Button(1280,1198,300,150,
                                              &this->font, "Exit",
                                              sf::Color(70,70,70,200),
                                              sf::Color(150,150,150,200),sf::Color(20,20,20,200)
+
 
     );
 
@@ -111,3 +153,5 @@ void Mainmenu::renderButtons(sf::RenderTarget *target) {
         it.second->render(target) ;
     }
 }
+
+
