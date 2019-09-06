@@ -11,7 +11,6 @@ class GameState : public State
 public:
     GameState(sf::RenderWindow* window, std::stack <State*>* states);
     virtual ~GameState();
-    void endState();
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
     void updateInput(const float& dt);

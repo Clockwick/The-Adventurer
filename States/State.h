@@ -8,10 +8,9 @@ class State
 public:
     State(sf::RenderWindow* window, std::stack <State*>* states);
     virtual ~State();
-    virtual void endState() = 0;
+    void endState();
     virtual void render(sf::RenderTarget* target = nullptr) = 0;
     virtual void update(const float& dt) = 0;
-    virtual void checkForQuit();
     virtual void updateInput(const float& dt) = 0;
     virtual void updateMousePos() ;
     const bool& getQuit() const;

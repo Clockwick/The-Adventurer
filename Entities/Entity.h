@@ -23,16 +23,21 @@ public:
     virtual ~Entity();
 
     //Functions
- virtual void render(sf::RenderTarget* target);
- virtual void update(const float &dt);
- virtual void move(const float& dt, const float x, const float y);
+    virtual void render(sf::RenderTarget* target);
+    virtual void update(const float &dt);
+    virtual void move(const float& dt, const float x, const float y);
+
+    //Component Function
+    void createSprite(sf::Texture* texture);
 
 protected:
-    sf::RectangleShape shape;
     float movementSpeed;
+    sf::Sprite* sprite;
+    sf::Texture* texture;
 
 
 private:
+    void initVariables();
 
 };
 

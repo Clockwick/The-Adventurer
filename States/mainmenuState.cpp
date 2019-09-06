@@ -82,17 +82,11 @@ void Mainmenu::render(sf::RenderTarget *target) {
 
 
 void Mainmenu::updateInput(const float &dt) {
-    this->checkForQuit();
 
-
-}
-
-void Mainmenu::endState() {
-    //Working!!
-     std::cout << "Ending MainMenuState" << std::endl;
 
 
 }
+
 
 void Mainmenu::initFonts() {
     if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
@@ -143,8 +137,9 @@ void Mainmenu::updateButtons() {
 
     if (this->buttons["EXIT_STATE"]->isPressed())
     {
-        this->quit = 1;
+        this->endState();
     }
+
 }
 
 void Mainmenu::renderButtons(sf::RenderTarget *target) {

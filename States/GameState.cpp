@@ -37,7 +37,6 @@ void GameState::render(sf::RenderTarget *target) {
 
 
 void GameState::updateInput(const float &dt) {
-    this->checkForQuit();
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
@@ -55,16 +54,15 @@ void GameState::updateInput(const float &dt) {
     {
         this->player.move(dt, 0.0f, -1.0f);
     }
-
-
-}
-
-void GameState::endState() {
-   //Working!!
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+        this->quit = true;
+    }
 
 
 
 }
+
 
 
 

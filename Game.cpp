@@ -117,7 +117,6 @@ void Game::initWindow() {
     }
 
     ifs.close();
-    this->fullscreen = fullscreen;
     this->window_settings.antialiasingLevel = antialiasing_level;
     if (this->fullscreen)
     {
