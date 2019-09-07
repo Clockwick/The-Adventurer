@@ -177,6 +177,33 @@ Entities/Entity.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.s
 .PHONY : Entities/Entity.cpp.s
 
+Entities/Player.o: Entities/Player.cpp.o
+
+.PHONY : Entities/Player.o
+
+# target to build an object file
+Entities/Player.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o
+.PHONY : Entities/Player.cpp.o
+
+Entities/Player.i: Entities/Player.cpp.i
+
+.PHONY : Entities/Player.i
+
+# target to preprocess a source file
+Entities/Player.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.i
+.PHONY : Entities/Player.cpp.i
+
+Entities/Player.s: Entities/Player.cpp.s
+
+.PHONY : Entities/Player.s
+
+# target to generate assembly for a file
+Entities/Player.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.s
+.PHONY : Entities/Player.cpp.s
+
 Game.o: Game.cpp.o
 
 .PHONY : Game.o
@@ -327,6 +354,9 @@ help:
 	@echo "... Entities/Entity.o"
 	@echo "... Entities/Entity.i"
 	@echo "... Entities/Entity.s"
+	@echo "... Entities/Player.o"
+	@echo "... Entities/Player.i"
+	@echo "... Entities/Player.s"
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"

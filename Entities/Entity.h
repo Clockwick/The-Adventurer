@@ -26,8 +26,9 @@ public:
     virtual void render(sf::RenderTarget* target);
     virtual void update(const float &dt);
     virtual void move(const float& dt, const float x, const float y);
+    virtual void setPosition(const float x ,const float y);
 
-    //Component Function
+    //Component Functions
     void createSprite(sf::Texture* texture);
 
 protected:

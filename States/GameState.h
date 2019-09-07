@@ -16,8 +16,13 @@ public:
     void updateInput(const float& dt);
 
 
+
 private:
-    Entity player;
+    Player* player;
+
+    //Functions
+    void initTextures();
+    void initPlayers();
 
 
 };

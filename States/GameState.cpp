@@ -8,18 +8,19 @@
 GameState::GameState(sf::RenderWindow* window, std::stack <State*>* states)
 : State(window, states)
 {
-
+    this->initTextures();
+    this->initPlayers();
 }
 
 GameState::~GameState() {
-
+    delete this->player;
 }
 
 void GameState::update(const float &dt) {
 
     this->updateMousePos();
     this->updateInput(dt);
-    this->player.update(dt);
+    this->player->update(dt);
 
 
 }
@@ -32,7 +33,7 @@ void GameState::render(sf::RenderTarget *target) {
     }
 
 
-    this->player.render(target);
+    this->player->render(target);
 }
 
 
@@ -40,19 +41,19 @@ void GameState::updateInput(const float &dt) {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
-        this->player.move(dt, -1.0f, 0.0f);
+        this->player->move(dt, -1.0f, 0.0f);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
-        this->player.move(dt, 0.0f, 1.0f);
+        this->player->move(dt, 0.0f, 1.0f);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-        this->player.move(dt, 1.0f, 0.0f);
+        this->player->move(dt, 1.0f, 0.0f);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
-        this->player.move(dt, 0.0f, -1.0f);
+        this->player->move(dt, 0.0f, -1.0f);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
@@ -60,6 +61,24 @@ void GameState::updateInput(const float &dt) {
     }
 
 
+
+}
+
+void GameState::initTextures() {
+    this->textures["PLAYER_IDLE"].loadFromFile("resources/images/Assets/Player/Adventurer/Spites/adventurer-attack1-01.png");
+
+    if (!this->textures["PLAYER_IDLE"].loadFromFile("resources/images/Assets/Player/Adventurer/Spites/adventurer-attack1-01.png"))
+    {
+        std::cout << "Cannot Load Player Image" << std::endl;
+    }
+    std::cout << "Welcome to the Game!!" << std::endl;
+
+
+
+}
+
+void GameState::initPlayers() {
+    this->player = new Player(0,0, &this->textures["PLAYER_IDLE"]);
 
 }
 

@@ -94,6 +94,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Game.cpp">
 			<Option target="GujarunSFML"/>
 		</Unit>

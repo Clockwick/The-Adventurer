@@ -52,6 +52,14 @@ SFML/Audio.hpp
 SFML/System.hpp
 -
 
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.cpp
+Player.h
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
+
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
+Entity.h
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
+
 /Users/arthris/CLionProjects/GujarunSFML/Game.cpp
 Game.h
 /Users/arthris/CLionProjects/GujarunSFML/Game.h
@@ -75,8 +83,8 @@ State.h
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
 
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
-../Entities/Entity.h
-/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
+../Entities/Player.h
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
 
 /Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.cpp
 mainmenuState.h
