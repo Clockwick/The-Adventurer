@@ -1,0 +1,8 @@
+//
+// Created by Paratthakorn Sribunyong on 7/9/2019 AD.
+//
+
+#ifndef GUJARUNSFML_MOVEMENTCOMPONENT_H
+#define GUJARUNSFML_MOVEMENTCOMPONENT_H
+
+#endif //GUJARUNSFML_MOVEMENTCOMPONENT_H
