@@ -150,6 +150,33 @@ Button.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Button.cpp.s
 .PHONY : Button.cpp.s
 
+Components/AnimationComponent.o: Components/AnimationComponent.cpp.o
+
+.PHONY : Components/AnimationComponent.o
+
+# target to build an object file
+Components/AnimationComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o
+.PHONY : Components/AnimationComponent.cpp.o
+
+Components/AnimationComponent.i: Components/AnimationComponent.cpp.i
+
+.PHONY : Components/AnimationComponent.i
+
+# target to preprocess a source file
+Components/AnimationComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.i
+.PHONY : Components/AnimationComponent.cpp.i
+
+Components/AnimationComponent.s: Components/AnimationComponent.cpp.s
+
+.PHONY : Components/AnimationComponent.s
+
+# target to generate assembly for a file
+Components/AnimationComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.s
+.PHONY : Components/AnimationComponent.cpp.s
+
 Components/MovementComponent.o: Components/MovementComponent.cpp.o
 
 .PHONY : Components/MovementComponent.o
@@ -378,6 +405,9 @@ help:
 	@echo "... Button.o"
 	@echo "... Button.i"
 	@echo "... Button.s"
+	@echo "... Components/AnimationComponent.o"
+	@echo "... Components/AnimationComponent.i"
+	@echo "... Components/AnimationComponent.s"
 	@echo "... Components/MovementComponent.o"
 	@echo "... Components/MovementComponent.i"
 	@echo "... Components/MovementComponent.s"

@@ -88,6 +88,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Button.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.cpp">
 			<Option target="GujarunSFML"/>
 		</Unit>

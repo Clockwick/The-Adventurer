@@ -6,18 +6,16 @@
 
 #IncludeRegexTransform: 
 
-/Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
-iostream
--
-vector
--
-fstream
--
-sstream
--
-stack
--
+/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.cpp
+AnimationComponent.h
+/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
+
+/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
 map
+-
+cstring
+-
+iostream
 -
 SFML/Graphics.hpp
 -
@@ -29,18 +27,6 @@ SFML/Audio.hpp
 -
 SFML/System.hpp
 -
-
-/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
-../Components/MovementComponent.h
-/Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
-
-/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.cpp
-Player.h
-/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
-
-/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
-Entity.h
-/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
 
 /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 SFML/System.hpp

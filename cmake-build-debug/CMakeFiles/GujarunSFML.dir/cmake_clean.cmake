@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/GujarunSFML.dir/Button.cpp.o"
   "CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o"
   "CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o"
+  "CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o"
   "GujarunSFML.pdb"
   "GujarunSFML"
 )

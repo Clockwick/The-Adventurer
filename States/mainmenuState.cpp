@@ -104,19 +104,24 @@ void Mainmenu::initFonts() {
 void Mainmenu::initButtons() {
 
     this->buttons["GAME_STATE"] = new Button(1280,798,300,150,
-                                      &this->font, "Start Game",
-                                      sf::Color(70,70,70,200),
-                                      sf::Color(150,150,150,200),sf::Color(20,20,20,200)
+                                      &this->font, "New Game", 36,
+                                      sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                      sf::Color(70,70,70,50),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
     );
     this->buttons["SETTING_STATE"] = new Button(1280,998,300,150,
-                                             &this->font, "Settings",
-                                             sf::Color(70,70,70,200 ),
-                                             sf::Color(150,150,150,200),sf::Color(20,20,20,200)
+                                             &this->font, "Settings", 36,
+                                             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                             sf::Color(70,70,70,50 ),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
     );
-    this->buttons["EXIT_STATE"] = new Button(1280,1198,300,150,
-                                             &this->font, "Exit",
-                                             sf::Color(70,70,70,200),
-                                             sf::Color(150,150,150,200),sf::Color(20,20,20,200)
+    this->buttons["EDITOR_STATE"] = new Button(1280,1198,300,150,
+                                                &this->font, "Editor", 36,
+                                                sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                                sf::Color(70,70,70,50 ),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+    );
+    this->buttons["EXIT_STATE"] = new Button(1280,1398,300,150,
+                                             &this->font, "Exit", 36,
+                                             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                             sf::Color(70,70,70,50),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
 
 
     );

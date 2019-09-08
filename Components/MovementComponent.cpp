@@ -15,10 +15,13 @@ MovementComponents::~MovementComponents() {
 }
 
 void MovementComponents::update(const float &dt) {
-    //Deceleration
-
+    /* Set Maximum Velocity and Deceleration */
+    /* X-axis */
     if (this->velocity.x > 0.0f)
     {
+        if (this->velocity.x > this->maxVelocity) {
+            this->velocity.x = this->maxVelocity;
+        }
         this->velocity.x -= this->deceleration;
         if (this->velocity.x < 0.0f)
         {
@@ -26,13 +29,39 @@ void MovementComponents::update(const float &dt) {
         }
     }
     else if (this->velocity.x < 0.0f) {
+        if (this->velocity.x < -this->maxVelocity)
+        {
+            this->velocity.x = -this->maxVelocity;
+        }
         this->velocity.x += this->deceleration;
         if (this->velocity.x > 0.0f)
         {
             this->velocity.x = 0;
         }
     }
-
+    /* Y-axis */
+    if (this->velocity.y > 0.0f) {
+        if(this->velocity.y > this->maxVelocity)
+        {
+            this->velocity.y = this->maxVelocity;
+        }
+        this->velocity.y -= this->deceleration;
+        if (this->velocity.y < 0.0f) {
+            this->velocity.y = 0.0f;
+        }
+    }
+    else if (this->velocity.y < 0.0f)
+    {
+        if (this->velocity.y < -this->maxVelocity)
+        {
+            this->velocity.y = -this->maxVelocity;
+        }
+        this->velocity.y += this->deceleration;
+        if (this->velocity.y > 0.0f)
+        {
+            this->velocity.y = 0.0f;
+        }
+    }
     //Final move
     this->sprite.move(this->velocity * dt);
 }
@@ -40,21 +69,6 @@ void MovementComponents::update(const float &dt) {
 void MovementComponents::move(const float dir_x, const float dir_y, const float& dt) {
     //Acceleration
     this->velocity.x += this->acceleration * dir_x;
-
-    if (this->velocity.x > 0.0f) {
-        if (this->velocity.x > this->maxVelocity) {
-            this->velocity.x = this->maxVelocity;
-        }
-    }
-    else if (this->velocity.x < 0.0f)
-    {
-        if (this->velocity.x < -this->maxVelocity)
-        {
-            this->velocity.x = -this->maxVelocity;
-        }
-
-    }
-
     this->velocity.y += this->acceleration * dir_y;
 
 

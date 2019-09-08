@@ -19,7 +19,7 @@ Player::~Player() {
 
 void Player::initComponents() {
     //GIVE VALUE TO createMovementComponents
-    this->createMovementComponents(200.0f, 10.0f, 4.0f);
+    this->createMovementComponents(300.0f, 15.0f, 5.0f);
 
 }
 
