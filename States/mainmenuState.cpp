@@ -78,6 +78,7 @@ void Mainmenu::render(sf::RenderTarget *target) {
 
     target->draw(mouseText);
      */
+
 }
 
 
@@ -108,8 +109,8 @@ void Mainmenu::initButtons() {
                                       sf::Color(150,150,150,200),sf::Color(20,20,20,200)
     );
     this->buttons["SETTING_STATE"] = new Button(1280,998,300,150,
-                                             &this->font, "Setting",
-                                             sf::Color(70,70,70,200),
+                                             &this->font, "Settings",
+                                             sf::Color(70,70,70,200 ),
                                              sf::Color(150,150,150,200),sf::Color(20,20,20,200)
     );
     this->buttons["EXIT_STATE"] = new Button(1280,1198,300,150,

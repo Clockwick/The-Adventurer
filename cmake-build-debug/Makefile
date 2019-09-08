@@ -150,6 +150,33 @@ Button.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Button.cpp.s
 .PHONY : Button.cpp.s
 
+Components/MovementComponent.o: Components/MovementComponent.cpp.o
+
+.PHONY : Components/MovementComponent.o
+
+# target to build an object file
+Components/MovementComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o
+.PHONY : Components/MovementComponent.cpp.o
+
+Components/MovementComponent.i: Components/MovementComponent.cpp.i
+
+.PHONY : Components/MovementComponent.i
+
+# target to preprocess a source file
+Components/MovementComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.i
+.PHONY : Components/MovementComponent.cpp.i
+
+Components/MovementComponent.s: Components/MovementComponent.cpp.s
+
+.PHONY : Components/MovementComponent.s
+
+# target to generate assembly for a file
+Components/MovementComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.s
+.PHONY : Components/MovementComponent.cpp.s
+
 Entities/Entity.o: Entities/Entity.cpp.o
 
 .PHONY : Entities/Entity.o
@@ -351,6 +378,9 @@ help:
 	@echo "... Button.o"
 	@echo "... Button.i"
 	@echo "... Button.s"
+	@echo "... Components/MovementComponent.o"
+	@echo "... Components/MovementComponent.i"
+	@echo "... Components/MovementComponent.s"
 	@echo "... Entities/Entity.o"
 	@echo "... Entities/Entity.i"
 	@echo "... Entities/Entity.s"

@@ -1,17 +1,7 @@
 //
 // Created by Paratthakorn Sribunyong on 2/9/2019 AD.
 //
-#include <iostream>
-#include <vector>
-#include <fstream>
-#include <sstream>
-#include <stack>
-#include <map>
-#include <SFML/Graphics.hpp>
-#include <SFML/Network.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/System.hpp>
+#include "../Components/MovementComponent.h"
 #ifndef GUJARUNSFML_ENTITY_H
 #define GUJARUNSFML_ENTITY_H
 
@@ -25,16 +15,18 @@ public:
     //Functions
     virtual void render(sf::RenderTarget* target);
     virtual void update(const float &dt);
-    virtual void move(const float& dt, const float x, const float y);
+    virtual void move(const float x, const float y, const float &dt);
     virtual void setPosition(const float x ,const float y);
+    void createMovementComponents(const float maxVelocity, const float acceleration, const float deceleration);
 
     //Component Functions
-    void createSprite(sf::Texture* texture);
+    void setTexture(sf::Texture& texture);
 
 protected:
     float movementSpeed;
-    sf::Sprite* sprite;
-    sf::Texture* texture;
+    sf::Sprite sprite;
+
+    MovementComponents* movementComponents;
 
 
 private:
