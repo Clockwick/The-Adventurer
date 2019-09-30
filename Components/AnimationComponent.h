@@ -30,6 +30,7 @@ private:
         Animation(sf::Sprite& sprite, sf::Texture& animationSheet, float animation_timer, int start_x, int start_y, int frames_x, int frames_y,int width, int height)
         : animationSheet(animationSheet), height(height), width(width),  animation_timer(animation_timer), sprite(sprite)
         {
+            this->timer = 0.0f;
             this->startRect = sf::IntRect(start_x*width, start_y*height, width, height);
             this->currentRect = this->startRect;
             this->endRect = sf::IntRect(frames_x*width, frames_y*height, width, height);
@@ -53,11 +54,11 @@ private:
         void play(const float& dt)
         {
             //Update timer
-            this->timer = 10.0f * dt;
+            this->timer += 100.0f * dt;
             if (this->timer >= this->animation_timer)
             {
                 //reset Timer
-                this->timer = 0.0f;
+                this->timer -= this->animation_timer;
                 //Animate
                 if (this->currentRect != this->endRect) {
                     this->currentRect.left += this->width;

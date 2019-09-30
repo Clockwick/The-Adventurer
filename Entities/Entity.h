@@ -19,7 +19,7 @@ public:
     virtual void move(const float x, const float y, const float &dt);
     virtual void setPosition(const float x ,const float y);
     void createMovementComponents(const float maxVelocity, const float acceleration, const float deceleration);
-    void createAnimationComponents(sf::Sprite& sprite, sf::Texture& texture_sheet);
+    void createAnimationComponents(sf::Texture& texture_sheet);
     //Component Functions
     void setTexture(sf::Texture& texture);
 

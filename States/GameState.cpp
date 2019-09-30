@@ -65,9 +65,9 @@ void GameState::updateInput(const float &dt) {
 }
 
 void GameState::initTextures() {
-    this->textures["PLAYER_IDLE"].loadFromFile("resources/images/Assets/Player/Adventurer/Spites/adventurer-attack1-01.png");
+    this->textures["PLAYER_SHEET"].loadFromFile("resources/images/Assets/Player/Adventurer/adventurer-Sheet.png");
 
-    if (!this->textures["PLAYER_IDLE"].loadFromFile("resources/images/Assets/Player/Adventurer/Spites/adventurer-attack1-01.png"))
+    if (!this->textures["PLAYER_SHEET"].loadFromFile("resources/images/Assets/Player/Adventurer/adventurer-Sheet.png"))
     {
         std::cout << "Cannot Load Player Image" << std::endl;
     }
@@ -78,7 +78,7 @@ void GameState::initTextures() {
 }
 
 void GameState::initPlayers() {
-    this->player = new Player(0,0, this->textures["PLAYER_IDLE"]);
+    this->player = new Player(0,0, this->textures["PLAYER_SHEET"]);
 
 }
 

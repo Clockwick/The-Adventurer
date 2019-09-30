@@ -9,6 +9,8 @@ class Player : public Entity
 public:
     Player(float x,  float y,sf::Texture& texture_sheet);
     virtual ~Player();
+
+    virtual void update(const float& dt);
 private:
     void initVariables();
     void initComponents();
