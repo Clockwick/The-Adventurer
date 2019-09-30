@@ -307,6 +307,7 @@ CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o: /usr/local/cellar
 CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
+CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Components/AnimationComponent.h
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Entities/Entity.cpp
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Entities/Entity.h
@@ -414,6 +415,7 @@ CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: /usr/local/cellar/sfml/2.5.1/i
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
+CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Components/AnimationComponent.h
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Entities/Entity.h
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Entities/Player.cpp
@@ -523,6 +525,7 @@ CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: /usr/local/cellar/sfml/2.5.1/i
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Button.h
+CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Components/AnimationComponent.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Entities/Entity.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Entities/Player.h
@@ -635,6 +638,7 @@ CMakeFiles/GujarunSFML.dir/Game.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
+CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Components/AnimationComponent.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Entities/Entity.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Entities/Player.h
@@ -745,6 +749,7 @@ CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: /usr/local/cellar/sfml/2.5.1/
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
+CMakeFiles/GujarunSFML.dir/States/State.cpp.o: ../Components/AnimationComponent.h
 CMakeFiles/GujarunSFML.dir/States/State.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/States/State.cpp.o: ../Entities/Entity.h
 CMakeFiles/GujarunSFML.dir/States/State.cpp.o: ../Entities/Player.h
@@ -855,6 +860,7 @@ CMakeFiles/GujarunSFML.dir/States/State.cpp.o: /usr/local/cellar/sfml/2.5.1/incl
 CMakeFiles/GujarunSFML.dir/States/State.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Button.h
+CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Components/AnimationComponent.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Entities/Entity.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Entities/Player.h
@@ -967,6 +973,7 @@ CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: /usr/local/cellar/sfml/2.
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Button.h
+CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Components/AnimationComponent.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Entities/Entity.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Entities/Player.h

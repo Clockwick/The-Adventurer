@@ -308,6 +308,7 @@ CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o
+ /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.cpp
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
@@ -415,6 +416,7 @@ CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o
+ /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.cpp
@@ -524,6 +526,7 @@ CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/GujarunSFML.dir/Game.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Button.h
+ /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
@@ -636,6 +639,7 @@ CMakeFiles/GujarunSFML.dir/Game.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o
+ /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
@@ -746,6 +750,7 @@ CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/GujarunSFML.dir/States/State.cpp.o
+ /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
@@ -856,6 +861,7 @@ CMakeFiles/GujarunSFML.dir/States/State.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Button.h
+ /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
@@ -968,6 +974,7 @@ CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/GujarunSFML.dir/main.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Button.h
+ /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h

@@ -15,11 +15,10 @@ class AnimationComponent
 public:
     AnimationComponent(sf::Sprite& sprite, sf::Texture& animation_sheet);
     virtual ~AnimationComponent();
-    void update(const float& dt);
-    void startAnimation(const std::string animation);
-    void pauseAnimation(const std::string animation);
-    void resetAnimation(const std::string animation);
-    void addAnimation(const std::string key);
+    void play(const std::string key, const float& dt);
+    void addAnimation(const std::string key,
+                      float animation_timer, int start_x, int start_y, int frames_x, int frames_y,
+                      int width, int height);
 
     //Functions
 private:
@@ -28,12 +27,12 @@ private:
     {
     public:
         //Constructor
-        Animation(sf::Sprite& sprite, sf::Texture& animationSheet, float animation_timer, int start_x, int start_y, int end_x, int end_y,int width, int height)
+        Animation(sf::Sprite& sprite, sf::Texture& animationSheet, float animation_timer, int start_x, int start_y, int frames_x, int frames_y,int width, int height)
         : animationSheet(animationSheet), height(height), width(width),  animation_timer(animation_timer), sprite(sprite)
         {
-            this->startRect = sf::IntRect(start_x, start_y, width, height);
+            this->startRect = sf::IntRect(start_x*width, start_y*height, width, height);
             this->currentRect = this->startRect;
-            this->endRect = sf::IntRect(end_x, end_y, width, height);
+            this->endRect = sf::IntRect(frames_x*width, frames_y*height, width, height);
             this->startRect == this->endRect;
             this->sprite.setTexture(this->animationSheet, true);
             this->sprite.setTextureRect(this->startRect);
@@ -51,7 +50,7 @@ private:
         int width;
         int height;
         //Functions
-        void update(const float& dt)
+        void play(const float& dt)
         {
             //Update timer
             this->timer = 10.0f * dt;
@@ -68,14 +67,20 @@ private:
                     this->currentRect.left = this->startRect.left;
 
                 }
+                this->sprite.setTextureRect(this->currentRect);
             }
 
         }
-        void pause();
-        void reset();
+        void reset()
+        {
+
+
+
+
+        }
     };
     //Variables
-    std::map <std::string, Animation> animations;
+    std::map <std::string, Animation*> animations;
     sf::Sprite& sprite;
     sf::Texture& animation_sheet;
     //Functions
