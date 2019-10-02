@@ -1,16 +1,15 @@
-
-#include "GameState.h"
+//
+// Created by Paratthakorn Sribunyong on 2/10/2019 AD.
+//
+#include "State.h"
 #include "../Button.h"
-#include "EditorState.h"
-
-#ifndef GUJARUNSFML_MAINMENUSTATE_H
-#define GUJARUNSFML_MAINMENUSTATE_H
-
-class Mainmenu : public State
+#ifndef GUJARUNSFML_EDITORSTATE_H
+#define GUJARUNSFML_EDITORSTATE_H
+class EditorState : public State
 {
 public:
-    Mainmenu(sf::RenderWindow* window, std::stack <State*>* states);
-    virtual ~Mainmenu();
+    EditorState(sf::RenderWindow* window, std::stack <State*>* states);
+    virtual ~EditorState();
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
     void updateInput(const float& dt);
@@ -25,15 +24,13 @@ private:
     //Variables
 
     sf::Font font;
-    sf::RectangleShape background;
     Button* gamestates_btn;
     std::map <std::string, Button*> buttons;
-    sf::Texture backgroundTexture;
     //Functions
     void initFonts();
 
 
+private:
+
 };
-
-
-#endif //GUJARUNSFML_MAINMENUSTATE_H
+#endif //GUJARUNSFML_EDITORSTATE_H

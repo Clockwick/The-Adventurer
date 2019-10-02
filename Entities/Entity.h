@@ -1,6 +1,7 @@
 //
 // Created by Paratthakorn Sribunyong on 2/9/2019 AD.
 //
+#include "../Components/HitboxComponent.h"
 #include "../Components/MovementComponent.h"
 #include "../Components/AnimationComponent.h"
 #ifndef GUJARUNSFML_ENTITY_H
@@ -29,6 +30,7 @@ protected:
 
     MovementComponents* movementComponents;
     AnimationComponent* animationComponents;
+    HitBoxComponents* hitboxComponents;
 
 
 private:

@@ -140,6 +140,11 @@ void Mainmenu::updateButtons() {
         this->states->push(new GameState(this->window, this->states));
 
     }
+    if (this->buttons["EDITOR_STATE"]->isPressed())
+    {
+        this->states->push(new EditorState(this->window, this->states));
+
+    }
 
     if (this->buttons["EXIT_STATE"]->isPressed())
     {

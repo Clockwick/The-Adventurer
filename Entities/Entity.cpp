@@ -6,6 +6,8 @@
 
 void Entity::initVariables() {
     this->movementComponents = NULL;
+    this->animationComponents = NULL;
+    this->hitboxComponents = NULL;
 }
 
 Entity::Entity() {
@@ -16,6 +18,7 @@ Entity::Entity() {
 Entity::~Entity() {
     delete this->movementComponents;
     delete this->animationComponents;
+    delete this->hitboxComponents;
 }
 
 void Entity::move(const float dir_x, const float dir_y, const float& dt) {

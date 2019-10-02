@@ -83,6 +83,7 @@ private:
     std::map <std::string, Animation*> animations;
     sf::Sprite& sprite;
     sf::Texture& animation_sheet;
+    Animation* lastAnimation;
     //Functions
 };
 #endif //GUJARUNSFML_ANIMATIONCOMPONENT_H

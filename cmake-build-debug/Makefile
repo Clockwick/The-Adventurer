@@ -177,6 +177,33 @@ Components/AnimationComponent.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.s
 .PHONY : Components/AnimationComponent.cpp.s
 
+Components/HitboxComponent.o: Components/HitboxComponent.cpp.o
+
+.PHONY : Components/HitboxComponent.o
+
+# target to build an object file
+Components/HitboxComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o
+.PHONY : Components/HitboxComponent.cpp.o
+
+Components/HitboxComponent.i: Components/HitboxComponent.cpp.i
+
+.PHONY : Components/HitboxComponent.i
+
+# target to preprocess a source file
+Components/HitboxComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.i
+.PHONY : Components/HitboxComponent.cpp.i
+
+Components/HitboxComponent.s: Components/HitboxComponent.cpp.s
+
+.PHONY : Components/HitboxComponent.s
+
+# target to generate assembly for a file
+Components/HitboxComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.s
+.PHONY : Components/HitboxComponent.cpp.s
+
 Components/MovementComponent.o: Components/MovementComponent.cpp.o
 
 .PHONY : Components/MovementComponent.o
@@ -284,6 +311,33 @@ Game.s: Game.cpp.s
 Game.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Game.cpp.s
 .PHONY : Game.cpp.s
+
+States/EditorState.o: States/EditorState.cpp.o
+
+.PHONY : States/EditorState.o
+
+# target to build an object file
+States/EditorState.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o
+.PHONY : States/EditorState.cpp.o
+
+States/EditorState.i: States/EditorState.cpp.i
+
+.PHONY : States/EditorState.i
+
+# target to preprocess a source file
+States/EditorState.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.i
+.PHONY : States/EditorState.cpp.i
+
+States/EditorState.s: States/EditorState.cpp.s
+
+.PHONY : States/EditorState.s
+
+# target to generate assembly for a file
+States/EditorState.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.s
+.PHONY : States/EditorState.cpp.s
 
 States/GameState.o: States/GameState.cpp.o
 
@@ -408,6 +462,9 @@ help:
 	@echo "... Components/AnimationComponent.o"
 	@echo "... Components/AnimationComponent.i"
 	@echo "... Components/AnimationComponent.s"
+	@echo "... Components/HitboxComponent.o"
+	@echo "... Components/HitboxComponent.i"
+	@echo "... Components/HitboxComponent.s"
 	@echo "... Components/MovementComponent.o"
 	@echo "... Components/MovementComponent.i"
 	@echo "... Components/MovementComponent.s"
@@ -420,6 +477,9 @@ help:
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... States/EditorState.o"
+	@echo "... States/EditorState.i"
+	@echo "... States/EditorState.s"
 	@echo "... States/GameState.o"
 	@echo "... States/GameState.i"
 	@echo "... States/GameState.s"

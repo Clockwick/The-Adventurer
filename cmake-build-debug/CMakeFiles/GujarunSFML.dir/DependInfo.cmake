@@ -6,10 +6,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/arthris/CLionProjects/GujarunSFML/Button.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Button.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o"
+  "/Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Game.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o"
+  "/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/States/GameState.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/States/State.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/State.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o"

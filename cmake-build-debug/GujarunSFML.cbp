@@ -94,6 +94,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.cpp">
 			<Option target="GujarunSFML"/>
 		</Unit>
@@ -116,6 +122,12 @@
 			<Option target="GujarunSFML"/>
 		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Game.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/States/GameState.cpp">
