@@ -26,6 +26,7 @@ public:
     void update(const float& dt);
     void move(const float x, const float y, const float& dt);
     const sf::Vector2f& getVelocity() const;
+    const bool idle() const;
 
 private:
     float maxVelocity;

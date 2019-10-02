@@ -19,6 +19,7 @@ void MovementComponents::update(const float &dt) {
     /* X-axis */
     if (this->velocity.x > 0.0f)
     {
+
         if (this->velocity.x > this->maxVelocity) {
             this->velocity.x = this->maxVelocity;
         }
@@ -78,4 +79,10 @@ void MovementComponents::move(const float dir_x, const float dir_y, const float&
 
 const sf::Vector2f &MovementComponents::getVelocity( ) const {
    return this->velocity;
+}
+
+const bool MovementComponents::idle() const {
+    if (this->velocity.x == 0.f && this->velocity.y == 0.f)
+        return true;
+    return false;
 }

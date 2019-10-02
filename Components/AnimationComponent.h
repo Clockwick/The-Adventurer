@@ -34,7 +34,6 @@ private:
             this->startRect = sf::IntRect(start_x*width, start_y*height, width, height);
             this->currentRect = this->startRect;
             this->endRect = sf::IntRect(frames_x*width, frames_y*height, width, height);
-            this->startRect == this->endRect;
             this->sprite.setTexture(this->animationSheet, true);
             this->sprite.setTextureRect(this->startRect);
         }

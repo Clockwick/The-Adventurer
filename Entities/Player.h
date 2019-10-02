@@ -4,6 +4,8 @@
 #include "Entity.h"
 #ifndef GUJARUNSFML_PLAYER_H
 #define GUJARUNSFML_PLAYER_H
+
+
 class Player : public Entity
 {
 public:
