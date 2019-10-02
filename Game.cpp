@@ -141,7 +141,7 @@ void Game::initstates() {
 }
 
 void Game::endApps() {
-    std::cout << "Finish!!" << std::endl;
+    std::cout << "GoodBye :D" << std::endl;
 
 }
 

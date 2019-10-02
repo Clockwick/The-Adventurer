@@ -43,10 +43,6 @@ void GameState::updateInput(const float &dt) {
     {
         this->player->move(-1.0f, 0.0f, dt);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-    {
-        this->player->move(0.0f, 1.0f, dt);
-    }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         this->player->move(1.0f, 0.0f, dt);
@@ -59,6 +55,7 @@ void GameState::updateInput(const float &dt) {
     {
         this->quit = true;
     }
+
 
 
 
@@ -78,7 +75,7 @@ void GameState::initTextures() {
 }
 
 void GameState::initPlayers() {
-    this->player = new Player(0,0, this->textures["PLAYER_SHEET"]);
+    this->player = new Player(500,500, this->textures["PLAYER_SHEET"]);
 
 }
 

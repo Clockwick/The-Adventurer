@@ -14,6 +14,7 @@
 #ifndef GUJARUNSFML_MOVEMENTCOMPONENTS_H
 #define GUJARUNSFML_MOVEMENTCOMPONENTS_H
 
+enum movement_states {IDLE = 0, MOVING, MOVING_LEFT, MOVING_RIGHT, SLIDE};
 class MovementComponents
 {
 public:
@@ -26,7 +27,12 @@ public:
     void update(const float& dt);
     void move(const float x, const float y, const float& dt);
     const sf::Vector2f& getVelocity() const;
+    const bool getState(const short unsigned state) const;
     const bool idle() const;
+    const bool moving() const;
+    const bool leftMoving() const;
+    const bool rightMoving() const;
+    const bool slide() const;
 
 private:
     float maxVelocity;

@@ -82,7 +82,49 @@ const sf::Vector2f &MovementComponents::getVelocity( ) const {
 }
 
 const bool MovementComponents::idle() const {
-    if (this->velocity.x == 0.f && this->velocity.y == 0.f)
-        return true;
+    return false;
+}
+
+const bool MovementComponents::moving() const {
+    return false;
+}
+
+const bool MovementComponents::leftMoving() const {
+    return 0;
+}
+
+const bool MovementComponents::slide() const {
+    return 0;
+}
+
+const bool MovementComponents::getState(const short unsigned state) const {
+    switch (state)
+    {
+        case IDLE:
+            if (this->velocity.x == 0.f && this->velocity.y == 0.f)
+                return true;
+
+            break;
+        case MOVING:
+
+            if (this->velocity.x != 0.f || this->velocity.y != 0.f)
+                return true;
+
+        case MOVING_LEFT:
+            if (this->velocity.x < 0.f)
+                return true;
+
+            break;
+        case MOVING_RIGHT:
+            if (this->velocity.x > 0.f)
+                return true;
+
+            break;
+        case SLIDE:
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && this->velocity.x > 0.f)
+                return true;
+
+            break;
+    }
     return false;
 }

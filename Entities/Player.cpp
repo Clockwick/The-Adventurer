@@ -15,8 +15,11 @@ Player::Player(float x,  float y,sf::Texture& texture_sheet) {
     this->createMovementComponents(300.0f, 15.0f, 5.0f);
     this->createAnimationComponents( texture_sheet);
 
-    this->animationComponents->addAnimation("IDLE_LEFT", 10.f, 0, 0, 3, 0, 50, 37);
-    this->animationComponents->addAnimation("WALK_LEFT", 10.f, 1, 1, 6, 1, 50, 37);
+    this->animationComponents->addAnimation("IDLE_RIGHT", 15.f, 0, 0, 3, 0, 50, 37);
+    this->animationComponents->addAnimation("RUN_RIGHT", 15.f, 1, 1, 6, 1, 50, 37);
+    this->animationComponents->addAnimation("RUN_LEFT", 15.f, 1, 1, 6, 1, 50, 37);
+    this->animationComponents->addAnimation("SLIDE_RIGHT", 15.f, 3, 3, 6, 3, 50, 37);
+
 
 }
 
@@ -36,13 +39,21 @@ void Player::initVariables() {
 void Player::update(const float& dt)
 {
     this->movementComponents->update(dt);
-    if (this->movementComponents->idle())
+    if (this->movementComponents->getState(IDLE))
     {
-        this->animationComponents->play("IDLE_LEFT", dt);
+        this->animationComponents->play("IDLE_RIGHT", dt);
     }
-    else
+    if (this->movementComponents->getState(SLIDE))
     {
-        this->animationComponents->play("WALK_LEFT", dt);
+        this->animationComponents->play("SLIDE_RIGHT", dt);
+    }
+    else if (this->movementComponents->getState(MOVING_RIGHT))
+    {
+        this->animationComponents->play("RUN_RIGHT", dt);
+    }
+    else if (this->movementComponents->getState(MOVING_LEFT))
+    {
+        this->animationComponents->play("RUN_LEFT",dt);
     }
 
 
