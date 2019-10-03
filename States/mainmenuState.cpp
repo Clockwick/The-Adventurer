@@ -63,7 +63,7 @@ void Mainmenu::render(sf::RenderTarget *target) {
     }
 
     target->draw(this->background);
-    this->renderButtons(target);
+    this->renderButtons(*target);
 
     //For Checking (x,y) from Mouse
     /*
@@ -153,7 +153,7 @@ void Mainmenu::updateButtons() {
 
 }
 
-void Mainmenu::renderButtons(sf::RenderTarget *target) {
+void Mainmenu::renderButtons(sf::RenderTarget &target) {
     for (auto &it : this->buttons ){
 
         it.second->render(target) ;

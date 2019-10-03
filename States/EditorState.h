@@ -17,7 +17,7 @@ public:
     void initBackground();
     void initVariables();
     void updateButtons();
-    void renderButtons(sf::RenderTarget* target = nullptr);
+    void renderButtons(sf::RenderTarget& target);
 
 
 private:

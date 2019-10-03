@@ -15,12 +15,14 @@ public:
     virtual ~Entity();
 
     //Functions
-    virtual void render(sf::RenderTarget* target);
+    virtual void render(sf::RenderTarget& target);
     virtual void update(const float &dt);
     virtual void move(const float x, const float y, const float &dt);
     virtual void setPosition(const float x ,const float y);
     void createMovementComponents(const float maxVelocity, const float acceleration, const float deceleration);
     void createAnimationComponents(sf::Texture& texture_sheet);
+    void createHitboxComponents(sf::Sprite& sprite, float offset_x,
+            float offset_y, float width, float height);
     //Component Functions
     void setTexture(sf::Texture& texture);
 
@@ -30,7 +32,7 @@ protected:
 
     MovementComponents* movementComponents;
     AnimationComponent* animationComponents;
-    HitBoxComponents* hitboxComponents;
+    HitboxComponents* hitboxComponents;
 
 
 private:

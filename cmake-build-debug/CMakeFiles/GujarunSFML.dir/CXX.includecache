@@ -6,16 +6,16 @@
 
 #IncludeRegexTransform: 
 
-/Users/arthris/CLionProjects/GujarunSFML/Button.h
+/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
+map
+-
+cstring
+-
 iostream
 -
-sstream
--
-ctime
--
-cstdlib
--
 SFML/Graphics.hpp
+-
+SFML/Network.hpp
 -
 SFML/Window.hpp
 -
@@ -24,12 +24,10 @@ SFML/Audio.hpp
 SFML/System.hpp
 -
 
-/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
-map
--
-cstring
--
+/Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.h
 iostream
+-
+ctime
 -
 SFML/Graphics.hpp
 -
@@ -67,40 +65,20 @@ SFML/System.hpp
 -
 
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
+../Components/HitboxComponent.h
+/Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.h
 ../Components/MovementComponent.h
 /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
 ../Components/AnimationComponent.h
 /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
 
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.cpp
+Player.h
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
+
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
 Entity.h
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
-
-/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
-State.h
-/Users/arthris/CLionProjects/GujarunSFML/States/State.h
-../Button.h
-/Users/arthris/CLionProjects/GujarunSFML/Button.h
-
-/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
-State.h
-/Users/arthris/CLionProjects/GujarunSFML/States/State.h
-
-/Users/arthris/CLionProjects/GujarunSFML/States/State.h
-../Entities/Player.h
-/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
-
-/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.cpp
-mainmenuState.h
-/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
-
-/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
-GameState.h
-/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
-../Button.h
-/Users/arthris/CLionProjects/GujarunSFML/Button.h
-EditorState.h
-/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
 
 /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 SFML/System.hpp

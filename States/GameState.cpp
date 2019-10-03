@@ -33,7 +33,7 @@ void GameState::render(sf::RenderTarget *target) {
     }
 
 
-    this->player->render(target);
+    this->player->render(*target);
 }
 
 

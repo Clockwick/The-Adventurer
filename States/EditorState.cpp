@@ -52,7 +52,7 @@ void EditorState::render(sf::RenderTarget *target) {
         target = this->window;
     }
 
-    this->renderButtons(target);
+    this->renderButtons(*target);
 
     //For Checking (x,y) from Mouse
     /*
@@ -109,7 +109,7 @@ void EditorState::updateButtons() {
 
 }
 
-void EditorState::renderButtons(sf::RenderTarget *target) {
+void EditorState::renderButtons(sf::RenderTarget &target) {
     for (auto &it : this->buttons ){
 
         it.second->render(target) ;

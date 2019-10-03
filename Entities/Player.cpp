@@ -11,7 +11,7 @@ Player::Player(float x,  float y,sf::Texture& texture_sheet) {
 
     this->initComponents();
 
-
+    this->createHitboxComponents(this->sprite, 15.f, 5.f,20.f, 30.f);
     this->createMovementComponents(300.0f, 15.0f, 5.0f);
     this->createAnimationComponents( texture_sheet);
 
@@ -56,5 +56,5 @@ void Player::update(const float& dt)
         this->animationComponents->play("RUN_LEFT",dt);
     }
 
-
+ this->hitboxComponents->update();
 }

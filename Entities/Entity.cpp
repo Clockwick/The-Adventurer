@@ -29,8 +29,11 @@ void Entity::move(const float dir_x, const float dir_y, const float& dt) {
     }
 
 }
-void Entity::render(sf::RenderTarget *target) {
-    target->draw(this->sprite);
+void Entity::render(sf::RenderTarget &target) {
+    target.draw(this->sprite);
+
+    if (this->hitboxComponents)
+        this->hitboxComponents->render(target);
 }
 void Entity::update(const float &dt) {
 
@@ -54,6 +57,11 @@ void Entity::createMovementComponents(const float maxVelocity, const float accel
 
 void Entity::createAnimationComponents(sf::Texture &texture_sheet) {
     this->animationComponents = new AnimationComponent(this->sprite, texture_sheet);
+}
+
+void Entity::createHitboxComponents(sf::Sprite& sprite, float offset_x,
+                                    float offset_y, float width, float height) {
+    this->hitboxComponents = new HitboxComponents(sprite, offset_x,offset_y, width, height);
 }
 
 
