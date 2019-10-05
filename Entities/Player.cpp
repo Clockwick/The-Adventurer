@@ -14,7 +14,7 @@ Player::Player(float x,  float y,sf::Texture& texture_sheet) {
     this->createMovementComponents(300.0f, 15.0f, 5.0f);
     this->createAnimationComponents( texture_sheet);
 
-    this->animationComponents->addAnimation("IDLE", 20.f, 0, 0, 3, 0, 50, 37);
+    this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 50, 37);
     this->animationComponents->addAnimation("RUN", 15.f, 1, 1, 6, 1, 50, 37);
     this->animationComponents->addAnimation("SLIDE", 15.f, 3, 3, 6, 3, 50, 37);
     this->animationComponents->addAnimation("SIT", 15.f, 4, 0, 6, 0, 50, 37);
@@ -39,22 +39,23 @@ void Player::initVariables() {
 void Player::update(const float& dt)
 {
     this->movementComponents->update(dt);
-    /*
+
+
     if(this->movementComponents->getState(ATTACK))
     {
-        attacking = true;
-
-
+        this->attacking = true;
     }
-     */
+
     if (this->attacking)
     {
-        this->animationComponents->play("ATTACK1", dt, true);
+        if(this->animationComponents->play("ATTACK2", dt, true))
+            this->attacking = false;
 
     }
-    if (this->movementComponents->getState(IDLE))
+    else if (this->movementComponents->getState(IDLE))
     {
-        this->createHitboxComponents(this->sprite, 15.f, 5.f,20.f, 30.f);
+
+        this->createHitboxComponents(this->sprite, 15.f, 5.f, 20.f, 30.f);
         this->animationComponents->play("IDLE", dt);
 
     }
