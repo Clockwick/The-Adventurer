@@ -34,6 +34,24 @@ void AnimationComponent::play(const std::string key, const float &dt) {
 
     this->animations[key]->play(dt);
 }
+void AnimationComponent::play(const std::string key, const float &dt, const float& modifier, const float& max_modifier) {
+    //Reset Last animation
+    if(this->lastAnimation!= this->animations[key])
+    {
+        if (this->lastAnimation == NULL)
+        {
+            this->lastAnimation = this->animations[key];
+        }
+        else
+        {
+            this->lastAnimation->reset();
+            this->lastAnimation = this->animations[key];
+
+        }
+    }
+
+    this->animations[key]->play(dt);
+}
 
 void AnimationComponent::addAnimation(const std::string key,
         float animation_timer, int start_x, int start_y, int frames_x, int frames_y,

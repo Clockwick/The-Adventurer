@@ -96,12 +96,26 @@ const bool MovementComponents::leftMoving() const {
 const bool MovementComponents::slide() const {
     return 0;
 }
+const bool MovementComponents::standstill() const {
+    if (this->velocity.x == 0.f && this->velocity.y == 0.f)
+        return true;
+    return false;
+}
+const bool MovementComponents::isSit() const {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        return true;
+    return 0;
+}
+const float &MovementComponents::getMaxVelocity() const {
+    return this->maxVelocity;
+}
+
 
 const bool MovementComponents::getState(const short unsigned state) const {
     switch (state)
     {
         case IDLE:
-            if (this->velocity.x == 0.f && this->velocity.y == 0.f)
+            if (standstill() && !isSit())
                 return true;
 
             break;
@@ -109,6 +123,7 @@ const bool MovementComponents::getState(const short unsigned state) const {
 
             if (this->velocity.x != 0.f || this->velocity.y != 0.f)
                 return true;
+            break;
 
         case MOVING_LEFT:
             if (this->velocity.x < 0.f)
@@ -120,11 +135,27 @@ const bool MovementComponents::getState(const short unsigned state) const {
                 return true;
 
             break;
-        case SLIDE:
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && this->velocity.x > 0.f)
+        case SIT:
+            if (isSit() && standstill())
+                return true;
+            break;
+        case SLIDE_RIGHT:
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && this->velocity.x > 0.f)
                 return true;
 
+            break;
+        case SLIDE_LEFT:
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && this->velocity.x < 0.f)
+                return true;
+            break;
+        case ATTACK:
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+                return true;
             break;
     }
     return false;
 }
+
+
+
+

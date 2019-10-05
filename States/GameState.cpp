@@ -39,17 +39,13 @@ void GameState::render(sf::RenderTarget *target) {
 
 void GameState::updateInput(const float &dt) {
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
         this->player->move(-1.0f, 0.0f, dt);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
         this->player->move(1.0f, 0.0f, dt);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-    {
-        this->player->move(0.0f, -1.0f, dt);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {

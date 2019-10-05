@@ -9,13 +9,13 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
-
 class AnimationComponent
 {
 public:
     AnimationComponent(sf::Sprite& sprite, sf::Texture& animation_sheet);
     virtual ~AnimationComponent();
     void play(const std::string key, const float& dt);
+    void play(const std::string key, const float& dt, const float& modifier, const float& max_modifier);
     void addAnimation(const std::string key,
                       float animation_timer, int start_x, int start_y, int frames_x, int frames_y,
                       int width, int height);
@@ -62,6 +62,29 @@ private:
                 if (this->currentRect != this->endRect) {
                     this->currentRect.left += this->width;
                 }
+
+                else //reset
+                {
+                    this->currentRect.left = this->startRect.left;
+
+                }
+                this->sprite.setTextureRect(this->currentRect);
+            }
+
+        }
+        void play(const float& dt, const float& modifier, const float& max_modifier)
+        {
+            //Update timer
+            this->timer += (modifier/max_modifier) * 100.0f * dt;
+            if (this->timer >= this->animation_timer)
+            {
+                //reset Timer
+                this->timer -= this->animation_timer;
+                //Animate
+                if (this->currentRect != this->endRect) {
+                    this->currentRect.left += this->width;
+                }
+
                 else //reset
                 {
                     this->currentRect.left = this->startRect.left;
@@ -73,7 +96,8 @@ private:
         }
         void reset()
         {
-
+            this->timer = this->animation_timer;
+            this->currentRect = this->startRect;
 
 
 
