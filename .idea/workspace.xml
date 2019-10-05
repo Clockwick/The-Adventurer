@@ -12,32 +12,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Effect/explosions-pack-web/license.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Effect/explosions-pack-web/spritesheets/explosion-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Effect/explosions-pack-web/spritesheets/explosion-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Effect/explosions-pack-web/spritesheets/explosion-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Effect/explosions-pack-web/spritesheets/explosion-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Effect/explosions-pack-web/spritesheets/explosion-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Effect/explosions-pack-web/spritesheets/explosion-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/cyberpunk-street-files/PNG/cyberpunk-street.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/cyberpunk-street-files/PNG/layers/back-buildings.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/cyberpunk-street-files/PNG/layers/far-buildings.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/cyberpunk-street-files/PNG/layers/foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/cyberpunk-street-files/PSD/cyberpunk-street.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/cyberpunk-street-files/public-license.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/AnimationComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AnimationComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/AnimationComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AnimationComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/MovementComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/MovementComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/MovementComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/MovementComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entities/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/GameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/State.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/State.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

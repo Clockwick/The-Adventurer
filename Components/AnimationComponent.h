@@ -3,6 +3,7 @@
 
 #include <map>
 #include <cstring>
+#include <cmath>
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
@@ -14,8 +15,8 @@ class AnimationComponent
 public:
     AnimationComponent(sf::Sprite& sprite, sf::Texture& animation_sheet);
     virtual ~AnimationComponent();
-    void play(const std::string key, const float& dt);
-    void play(const std::string key, const float& dt, const float& modifier, const float& max_modifier);
+    void play(const std::string key, const float& dt, const bool priority = false);
+    void play(const std::string key, const float& dt, const float& modifier, const float& max_modifier, const bool priority = false);
     void addAnimation(const std::string key,
                       float animation_timer, int start_x, int start_y, int frames_x, int frames_y,
                       int width, int height);
@@ -50,9 +51,10 @@ private:
         int width;
         int height;
         //Functions
-        void play(const float& dt)
+        bool play(const float& dt)
         {
             //Update timer
+            bool done = false;
             this->timer += 100.0f * dt;
             if (this->timer >= this->animation_timer)
             {
@@ -66,16 +68,23 @@ private:
                 else //reset
                 {
                     this->currentRect.left = this->startRect.left;
+                    done = true;
 
                 }
                 this->sprite.setTextureRect(this->currentRect);
             }
+            return done;
 
         }
-        void play(const float& dt, const float& modifier, const float& max_modifier)
+        bool play(const float& dt, float mod_percent)
         {
             //Update timer
-            this->timer += (modifier/max_modifier) * 100.0f * dt;
+            bool done = false;
+            if (mod_percent < 0.5f)
+            {
+                mod_percent = 0.5f;
+            }
+            this->timer += (mod_percent) * 100.0f * dt;
             if (this->timer >= this->animation_timer)
             {
                 //reset Timer
@@ -88,18 +97,18 @@ private:
                 else //reset
                 {
                     this->currentRect.left = this->startRect.left;
+                    done = true;
 
                 }
                 this->sprite.setTextureRect(this->currentRect);
             }
+            return done;
 
         }
         void reset()
         {
             this->timer = this->animation_timer;
             this->currentRect = this->startRect;
-
-
 
         }
     };
@@ -108,6 +117,7 @@ private:
     sf::Sprite& sprite;
     sf::Texture& animation_sheet;
     Animation* lastAnimation;
+    Animation* priorityAnimation;
     //Functions
 };
 #endif //GUJARUNSFML_ANIMATIONCOMPONENT_H

@@ -1,7 +1,7 @@
 #include "AnimationComponent.h"
 
 AnimationComponent::AnimationComponent(sf::Sprite& sprite, sf::Texture& animation_sheet)
-: sprite(sprite), animation_sheet(animation_sheet), lastAnimation(NULL)
+: sprite(sprite), animation_sheet(animation_sheet), lastAnimation(NULL), priorityAnimation(NULL)
 {
 
 
@@ -16,26 +16,101 @@ AnimationComponent::~AnimationComponent()
 
 }
 /*------------------Functions--------------------*/
-void AnimationComponent::play(const std::string key, const float &dt) {
+void AnimationComponent::play(const std::string key, const float &dt, const bool priority) {
     //Reset Last animation
-    if(this->lastAnimation!= this->animations[key])
-    {
-        if (this->lastAnimation == NULL)
-        {
-            this->lastAnimation = this->animations[key];
-        }
-        else
-        {
-            this->lastAnimation->reset();
-            this->lastAnimation = this->animations[key];
 
+    if (priority)
+    {
+        this->priorityAnimation = this->animations[key];
+    }
+    if (this->priorityAnimation)
+    {
+        if (this->priorityAnimation == this->animations[key])
+        {
+            if (this->lastAnimation != this->animations[key])
+            {
+
+                if (this->lastAnimation == NULL)
+                {
+                    this->lastAnimation = this->animations[key];
+                }
+                else
+                {
+                    this->lastAnimation->reset();
+                    this->lastAnimation = this->animations[key];
+
+                }
+            }
+
+            //If the priorityAnimatioh is done, Remove it
+            if(this->animations[key]->play(dt))
+            {
+                this->priorityAnimation = NULL;
+            }
         }
     }
 
-    this->animations[key]->play(dt);
+
+// Play if no priority
+    else {
+
+        if (priority)
+        {
+            this->priorityAnimation = this->animations[key];
+        }
+        if (this->lastAnimation != this->animations[key]) {
+            if (this->lastAnimation == NULL) {
+                this->lastAnimation = this->animations[key];
+            } else {
+                this->lastAnimation->reset();
+                this->lastAnimation = this->animations[key];
+
+            }
+        }
+
+        if(this->animations[key]->play(dt))
+        {
+            this->priorityAnimation = NULL;
+        }
+    }
 }
-void AnimationComponent::play(const std::string key, const float &dt, const float& modifier, const float& max_modifier) {
+void AnimationComponent::play(const std::string key, const float &dt, const float& modifier, const float& max_modifier, const bool priority) {
     //Reset Last animation
+
+    if (this->priorityAnimation)
+    {
+        if (this->priorityAnimation == this->animations[key])
+        {
+            if (this->lastAnimation != this->animations[key])
+            {
+
+                if (this->lastAnimation == NULL)
+                {
+                    this->lastAnimation = this->animations[key];
+                }
+                else
+                {
+                    this->lastAnimation->reset();
+                    this->lastAnimation = this->animations[key];
+
+                }
+            }
+
+            if(this->animations[key]->play(dt, abs(modifier/max_modifier)))
+            {
+                this->priorityAnimation = NULL;
+            }
+        }
+    }
+
+
+// Play if no priority
+    else
+    if (priority)//If priority animation, set it
+    {
+        this->priorityAnimation = this->animations[key];
+    }
+        {
     if(this->lastAnimation!= this->animations[key])
     {
         if (this->lastAnimation == NULL)
@@ -50,7 +125,13 @@ void AnimationComponent::play(const std::string key, const float &dt, const floa
         }
     }
 
-    this->animations[key]->play(dt);
+
+            if(this->animations[key]->play(dt, abs(modifier/max_modifier)))
+            {
+                this->priorityAnimation = NULL;
+            }
+
+}
 }
 
 void AnimationComponent::addAnimation(const std::string key,

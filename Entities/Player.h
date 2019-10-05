@@ -16,6 +16,8 @@ public:
 private:
     void initVariables();
     void initComponents();
+private:
+    bool attacking;
 
 
 

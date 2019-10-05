@@ -11,6 +11,8 @@ map
 -
 cstring
 -
+cmath
+-
 iostream
 -
 SFML/Graphics.hpp

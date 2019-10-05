@@ -33,18 +33,32 @@ void Player::initComponents() {
 }
 
 void Player::initVariables() {
-
+    this->attacking = false;
 }
 
 void Player::update(const float& dt)
 {
     this->movementComponents->update(dt);
+    /*
+    if(this->movementComponents->getState(ATTACK))
+    {
+        attacking = true;
+
+
+    }
+     */
+    if (this->attacking)
+    {
+        this->animationComponents->play("ATTACK1", dt, true);
+
+    }
     if (this->movementComponents->getState(IDLE))
     {
-
         this->createHitboxComponents(this->sprite, 15.f, 5.f,20.f, 30.f);
         this->animationComponents->play("IDLE", dt);
+
     }
+
     if (this->movementComponents->getState(SLIDE_RIGHT))
     {
         this->sprite.setOrigin(0.f,0.f);
@@ -52,6 +66,7 @@ void Player::update(const float& dt)
         this->createHitboxComponents(this->sprite, 12.f,21.f,29.f,15.f);
         this->animationComponents->play("SLIDE", dt);
     }
+
     else if (this->movementComponents->getState(SLIDE_LEFT))
     {
         this->sprite.setOrigin(50.f,0.f);
@@ -61,6 +76,7 @@ void Player::update(const float& dt)
     }
     else if (this->movementComponents->getState(MOVING_RIGHT))
     {
+        this->attacking = false;
         this->sprite.setOrigin(0.f,0.f);
         this->sprite.setScale(1.f,1.f);
         this->createHitboxComponents(this->sprite, 17.f, 5.f,20.f, 30.f);
@@ -68,6 +84,7 @@ void Player::update(const float& dt)
     }
     else if (this->movementComponents->getState(MOVING_LEFT))
     {
+        this->attacking = false;
         this->sprite.setOrigin(50.f,0.f);
         this->sprite.setScale(-1.f,1.f);
         this->createHitboxComponents(this->sprite, 13.f, 5.f,20.f, 30.f);
@@ -78,11 +95,7 @@ void Player::update(const float& dt)
         this->createHitboxComponents(this->sprite, 15.f , 15.f, 20.f, 20.f);
         this->animationComponents->play("SIT", dt);
     }
-    else
-    {
-        this->createHitboxComponents(this->sprite, 15.f, 5.f,20.f, 30.f);
-        this->animationComponents->play("IDLE", dt);
-    }
+
 
 
 
