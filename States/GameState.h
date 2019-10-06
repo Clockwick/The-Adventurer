@@ -2,6 +2,7 @@
 // Created by Paratthakorn Sribunyong on 1/9/2019 AD.
 //
 #include "State.h"
+#include "../GUI/PauseMenu.h"
 #ifndef GUJARUNSFML_GAMESTATE_H
 #define GUJARUNSFML_GAMESTATE_H
 
@@ -19,6 +20,7 @@ public:
 
 private:
     Player* player;
+    PauseMenu pmenu;
 
     //Functions
     void initTextures();

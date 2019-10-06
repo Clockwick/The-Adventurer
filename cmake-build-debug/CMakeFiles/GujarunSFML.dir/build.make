@@ -213,6 +213,32 @@ CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.cpp -o CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.s
 
+CMakeFiles/GujarunSFML.dir/Tile.cpp.o: CMakeFiles/GujarunSFML.dir/flags.make
+CMakeFiles/GujarunSFML.dir/Tile.cpp.o: ../Tile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/GujarunSFML.dir/Tile.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GujarunSFML.dir/Tile.cpp.o -c /Users/arthris/CLionProjects/GujarunSFML/Tile.cpp
+
+CMakeFiles/GujarunSFML.dir/Tile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GujarunSFML.dir/Tile.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arthris/CLionProjects/GujarunSFML/Tile.cpp > CMakeFiles/GujarunSFML.dir/Tile.cpp.i
+
+CMakeFiles/GujarunSFML.dir/Tile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GujarunSFML.dir/Tile.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/GujarunSFML/Tile.cpp -o CMakeFiles/GujarunSFML.dir/Tile.cpp.s
+
+CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: CMakeFiles/GujarunSFML.dir/flags.make
+CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: ../GUI/PauseMenu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o -c /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.cpp
+
+CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.cpp > CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.i
+
+CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.cpp -o CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.s
+
 # Object files for target GujarunSFML
 GujarunSFML_OBJECTS = \
 "CMakeFiles/GujarunSFML.dir/main.cpp.o" \
@@ -226,7 +252,9 @@ GujarunSFML_OBJECTS = \
 "CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o" \
 "CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o" \
 "CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" \
-"CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o"
+"CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o" \
+"CMakeFiles/GujarunSFML.dir/Tile.cpp.o" \
+"CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o"
 
 # External object files for target GujarunSFML
 GujarunSFML_EXTERNAL_OBJECTS =
@@ -243,6 +271,8 @@ GujarunSFML: CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o
+GujarunSFML: CMakeFiles/GujarunSFML.dir/Tile.cpp.o
+GujarunSFML: CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/build.make
 GujarunSFML: /usr/local/cellar/sfml/2.5.1/lib/libsfml-graphics.2.5.1.dylib
 GujarunSFML: /usr/local/cellar/sfml/2.5.1/lib/libsfml-network.2.5.1.dylib
@@ -250,7 +280,7 @@ GujarunSFML: /usr/local/cellar/sfml/2.5.1/lib/libsfml-window.2.5.1.dylib
 GujarunSFML: /usr/local/cellar/sfml/2.5.1/lib/libsfml-audio.2.5.1.dylib
 GujarunSFML: /usr/local/cellar/sfml/2.5.1/lib/libsfml-system.2.5.1.dylib
 GujarunSFML: CMakeFiles/GujarunSFML.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable GujarunSFML"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable GujarunSFML"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GujarunSFML.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

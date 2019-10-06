@@ -285,6 +285,33 @@ Entities/Player.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.s
 .PHONY : Entities/Player.cpp.s
 
+GUI/PauseMenu.o: GUI/PauseMenu.cpp.o
+
+.PHONY : GUI/PauseMenu.o
+
+# target to build an object file
+GUI/PauseMenu.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o
+.PHONY : GUI/PauseMenu.cpp.o
+
+GUI/PauseMenu.i: GUI/PauseMenu.cpp.i
+
+.PHONY : GUI/PauseMenu.i
+
+# target to preprocess a source file
+GUI/PauseMenu.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.i
+.PHONY : GUI/PauseMenu.cpp.i
+
+GUI/PauseMenu.s: GUI/PauseMenu.cpp.s
+
+.PHONY : GUI/PauseMenu.s
+
+# target to generate assembly for a file
+GUI/PauseMenu.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.s
+.PHONY : GUI/PauseMenu.cpp.s
+
 Game.o: Game.cpp.o
 
 .PHONY : Game.o
@@ -420,6 +447,33 @@ States/mainmenuState.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.s
 .PHONY : States/mainmenuState.cpp.s
 
+Tile.o: Tile.cpp.o
+
+.PHONY : Tile.o
+
+# target to build an object file
+Tile.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Tile.cpp.o
+.PHONY : Tile.cpp.o
+
+Tile.i: Tile.cpp.i
+
+.PHONY : Tile.i
+
+# target to preprocess a source file
+Tile.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Tile.cpp.i
+.PHONY : Tile.cpp.i
+
+Tile.s: Tile.cpp.s
+
+.PHONY : Tile.s
+
+# target to generate assembly for a file
+Tile.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Tile.cpp.s
+.PHONY : Tile.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -474,6 +528,9 @@ help:
 	@echo "... Entities/Player.o"
 	@echo "... Entities/Player.i"
 	@echo "... Entities/Player.s"
+	@echo "... GUI/PauseMenu.o"
+	@echo "... GUI/PauseMenu.i"
+	@echo "... GUI/PauseMenu.s"
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
@@ -489,6 +546,9 @@ help:
 	@echo "... States/mainmenuState.o"
 	@echo "... States/mainmenuState.i"
 	@echo "... States/mainmenuState.s"
+	@echo "... Tile.o"
+	@echo "... Tile.i"
+	@echo "... Tile.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

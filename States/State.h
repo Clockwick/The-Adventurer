@@ -14,6 +14,10 @@ public:
     virtual void updateInput(const float& dt) = 0;
     virtual void updateMousePos() ;
     const bool& getQuit() const;
+    void pauseState();
+    void unpauseState();
+
+public:
     std::stack <State*>* states;
 
 
@@ -25,6 +29,7 @@ protected:
     sf::Vector2f mousePosView;
 
     bool quit;
+    bool paused;
 private:
 
 };

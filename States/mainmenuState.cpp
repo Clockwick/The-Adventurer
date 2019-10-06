@@ -30,7 +30,7 @@ void Mainmenu::initBackground() {
 
     if(!this->backgroundTexture.loadFromFile("resources/images/background/MainmenuBg.jpg"))
     {
-        std::cout << "ERROR:MAINMENUSTATE Failed to load BackgroundImage" << std::endl;
+        std::cout << "Failed to load BackgroundImage" << std::endl;
 
 
     }
@@ -94,11 +94,10 @@ void Mainmenu::initFonts() {
     {
         std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
     }
-    else
-    {
-        std::cout << "Successfully Loaded Fonts" << std::endl;
 
-    }
+    std::cout << "Successfully Loaded Fonts" << std::endl;
+
+
 }
 
 void Mainmenu::initButtons() {

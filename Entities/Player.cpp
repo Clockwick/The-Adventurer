@@ -39,15 +39,29 @@ void Player::initVariables() {
 void Player::update(const float& dt)
 {
     this->movementComponents->update(dt);
+    this->updateAttack();
+    this->updateAnimation(dt);
 
 
+
+
+}
+
+void Player::updateAttack()
+{
     if(this->movementComponents->getState(ATTACK))
     {
         this->attacking = true;
+        //this->createHitboxComponents(this->sprite,15.f,5.f,31.f,30.f);
     }
 
+}
+
+void Player::updateAnimation(const float &dt)
+{
     if (this->attacking)
     {
+
         if(this->animationComponents->play("ATTACK2", dt, true))
             this->attacking = false;
 
@@ -77,19 +91,20 @@ void Player::update(const float& dt)
     }
     else if (this->movementComponents->getState(MOVING_RIGHT))
     {
-        this->attacking = false;
-        this->sprite.setOrigin(0.f,0.f);
-        this->sprite.setScale(1.f,1.f);
-        this->createHitboxComponents(this->sprite, 17.f, 5.f,20.f, 30.f);
-        this->animationComponents->play("RUN", dt, this->movementComponents->getVelocity().x, this->movementComponents->getMaxVelocity());
+
+
+        this->sprite.setOrigin(0.f, 0.f);
+        this->sprite.setScale(1.f, 1.f);
+        this->createHitboxComponents(this->sprite, 17.f, 5.f, 20.f, 30.f);
+        this->animationComponents->play("RUN", dt, this->movementComponents->getVelocity().x,
+                                        this->movementComponents->getMaxVelocity());
     }
-    else if (this->movementComponents->getState(MOVING_LEFT))
-    {
-        this->attacking = false;
-        this->sprite.setOrigin(50.f,0.f);
-        this->sprite.setScale(-1.f,1.f);
-        this->createHitboxComponents(this->sprite, 13.f, 5.f,20.f, 30.f);
-        this->animationComponents->play("RUN",dt, this->movementComponents->getVelocity().x, this->movementComponents->getMaxVelocity());
+    else if (this->movementComponents->getState(MOVING_LEFT)) {
+        this->sprite.setOrigin(50.f, 0.f);
+        this->sprite.setScale(-1.f, 1.f);
+        this->createHitboxComponents(this->sprite, 13.f, 5.f, 20.f, 30.f);
+        this->animationComponents->play("RUN", dt, this->movementComponents->getVelocity().x,
+                                        this->movementComponents->getMaxVelocity());
     }
     else if (this->movementComponents->getState(SIT))
     {
@@ -100,5 +115,6 @@ void Player::update(const float& dt)
 
 
 
- this->hitboxComponents->update();
+    this->hitboxComponents->update();
+
 }

@@ -35,4 +35,14 @@ void State::endState() {
 
 }
 
+void State::pauseState()
+{
+    this->paused = true;
+}
+
+void State::unpauseState()
+{
+    this->paused = false;
+}
+
 

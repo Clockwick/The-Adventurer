@@ -118,6 +118,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Game.cpp">
 			<Option target="GujarunSFML"/>
 		</Unit>
@@ -146,6 +152,12 @@
 			<Option target="GujarunSFML"/>
 		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Tile.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Tile.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/main.cpp">
