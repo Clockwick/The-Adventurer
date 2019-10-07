@@ -16,12 +16,12 @@ PauseMenu::PauseMenu(sf::RenderWindow& window)
     this->background.setFillColor(sf::Color(20,20,20,100));
 
     //Init Container
-    this->container.setSize(sf::Vector2f(static_cast<float>(window.getSize().x),
-            static_cast<float>(window.getSize().y)
+    this->container.setSize(sf::Vector2f(static_cast<float>(window.getSize().x/4.f),
+            static_cast<float>(window.getSize().y - 60.f)
             )
             );
-    this->container.setFillColor(sf::Color(20,20,20,200));
-    this->container.setPosition(static_cast<float>(window.getSize().x / 2.f - this->container.getSize().x / 2.f), 0.f);
+    this->container.setFillColor(sf::Color(100,20,20,200));
+    this->container.setPosition(static_cast<float>(window.getSize().x) / 2.f - this->container.getSize().x / 2.f, 30.f);
 }
 PauseMenu::~PauseMenu()
 {
