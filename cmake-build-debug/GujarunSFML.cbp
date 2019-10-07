@@ -82,12 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Button.cpp">
-			<Option target="GujarunSFML"/>
-		</Unit>
-		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Button.h">
-			<Option target="GujarunSFML"/>
-		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.cpp">
 			<Option target="GujarunSFML"/>
 		</Unit>
@@ -116,6 +110,12 @@
 			<Option target="GujarunSFML"/>
 		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/GUI.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/GUI.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.cpp">

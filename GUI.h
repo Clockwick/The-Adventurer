@@ -2,6 +2,7 @@
 #include <sstream>
 #include <ctime>
 #include <cstdlib>
+#include <vector>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
@@ -16,13 +17,17 @@ namespace gui {
     class Button {
     public:
         Button(float x, float y, float width, float height, sf::Font *font, std::string text, unsigned character_size,
-               sf::Color text_idle_color, sf::Color text_hover_color, sf::Color text_active_color,
-               sf::Color idle_color, sf::Color hover_color, sf::Color active_color);
+            sf::Color text_idle_color, sf::Color text_hover_color, sf::Color text_active_color,
+            sf::Color idle_color, sf::Color hover_color, sf::Color active_color);
 
         ~Button();
 
         //Accessories
         const bool isPressed() const;
+        const std::string& getText() const;
+
+        //Modifiers
+        void setText(const std::string text);
 
         //Functions
         void render(sf::RenderTarget &target);
@@ -52,13 +57,21 @@ namespace gui {
 
     };
 
-    class DropDownBox
+    class DropDownList
     {
     public:
+        DropDownList(sf::Font& font, std::string list[],unsigned numofElements, const unsigned default_index = 0);
+        virtual ~DropDownList();
+    public://Functions
         void update(const float & dt);
         void render(sf::RenderTarget& target);
 
     private:
+        sf::Font& font;
+        gui::Button* activeElement;
+        std::vector <gui::Button*> list;
+
+
 
     };
 }

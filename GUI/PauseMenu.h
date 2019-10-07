@@ -1,7 +1,7 @@
 //
 // Created by Paratthakorn Sribunyong on 6/10/2019 AD.
 //
-#include "../Button.h"
+#include "../GUI.h"
 
 #include <iostream>
 #include <vector>
@@ -31,7 +31,7 @@ public:
     void addButton(const std::string key, float y, const std::string text);
 
     //Accessor
-    std::map<std::string, Button*>& getButtons();
+    std::map<std::string, gui::Button*>& getButtons();
 
 
 
@@ -42,7 +42,7 @@ private:
     sf::RectangleShape background;
     sf::RectangleShape container;
 
-    std::map<std::string, Button*> buttons;
+    std::map<std::string, gui::Button*> buttons;
 
 
 

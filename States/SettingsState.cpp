@@ -62,7 +62,7 @@ void SettingsState::initFonts() {
 void SettingsState::initButtons() {
 
 
-    this->buttons["EXIT_STATE"] = new Button(1280.f, 1398.f, 300.f, 150.f,
+    this->buttons["EXIT_STATE"] = new gui::Button(1280.f, 1398.f, 300.f, 150.f,
                                              &this->font, "Exit", 36,
                                              sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 250),
                                              sf::Color(20, 20, 20, 50),

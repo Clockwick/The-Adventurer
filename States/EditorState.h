@@ -2,7 +2,7 @@
 // Created by Paratthakorn Sribunyong on 2/10/2019 AD.
 //
 #include "State.h"
-#include "../Button.h"
+#include "../GUI.h"
 #ifndef GUJARUNSFML_EDITORSTATE_H
 #define GUJARUNSFML_EDITORSTATE_H
 class EditorState : public State

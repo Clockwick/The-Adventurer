@@ -2,7 +2,7 @@
 // Created by Paratthakorn Sribunyong on 7/10/2019 AD.
 //
 #include "State.h"
-#include "../Button.h"
+#include "../GUI.h"
 #ifndef GUJARUNSFML_SETTINGSSTATE_H
 #define GUJARUNSFML_SETTINGSSTATE_H
 class SettingsState : public State
@@ -34,8 +34,8 @@ private://Variables
 
     sf::Font font;
     sf::RectangleShape background;
-    Button* gamestates_btn;
-    std::map <std::string, Button*> buttons;
+    gui::Button* gamestates_btn;
+    std::map <std::string, gui::Button*> buttons;
     sf::Texture backgroundTexture;
     //Functions
 

@@ -135,18 +135,18 @@ CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.cpp -o CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.s
 
-CMakeFiles/GujarunSFML.dir/Button.cpp.o: CMakeFiles/GujarunSFML.dir/flags.make
-CMakeFiles/GujarunSFML.dir/Button.cpp.o: ../Button.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/GujarunSFML.dir/Button.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GujarunSFML.dir/Button.cpp.o -c /Users/arthris/CLionProjects/GujarunSFML/Button.cpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: CMakeFiles/GujarunSFML.dir/flags.make
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: ../GUI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/GujarunSFML.dir/GUI.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GujarunSFML.dir/GUI.cpp.o -c /Users/arthris/CLionProjects/GujarunSFML/GUI.cpp
 
-CMakeFiles/GujarunSFML.dir/Button.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GujarunSFML.dir/Button.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arthris/CLionProjects/GujarunSFML/Button.cpp > CMakeFiles/GujarunSFML.dir/Button.cpp.i
+CMakeFiles/GujarunSFML.dir/GUI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GujarunSFML.dir/GUI.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arthris/CLionProjects/GujarunSFML/GUI.cpp > CMakeFiles/GujarunSFML.dir/GUI.cpp.i
 
-CMakeFiles/GujarunSFML.dir/Button.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GujarunSFML.dir/Button.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/GujarunSFML/Button.cpp -o CMakeFiles/GujarunSFML.dir/Button.cpp.s
+CMakeFiles/GujarunSFML.dir/GUI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GujarunSFML.dir/GUI.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/GujarunSFML/GUI.cpp -o CMakeFiles/GujarunSFML.dir/GUI.cpp.s
 
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: CMakeFiles/GujarunSFML.dir/flags.make
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Entities/Player.cpp
@@ -260,7 +260,7 @@ GujarunSFML_OBJECTS = \
 "CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o" \
 "CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o" \
 "CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o" \
-"CMakeFiles/GujarunSFML.dir/Button.cpp.o" \
+"CMakeFiles/GujarunSFML.dir/GUI.cpp.o" \
 "CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o" \
 "CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o" \
 "CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o" \
@@ -279,7 +279,7 @@ GujarunSFML: CMakeFiles/GujarunSFML.dir/States/State.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o
-GujarunSFML: CMakeFiles/GujarunSFML.dir/Button.cpp.o
+GujarunSFML: CMakeFiles/GujarunSFML.dir/GUI.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o

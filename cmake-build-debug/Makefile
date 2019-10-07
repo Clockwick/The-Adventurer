@@ -123,33 +123,6 @@ GujarunSFML/fast:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/build
 .PHONY : GujarunSFML/fast
 
-Button.o: Button.cpp.o
-
-.PHONY : Button.o
-
-# target to build an object file
-Button.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Button.cpp.o
-.PHONY : Button.cpp.o
-
-Button.i: Button.cpp.i
-
-.PHONY : Button.i
-
-# target to preprocess a source file
-Button.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Button.cpp.i
-.PHONY : Button.cpp.i
-
-Button.s: Button.cpp.s
-
-.PHONY : Button.s
-
-# target to generate assembly for a file
-Button.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Button.cpp.s
-.PHONY : Button.cpp.s
-
 Components/AnimationComponent.o: Components/AnimationComponent.cpp.o
 
 .PHONY : Components/AnimationComponent.o
@@ -284,6 +257,33 @@ Entities/Player.s: Entities/Player.cpp.s
 Entities/Player.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.s
 .PHONY : Entities/Player.cpp.s
+
+GUI.o: GUI.cpp.o
+
+.PHONY : GUI.o
+
+# target to build an object file
+GUI.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI.cpp.o
+.PHONY : GUI.cpp.o
+
+GUI.i: GUI.cpp.i
+
+.PHONY : GUI.i
+
+# target to preprocess a source file
+GUI.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI.cpp.i
+.PHONY : GUI.cpp.i
+
+GUI.s: GUI.cpp.s
+
+.PHONY : GUI.s
+
+# target to generate assembly for a file
+GUI.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI.cpp.s
+.PHONY : GUI.cpp.s
 
 GUI/PauseMenu.o: GUI/PauseMenu.cpp.o
 
@@ -537,9 +537,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... GujarunSFML"
-	@echo "... Button.o"
-	@echo "... Button.i"
-	@echo "... Button.s"
 	@echo "... Components/AnimationComponent.o"
 	@echo "... Components/AnimationComponent.i"
 	@echo "... Components/AnimationComponent.s"
@@ -555,6 +552,9 @@ help:
 	@echo "... Entities/Player.o"
 	@echo "... Entities/Player.i"
 	@echo "... Entities/Player.s"
+	@echo "... GUI.o"
+	@echo "... GUI.i"
+	@echo "... GUI.s"
 	@echo "... GUI/PauseMenu.o"
 	@echo "... GUI/PauseMenu.i"
 	@echo "... GUI/PauseMenu.s"

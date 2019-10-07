@@ -25,11 +25,12 @@ void GameState::update(const float &dt) {
     this->updateMousePos();
     this->updateKeytime(dt);
     this->updateInput(dt);
-    if (!this->paused)//Unpaused update
+    if (!this->paused)//Unpaused
     {
+        this->updatePlayerInput(dt);
+        this->player->update(dt);
 
-    this->updatePlayerInput(dt);
-    this->player->update(dt);
+
     }
     else //Paused
     {
@@ -120,7 +121,7 @@ void GameState::updateInput(const float &dt) {
 void GameState::initPauseMenu() {
     this->pmenu = new PauseMenu(*this->window, this->font);
 
-    this->pmenu->addButton("QUIT",1000.f, "Quit");
+    this->pmenu->addButton("QUIT",1100.f, "Quit");
 
 }
 

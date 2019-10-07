@@ -1,6 +1,6 @@
 
 #include "GameState.h"
-#include "../Button.h"
+#include "../GUI.h"
 #include "EditorState.h"
 #include "SettingsState.h"
 
@@ -25,8 +25,8 @@ private:
 
     sf::Font font;
     sf::RectangleShape background;
-    Button* gamestates_btn;
-    std::map <std::string, Button*> buttons;
+    gui::Button* gamestates_btn;
+    std::map <std::string, gui::Button*> buttons;
     sf::Texture backgroundTexture;
     //Functions
     void initFonts();
