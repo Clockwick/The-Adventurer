@@ -393,6 +393,33 @@ States/GameState.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/GameState.cpp.s
 .PHONY : States/GameState.cpp.s
 
+States/SettingsState.o: States/SettingsState.cpp.o
+
+.PHONY : States/SettingsState.o
+
+# target to build an object file
+States/SettingsState.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o
+.PHONY : States/SettingsState.cpp.o
+
+States/SettingsState.i: States/SettingsState.cpp.i
+
+.PHONY : States/SettingsState.i
+
+# target to preprocess a source file
+States/SettingsState.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.i
+.PHONY : States/SettingsState.cpp.i
+
+States/SettingsState.s: States/SettingsState.cpp.s
+
+.PHONY : States/SettingsState.s
+
+# target to generate assembly for a file
+States/SettingsState.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.s
+.PHONY : States/SettingsState.cpp.s
+
 States/State.o: States/State.cpp.o
 
 .PHONY : States/State.o
@@ -540,6 +567,9 @@ help:
 	@echo "... States/GameState.o"
 	@echo "... States/GameState.i"
 	@echo "... States/GameState.s"
+	@echo "... States/SettingsState.o"
+	@echo "... States/SettingsState.i"
+	@echo "... States/SettingsState.s"
 	@echo "... States/State.o"
 	@echo "... States/State.i"
 	@echo "... States/State.s"

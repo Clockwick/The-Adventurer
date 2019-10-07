@@ -12,42 +12,54 @@
 
 enum button_states{BTN_IDLE = 0, BTN_HOVER, BTN_ACTIVE};
 
+namespace gui {
+    class Button {
+    public:
+        Button(float x, float y, float width, float height, sf::Font *font, std::string text, unsigned character_size,
+               sf::Color text_idle_color, sf::Color text_hover_color, sf::Color text_active_color,
+               sf::Color idle_color, sf::Color hover_color, sf::Color active_color);
 
-class Button
-{
-public:
-    Button(float x, float y, float width, float height, sf::Font* font,std::string text,unsigned character_size,
-           sf::Color text_idle_color, sf::Color text_hover_color, sf::Color text_active_color,
-           sf::Color idle_color, sf::Color hover_color, sf::Color active_color);
-    ~Button();
-    //Accessories
-    const bool isPressed() const;
+        ~Button();
 
-    //Functions
-    void render(sf::RenderTarget &target);
-    void update(const sf::Vector2f mousePos);
+        //Accessories
+        const bool isPressed() const;
 
-private:
+        //Functions
+        void render(sf::RenderTarget &target);
 
-    unsigned short buttonStates;
-    bool pressed;
-    bool hover;
+        void update(const sf::Vector2f mousePos);
 
+    private:
 
-    sf::RectangleShape shape;
-    sf::Font *font;
-    sf::Text text;
+        unsigned short buttonStates;
+        bool pressed;
+        bool hover;
 
 
-    sf::Color idleColor;
-    sf::Color hoverColor;
-    sf::Color activeColor;
-
-    sf::Color textIdleColor;
-    sf::Color textHoverColor;
-    sf::Color textActiveColor;
+        sf::RectangleShape shape;
+        sf::Font *font;
+        sf::Text text;
 
 
+        sf::Color idleColor;
+        sf::Color hoverColor;
+        sf::Color activeColor;
 
-};
+        sf::Color textIdleColor;
+        sf::Color textHoverColor;
+        sf::Color textActiveColor;
+
+
+    };
+
+    class DropDownBox
+    {
+    public:
+        void update(const float & dt);
+        void render(sf::RenderTarget& target);
+
+    private:
+
+    };
+}
 #endif //GUJARUNSFML_BUTTON_H

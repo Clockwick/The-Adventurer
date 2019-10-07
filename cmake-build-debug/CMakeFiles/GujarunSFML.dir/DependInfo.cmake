@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/arthris/CLionProjects/GujarunSFML/Game.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/States/GameState.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o"
+  "/Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/States/State.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/State.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Tile.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Tile.cpp.o"

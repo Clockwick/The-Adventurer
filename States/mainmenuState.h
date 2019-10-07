@@ -2,6 +2,7 @@
 #include "GameState.h"
 #include "../Button.h"
 #include "EditorState.h"
+#include "SettingsState.h"
 
 #ifndef GUJARUNSFML_MAINMENUSTATE_H
 #define GUJARUNSFML_MAINMENUSTATE_H
@@ -14,9 +15,7 @@ public:
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
     void updateInput(const float& dt);
-    void initButtons();
-    void initBackground();
-    void initVariables();
+
     void updateButtons();
     void renderButtons(sf::RenderTarget& target);
 
@@ -31,6 +30,9 @@ private:
     sf::Texture backgroundTexture;
     //Functions
     void initFonts();
+    void initButtons();
+    void initBackground();
+    void initVariables();
 
 
 };

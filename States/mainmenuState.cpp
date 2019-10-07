@@ -42,7 +42,43 @@ void Mainmenu::initVariables() {
 
 
 }
+void Mainmenu::initFonts() {
+    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
+    {
+        std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
+    }
 
+    std::cout << "Successfully Loaded Fonts" << std::endl;
+
+
+}
+
+void Mainmenu::initButtons() {
+
+    this->buttons["GAME_STATE"] = new Button(1280.f,798.f,300.f,150.f,
+                                             &this->font, "New Game", 36,
+                                             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                             sf::Color(70,70,70,50),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+    );
+    this->buttons["SETTINGS_STATE"] = new Button(1280.f,998.f,300.f,150.f,
+                                                &this->font, "Settings", 36,
+                                                sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                                sf::Color(70,70,70,50 ),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+    );
+    this->buttons["EDITOR_STATE"] = new Button(1280.f,1198.f,300.f,150.f,
+                                               &this->font, "Editor", 36,
+                                               sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                               sf::Color(70,70,70,50 ),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+    );
+    this->buttons["EXIT_STATE"] = new Button(1280.f,1398.f,300.f,150.f,
+                                             &this->font, "Exit", 36,
+                                             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                             sf::Color(70,70,70,50),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+
+
+    );
+
+}
 void Mainmenu::update(const float &dt) {
 
     this->updateInput(dt);
@@ -89,43 +125,7 @@ void Mainmenu::updateInput(const float &dt) {
 }
 
 
-void Mainmenu::initFonts() {
-    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
-    {
-        std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
-    }
 
-    std::cout << "Successfully Loaded Fonts" << std::endl;
-
-
-}
-
-void Mainmenu::initButtons() {
-
-    this->buttons["GAME_STATE"] = new Button(1280,798,300,150,
-                                      &this->font, "New Game", 36,
-                                      sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                      sf::Color(70,70,70,50),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
-    );
-    this->buttons["SETTING_STATE"] = new Button(1280,998,300,150,
-                                             &this->font, "Settings", 36,
-                                             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                             sf::Color(70,70,70,50 ),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
-    );
-    this->buttons["EDITOR_STATE"] = new Button(1280,1198,300,150,
-                                                &this->font, "Editor", 36,
-                                                sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                                sf::Color(70,70,70,50 ),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
-    );
-    this->buttons["EXIT_STATE"] = new Button(1280,1398,300,150,
-                                             &this->font, "Exit", 36,
-                                             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                             sf::Color(70,70,70,50),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
-
-
-    );
-
-}
 
 void Mainmenu::updateButtons() {
 
@@ -139,6 +139,11 @@ void Mainmenu::updateButtons() {
         this->states->push(new GameState(this->window, this->states));
 
     }
+    if (this->buttons["SETTINGS_STATE"]->isPressed())
+    {
+        this->states->push(new SettingsState(this->window, this->states));
+    }
+
     if (this->buttons["EDITOR_STATE"]->isPressed())
     {
         this->states->push(new EditorState(this->window, this->states));
@@ -149,6 +154,7 @@ void Mainmenu::updateButtons() {
     {
         this->endState();
     }
+
 
 }
 

@@ -24,8 +24,8 @@ private:
     //Variables
 
     sf::Font font;
-    Button* gamestates_btn;
-    std::map <std::string, Button*> buttons;
+    gui::Button* gamestates_btn;
+    std::map <std::string, gui::Button*> buttons;
     //Functions
     void initFonts();
 

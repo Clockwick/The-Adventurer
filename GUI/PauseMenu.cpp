@@ -20,7 +20,7 @@ PauseMenu::PauseMenu(sf::RenderWindow& window,sf::Font& font) : font(font)
             static_cast<float>(window.getSize().y - 60.f)
             )
             );
-    this->container.setFillColor(sf::Color(100,20,20,200));
+    this->container.setFillColor(sf::Color(20,20,20,200));
     this->container.setPosition(static_cast<float>(window.getSize().x) / 2.f - this->container.getSize().x / 2.f, 30.f);
 
     //Text
@@ -28,7 +28,7 @@ PauseMenu::PauseMenu(sf::RenderWindow& window,sf::Font& font) : font(font)
     this->menuText.setFillColor(sf::Color(255,255,255,200));
     this->menuText.setCharacterSize(30);
     this->menuText.setString("PAUSE");
-    this->menuText.setPosition(this->container.getPosition().x + this->container.getSize().x / 2.f - this->menuText.getGlobalBounds().width, this->container.getPosition().y + 40.f);
+    this->menuText.setPosition(this->container.getPosition().x + this->container.getSize().x / 2.f - this->menuText.getGlobalBounds().width + 40.f, this->container.getPosition().y + 40.f);
 }
 PauseMenu::~PauseMenu()
 {
@@ -40,11 +40,17 @@ PauseMenu::~PauseMenu()
     }
 
 }
+std::map<std::string, Button *> &PauseMenu::getButtons() {
+    return this->buttons;
+}
 
 //Functions
-void PauseMenu::update()
+void PauseMenu::update(const sf::Vector2f& mousePos)
 {
-
+    for (auto &i : this->buttons)
+    {
+        i.second->update(mousePos);
+    }
 }
 
 void PauseMenu::render(sf::RenderTarget &target)
@@ -59,5 +65,25 @@ void PauseMenu::render(sf::RenderTarget &target)
 
     target.draw(this->menuText);
 
+
+
+}
+
+
+
+void PauseMenu::addButton(const std::string key, float y , const std::string text) {
+
+    float width = 300.f;
+    float height = 150.f;
+    float x = this->container.getPosition().x + this->container.getSize().x / 2.f - width / 2.f;
+    this->buttons[key] = new Button(x,y,width,height,
+                                             &this->font, text, 36,
+                                             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                             sf::Color(70,70,70,50),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+    );
+}
+
+const bool PauseMenu::isButtonPressed(const std::string key) {
+    return this->buttons[key]->isPressed();
 }
 

@@ -12,6 +12,7 @@ GameState::GameState(sf::RenderWindow* window, std::stack <State*>* states)
     this->initPlayers();
     this->initFonts();
     this->initPauseMenu();
+
 }
 
 GameState::~GameState() {
@@ -22,6 +23,7 @@ GameState::~GameState() {
 void GameState::update(const float &dt) {
 
     this->updateMousePos();
+    this->updateKeytime(dt);
     this->updateInput(dt);
     if (!this->paused)//Unpaused update
     {
@@ -32,7 +34,8 @@ void GameState::update(const float &dt) {
     else //Paused
     {
 
-        this->pmenu->update();
+        this->pmenu->update(this->mousePosView);
+        this->updatePauseMenuButtons();
 
     }
 
@@ -87,7 +90,7 @@ void GameState::initTextures() {
 
 }
 void GameState::initFonts() {
-    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
+    if (!this->font.loadFromFile("fonts/PressStart2P.ttf"))
     {
         std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
     }
@@ -103,7 +106,7 @@ void GameState::initPlayers() {
 }
 
 void GameState::updateInput(const float &dt) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && this->getKeyTime())
     {
 
         if(!this->paused)
@@ -116,6 +119,14 @@ void GameState::updateInput(const float &dt) {
 
 void GameState::initPauseMenu() {
     this->pmenu = new PauseMenu(*this->window, this->font);
+
+    this->pmenu->addButton("QUIT",1000.f, "Quit");
+
+}
+
+void GameState::updatePauseMenuButtons() {
+    if (this->pmenu->isButtonPressed(("QUIT")) && this->getKeyTime())
+        this->endState();
 
 }
 

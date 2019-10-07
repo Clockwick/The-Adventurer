@@ -34,6 +34,7 @@ private:
     void initPlayers();
     void initFonts();
     void initPauseMenu();
+    void updatePauseMenuButtons();
 
 
 };

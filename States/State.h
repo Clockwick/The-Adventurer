@@ -8,14 +8,22 @@ class State
 public:
     State(sf::RenderWindow* window, std::stack <State*>* states);
     virtual ~State();
-    void endState();
+    //Virtual Functions
     virtual void render(sf::RenderTarget* target = nullptr) = 0;
     virtual void update(const float& dt) = 0;
     virtual void updateInput(const float& dt) = 0;
     virtual void updateMousePos() ;
-    const bool& getQuit() const;
+    virtual void updateKeytime(const float& dt);
+
+    //Functions
+    void endState();
     void pauseState();
     void unpauseState();
+    //Accessor
+    const bool& getQuit() const;
+    const bool getKeyTime();
+
+
 
 public:
     std::stack <State*>* states;
@@ -30,6 +38,8 @@ protected:
 
     bool quit;
     bool paused;
+    float keyTime;
+    float keyTimeMax;
 private:
 
 };

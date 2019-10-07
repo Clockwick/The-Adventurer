@@ -25,8 +25,14 @@ public:
     virtual ~PauseMenu();
 
 public:
-    void update();
+    const bool isButtonPressed(const std::string key);
+    void update(const sf::Vector2f& mousePos);
     void render(sf::RenderTarget& target);
+    void addButton(const std::string key, float y, const std::string text);
+
+    //Accessor
+    std::map<std::string, Button*>& getButtons();
+
 
 
 
@@ -37,6 +43,8 @@ private:
     sf::RectangleShape container;
 
     std::map<std::string, Button*> buttons;
+
+
 
 
 };

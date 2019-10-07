@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o"
   "CMakeFiles/GujarunSFML.dir/Tile.cpp.o"
   "CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o"
+  "CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o"
   "GujarunSFML.pdb"
   "GujarunSFML"
 )
