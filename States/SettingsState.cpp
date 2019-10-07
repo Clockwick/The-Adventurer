@@ -10,7 +10,7 @@ SettingsState::SettingsState(sf::RenderWindow* window, std::stack <State*>* stat
     this->initVariables();
     this->initBackground();
     this->initFonts();
-    this->initButtons();
+    this->initGui();
 
 }
 
@@ -22,7 +22,12 @@ SettingsState::~SettingsState()
 
 
     }
-    delete this->asd;
+    auto it2 = this->dropDownLists.begin();
+    for (it2 = this->dropDownLists.begin(); it2 != this->dropDownLists.end();++it2){
+        delete it2->second;
+
+
+    }
 
 }
 //Accessors
@@ -60,11 +65,11 @@ void SettingsState::initFonts() {
 
 }
 
-void SettingsState::initButtons() {
+void SettingsState::initGui() {
 
 
-    this->buttons["EXIT_STATE"] = new gui::Button(1280.f, 1398.f, 300.f, 150.f,
-                                             &this->font, "Exit", 36,
+    this->buttons["EXIT_STATE"] = new gui::Button(900.f, 1398.f, 300.f, 150.f,
+                                             &this->font, "Back", 36,
                                              sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 250),
                                              sf::Color(20, 20, 20, 50),
                                              sf::Color(70, 70, 70, 50), sf::Color(150, 150, 150, 50),
@@ -72,16 +77,15 @@ void SettingsState::initButtons() {
 
 
     );
-    std::string li[] = {"Kuy", "rai", "Sus", "Fuck", "you"};
-    this->asd = new gui::DropDownList(100, 100, 200, 50, font, li, 5);
+    std::string li[] = {"1920x1080","  800x600","  640x480"};
+    this->dropDownLists["RESOLUTION"] = new gui::DropDownList(100, 100, 200, 50, font, li, 3);
 }
 void SettingsState::update(const float &dt) {
 
     this->updateInput(dt);
     this->updateMousePos();
-    this->updateButtons();
+    this->updateGui(dt);
 
-    this->asd->update(this->mousePosView, dt);
 
 
 
@@ -96,12 +100,11 @@ void SettingsState::render(sf::RenderTarget *target) {
     }
 
     target->draw(this->background);
-    this->renderButtons(*target);
+    this->renderGui(*target);
 
-    this->asd->render(*target);
 
     //For Checking (x,y) from Mouse
-    /*
+
     sf::Text mouseText;
     mouseText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
     mouseText.setFont(this->font);
@@ -112,7 +115,7 @@ void SettingsState::render(sf::RenderTarget *target) {
     mouseText.setString(ss.str());
 
     target->draw(mouseText);
-     */
+
 
 }
 
@@ -126,28 +129,43 @@ void SettingsState::updateInput(const float &dt) {
 
 
 
-void SettingsState::updateButtons() {
+void SettingsState::updateGui(const float& dt) {
 
 
+    //Buttons
     for (auto &it : this->buttons){
 
         it.second->update(this->mousePosView) ;
     }
 
+    //Buttons Functionality
 
+    //Quit game
     if (this->buttons["EXIT_STATE"]->isPressed())
     {
         this->endState();
     }
+    //Drop Down Lists
+    for (auto &it : this->dropDownLists){
+
+        it.second->update(this->mousePosView, dt) ;
+    }
+
+    //Drop Down Lists
+
 
 
 
 }
 
-void SettingsState::renderButtons(sf::RenderTarget &target) {
-    for (auto &it : this->buttons ){
+void SettingsState::renderGui(sf::RenderTarget &target) {
+    for (auto &it : this->buttons){
 
         it.second->render(target) ;
+    }
+    for (auto &it2 : this->dropDownLists){
+
+        it2.second->render(target) ;
     }
 }
 

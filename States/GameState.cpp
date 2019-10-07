@@ -91,7 +91,7 @@ void GameState::initTextures() {
 
 }
 void GameState::initFonts() {
-    if (!this->font.loadFromFile("fonts/PressStart2P.ttf"))
+    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
     {
         std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
     }
