@@ -5,7 +5,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include "PauseMenu.h"
 
-PauseMenu::PauseMenu(sf::RenderWindow& window)
+PauseMenu::PauseMenu(sf::RenderWindow& window,sf::Font& font) : font(font)
 {
     //Init Background
     this->background.setSize(
@@ -22,6 +22,13 @@ PauseMenu::PauseMenu(sf::RenderWindow& window)
             );
     this->container.setFillColor(sf::Color(100,20,20,200));
     this->container.setPosition(static_cast<float>(window.getSize().x) / 2.f - this->container.getSize().x / 2.f, 30.f);
+
+    //Text
+    this->menuText.setFont(font);
+    this->menuText.setFillColor(sf::Color(255,255,255,200));
+    this->menuText.setCharacterSize(30);
+    this->menuText.setString("PAUSE");
+    this->menuText.setPosition(this->container.getPosition().x + this->container.getSize().x / 2.f - this->menuText.getGlobalBounds().width, this->container.getPosition().y + 40.f);
 }
 PauseMenu::~PauseMenu()
 {
@@ -49,6 +56,8 @@ void PauseMenu::render(sf::RenderTarget &target)
     {
         i.second->render(target);
     }
+
+    target.draw(this->menuText);
 
 }
 

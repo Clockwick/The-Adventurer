@@ -6,27 +6,33 @@
 
 
 GameState::GameState(sf::RenderWindow* window, std::stack <State*>* states)
-: State(window, states), pmenu(*window)
+: State(window, states)
 {
     this->initTextures();
     this->initPlayers();
+    this->initFonts();
+    this->initPauseMenu();
 }
 
 GameState::~GameState() {
     delete this->player;
+    delete this->pmenu;
 }
 
 void GameState::update(const float &dt) {
 
-    if (!this->paused)//Unpaused update
-    {
     this->updateMousePos();
     this->updateInput(dt);
+    if (!this->paused)//Unpaused update
+    {
+
+    this->updatePlayerInput(dt);
     this->player->update(dt);
     }
     else //Paused
     {
-        this->pmenu.update();
+
+        this->pmenu->update();
 
     }
 
@@ -45,13 +51,13 @@ void GameState::render(sf::RenderTarget *target) {
     if (this->paused)
     {
         //Pause Menu Render
-        this->pmenu.render(*target);
+        this->pmenu->render(*target);
 
     }
 }
 
 
-void GameState::updateInput(const float &dt) {
+void GameState::updatePlayerInput(const float &dt) {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
@@ -61,14 +67,7 @@ void GameState::updateInput(const float &dt) {
     {
         this->player->move(1.0f, 0.0f, dt);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-    {
 
-        if(!this->paused)
-         this->pauseState();
-        //else
-            //this->unpauseState();
-    }
 
 
 
@@ -87,9 +86,36 @@ void GameState::initTextures() {
 
 
 }
+void GameState::initFonts() {
+    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
+    {
+        std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
+    }
+
+    std::cout << "Successfully Loaded Fonts" << std::endl;
+
+
+}
 
 void GameState::initPlayers() {
     this->player = new Player(500,500, this->textures["PLAYER_SHEET"]);
+
+}
+
+void GameState::updateInput(const float &dt) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+
+        if(!this->paused)
+            this->pauseState();
+        else
+            this->unpauseState();
+    }
+
+}
+
+void GameState::initPauseMenu() {
+    this->pmenu = new PauseMenu(*this->window, this->font);
 
 }
 

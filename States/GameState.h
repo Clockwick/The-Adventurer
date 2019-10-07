@@ -14,17 +14,26 @@ public:
     virtual ~GameState();
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
+    void updatePlayerInput(const float& dt);
     void updateInput(const float& dt);
+
 
 
 
 private:
     Player* player;
-    PauseMenu pmenu;
+    PauseMenu* pmenu;
+
+
+    //Variables
+    sf::Font font;
 
     //Functions
+
     void initTextures();
     void initPlayers();
+    void initFonts();
+    void initPauseMenu();
 
 
 };
