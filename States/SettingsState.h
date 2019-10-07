@@ -37,6 +37,8 @@ private://Variables
     gui::Button* gamestates_btn;
     std::map <std::string, gui::Button*> buttons;
     sf::Texture backgroundTexture;
+
+    gui::DropDownList* asd;
     //Functions
 
 

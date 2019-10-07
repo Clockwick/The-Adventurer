@@ -22,6 +22,7 @@ SettingsState::~SettingsState()
 
 
     }
+    delete this->asd;
 
 }
 //Accessors
@@ -71,6 +72,8 @@ void SettingsState::initButtons() {
 
 
     );
+    std::string li[] = {"Kuy", "rai", "Sus", "Fuck", "you"};
+    this->asd = new gui::DropDownList(100, 100, 200, 50, font, li, 5);
 }
 void SettingsState::update(const float &dt) {
 
@@ -78,6 +81,7 @@ void SettingsState::update(const float &dt) {
     this->updateMousePos();
     this->updateButtons();
 
+    this->asd->update(this->mousePosView, dt);
 
 
 
@@ -93,6 +97,8 @@ void SettingsState::render(sf::RenderTarget *target) {
 
     target->draw(this->background);
     this->renderButtons(*target);
+
+    this->asd->render(*target);
 
     //For Checking (x,y) from Mouse
     /*
@@ -133,6 +139,7 @@ void SettingsState::updateButtons() {
     {
         this->endState();
     }
+
 
 
 }

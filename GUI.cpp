@@ -119,25 +119,86 @@ void gui::Button::setText(const std::string text)
 //                      Drop Down List                           //
 
 
-void gui::DropDownList::update(const float &dt)
+void gui::DropDownList::update(const sf::Vector2f& mousePos, const float& dt)
 {
+    this->updateKeytime(dt);
+    this->activeElement->update(mousePos);
+
+    if (this->activeElement->isPressed() && this->getKeytime())
+    {
+        if (this->showList)
+            this->showList = false;
+        else
+            this->showList = true;
+
+
+    }
+
+
+    if (this->showList)
+    {
+        for (auto &i : this->list)
+        {
+            i->update(mousePos);
+        }
+    }
+
 
 }
 
 void gui::DropDownList::render(sf::RenderTarget &target)
 {
+    this->activeElement->render(target);
+
+    //Show and Hide the List
+    if(this->activeElement->isPressed())
+    {
+        if (this->showList)
+            this->showList = false;
+        else
+            this->showList = true;
+    }
+
+    if (this->showList)
+    {
+        for (auto &i : this->list)
+        {
+            i->render(target);
+        }
+    }
 
 }
 
-gui::DropDownList::DropDownList(sf::Font& font, std::string list[],unsigned numofElements, const unsigned default_index)
-: font(font)
+
+void gui::DropDownList::updateKeytime(const float& dt)
+{
+    if (this->keytime < this->keytimeMax)
+        this->keytime += 10.f * dt;
+
+}
+
+//Accessors
+const bool gui::DropDownList::getKeytime()
+{
+    if (this->keytime >= this->keytimeMax)
+    {
+        this->keytime = 0.f;
+        return true;
+
+    }
+
+    return false;
+}
+gui::DropDownList::DropDownList(float x, float y, float width, float height,
+        sf::Font& font,std::string list[],unsigned numofElements, const unsigned default_index)
+: font(font), showList(false), keytime(keytimeMax), keytimeMax(1.f)
 {
     for (size_t i = 0; i< numofElements; i++)
     {
-        this->list.push_back(new gui::Button(1280.f,798.f,300.f,150.f,
-                                             &this->font, list[i], 36,
-                                             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                             sf::Color(70,70,70,50),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+        this->list.push_back(new gui::Button(x,y + (i * height),width,height,
+                                             &this->font, list[i], 20,
+                                             sf::Color(255,255,255,150),sf::Color(20,20,20,50),sf::Color(20,20,20,50),
+                                             sf::Color(70,70,70,200),sf::Color(150,150,150,200),sf::Color(20,20,20,200)
                              )
         );
     }
@@ -146,9 +207,13 @@ gui::DropDownList::DropDownList(sf::Font& font, std::string list[],unsigned numo
     this->activeElement = new Button(*this->list[default_index]);
 }
 
-gui::DropDownList::~DropDownList()
-{
+gui::DropDownList::~DropDownList() {
     delete this->activeElement;
-    for (auto *&i : this->list)
-        delete i;
+    for (size_t i = 0; i < this->list.size(); i++)
+    {
+        delete this->list[i];
+    }
+
+
 }
+
