@@ -28,6 +28,7 @@ private://Functions
     void initGui();
     void initBackground();
     void initVariables();
+    void initText();
 
 private://Variables
 
@@ -39,6 +40,8 @@ private://Variables
     std::map <std::string, gui::DropDownList*> dropDownLists;
     sf::Texture backgroundTexture;
 
+    sf::Text optionsText;
+    std::vector <sf::VideoMode> modes;
     //Functions
 
 

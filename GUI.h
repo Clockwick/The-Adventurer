@@ -79,6 +79,7 @@ namespace gui {
         void render(sf::RenderTarget& target);
         void updateKeytime(const float& dt);
         const bool getKeytime();
+        const unsigned short& getActiveElementId() const;
 
     private:
         float keytime;
@@ -91,6 +92,7 @@ namespace gui {
         bool showList;
 
 
+        //Accessors
 
     };
 }

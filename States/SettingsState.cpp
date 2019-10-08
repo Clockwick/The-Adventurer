@@ -11,6 +11,7 @@ SettingsState::SettingsState(sf::RenderWindow* window, std::stack <State*>* stat
     this->initBackground();
     this->initFonts();
     this->initGui();
+    this->initText();
 
 }
 
@@ -51,8 +52,23 @@ void SettingsState::initBackground() {
 }
 
 void SettingsState::initVariables() {
+    this->modes = sf::VideoMode::getFullscreenModes();
+
+}
+void SettingsState::initText()
+{
+    this->optionsText.setFont(this->font);
+    this->optionsText.setPosition(sf::Vector2f(100.f,100.f));
+    this->optionsText.setCharacterSize(45);
+    this->optionsText.setFillColor(sf::Color(255,255,255,200));
 
 
+    this->optionsText.setString(
+            "Resolution \n\n\n"
+            "FullScreen \n\n\n"
+            "AntiAliasing \n\n\n"
+            "VSync \n\n\n"
+            );
 }
 void SettingsState::initFonts() {
     if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
@@ -78,8 +94,13 @@ void SettingsState::initGui() {
                                              sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                              sf::Color(250,250,250,100),sf::Color(150,150,150,50),sf::Color(150,150,150,50)
     );
+    std::vector <std::string> modes_str;
+    for(auto &i : this->modes)
+    {
+        modes_str.push_back(std::to_string(i.width) + 'x' + std::to_string(i.height));
+    }
     std::string li[] = {"1920x1080","  800x600","  640x480"};
-    this->dropDownLists["RESOLUTION"] = new gui::DropDownList(100, 100, 300, 100, font, li, 3);
+    this->dropDownLists["RESOLUTION"] = new gui::DropDownList(450, 70, 300, 100, font, modes_str.data(), modes_str.size());
 
 }
 void SettingsState::update(const float &dt) {
@@ -104,7 +125,7 @@ void SettingsState::render(sf::RenderTarget *target) {
     target->draw(this->background);
     this->renderGui(*target);
 
-
+    target->draw(this->optionsText);
     //For Checking (x,y) from Mouse
 
     sf::Text mouseText;
@@ -147,10 +168,10 @@ void SettingsState::updateGui(const float& dt) {
     {
         this->endState();
     }
-
+    //Test Remove later!!
     if (this->buttons["APPLY"]->isPressed())
     {
-
+        this->window->create(this->modes[this->dropDownLists["RESOLUTION"]->getActiveElementId()], "The Adventurer", sf::Style::Default);
     }
     //Drop Down Lists
     for (auto &it : this->dropDownLists){
@@ -175,5 +196,7 @@ void SettingsState::renderGui(sf::RenderTarget &target) {
         it2.second->render(target) ;
     }
 }
+
+
 
 

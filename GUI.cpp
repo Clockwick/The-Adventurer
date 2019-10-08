@@ -221,6 +221,10 @@ const bool gui::DropDownList::getKeytime()
 
     return false;
 }
+const unsigned short &gui::DropDownList::getActiveElementId() const
+{
+    return this->activeElement->getId();
+}
 gui::DropDownList::DropDownList(float x, float y, float width, float height,
         sf::Font& font,std::string list[],unsigned numofElements, const unsigned default_index)
 : font(font), showList(false), keytime(0.f), keytimeMax(1.f)
@@ -228,7 +232,7 @@ gui::DropDownList::DropDownList(float x, float y, float width, float height,
     this->activeElement = new gui::Button(x,y, width,height,
                                           &this->font, list[default_index], 36,
                                           sf::Color(30,30,30,250),sf::Color(20,20,20,200),sf::Color(20,20,20,50),
-                                          sf::Color(150,150,150,50),sf::Color(150,150,150,200),sf::Color(20,20,20,200),
+                                          sf::Color(150,150,150,150),sf::Color(150,150,150,200),sf::Color(20,20,20,200),
                                           sf::Color(255,255,255,200),sf::Color(255,255,255,255),sf::Color(20,20,20,50)
     );
 
@@ -237,7 +241,7 @@ gui::DropDownList::DropDownList(float x, float y, float width, float height,
         this->list.push_back(new gui::Button(x,y + ((i+1) * height),width,height,
                                              &this->font, list[i], 36,
                                              sf::Color(30,30,30,250),sf::Color(20,20,20,50),sf::Color(20,20,20,50),
-                                             sf::Color(150,150,150,50),sf::Color(150,150,150,200),sf::Color(20,20,20,200),
+                                             sf::Color(150,150,150,150),sf::Color(150,150,150,200),sf::Color(20,20,20,200),
                                              sf::Color(150,150,150,200),sf::Color(255,255,255,200),sf::Color(20,20,20,200),
                                              i
 
@@ -258,4 +262,7 @@ gui::DropDownList::~DropDownList() {
 
 
 }
+
+
+
 
