@@ -339,6 +339,60 @@ Game.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Game.cpp.s
 .PHONY : Game.cpp.s
 
+Map/TileMap.o: Map/TileMap.cpp.o
+
+.PHONY : Map/TileMap.o
+
+# target to build an object file
+Map/TileMap.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o
+.PHONY : Map/TileMap.cpp.o
+
+Map/TileMap.i: Map/TileMap.cpp.i
+
+.PHONY : Map/TileMap.i
+
+# target to preprocess a source file
+Map/TileMap.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.i
+.PHONY : Map/TileMap.cpp.i
+
+Map/TileMap.s: Map/TileMap.cpp.s
+
+.PHONY : Map/TileMap.s
+
+# target to generate assembly for a file
+Map/TileMap.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.s
+.PHONY : Map/TileMap.cpp.s
+
+Precom.o: Precom.cpp.o
+
+.PHONY : Precom.o
+
+# target to build an object file
+Precom.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Precom.cpp.o
+.PHONY : Precom.cpp.o
+
+Precom.i: Precom.cpp.i
+
+.PHONY : Precom.i
+
+# target to preprocess a source file
+Precom.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Precom.cpp.i
+.PHONY : Precom.cpp.i
+
+Precom.s: Precom.cpp.s
+
+.PHONY : Precom.s
+
+# target to generate assembly for a file
+Precom.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Precom.cpp.s
+.PHONY : Precom.cpp.s
+
 States/EditorState.o: States/EditorState.cpp.o
 
 .PHONY : States/EditorState.o
@@ -561,6 +615,12 @@ help:
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... Map/TileMap.o"
+	@echo "... Map/TileMap.i"
+	@echo "... Map/TileMap.s"
+	@echo "... Precom.o"
+	@echo "... Precom.i"
+	@echo "... Precom.s"
 	@echo "... States/EditorState.o"
 	@echo "... States/EditorState.i"
 	@echo "... States/EditorState.s"

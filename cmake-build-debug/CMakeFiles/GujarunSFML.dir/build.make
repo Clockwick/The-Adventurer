@@ -252,6 +252,32 @@ CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.cpp -o CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.s
 
+CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: CMakeFiles/GujarunSFML.dir/flags.make
+CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Map/TileMap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o -c /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.cpp
+
+CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.cpp > CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.i
+
+CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.cpp -o CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.s
+
+CMakeFiles/GujarunSFML.dir/Precom.cpp.o: CMakeFiles/GujarunSFML.dir/flags.make
+CMakeFiles/GujarunSFML.dir/Precom.cpp.o: ../Precom.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/GujarunSFML.dir/Precom.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GujarunSFML.dir/Precom.cpp.o -c /Users/arthris/CLionProjects/GujarunSFML/Precom.cpp
+
+CMakeFiles/GujarunSFML.dir/Precom.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GujarunSFML.dir/Precom.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arthris/CLionProjects/GujarunSFML/Precom.cpp > CMakeFiles/GujarunSFML.dir/Precom.cpp.i
+
+CMakeFiles/GujarunSFML.dir/Precom.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GujarunSFML.dir/Precom.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/GujarunSFML/Precom.cpp -o CMakeFiles/GujarunSFML.dir/Precom.cpp.s
+
 # Object files for target GujarunSFML
 GujarunSFML_OBJECTS = \
 "CMakeFiles/GujarunSFML.dir/main.cpp.o" \
@@ -268,7 +294,9 @@ GujarunSFML_OBJECTS = \
 "CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o" \
 "CMakeFiles/GujarunSFML.dir/Tile.cpp.o" \
 "CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o" \
-"CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o"
+"CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o" \
+"CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o" \
+"CMakeFiles/GujarunSFML.dir/Precom.cpp.o"
 
 # External object files for target GujarunSFML
 GujarunSFML_EXTERNAL_OBJECTS =
@@ -288,6 +316,8 @@ GujarunSFML: CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/Tile.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o
+GujarunSFML: CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o
+GujarunSFML: CMakeFiles/GujarunSFML.dir/Precom.cpp.o
 GujarunSFML: CMakeFiles/GujarunSFML.dir/build.make
 GujarunSFML: /usr/local/cellar/sfml/2.5.1/lib/libsfml-graphics.2.5.1.dylib
 GujarunSFML: /usr/local/cellar/sfml/2.5.1/lib/libsfml-network.2.5.1.dylib
@@ -295,7 +325,7 @@ GujarunSFML: /usr/local/cellar/sfml/2.5.1/lib/libsfml-window.2.5.1.dylib
 GujarunSFML: /usr/local/cellar/sfml/2.5.1/lib/libsfml-audio.2.5.1.dylib
 GujarunSFML: /usr/local/cellar/sfml/2.5.1/lib/libsfml-system.2.5.1.dylib
 GujarunSFML: CMakeFiles/GujarunSFML.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable GujarunSFML"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable GujarunSFML"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GujarunSFML.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

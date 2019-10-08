@@ -4,6 +4,7 @@
 
 #ifndef GUJARUNSFML_TILE_H
 #define GUJARUNSFML_TILE_H
+#include "Precom.h"
 
 class Tile{
 public:
