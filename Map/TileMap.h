@@ -12,6 +12,8 @@ class TileMap
 public:
     TileMap();
     virtual ~TileMap();
+    void update();
+    void render(sf::RenderTarget& target);
 
 
 private:
@@ -19,6 +21,7 @@ private:
     sf::Vector2u maxSize;
     std::vector <std::vector<std::vector<Tile>>> map;
     unsigned layers;
+    float gridSizeF;
 
 
 };

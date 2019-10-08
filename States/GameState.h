@@ -3,6 +3,7 @@
 //
 #include "State.h"
 #include "../GUI/PauseMenu.h"
+#include "../Map/TileMap.h"
 #ifndef GUJARUNSFML_GAMESTATE_H
 #define GUJARUNSFML_GAMESTATE_H
 
@@ -22,7 +23,7 @@ public:
 private:
     Player* player;
     PauseMenu* pmenu;
-
+    TileMap map;
 
     //Variables
     sf::Font font;
