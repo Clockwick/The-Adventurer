@@ -40,7 +40,7 @@ void SettingsState::initBackground() {
             )
     );
 
-    if(!this->backgroundTexture.loadFromFile("resources/images/background/MainmenuBg.jpg"))
+    if(!this->backgroundTexture.loadFromFile("resources/images/background/Testbackground.jpg"))
     {
         std::cout << "Failed to load BackgroundImage" << std::endl;
 
@@ -68,17 +68,19 @@ void SettingsState::initFonts() {
 void SettingsState::initGui() {
 
 
-    this->buttons["EXIT_STATE"] = new gui::Button(900.f, 1398.f, 300.f, 150.f,
+    this->buttons["BACK"] = new gui::Button(550.f, 1520.f, 300.f, 150.f,
                                              &this->font, "Back", 36,
-                                             sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 250),
-                                             sf::Color(20, 20, 20, 50),
-                                             sf::Color(70, 70, 70, 50), sf::Color(150, 150, 150, 50),
-                                             sf::Color(20, 20, 20, 50)
-
-
+                                            sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                            sf::Color(250,250,250,100),sf::Color(150,150,150,50),sf::Color(150,150,150,50)
+    );
+    this->buttons["APPLY"] = new gui::Button(134.f, 1520.f, 300.f, 150.f,
+                                            &this->font, "Apply", 36,
+                                             sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                             sf::Color(250,250,250,100),sf::Color(150,150,150,50),sf::Color(150,150,150,50)
     );
     std::string li[] = {"1920x1080","  800x600","  640x480"};
-    this->dropDownLists["RESOLUTION"] = new gui::DropDownList(100, 100, 200, 50, font, li, 3);
+    this->dropDownLists["RESOLUTION"] = new gui::DropDownList(100, 100, 300, 100, font, li, 3);
+
 }
 void SettingsState::update(const float &dt) {
 
@@ -141,9 +143,14 @@ void SettingsState::updateGui(const float& dt) {
     //Buttons Functionality
 
     //Quit game
-    if (this->buttons["EXIT_STATE"]->isPressed())
+    if (this->buttons["BACK"]->isPressed())
     {
         this->endState();
+    }
+
+    if (this->buttons["APPLY"]->isPressed())
+    {
+
     }
     //Drop Down Lists
     for (auto &it : this->dropDownLists){

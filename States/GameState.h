@@ -19,7 +19,6 @@ public:
 
 
 
-
 private:
     Player* player;
     PauseMenu* pmenu;

@@ -18,25 +18,32 @@ namespace gui {
     public:
         Button(float x, float y, float width, float height, sf::Font *font, std::string text, unsigned character_size,
             sf::Color text_idle_color, sf::Color text_hover_color, sf::Color text_active_color,
-            sf::Color idle_color, sf::Color hover_color, sf::Color active_color);
+            sf::Color idle_color, sf::Color hover_color, sf::Color active_color,
+            sf::Color outline_idle_color = sf::Color::Transparent,
+            sf::Color outline_hover_color = sf::Color::Transparent,
+            sf::Color outline_active_color = sf::Color::Transparent,
+            unsigned short id = 0);
 
         ~Button();
 
         //Accessories
         const bool isPressed() const;
         const std::string getText() const;
+        const unsigned short& getId() const;
 
         //Modifiers
         void setText(const std::string text);
+        void setId(const unsigned short id);
 
         //Functions
         void render(sf::RenderTarget &target);
-
         void update(const sf::Vector2f mousePos);
 
     private:
 
         unsigned short buttonStates;
+        unsigned short id;
+
         bool pressed;
         bool hover;
 
@@ -49,6 +56,10 @@ namespace gui {
         sf::Color idleColor;
         sf::Color hoverColor;
         sf::Color activeColor;
+
+        sf::Color outlineidleColor;
+        sf::Color outlineHoverColor;
+        sf::Color outlineActiveColor;
 
         sf::Color textIdleColor;
         sf::Color textHoverColor;
