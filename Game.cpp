@@ -11,7 +11,10 @@ Game::Game()
     this->initVariables();
     this->initGraphicsSettings();
     this->initWindow();
+    this->initStateData();
     this->initstates();
+
+
 }
 
 
@@ -130,11 +133,19 @@ void Game::initVariables() {
 
     this->window = NULL;
     this->deltaTime = 0.f;
+    this->gridSize = 50.f;
 
 }
 
 void Game::initGraphicsSettings() {
     this->gfxSettings.loadFromFile("config/graphics.ini");
 
+}
+
+void Game::initStateData() {
+    this->state_data.window = this->window;
+    this->state_data.gfxSettings = &this->gfxSettings;
+    this->state_data.states = &this->states;
+    this->state_data.gridSize = this->gridSize;
 }
 

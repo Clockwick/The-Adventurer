@@ -4,16 +4,38 @@
 #define GUJARUNSFML_STATE_H
 #include "../Entities/Player.h"
 #include "../GraphicsSettings.h"
+
+
+
+class Player;
+class GraphicsSettings;
+class State;
+
+
+class StateData
+{
+public:
+    StateData() {}
+
+    //Variables
+    sf::RenderWindow* window;
+    std::stack <State *>* states;
+    GraphicsSettings* gfxSettings;
+    float gridSize;
+
+
+};
+
 class State
 {
 public:
-    State(sf::RenderWindow* window, std::stack <State*>* states);
+    State(StateData& state_data);
     virtual ~State();
     //Virtual Functions
     virtual void render(sf::RenderTarget* target = nullptr) = 0;
     virtual void update(const float& dt) = 0;
     virtual void updateInput(const float& dt) = 0;
-    virtual void updateMousePos() ;
+    virtual void updateMousePos();
     virtual void updateKeytime(const float& dt);
 
     //Functions
@@ -41,9 +63,11 @@ protected:
     bool paused;
     float keyTime;
     float keyTimeMax;
+    float gridSize;
 private:
 
 };
+
 
 
 #endif //GUJARUNSFML_STATE_H

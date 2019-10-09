@@ -5,14 +5,16 @@
 
 
 
-State::State(sf::RenderWindow* window, std::stack <State*>* states)
+State::State(StateData& state_data)
 
 {
-    this->window = window;
+    this->window = state_data.window;
     this->quit = false;
-    this->states = states;
+    this->states = state_data.states;
     this->keyTime = 0.f;
     this->keyTimeMax = 10.f;
+    this->gridSize = state_data.gridSize;
+
 }
 
 State::~State() {

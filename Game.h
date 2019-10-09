@@ -36,13 +36,16 @@ private:
     void initstates();
     void initVariables();
     void initGraphicsSettings();
+    void initStateData();
     //Variables
     sf::Clock dtClock;
     sf::Event event;
     sf::RenderWindow* window;
     GraphicsSettings gfxSettings;
+    StateData state_data;
 
     float deltaTime;
+    float gridSize;
 
 
 

@@ -8,6 +8,12 @@
 
 #ifndef GUJARUNSFML_EDITORSTATE_H
 #define GUJARUNSFML_EDITORSTATE_H
+
+class GUI;
+class TileMap;
+class PauseMenu;
+class State;
+
 class EditorState : public State
 {
 public:

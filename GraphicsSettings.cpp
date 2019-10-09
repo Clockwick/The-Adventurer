@@ -33,7 +33,7 @@ void GraphicsSettings::saveToFile(const std::string path)
         ofs << this->vsync;
         ofs << this->contextSettings.antialiasingLevel;
 
-        std::cout << "Import file from config/window.ini" << std::endl;
+        std::cout << "Import file from config/graphics.ini" << std::endl;
 
 
 
@@ -60,7 +60,7 @@ void GraphicsSettings::loadFromFile(const std::string path)
         ifs >> this->vsync;
         ifs >> this->contextSettings.antialiasingLevel;
 
-        std::cout << "Import file from config/window.ini" << std::endl;
+        std::cout << "Import file from config/graphics.ini" << std::endl;
 
 
 
