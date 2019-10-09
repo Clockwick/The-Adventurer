@@ -4,8 +4,8 @@
 
 #include "SettingsState.h"
 
-SettingsState::SettingsState(sf::RenderWindow* window, std::stack <State*>* states)
-: State(window, states)
+SettingsState::SettingsState(sf::RenderWindow* window, GraphicsSettings& gfxSettings,std::stack <State*>* states)
+: State(window, states), gfxSettings(gfxSettings)
 {
     this->initVariables();
     this->initBackground();
@@ -171,7 +171,8 @@ void SettingsState::updateGui(const float& dt) {
     //Test Remove later!!
     if (this->buttons["APPLY"]->isPressed())
     {
-        this->window->create(this->modes[this->dropDownLists["RESOLUTION"]->getActiveElementId()], "The Adventurer", sf::Style::Default);
+        this->gfxSettings.resolution = this->modes[this->dropDownLists["RESOLUTION"]->getActiveElementId()];
+        this->window->create(this->gfxSettings.resolution, this->gfxSettings.title, sf::Style::Default);
     }
     //Drop Down Lists
     for (auto &it : this->dropDownLists){

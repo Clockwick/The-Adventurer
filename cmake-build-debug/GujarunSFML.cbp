@@ -130,6 +130,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Game.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.cpp">
 			<Option target="GujarunSFML"/>
 		</Unit>

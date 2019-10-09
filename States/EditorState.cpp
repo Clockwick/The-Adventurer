@@ -11,6 +11,7 @@ EditorState::EditorState(sf::RenderWindow* window, std::stack <State*>* states)
     this->initBackground();
     this->initFonts();
     this->initButtons();
+    this->initPauseMenu();
 
 
 }
@@ -22,6 +23,7 @@ EditorState::~EditorState() {
 
 
     }
+    delete this->pmenu;
 }
 //Initializer
 void EditorState::initBackground() {
@@ -35,14 +37,21 @@ void EditorState::initVariables() {
 
 void EditorState::update(const float &dt) {
 
-    this->updateInput(dt);
     this->updateMousePos();
-    this->updateButtons();
+    this->updateKeytime(dt);
+    this->updateInput(dt);
+    if (!this->paused)//Unpaused
+    {
 
 
+    }
+    else //Paused
+    {
 
+        this->pmenu->update(this->mousePosView);
+        this->updatePauseMenuButtons();
 
-
+    }
 }
 
 void EditorState::render(sf::RenderTarget *target) {
@@ -51,30 +60,40 @@ void EditorState::render(sf::RenderTarget *target) {
     {
         target = this->window;
     }
+    this->map.render(*target);
 
     this->renderButtons(*target);
+    if (this->paused)
+    {
+        //Pause Menu Render
+        this->pmenu->render(*target);
 
+    }
     //For Checking (x,y) from Mouse
-    /*
+
     sf::Text mouseText;
     mouseText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
     mouseText.setFont(this->font);
     mouseText.setCharacterSize(16);
-    mouseText.setFillColor(sf::Color::Black);
+    mouseText.setFillColor(sf::Color::White);
     std::stringstream ss;
     ss << "(" <<this->mousePosView.x << "," << this->mousePosView.y << ")" <<std::endl;
     mouseText.setString(ss.str());
 
     target->draw(mouseText);
-     */
+
 
 }
 
 
 void EditorState::updateInput(const float &dt) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && this->getKeyTime())
     {
-        this->quit = true;
+
+        if(!this->paused)
+            this->pauseState();
+        else
+            this->unpauseState();
     }
 
 }
@@ -116,3 +135,14 @@ void EditorState::renderButtons(sf::RenderTarget &target) {
     }
 }
 
+void EditorState::updatePauseMenuButtons() {
+    if (this->pmenu->isButtonPressed(("QUIT")) && this->getKeyTime())
+        this->endState();
+
+}
+void EditorState::initPauseMenu() {
+    this->pmenu = new PauseMenu(*this->window, this->font);
+
+    this->pmenu->addButton("QUIT",1100.f, "Quit");
+
+}

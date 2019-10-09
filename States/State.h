@@ -3,6 +3,7 @@
 #ifndef GUJARUNSFML_STATE_H
 #define GUJARUNSFML_STATE_H
 #include "../Entities/Player.h"
+#include "../GraphicsSettings.h"
 class State
 {
 public:
@@ -26,11 +27,11 @@ public:
 
 
 public:
-    std::stack <State*>* states;
 
 
 protected:
     std::map <std::string, sf::Texture> textures;
+    std::stack <State*>* states;
     sf::RenderWindow* window;
     sf::Vector2i mousePosScreen;
     sf::Vector2i mousePosWindow;

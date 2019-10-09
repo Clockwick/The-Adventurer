@@ -3,6 +3,9 @@
 //
 #include "State.h"
 #include "../GUI.h"
+#include "../GUI/PauseMenu.h"
+#include "../Map/TileMap.h"
+
 #ifndef GUJARUNSFML_EDITORSTATE_H
 #define GUJARUNSFML_EDITORSTATE_H
 class EditorState : public State
@@ -22,12 +25,17 @@ public:
 
 private:
     //Variables
-
+    PauseMenu* pmenu;
+    TileMap map;
     sf::Font font;
     gui::Button* gamestates_btn;
     std::map <std::string, gui::Button*> buttons;
     //Functions
+    //Init
     void initFonts();
+    void initPauseMenu();
+    //Update
+    void updatePauseMenuButtons();
 
 
 private:

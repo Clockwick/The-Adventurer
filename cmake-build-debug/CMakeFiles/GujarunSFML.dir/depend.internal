@@ -749,6 +749,7 @@ CMakeFiles/GujarunSFML.dir/Game.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
  /Users/arthris/CLionProjects/GujarunSFML/Game.cpp
  /Users/arthris/CLionProjects/GujarunSFML/Game.h
+ /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
  /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
  /Users/arthris/CLionProjects/GujarunSFML/Precom.h
  /Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
@@ -757,6 +758,113 @@ CMakeFiles/GujarunSFML.dir/Game.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/States/State.h
  /Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
  /Users/arthris/CLionProjects/GujarunSFML/Tile.h
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/InputSoundFile.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Listener.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Music.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/OutputSoundFile.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Sound.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundBuffer.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundBufferRecorder.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileFactory.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileFactory.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileReader.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileWriter.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundRecorder.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundSource.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundStream.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Config.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/BlendMode.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/CircleShape.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Color.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/ConvexShape.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Drawable.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Export.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Font.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Glsl.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Glsl.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Glyph.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Image.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/PrimitiveType.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Rect.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Rect.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/RectangleShape.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/RenderStates.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/RenderTarget.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/RenderTexture.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/RenderWindow.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Shader.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Shape.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Sprite.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Text.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Texture.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Transform.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Transformable.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Vertex.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/VertexArray.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/VertexBuffer.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/View.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Export.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Ftp.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Http.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/IpAddress.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Packet.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Socket.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/SocketHandle.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/SocketSelector.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/TcpListener.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/TcpSocket.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/UdpSocket.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Clock.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Err.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Export.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/FileInputStream.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/InputStream.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Lock.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/MemoryInputStream.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Mutex.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/NonCopyable.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Sleep.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/String.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/String.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Thread.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Thread.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/ThreadLocal.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/ThreadLocalPtr.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/ThreadLocalPtr.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Time.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Utf.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Utf.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector2.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector2.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector3.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector3.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Clipboard.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Context.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/ContextSettings.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Cursor.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Event.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Export.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/GlResource.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Joystick.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Keyboard.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Mouse.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Sensor.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Touch.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/VideoMode.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Window.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
+CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.o
+ /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.cpp
+ /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
+ /Users/arthris/CLionProjects/GujarunSFML/Precom.h
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp
@@ -1081,9 +1189,14 @@ CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
  /Users/arthris/CLionProjects/GujarunSFML/GUI.h
+ /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
+ /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
+ /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
+ /Users/arthris/CLionProjects/GujarunSFML/Precom.h
  /Users/arthris/CLionProjects/GujarunSFML/States/EditorState.cpp
  /Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
  /Users/arthris/CLionProjects/GujarunSFML/States/State.h
+ /Users/arthris/CLionProjects/GujarunSFML/Tile.h
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp
@@ -1195,6 +1308,7 @@ CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
  /Users/arthris/CLionProjects/GujarunSFML/GUI.h
  /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
+ /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
  /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
  /Users/arthris/CLionProjects/GujarunSFML/Precom.h
  /Users/arthris/CLionProjects/GujarunSFML/States/GameState.cpp
@@ -1311,6 +1425,8 @@ CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
  /Users/arthris/CLionProjects/GujarunSFML/GUI.h
+ /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
+ /Users/arthris/CLionProjects/GujarunSFML/Precom.h
  /Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.cpp
  /Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.h
  /Users/arthris/CLionProjects/GujarunSFML/States/State.h
@@ -1423,6 +1539,8 @@ CMakeFiles/GujarunSFML.dir/States/State.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
+ /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
+ /Users/arthris/CLionProjects/GujarunSFML/Precom.h
  /Users/arthris/CLionProjects/GujarunSFML/States/State.cpp
  /Users/arthris/CLionProjects/GujarunSFML/States/State.h
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
@@ -1536,6 +1654,7 @@ CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
  /Users/arthris/CLionProjects/GujarunSFML/GUI.h
  /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
+ /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
  /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
  /Users/arthris/CLionProjects/GujarunSFML/Precom.h
  /Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
@@ -1764,6 +1883,7 @@ CMakeFiles/GujarunSFML.dir/main.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/GUI.h
  /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
  /Users/arthris/CLionProjects/GujarunSFML/Game.h
+ /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
  /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
  /Users/arthris/CLionProjects/GujarunSFML/Precom.h
  /Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h

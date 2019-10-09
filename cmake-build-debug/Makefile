@@ -339,6 +339,33 @@ Game.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Game.cpp.s
 .PHONY : Game.cpp.s
 
+GraphicsSettings.o: GraphicsSettings.cpp.o
+
+.PHONY : GraphicsSettings.o
+
+# target to build an object file
+GraphicsSettings.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.o
+.PHONY : GraphicsSettings.cpp.o
+
+GraphicsSettings.i: GraphicsSettings.cpp.i
+
+.PHONY : GraphicsSettings.i
+
+# target to preprocess a source file
+GraphicsSettings.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.i
+.PHONY : GraphicsSettings.cpp.i
+
+GraphicsSettings.s: GraphicsSettings.cpp.s
+
+.PHONY : GraphicsSettings.s
+
+# target to generate assembly for a file
+GraphicsSettings.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.s
+.PHONY : GraphicsSettings.cpp.s
+
 Map/TileMap.o: Map/TileMap.cpp.o
 
 .PHONY : Map/TileMap.o
@@ -615,6 +642,9 @@ help:
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... GraphicsSettings.o"
+	@echo "... GraphicsSettings.i"
+	@echo "... GraphicsSettings.s"
 	@echo "... Map/TileMap.o"
 	@echo "... Map/TileMap.i"
 	@echo "... Map/TileMap.s"

@@ -3,6 +3,7 @@
 #include "../GUI.h"
 #include "EditorState.h"
 #include "SettingsState.h"
+#include "../GraphicsSettings.h"
 
 #ifndef GUJARUNSFML_MAINMENUSTATE_H
 #define GUJARUNSFML_MAINMENUSTATE_H
@@ -10,7 +11,7 @@
 class Mainmenu : public State
 {
 public:
-    Mainmenu(sf::RenderWindow* window, std::stack <State*>* states);
+    Mainmenu(sf::RenderWindow* window,GraphicsSettings& gfxSettings, std::stack <State*>* states);
     virtual ~Mainmenu();
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
@@ -22,7 +23,7 @@ public:
 
 private:
     //Variables
-
+    GraphicsSettings& gfxSettings;
     sf::Font font;
     sf::RectangleShape background;
     gui::Button* gamestates_btn;

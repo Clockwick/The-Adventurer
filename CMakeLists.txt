@@ -14,5 +14,5 @@ if(SFML_FOUND)
 endif()
 add_executable(GujarunSFML main.cpp Game.cpp Game.h States/State.cpp States/State.h States/GameState.cpp States/GameState.h
         Entities/Entity.cpp Entities/Entity.h States/mainmenuState.cpp States/mainmenuState.h GUI.cpp GUI.h Entities/Player.cpp Entities/Player.h
-        Components/MovementComponent.cpp Components/MovementComponent.h Components/AnimationComponent.cpp Components/AnimationComponent.h States/EditorState.cpp States/EditorState.h Components/HitboxComponent.cpp Components/HitboxComponent.h Tile.cpp Tile.h GUI/PauseMenu.cpp GUI/PauseMenu.h States/SettingsState.cpp States/SettingsState.h Map/TileMap.cpp Map/TileMap.h Precom.cpp Precom.h)
+        Components/MovementComponent.cpp Components/MovementComponent.h Components/AnimationComponent.cpp Components/AnimationComponent.h States/EditorState.cpp States/EditorState.h Components/HitboxComponent.cpp Components/HitboxComponent.h Tile.cpp Tile.h GUI/PauseMenu.cpp GUI/PauseMenu.h States/SettingsState.cpp States/SettingsState.h Map/TileMap.cpp Map/TileMap.h Precom.cpp Precom.h GraphicsSettings.cpp GraphicsSettings.h)
 target_link_libraries(GujarunSFML sfml-graphics sfml-network sfml-window sfml-audio sfml-system)

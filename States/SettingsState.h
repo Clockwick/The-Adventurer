@@ -9,7 +9,7 @@ class SettingsState : public State
 {
 
 public://Functions
-    SettingsState(sf::RenderWindow* window, std::stack <State*>* states);
+    SettingsState(sf::RenderWindow* window, GraphicsSettings& gfxSettings,std::stack <State*>* states);
     virtual ~SettingsState();
 
     //Update && Render
@@ -32,7 +32,7 @@ private://Functions
 
 private://Variables
 
-
+    GraphicsSettings& gfxSettings;
     sf::Font font;
     sf::RectangleShape background;
     gui::Button* gamestates_btn;
