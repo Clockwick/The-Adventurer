@@ -17,29 +17,36 @@ class State;
 class EditorState : public State
 {
 public:
-    EditorState(sf::RenderWindow* window, std::stack <State*>* states);
+    EditorState(StateData* state_data);
     virtual ~EditorState();
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
     void updateInput(const float& dt);
-    void initButtons();
-    void initBackground();
-    void initVariables();
+    void updateGui();
+    void renderGui(sf::RenderTarget& target);
     void updateButtons();
     void renderButtons(sf::RenderTarget& target);
+
 
 
 private:
     //Variables
     PauseMenu* pmenu;
-    TileMap map;
+    TileMap* tileMap;
     sf::Font font;
     gui::Button* gamestates_btn;
     std::map <std::string, gui::Button*> buttons;
+    sf::RectangleShape selectorRect;
     //Functions
     //Init
     void initFonts();
     void initPauseMenu();
+    void initTileMap();
+    void initBackground();
+    void initVariables();
+    void initButtons();
+    void initGui();
+
     //Update
     void updatePauseMenuButtons();
 

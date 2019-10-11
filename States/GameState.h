@@ -11,7 +11,7 @@ class GameState : public State
 {
 
 public:
-    GameState(sf::RenderWindow* window, std::stack <State*>* states);
+    GameState(StateData* state_data);
     virtual ~GameState();
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
@@ -23,7 +23,7 @@ public:
 private:
     Player* player;
     PauseMenu* pmenu;
-    TileMap map;
+    TileMap* tileMap;
 
     //Variables
     sf::Font font;
@@ -34,6 +34,7 @@ private:
     void initPlayers();
     void initFonts();
     void initPauseMenu();
+    void initTileMap();
     void updatePauseMenuButtons();
 
 

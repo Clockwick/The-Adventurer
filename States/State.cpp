@@ -5,15 +5,16 @@
 
 
 
-State::State(StateData& state_data)
+State::State(StateData* state_data)
 
 {
-    this->window = state_data.window;
+    this->state_data = state_data;
+    this->window = state_data->window;
     this->quit = false;
-    this->states = state_data.states;
+    this->states = state_data->states;
     this->keyTime = 0.f;
     this->keyTimeMax = 10.f;
-    this->gridSize = state_data.gridSize;
+    this->gridSize = state_data->gridSize;
 
 }
 

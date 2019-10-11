@@ -1,8 +1,8 @@
 
 #include "mainmenuState.h"
 
-Mainmenu::Mainmenu(sf::RenderWindow* window,GraphicsSettings& gfxSettings, std::stack <State*>* states)
-: State(window, states), gfxSettings(gfxSettings)
+Mainmenu::Mainmenu(StateData* state_data)
+: State(state_data)
 {
     this->initVariables();
     this->initBackground();
@@ -136,17 +136,17 @@ void Mainmenu::updateButtons() {
     }
     if (this->buttons["GAME_STATE"]->isPressed())
     {
-        this->states->push(new GameState(this->window, this->states));
+        this->states->push(new GameState(this->state_data));
 
     }
     if (this->buttons["SETTINGS_STATE"]->isPressed())
     {
-        this->states->push(new SettingsState(this->window,this->gfxSettings, this->states));
+        this->states->push(new SettingsState(this->state_data));
     }
 
     if (this->buttons["EDITOR_STATE"]->isPressed())
     {
-        this->states->push(new EditorState(this->window, this->states));
+        this->states->push(new EditorState(this->state_data));
 
     }
 

@@ -4,14 +4,16 @@
 
 #include "EditorState.h"
 
-EditorState::EditorState(sf::RenderWindow* window, std::stack <State*>* states)
-        : State(window, states)
+EditorState::EditorState(StateData* state_data)
+        : State(state_data)
 {
     this->initVariables();
     this->initBackground();
     this->initFonts();
     this->initButtons();
     this->initPauseMenu();
+    this->initTileMap();
+    this->initGui();
 
 
 }
@@ -24,6 +26,7 @@ EditorState::~EditorState() {
 
     }
     delete this->pmenu;
+    delete this->tileMap;
 }
 //Initializer
 void EditorState::initBackground() {
@@ -40,10 +43,11 @@ void EditorState::update(const float &dt) {
     this->updateMousePos();
     this->updateKeytime(dt);
     this->updateInput(dt);
+
     if (!this->paused)//Unpaused
     {
-
-
+        this->updateButtons();
+        this->updateGui();
     }
     else //Paused
     {
@@ -60,15 +64,16 @@ void EditorState::render(sf::RenderTarget *target) {
     {
         target = this->window;
     }
-    this->map.render(*target);
-
+    this->tileMap->render(*target);
     this->renderButtons(*target);
+    this->renderGui(*target);
     if (this->paused)
     {
         //Pause Menu Render
         this->pmenu->render(*target);
 
     }
+
     //For Checking (x,y) from Mouse
 
     sf::Text mouseText;
@@ -116,13 +121,29 @@ void EditorState::initButtons() {
 
 
 }
+void EditorState::initGui() {
+    this->selectorRect.setSize(sf::Vector2f(this->state_data->gridSize, this->state_data->gridSize));
+    this->selectorRect.setFillColor(sf::Color::Transparent);
+    this->selectorRect.setOutlineThickness(1.f);
+    this->selectorRect.setOutlineColor(sf::Color::Red);
+}
+
+void EditorState::initTileMap() {
+    this->tileMap = new TileMap(this->state_data->gridSize, 10, 10);
+}
+
+void EditorState::initPauseMenu() {
+    this->pmenu = new PauseMenu(*this->window, this->font);
+
+    this->pmenu->addButton("QUIT", 1100.f, "Quit");
+
+}
 
 void EditorState::updateButtons() {
 
-
     for (auto &it : this->buttons){
-
         it.second->update(this->mousePosView) ;
+
     }
 
 
@@ -140,9 +161,15 @@ void EditorState::updatePauseMenuButtons() {
         this->endState();
 
 }
-void EditorState::initPauseMenu() {
-    this->pmenu = new PauseMenu(*this->window, this->font);
 
-    this->pmenu->addButton("QUIT",1100.f, "Quit");
 
+
+
+void EditorState::updateGui() {
+        this->selectorRect.setPosition(this->mousePosView);
+
+}
+
+void EditorState::renderGui(sf::RenderTarget& target) {
+    target.draw(this->selectorRect);
 }

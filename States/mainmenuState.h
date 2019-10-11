@@ -11,7 +11,7 @@
 class Mainmenu : public State
 {
 public:
-    Mainmenu(sf::RenderWindow* window,GraphicsSettings& gfxSettings, std::stack <State*>* states);
+    Mainmenu(StateData* state_data);
     virtual ~Mainmenu();
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
@@ -23,7 +23,6 @@ public:
 
 private:
     //Variables
-    GraphicsSettings& gfxSettings;
     sf::Font font;
     sf::RectangleShape background;
     gui::Button* gamestates_btn;

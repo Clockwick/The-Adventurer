@@ -29,7 +29,7 @@ public:
 class State
 {
 public:
-    State(StateData& state_data);
+    State(StateData* state_data);
     virtual ~State();
     //Virtual Functions
     virtual void render(sf::RenderTarget* target = nullptr) = 0;
@@ -52,9 +52,11 @@ public:
 
 
 protected:
+    StateData* state_data;
     std::map <std::string, sf::Texture> textures;
     std::stack <State*>* states;
     sf::RenderWindow* window;
+
     sf::Vector2i mousePosScreen;
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;

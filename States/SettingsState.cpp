@@ -4,8 +4,8 @@
 
 #include "SettingsState.h"
 
-SettingsState::SettingsState(sf::RenderWindow* window, GraphicsSettings& gfxSettings,std::stack <State*>* states)
-: State(window, states), gfxSettings(gfxSettings)
+SettingsState::SettingsState(StateData* state_data)
+: State(state_data)
 {
     this->initVariables();
     this->initBackground();
@@ -20,7 +20,6 @@ SettingsState::~SettingsState()
     auto it = this->buttons.begin();
     for (it = this->buttons.begin(); it != this->buttons.end();++it){
         delete it->second;
-
 
     }
     auto it2 = this->dropDownLists.begin();
@@ -171,8 +170,8 @@ void SettingsState::updateGui(const float& dt) {
     //Test Remove later!!
     if (this->buttons["APPLY"]->isPressed())
     {
-        this->gfxSettings.resolution = this->modes[this->dropDownLists["RESOLUTION"]->getActiveElementId()];
-        this->window->create(this->gfxSettings.resolution, this->gfxSettings.title, sf::Style::Default);
+        this->state_data->gfxSettings->resolution = this->modes[this->dropDownLists["RESOLUTION"]->getActiveElementId()];
+        this->window->create(this->state_data->gfxSettings->resolution, this->state_data->gfxSettings->title, sf::Style::Default);
     }
     //Drop Down Lists
     for (auto &it : this->dropDownLists){

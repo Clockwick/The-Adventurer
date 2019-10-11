@@ -10,10 +10,15 @@
 class TileMap
 {
 public:
-    TileMap();
+    TileMap(float gridSize, unsigned width, unsigned height);
     virtual ~TileMap();
     void update();
     void render(sf::RenderTarget& target);
+
+    void addTile();
+    void removeTile();
+
+
 
 
 private:

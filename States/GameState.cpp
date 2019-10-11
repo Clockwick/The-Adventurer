@@ -5,19 +5,21 @@
 #include "GameState.h"
 
 
-GameState::GameState(sf::RenderWindow* window, std::stack <State*>* states)
-: State(window, states)
+GameState::GameState(StateData* state_data)
+: State(state_data)
 {
     this->initTextures();
     this->initPlayers();
     this->initFonts();
     this->initPauseMenu();
+    this->initTileMap();
 
 }
 
 GameState::~GameState() {
     delete this->player;
     delete this->pmenu;
+    delete this->tileMap;
 }
 
 void GameState::update(const float &dt) {
@@ -49,7 +51,7 @@ void GameState::render(sf::RenderTarget *target) {
         target = this->window;
     }
 
-    this->map.render(*target);
+    //this->map.render(*target);
 
     this->player->render(*target);
     if (this->paused)
@@ -131,6 +133,11 @@ void GameState::initPauseMenu() {
 void GameState::updatePauseMenuButtons() {
     if (this->pmenu->isButtonPressed(("QUIT")) && this->getKeyTime())
         this->endState();
+
+}
+
+void GameState::initTileMap() {
+    this->tileMap = new TileMap(this->state_data->gridSize, 10,10);
 
 }
 
