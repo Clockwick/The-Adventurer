@@ -22,10 +22,11 @@ public:
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
     void updateInput(const float& dt);
-    void updateGui();
+    void updateGui(const float &dt);
     void renderGui(sf::RenderTarget& target);
     void updateButtons();
     void renderButtons(sf::RenderTarget& target);
+    void updateEditorInput(const float &dt);
 
 
 

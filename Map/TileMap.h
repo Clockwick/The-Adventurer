@@ -15,8 +15,8 @@ public:
     void update();
     void render(sf::RenderTarget& target);
 
-    void addTile();
-    void removeTile();
+    void addTile(const unsigned x, const unsigned y, const unsigned z);
+    void removeTile(const unsigned x, const unsigned y, const unsigned z);
 
 
 
@@ -24,7 +24,7 @@ public:
 private:
     unsigned gridSizeU;
     sf::Vector2u maxSize;
-    std::vector <std::vector<std::vector<Tile>>> map;
+    std::vector <std::vector<std::vector<Tile*>>> map;
     unsigned layers;
     float gridSizeF;
 

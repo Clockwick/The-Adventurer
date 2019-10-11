@@ -12,7 +12,10 @@ Tile::Tile()
 Tile::Tile(float x, float y, float gridSizeF)
 {
     this->shape.setSize(sf::Vector2f(gridSizeF, gridSizeF));
-    this->shape.setFillColor(sf::Color::Red);
+    this->shape.setFillColor(sf::Color(255, 153, 204));
+    this->shape.setOutlineColor(sf::Color::Black);
+    this->shape.setOutlineThickness(1.f);
+    this->shape.setPosition(x , y);
 
 }
 Tile::~Tile()
@@ -24,6 +27,7 @@ Tile::~Tile()
 //Functions
 void Tile::update()
 {
+
 
 }
 

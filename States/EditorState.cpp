@@ -29,6 +29,43 @@ EditorState::~EditorState() {
     delete this->tileMap;
 }
 //Initializer
+void EditorState::initFonts() {
+    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
+    {
+        std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
+    }
+    else
+    {
+        std::cout << "Successfully Loaded Fonts" << std::endl;
+
+    }
+}
+
+void EditorState::initButtons() {
+
+
+
+}
+void EditorState::initGui() {
+    this->selectorRect.setSize(sf::Vector2f(this->state_data->gridSize, this->state_data->gridSize));
+    this->selectorRect.setFillColor(sf::Color::Transparent);
+    this->selectorRect.setOutlineThickness(1.f);
+    this->selectorRect.setOutlineColor(sf::Color::White);
+
+}
+
+void EditorState::initTileMap() {
+    this->tileMap = new TileMap(this->state_data->gridSize, 10, 10);
+}
+
+void EditorState::initPauseMenu() {
+    this->pmenu = new PauseMenu(*this->window, this->font);
+
+    this->pmenu->addButton("QUIT", 1100.f, "Quit");
+
+}
+
+
 void EditorState::initBackground() {
 
 }
@@ -38,6 +75,7 @@ void EditorState::initVariables() {
 
 }
 
+//Update
 void EditorState::update(const float &dt) {
 
     this->updateMousePos();
@@ -47,7 +85,8 @@ void EditorState::update(const float &dt) {
     if (!this->paused)//Unpaused
     {
         this->updateButtons();
-        this->updateGui();
+        this->updateGui(dt);
+        this->updateEditorInput(dt);
     }
     else //Paused
     {
@@ -56,8 +95,47 @@ void EditorState::update(const float &dt) {
         this->updatePauseMenuButtons();
 
     }
+
+
+}
+void EditorState::updateInput(const float &dt) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && this->getKeyTime())
+    {
+
+        if(!this->paused)
+            this->pauseState();
+        else
+            this->unpauseState();
+    }
+
 }
 
+void EditorState::updateButtons() {
+
+    for (auto &it : this->buttons) {
+        it.second->update(this->mousePosView);
+
+    }
+
+}
+
+void EditorState::updateEditorInput(const float &dt) {
+
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeyTime())
+    {
+        this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+    }
+
+}
+void EditorState::updateGui(const float& dt) {
+    this->selectorRect.setPosition(this->mousePosGrid.x * this->state_data->gridSize, this->mousePosGrid.y * this->state_data->gridSize);
+}
+
+void EditorState::updatePauseMenuButtons() {
+    if (this->pmenu->isButtonPressed(("QUIT")) && this->getKeyTime())
+        this->endState();
+}
+//Render
 void EditorState::render(sf::RenderTarget *target) {
 
     if(!target)
@@ -91,62 +169,8 @@ void EditorState::render(sf::RenderTarget *target) {
 }
 
 
-void EditorState::updateInput(const float &dt) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && this->getKeyTime())
-    {
-
-        if(!this->paused)
-            this->pauseState();
-        else
-            this->unpauseState();
-    }
-
-}
-
-
-void EditorState::initFonts() {
-    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
-    {
-        std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
-    }
-    else
-    {
-        std::cout << "Successfully Loaded Fonts" << std::endl;
-
-    }
-}
-
-void EditorState::initButtons() {
-
-
-
-}
-void EditorState::initGui() {
-    this->selectorRect.setSize(sf::Vector2f(this->state_data->gridSize, this->state_data->gridSize));
-    this->selectorRect.setFillColor(sf::Color::Transparent);
-    this->selectorRect.setOutlineThickness(1.f);
-    this->selectorRect.setOutlineColor(sf::Color::Red);
-}
-
-void EditorState::initTileMap() {
-    this->tileMap = new TileMap(this->state_data->gridSize, 10, 10);
-}
-
-void EditorState::initPauseMenu() {
-    this->pmenu = new PauseMenu(*this->window, this->font);
-
-    this->pmenu->addButton("QUIT", 1100.f, "Quit");
-
-}
-
-void EditorState::updateButtons() {
-
-    for (auto &it : this->buttons){
-        it.second->update(this->mousePosView) ;
-
-    }
-
-
+void EditorState::renderGui(sf::RenderTarget& target) {
+    target.draw(this->selectorRect);
 }
 
 void EditorState::renderButtons(sf::RenderTarget &target) {
@@ -156,20 +180,13 @@ void EditorState::renderButtons(sf::RenderTarget &target) {
     }
 }
 
-void EditorState::updatePauseMenuButtons() {
-    if (this->pmenu->isButtonPressed(("QUIT")) && this->getKeyTime())
-        this->endState();
-
-}
 
 
 
 
-void EditorState::updateGui() {
-        this->selectorRect.setPosition(this->mousePosView);
 
-}
 
-void EditorState::renderGui(sf::RenderTarget& target) {
-    target.draw(this->selectorRect);
-}
+
+
+
+
