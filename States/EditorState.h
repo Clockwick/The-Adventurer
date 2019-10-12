@@ -40,6 +40,7 @@ private:
     sf::RectangleShape selectorRect;
     sf::IntRect textureRect;
     sf::Text cursorText;
+    gui::TextureSelector* textureSelector;
     //Functions
     //Init
     void initFonts();

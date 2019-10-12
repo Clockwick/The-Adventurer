@@ -229,30 +229,9 @@ gui::DropDownList::DropDownList(float x, float y, float width, float height,
         sf::Font& font,std::string list[],unsigned numofElements, const unsigned default_index)
 : font(font), showList(false), keytime(0.f), keytimeMax(1.f)
 {
-    this->activeElement = new gui::Button(x,y, width,height,
-                                          &this->font, list[default_index], 36,
-                                          sf::Color(30,30,30,250),sf::Color(20,20,20,200),sf::Color(20,20,20,50),
-                                          sf::Color(150,150,150,150),sf::Color(150,150,150,200),sf::Color(20,20,20,200),
-                                          sf::Color(255,255,255,200),sf::Color(255,255,255,255),sf::Color(20,20,20,50)
-    );
-
-    for (size_t i = 0; i< numofElements; i++)
-    {
-        this->list.push_back(new gui::Button(x,y + ((i+1) * height),width,height,
-                                             &this->font, list[i], 36,
-                                             sf::Color(30,30,30,250),sf::Color(20,20,20,50),sf::Color(20,20,20,50),
-                                             sf::Color(150,150,150,150),sf::Color(150,150,150,200),sf::Color(20,20,20,200),
-                                             sf::Color(150,150,150,200),sf::Color(255,255,255,200),sf::Color(20,20,20,200),
-                                             i
-
-        )
-        );
-    }
-    //unsigned numofElements = sizeof(list) / sizeof(std::string);
 
 
 }
-
 gui::DropDownList::~DropDownList() {
     delete this->activeElement;
     for (size_t i = 0; i < this->list.size(); i++)
@@ -264,5 +243,45 @@ gui::DropDownList::~DropDownList() {
 }
 
 
+/*=================================================================*/
+//                      Texture Selector                          //
+gui::TextureSelector::TextureSelector(float x, float y, float width, float height, const sf::Texture* texture_sheet)
+{
+    this->bounds.setSize(sf::Vector2f(width, height));
+    this->bounds.setPosition(x, y);
+    this->bounds.setFillColor(sf::Color(50,50,50,100));
+    this->bounds.setOutlineThickness(1.f);
+    this->bounds.setOutlineColor(sf::Color(255,255,255,200));
+
+    this->sheet.setTexture(*texture_sheet);
+    this->sheet.setPosition(x, y);
+    if (this->sheet.getGlobalBounds().width > this->bounds.getGlobalBounds().width)
+    {
+       this->sheet.setTextureRect(sf::IntRect(0,0, this->sheet.getGlobalBounds().width, this->sheet.getGlobalBounds().width));
+    }
+    if (this->sheet.getGlobalBounds().height > this->bounds.getGlobalBounds().height)
+    {
+        this->sheet.setTextureRect(sf::IntRect(0,0, this->sheet.getGlobalBounds().height, this->sheet.getGlobalBounds().height));
+
+    }
+
+
+}
+
+gui::TextureSelector::~TextureSelector() {
+
+
+}
+
+
+//Functions
+void gui::TextureSelector::update() {
+
+}
+
+void gui::TextureSelector::render(sf::RenderTarget &target) {
+    target.draw(this->bounds);
+    target.draw(this->sheet);
+}
 
 

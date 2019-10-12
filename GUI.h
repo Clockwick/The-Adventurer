@@ -95,5 +95,27 @@ namespace gui {
         //Accessors
 
     };
+
+    class TextureSelector
+    {
+
+    public:
+        TextureSelector(float x, float y, float width, float height, const sf::Texture* texture_sheet);
+        ~TextureSelector();
+
+
+        //Functions
+
+        void update();
+        void render(sf::RenderTarget& target);
+
+    private:
+        sf::RectangleShape bounds;
+        sf::Sprite sheet;
+
+    };
+
 }
+
+
 #endif //GUJARUNSFML_BUTTON_H
