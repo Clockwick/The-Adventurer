@@ -105,6 +105,7 @@ namespace gui {
 
         //Accessor
         const bool& getActive();
+        const sf::IntRect& getTextureRect() const;
 
         //Functions
 
