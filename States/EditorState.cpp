@@ -120,12 +120,16 @@ void EditorState::updateButtons() {
 }
 
 void EditorState::updateEditorInput(const float &dt) {
-
+    //Add tile
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeyTime())
     {
         this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
     }
-
+    //Remove tile
+    else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeyTime())
+    {
+        this->tileMap->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+    }
 }
 void EditorState::updateGui(const float& dt) {
     this->selectorRect.setPosition(this->mousePosGrid.x * this->state_data->gridSize, this->mousePosGrid.y * this->state_data->gridSize);

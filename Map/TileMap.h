@@ -27,6 +27,7 @@ private:
     std::vector <std::vector<std::vector<Tile*>>> map;
     unsigned layers;
     float gridSizeF;
+    sf::Texture tileTextureSheet;
 
 
 };
