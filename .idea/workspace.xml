@@ -16,7 +16,8 @@
       <change beforePath="$PROJECT_DIR$/GUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/EditorState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/EditorState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/GUI.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/GUI.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" afterDir="false" />
     </list>
@@ -147,7 +148,8 @@
       <workItem from="1570440122178" duration="2592000" />
       <workItem from="1570521338471" duration="9551000" />
       <workItem from="1570629965742" duration="680000" />
-      <workItem from="1570633467667" duration="17719000" />
+      <workItem from="1570633467667" duration="18328000" />
+      <workItem from="1570872606288" duration="944000" />
     </task>
     <servers />
   </component>

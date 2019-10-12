@@ -55,9 +55,8 @@ void EditorState::initText() {
     cursorText.setFont(this->font);
     cursorText.setCharacterSize(16);
     cursorText.setFillColor(sf::Color::White);
-    std::stringstream ss;
-    ss << "(" <<this->mousePosView.x << "," << this->mousePosView.y << ")" << std::endl;
-    cursorText.setString(ss.str());
+
+
 }
 
 void EditorState::initGui() {
@@ -69,7 +68,7 @@ void EditorState::initGui() {
     this->selectorRect.setTexture(this->tileMap->getTileSheet());
     this->selectorRect.setTextureRect(this->textureRect);
 
-    this->textureSelector = new gui::TextureSelector(20.f, 20.f, 500.f, 500.f, this->tileMap->getTileSheet());
+    this->textureSelector = new gui::TextureSelector(20.f, 20.f, 500.f, 500.f, this->state_data->gridSize, this->tileMap->getTileSheet());
 }
 
 void EditorState::initTileMap() {
@@ -168,7 +167,7 @@ void EditorState::updateGui(const float& dt) {
     cursorText.setString(ss.str());
 
 
-    this->textureSelector->update();
+    this->textureSelector->update(this->mousePosWindow);
 }
 
 void EditorState::updatePauseMenuButtons() {

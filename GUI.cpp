@@ -221,10 +221,12 @@ const bool gui::DropDownList::getKeytime()
 
     return false;
 }
+
 const unsigned short &gui::DropDownList::getActiveElementId() const
 {
     return this->activeElement->getId();
 }
+
 gui::DropDownList::DropDownList(float x, float y, float width, float height,
         sf::Font& font,std::string list[],unsigned numofElements, const unsigned default_index)
 : font(font), showList(false), keytime(0.f), keytimeMax(1.f)
@@ -245,8 +247,11 @@ gui::DropDownList::~DropDownList() {
 
 /*=================================================================*/
 //                      Texture Selector                          //
-gui::TextureSelector::TextureSelector(float x, float y, float width, float height, const sf::Texture* texture_sheet)
+gui::TextureSelector::TextureSelector(float x, float y, float width, float height,float gridSize, const sf::Texture* texture_sheet)
 {
+
+    this->active = false;
+    this->gridSize = gridSize;
     this->bounds.setSize(sf::Vector2f(width, height));
     this->bounds.setPosition(x, y);
     this->bounds.setFillColor(sf::Color(50,50,50,100));
@@ -265,6 +270,11 @@ gui::TextureSelector::TextureSelector(float x, float y, float width, float heigh
 
     }
 
+    this->selector.setPosition(x, y);
+    this->selector.setSize(sf::Vector2f(gridSize, gridSize));
+    this->selector.setFillColor(sf::Color::Transparent);
+    this->selector.setOutlineThickness(1.f);
+    this->selector.setOutlineColor(sf::Color::Red);
 
 }
 
@@ -273,15 +283,34 @@ gui::TextureSelector::~TextureSelector() {
 
 }
 
+//Accessor
+const bool &gui::TextureSelector::getActive() {
+    return this->active;
+}
 
 //Functions
-void gui::TextureSelector::update() {
+void gui::TextureSelector::update(const sf::Vector2i& mousePosWindow) {
 
+    if (this->bounds.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosWindow)))
+        this->active = true;
+    else
+        this->active = false;
+
+    if (this->active)
+    {
+        this->mousePosGrid.x = (mousePosWindow.x - static_cast<int>(this->bounds.getPosition().x)) / static_cast<unsigned>(this->gridSize);
+        this->mousePosGrid.y = (mousePosWindow.y - static_cast<int>(this->bounds.getPosition().y)) / static_cast<unsigned>(this->gridSize);
+        this->selector.setPosition(this->bounds.getPosition().x + this->mousePosGrid.x * this->gridSize,
+                this->bounds.getPosition().y + this->mousePosGrid.y * this->gridSize);
+    }
 }
 
 void gui::TextureSelector::render(sf::RenderTarget &target) {
     target.draw(this->bounds);
     target.draw(this->sheet);
+    target.draw(this->selector);
 }
+
+
 
 
