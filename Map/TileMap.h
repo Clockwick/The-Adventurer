@@ -15,10 +15,12 @@ public:
     void update();
     void render(sf::RenderTarget& target);
 
-    void addTile(const unsigned x, const unsigned y, const unsigned z);
+    void addTile(const unsigned x, const unsigned y, const unsigned z, const sf::IntRect& texture_rect);
     void removeTile(const unsigned x, const unsigned y, const unsigned z);
 
 
+    //Accessor
+    const sf::Texture * getTileSheet() const;
 
 
 private:
@@ -27,7 +29,7 @@ private:
     std::vector <std::vector<std::vector<Tile*>>> map;
     unsigned layers;
     float gridSizeF;
-    sf::Texture tileTextureSheet;
+    sf::Texture tileSheet;
 
 
 };

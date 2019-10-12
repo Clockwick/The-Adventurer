@@ -29,7 +29,7 @@ TileMap::TileMap(float gridSize, unsigned width , unsigned height)
             }
         }
     }
-    if (!this->tileTextureSheet.loadFromFile("resources/images/Assets/Map/16x16\ Fantasy\ Platformer\ Pack/Tile/DefaultTerrainFit.png"))
+    if (!this->tileSheet.loadFromFile("resources/images/Assets/Map/16x16\ Fantasy\ Platformer\ Pack/Tile/DefaultTerrainFit.png"))
     {
         std::cout << "ERROR::TILEMAP::FAILED TO LOAD TILETEXTURESHEET." << std::endl;
     }
@@ -55,7 +55,7 @@ TileMap::~TileMap()
     }
 }
 
-void TileMap::addTile(const unsigned x , const unsigned y, const unsigned z) {
+void TileMap::addTile(const unsigned x , const unsigned y, const unsigned z, const sf::IntRect& texture_rect) {
 
     //Add tile if internal Tile map allowed
     if (x < this->maxSize.x && x >= 0 &&
@@ -65,7 +65,7 @@ void TileMap::addTile(const unsigned x , const unsigned y, const unsigned z) {
         if (this->map[x][y][z] == nullptr)
         {
             /* Allow to Add Tiles */
-            this->map[x][y][z] = new Tile(x * this->gridSizeF, y * this->gridSizeF, this->gridSizeF, this->tileTextureSheet);
+            this->map[x][y][z] = new Tile(x * this->gridSizeF, y * this->gridSizeF, this->gridSizeF, this->tileSheet, texture_rect);
             std::cout << "DEBUG:: ADD TILE!" << std::endl;}
     }
 
@@ -112,6 +112,11 @@ void TileMap::render(sf::RenderTarget &target)
         }
 
     }
+}
+
+const sf::Texture *TileMap::getTileSheet() const
+{
+    return &this->tileSheet;
 }
 
 

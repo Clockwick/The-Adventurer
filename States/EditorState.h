@@ -38,6 +38,8 @@ private:
     gui::Button* gamestates_btn;
     std::map <std::string, gui::Button*> buttons;
     sf::RectangleShape selectorRect;
+    sf::IntRect textureRect;
+    sf::Text cursorText;
     //Functions
     //Init
     void initFonts();
@@ -47,6 +49,7 @@ private:
     void initVariables();
     void initButtons();
     void initGui();
+    void initText();
 
     //Update
     void updatePauseMenuButtons();

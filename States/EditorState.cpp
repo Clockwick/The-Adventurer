@@ -10,6 +10,7 @@ EditorState::EditorState(StateData* state_data)
     this->initVariables();
     this->initBackground();
     this->initFonts();
+    this->initText();
     this->initButtons();
     this->initPauseMenu();
     this->initTileMap();
@@ -46,12 +47,26 @@ void EditorState::initButtons() {
 
 
 }
+
+void EditorState::initText() {
+
+    cursorText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
+    cursorText.setFont(this->font);
+    cursorText.setCharacterSize(16);
+    cursorText.setFillColor(sf::Color::White);
+    std::stringstream ss;
+    ss << "(" <<this->mousePosView.x << "," << this->mousePosView.y << ")" << std::endl;
+    cursorText.setString(ss.str());
+}
+
 void EditorState::initGui() {
     this->selectorRect.setSize(sf::Vector2f(this->state_data->gridSize, this->state_data->gridSize));
-    this->selectorRect.setFillColor(sf::Color::Transparent);
+    this->selectorRect.setFillColor(sf::Color(255,255,255,150));
     this->selectorRect.setOutlineThickness(1.f);
     this->selectorRect.setOutlineColor(sf::Color::White);
 
+    this->selectorRect.setTexture(this->tileMap->getTileSheet());
+    this->selectorRect.setTextureRect(this->textureRect);
 }
 
 void EditorState::initTileMap() {
@@ -71,7 +86,7 @@ void EditorState::initBackground() {
 }
 
 void EditorState::initVariables() {
-
+    this->textureRect = sf::IntRect(0,0, static_cast<int>(this->state_data->gridSize) * 0.45, static_cast<int>(this->state_data->gridSize) * 0.45);
 
 }
 
@@ -95,6 +110,7 @@ void EditorState::update(const float &dt) {
         this->updatePauseMenuButtons();
 
     }
+
 
 
 }
@@ -123,16 +139,30 @@ void EditorState::updateEditorInput(const float &dt) {
     //Add tile
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeyTime())
     {
-        this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+        this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect);
     }
     //Remove tile
     else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeyTime())
     {
         this->tileMap->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
     }
+
+    //Change texture
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::M) && this->getKeyTime())
+    {
+        if(this->textureRect.left < 100)
+        {
+            this->textureRect.left += 100;
+        }
+    }
 }
 void EditorState::updateGui(const float& dt) {
     this->selectorRect.setPosition(this->mousePosGrid.x * this->state_data->gridSize, this->mousePosGrid.y * this->state_data->gridSize);
+    this->selectorRect.setTextureRect(this->textureRect);
+    cursorText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
+    std::stringstream ss;
+    ss << "(" <<this->mousePosView.x << "," << this->mousePosView.y << ")" << std::endl;
+    cursorText.setString(ss.str());
 }
 
 void EditorState::updatePauseMenuButtons() {
@@ -147,8 +177,12 @@ void EditorState::render(sf::RenderTarget *target) {
         target = this->window;
     }
     this->tileMap->render(*target);
+
     this->renderButtons(*target);
     this->renderGui(*target);
+
+
+
     if (this->paused)
     {
         //Pause Menu Render
@@ -156,18 +190,6 @@ void EditorState::render(sf::RenderTarget *target) {
 
     }
 
-    //For Checking (x,y) from Mouse
-
-    sf::Text mouseText;
-    mouseText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
-    mouseText.setFont(this->font);
-    mouseText.setCharacterSize(16);
-    mouseText.setFillColor(sf::Color::White);
-    std::stringstream ss;
-    ss << "(" <<this->mousePosView.x << "," << this->mousePosView.y << ")" <<std::endl;
-    mouseText.setString(ss.str());
-
-    target->draw(mouseText);
 
 
 }
@@ -175,6 +197,7 @@ void EditorState::render(sf::RenderTarget *target) {
 
 void EditorState::renderGui(sf::RenderTarget& target) {
     target.draw(this->selectorRect);
+    target.draw(this->cursorText);
 }
 
 void EditorState::renderButtons(sf::RenderTarget &target) {
@@ -183,6 +206,7 @@ void EditorState::renderButtons(sf::RenderTarget &target) {
         it.second->render(target) ;
     }
 }
+
 
 
 
