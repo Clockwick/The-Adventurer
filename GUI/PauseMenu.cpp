@@ -45,11 +45,11 @@ std::map<std::string, gui::Button*> &PauseMenu::getButtons() {
 }
 
 //Functions
-void PauseMenu::update(const sf::Vector2f& mousePos)
+void PauseMenu::update(const sf::Vector2i& mousePosWindow)
 {
     for (auto &i : this->buttons)
     {
-        i.second->update(mousePos);
+        i.second->update(mousePosWindow);
     }
 }
 
@@ -73,8 +73,8 @@ void PauseMenu::render(sf::RenderTarget &target)
 
 void PauseMenu::addButton(const std::string key, float y , const std::string text) {
 
-    float width = 300.f;
-    float height = 150.f;
+    float width = 200.f;
+    float height = 65.f;
     float x = this->container.getPosition().x + this->container.getSize().x / 2.f - width / 2.f;
     this->buttons[key] = new gui::Button(x,y,width,height,
                                              &this->font, text, 36,

@@ -19,6 +19,7 @@ Mainmenu::~Mainmenu() {
 
 
     }
+
 }
 //Initializer
 void Mainmenu::initBackground() {
@@ -55,25 +56,25 @@ void Mainmenu::initFonts() {
 
 void Mainmenu::initButtons() {
 
-    this->buttons["GAME_STATE"] = new gui::Button(1280.f,798.f-200.f,300.f,150.f,
+    this->buttons["GAME_STATE"] = new gui::Button(1280.f,798.f-200.f,200.f,65.f,
                                              &this->font, "New Game", 36,
                                              sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                             sf::Color(70,70,70,50),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+                                             sf::Color(70,70,70,0),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["SETTINGS_STATE"] = new gui::Button(1280.f,998.f-200.f,300.f,150.f,
+    this->buttons["SETTINGS_STATE"] = new gui::Button(1280.f,998.f-200.f,200.f,65.f,
                                                 &this->font, "Settings", 36,
                                                 sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                                sf::Color(70,70,70,50 ),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+                                                sf::Color(70,70,70,0 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["EDITOR_STATE"] = new gui::Button(1280.f,1198.f-200.f,300.f,150.f,
+    this->buttons["EDITOR_STATE"] = new gui::Button(1280.f,1198.f-200.f,200.f,65.f,
                                                &this->font, "Editor", 36,
                                                sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                               sf::Color(70,70,70,50 ),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+                                               sf::Color(70,70,70,0 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["EXIT_STATE"] = new gui::Button(1280.f,1398.f-200.f,300.f,150.f,
+    this->buttons["EXIT_STATE"] = new gui::Button(1280.f,1398.f-200.f,200.f,65.f,
                                              &this->font, "Exit", 36,
                                              sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                             sf::Color(70,70,70,50),sf::Color(150,150,150,50),sf::Color(20,20,20,50)
+                                             sf::Color(70,70,70,0),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
 
 
     );
@@ -132,7 +133,7 @@ void Mainmenu::updateButtons() {
 
     for (auto &it : this->buttons){
 
-        it.second->update(this->mousePosView) ;
+        it.second->update(this->mousePosWindow) ;
     }
     if (this->buttons["GAME_STATE"]->isPressed())
     {

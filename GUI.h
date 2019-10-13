@@ -37,7 +37,7 @@ namespace gui {
 
         //Functions
         void render(sf::RenderTarget &target);
-        void update(const sf::Vector2f mousePos);
+        void update(const sf::Vector2i& mousePosWindow);
 
     private:
 
@@ -74,10 +74,12 @@ namespace gui {
         DropDownList(float x , float y, float width, float height,
                 sf::Font& font, std::string list[],unsigned numofElements, const unsigned default_index = 0);
         virtual ~DropDownList();
-    public://Functions
-        void update(const sf::Vector2f& mousePos, const float& dt);
+    public:
+        //Functions
+        void update(const sf::Vector2i& mousePosWindow, const float& dt);
         void render(sf::RenderTarget& target);
         void updateKeytime(const float& dt);
+        //Accessor
         const bool getKeytime();
         const unsigned short& getActiveElementId() const;
 
@@ -92,15 +94,13 @@ namespace gui {
         bool showList;
 
 
-        //Accessors
-
     };
 
     class TextureSelector
     {
 
     public:
-        TextureSelector(float x, float y, float width, float height,float gridSize, const sf::Texture* texture_sheet);
+        TextureSelector(float x, float y, float width, float height,float gridSize, const sf::Texture* texture_sheet, sf::Font& font, std::string text);
         ~TextureSelector();
 
         //Accessor
@@ -109,8 +109,11 @@ namespace gui {
 
         //Functions
 
-        void update(const sf::Vector2i& mousePosWindow);
+        void update(const sf::Vector2i& mousePosWindow, const float& dt);
         void render(sf::RenderTarget& target);
+
+        const bool getKeytime();
+        void updateKeytime(const float& dt);
 
     private:
         sf::RectangleShape bounds;
@@ -118,9 +121,13 @@ namespace gui {
         sf::RectangleShape selector;
         sf::Vector2u mousePosGrid;
         sf::IntRect textureRect;
+        gui::Button* hide_button;
 
         bool active;
+        bool hidden;
         float gridSize;
+        float keytime;
+        const float keytimeMax;
 
     };
 

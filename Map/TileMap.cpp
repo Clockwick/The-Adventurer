@@ -4,7 +4,7 @@
 
 #include "TileMap.h"
 
-TileMap::TileMap(float gridSize, unsigned width , unsigned height)
+TileMap::TileMap(float gridSize, unsigned width , unsigned height, std::string texture_file)
 
 {
 
@@ -13,6 +13,7 @@ TileMap::TileMap(float gridSize, unsigned width , unsigned height)
     this->maxSize.x = width;
     this->maxSize.y = height;
     this->layers = 1;
+    this->textureFile = texture_file;
 
     this->map.resize(this->maxSize.x, std::vector <std::vector<Tile*>>());
     for (size_t x = 0; x < this->maxSize.x;x++)
@@ -29,7 +30,7 @@ TileMap::TileMap(float gridSize, unsigned width , unsigned height)
             }
         }
     }
-    if (!this->tileSheet.loadFromFile("resources/images/Assets/Map/16x16\ Fantasy\ Platformer\ Pack/Tile/DefaultTerrainFit.png"))
+    if (!this->tileSheet.loadFromFile(texture_file))
     {
         std::cout << "ERROR::TILEMAP::FAILED TO LOAD TILETEXTURESHEET." << std::endl;
     }
@@ -117,6 +118,55 @@ void TileMap::render(sf::RenderTarget &target)
 const sf::Texture *TileMap::getTileSheet() const
 {
     return &this->tileSheet;
+}
+
+void TileMap::saveToFile(const std::string file_name) {
+    /*Save Tilemap to text file
+    Format:
+     Size x y
+     gridSize
+     layers
+     texture_file
+
+     All tiles:
+     gridPos x y , Texture rect x y, type
+     */
+
+    std::ofstream out_file;
+    out_file.open(file_name);
+
+    if (out_file.is_open())
+    {
+        out_file << this->maxSize.x << " " << this->maxSize.y << std::endl
+         << this->gridSizeU << std::endl
+         << this->layers << std::endl
+         << this->textureFile << std::endl;
+
+        for (size_t x = 0; x < this->maxSize.x;x++)
+        {
+
+            for (size_t y = 0; y < this->maxSize.y; y++)
+            {
+
+                for (size_t z = 0; z < this->layers; z++)
+                {
+                    out_file << 1 << 1 << 2 << 3 << 5 << " ";
+                    //out_file << this->map[x][y][z];
+                }
+            }
+        }
+    }
+    else
+    {
+        std::cout << "ERROR::TILEMAP::COULD NOT SAVE TO FILE::FILENAME: " << file_name << std::endl;
+
+    }
+    out_file.close();
+
+}
+
+void TileMap::loadFromFile(const std::string file_name) {
+
 }
 
 

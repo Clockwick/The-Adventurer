@@ -37,7 +37,7 @@ void GameState::update(const float &dt) {
     else //Paused
     {
 
-        this->pmenu->update(this->mousePosView);
+        this->pmenu->update(this->mousePosWindow);
         this->updatePauseMenuButtons();
 
     }
@@ -137,7 +137,7 @@ void GameState::updatePauseMenuButtons() {
 }
 
 void GameState::initTileMap() {
-    this->tileMap = new TileMap(this->state_data->gridSize, 10,10);
+    this->tileMap = new TileMap(this->state_data->gridSize, 10,10, "resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tile/DefaultTerrainFit.png");
 
 }
 

@@ -41,6 +41,8 @@ private:
     sf::IntRect textureRect;
     sf::Text cursorText;
     gui::TextureSelector* textureSelector;
+    sf::RectangleShape sidebar;
+
     //Functions
     //Init
     void initFonts();
