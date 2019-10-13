@@ -99,7 +99,7 @@ void SettingsState::initGui() {
         modes_str.push_back(std::to_string(i.width) + 'x' + std::to_string(i.height));
     }
     std::string li[] = {"1920x1080","  800x600","  640x480"};
-    this->dropDownLists["RESOLUTION"] = new gui::DropDownList(450, 70, 300, 100, font, modes_str.data(), modes_str.size());
+    this->dropDownLists["RESOLUTION"] = new gui::DropDownList(450, 100, 300, 55, font, modes_str.data(), modes_str.size());
 
 }
 void SettingsState::update(const float &dt) {
@@ -107,10 +107,6 @@ void SettingsState::update(const float &dt) {
     this->updateInput(dt);
     this->updateMousePos();
     this->updateGui(dt);
-
-
-
-
 
 }
 

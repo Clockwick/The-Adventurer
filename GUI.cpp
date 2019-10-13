@@ -176,7 +176,7 @@ void gui::DropDownList::render(sf::RenderTarget &target)
     this->activeElement->render(target);
 
     //Show and Hide the List
-    if(this->activeElement->isPressed())
+    if(this->activeElement->isPressed() && this->getKeytime())
     {
         if (this->showList)
             this->showList = false;
@@ -227,12 +227,33 @@ const unsigned short &gui::DropDownList::getActiveElementId() const
 }
 
 gui::DropDownList::DropDownList(float x, float y, float width, float height,
-        sf::Font& font,std::string list[],unsigned numofElements, const unsigned default_index)
-: font(font), showList(false), keytime(0.f), keytimeMax(1.f)
+                                sf::Font& font,std::string list[],unsigned numofElements, const unsigned default_index)
+        : font(font), showList(false), keytime(0.f), keytimeMax(1.f)
 {
+    this->activeElement = new gui::Button(x,y, width,height,
+                                          &this->font, list[default_index], 36,
+                                          sf::Color(30,30,30,250),sf::Color(20,20,20,200),sf::Color(20,20,20,50),
+                                          sf::Color(150,150,150,150),sf::Color(150,150,150,200),sf::Color(20,20,20,200),
+                                          sf::Color(255,255,255,200),sf::Color(255,255,255,255),sf::Color(20,20,20,50)
+    );
+
+    for (size_t i = 0; i< numofElements; i++)
+    {
+        this->list.push_back(new gui::Button(x,y + ((i+1) * height),width,height,
+                                             &this->font, list[i], 36,
+                                             sf::Color(30,30,30,250),sf::Color(20,20,20,50),sf::Color(20,20,20,50),
+                                             sf::Color(150,150,150,150),sf::Color(150,150,150,200),sf::Color(20,20,20,200),
+                                             sf::Color(150,150,150,200),sf::Color(255,255,255,200),sf::Color(20,20,20,200),
+                                             i
+
+                             )
+        );
+    }
+    //unsigned numofElements = sizeof(list) / sizeof(std::string);
 
 
 }
+
 gui::DropDownList::~DropDownList() {
     delete this->activeElement;
     for (size_t i = 0; i < this->list.size(); i++)
@@ -244,6 +265,7 @@ gui::DropDownList::~DropDownList() {
 }
 
 
+
 /*=================================================================*/
 //                      Texture Selector                          //
 gui::TextureSelector::TextureSelector(float x, float y, float width, float height,float gridSize, const sf::Texture* texture_sheet, sf::Font& font, std::string text)
@@ -253,6 +275,7 @@ gui::TextureSelector::TextureSelector(float x, float y, float width, float heigh
     this->gridSize = gridSize;
     this->active = false;
     this->hidden = false;
+
     float offset = 75.f;
 
     this->bounds.setSize(sf::Vector2f(width, height));
@@ -376,7 +399,6 @@ void gui::TextureSelector::render(sf::RenderTarget &target) {
 
     this->hide_button->render(target);
 }
-
 
 
 
