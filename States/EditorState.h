@@ -42,6 +42,8 @@ private:
     sf::Text cursorText;
     gui::TextureSelector* textureSelector;
     sf::RectangleShape sidebar;
+    bool collision;
+    short type;
 
     //Functions
     //Init

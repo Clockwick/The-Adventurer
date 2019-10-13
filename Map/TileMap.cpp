@@ -41,7 +41,7 @@ TileMap::~TileMap()
     this->clear();
 }
 
-void TileMap::addTile(const unsigned x , const unsigned y, const unsigned z, const sf::IntRect& texture_rect) {
+void TileMap::addTile(const unsigned x , const unsigned y, const unsigned z, const sf::IntRect& texture_rect, const bool& collision, const short type) {
 
     //Add tile if internal Tile map allowed
     if (x < this->maxSize.x && x >= 0 &&
@@ -51,7 +51,7 @@ void TileMap::addTile(const unsigned x , const unsigned y, const unsigned z, con
         if (this->map[x][y][z] == nullptr)
         {
             /* Allow to Add Tiles */
-            this->map[x][y][z] = new Tile(x , y , this->gridSizeF, this->tileSheet, texture_rect);
+            this->map[x][y][z] = new Tile(x , y , this->gridSizeF, this->tileSheet, texture_rect, collision, type);
             std::cout << "DEBUG:: ADD TILE!" << std::endl;}
     }
 

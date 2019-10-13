@@ -41,7 +41,6 @@ void EditorState::initFonts() {
 void EditorState::initButtons() {
 
 
-
 }
 
 void EditorState::initText() {
@@ -68,7 +67,7 @@ void EditorState::initGui() {
     this->selectorRect.setTexture(this->tileMap->getTileSheet());
     this->selectorRect.setTextureRect(this->textureRect);
 
-    this->textureSelector = new gui::TextureSelector(10.f, 5.f, 500.f, 500.f,
+    this->textureSelector = new gui::TextureSelector(10.f, 10.f, 500.f, 500.f,
             this->state_data->gridSize, this->tileMap->getTileSheet(),
             this->font, "Edit"
             );
@@ -94,7 +93,8 @@ void EditorState::initBackground() {
 
 void EditorState::initVariables() {
     this->textureRect = sf::IntRect(0,0, static_cast<int>(this->state_data->gridSize) * 0.45, static_cast<int>(this->state_data->gridSize) * 0.45);
-
+    this->collision = false;
+    this->type = TileTypes::DEFAULT;
 }
 
 //Update
@@ -148,7 +148,7 @@ void EditorState::updateEditorInput(const float &dt) {
         if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(this->mousePosWindow))) {
             if (!this->textureSelector->getActive())
             {
-                this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect);
+                this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect, this->collision, this->type);
 
             } else {
                 this->textureRect = this->textureSelector->getTextureRect();
@@ -165,6 +165,24 @@ void EditorState::updateEditorInput(const float &dt) {
             }
         }
     }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::C) && this->getKeyTime())
+    {
+        if(this->collision)
+            this->collision = false;
+        else
+            this->collision = true;
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && this->getKeyTime())
+    {
+        //Increase type
+        ++this->type;
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && this->getKeyTime())
+    {
+        //Decrease type
+        if (this->type > 0)
+            --this->type;
+    }
 
 
 
@@ -177,9 +195,12 @@ void EditorState::updateGui(const float& dt) {
         this->selectorRect.setTextureRect(this->textureRect);
     }
 
-    cursorText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
+    cursorText.setPosition(this->mousePosView.x + 50, this->mousePosView.y - 50);
     std::stringstream ss;
-    ss << "(" <<this->mousePosView.x << "," << this->mousePosView.y << ")" << std::endl;
+    ss << "(" <<this->mousePosView.x << "," << this->mousePosView.y << ")" << std::endl
+            << "(" <<this->mousePosGrid.x << "," << this->mousePosGrid.y << ")" << std::endl
+            << "(" <<this->textureRect.left << "," << this->textureRect.top << ")" << std::endl
+            << "Collision: " << this->collision << "\n" << "Type: " << this->type;
     cursorText.setString(ss.str());
 
 
