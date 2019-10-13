@@ -12,14 +12,242 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Animals/Sheep/Black Sheep Dead.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Animals/Sheep/Black Sheep Idle.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Animals/Sheep/Black Sheep Sleeping.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Animals/Sheep/Black Sheep Walking.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Animals/Sheep/White Sheep Dead.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Animals/Sheep/White Sheep Idle.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Animals/Sheep/White Sheep Sleeping.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Animals/Sheep/White Sheep Walking.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Events or Markers/sEvent_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Events or Markers/sEvent_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Events or Markers/sEvent_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Events or Markers/s_eEvent_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Events or Markers/s_eEvent_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Events or Markers/s_eEvent_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Bars/Bars.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Bars/Hit-A.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Bars/Hit-C.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Bars/Hit-D.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Bars/Level-A.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Bars/Level-B.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Bars/Level-C.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Bars/Level-D.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Popups/Alert Black.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Popups/Alert White.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Popups/Arrou Left.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Popups/Arrow Down.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Popups/Arrow Right.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Popups/Arrow Up.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Popups/Pop-Ups.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Popups/Question Mark Black.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Popups/Question Mark White.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Text Box/Name Box.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Text Box/Portrait Frame.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/GUI/Text Box/Textbox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Items/9x9 Mini Items Pack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Monsters/Monster 1 Idle.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Monsters/Monster 1 Run.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Monsters/Monster 2 Idle.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Monsters/Monster 2 Run.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Blue/F1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Blue/F2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Blue/F3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Blue/M1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Blue/M2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Blue/M3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Burgundy/FK1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Burgundy/FK2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Burgundy/FQ3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Burgundy/MK1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Burgundy/MK2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Burgundy/MK3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Green/F1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Green/F2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Green/F3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Green/M1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Green/M2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/NPCs/Green/M3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Blue Arrow.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Blue Particles.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Color Shifting Particles.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Dirt.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Explosion.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Green Arrow.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Green Explosion.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Green Particles.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Hit (Blue).gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Hit (Green).gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Hit (Orange).gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Ice With Snow.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Ice.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Light Blue Particles.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Orange Arrow.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Orange Explosion.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Purple Explosion.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Particles And Spells/Stone.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Placeholders/sEnemy_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Placeholders/sEnemy_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Placeholders/sEnemy_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Placeholders/sEnemy_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Placeholders/sEnemy_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Player/Player Idle.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Player/Player Jump.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Player/Player Run.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Player/Player Spell (Still).gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/NPC 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/NPC 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/NPC 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/NPC 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/NPC 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/Player.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/Unknown 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/Unknown 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/Unknown 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/Unknown 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Portraits/Unknown 5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tile/DefaultTerrainFit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tile/Terrain Tileset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tile/Underground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/Basic Tiles Only.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/BasicTileset.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/City Ground Tileset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/DefaultTerrainFit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/Fireflies pot v2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/Fireflies pot.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/House (Inside) Tileset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/House (Outside And Inside) Tileset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/House (Outside) Tileset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/Terrain Tileset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/Vegetation Tileset 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/Vegetation Tileset 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/map.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text.slmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Map/TileMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map/TileMap.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map/TileMap.h" beforeDir="false" afterPath="$PROJECT_DIR$/Map/TileMap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/EditorState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorState.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Tile.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Tile.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/text.slmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Animals/Sheep/Black Sheep Dead.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Animals/Sheep/Black Sheep Idle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Animals/Sheep/Black Sheep Sleeping.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Animals/Sheep/Black Sheep Walking.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Animals/Sheep/White Sheep Dead.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Animals/Sheep/White Sheep Idle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Animals/Sheep/White Sheep Sleeping.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Animals/Sheep/White Sheep Walking.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Events or Markers/sEvent_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Events or Markers/sEvent_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Events or Markers/sEvent_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Events or Markers/s_eEvent_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Events or Markers/s_eEvent_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Events or Markers/s_eEvent_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Bars/Bars.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Bars/Hit-A.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Bars/Hit-C.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Bars/Hit-D.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Bars/Level-A.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Bars/Level-B.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Bars/Level-C.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Bars/Level-D.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Popups/Alert Black.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Popups/Alert White.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Popups/Arrou Left.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Popups/Arrow Down.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Popups/Arrow Right.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Popups/Arrow Up.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Popups/Pop-Ups.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Popups/Question Mark Black.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Popups/Question Mark White.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Text Box/Name Box.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Text Box/Portrait Frame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/GUI/Text Box/Textbox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Items/9x9 Mini Items Pack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Monsters/Monster 1 Idle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Monsters/Monster 1 Run.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Monsters/Monster 2 Idle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Monsters/Monster 2 Run.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Blue/F1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Blue/F2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Blue/F3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Blue/M1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Blue/M2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Blue/M3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Burgundy/FK1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Burgundy/FK2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Burgundy/FQ3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Burgundy/MK1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Burgundy/MK2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Burgundy/MK3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Green/F1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Green/F2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Green/F3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Green/M1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Green/M2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/NPCs/Green/M3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Blue Arrow.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Blue Particles.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Color Shifting Particles.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Dirt.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Explosion.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Green Arrow.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Green Explosion.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Green Particles.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Hit (Blue).gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Hit (Green).gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Hit (Orange).gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Ice With Snow.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Ice.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Light Blue Particles.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Orange Arrow.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Orange Explosion.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Purple Explosion.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Particles And Spells/Stone.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Placeholders/sEnemy_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Placeholders/sEnemy_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Placeholders/sEnemy_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Placeholders/sEnemy_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Placeholders/sEnemy_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Player/Player Idle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Player/Player Jump.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Player/Player Run.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Player/Player Spell (Still).gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/NPC 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/NPC 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/NPC 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/NPC 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/NPC 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/Player.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/Unknown 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/Unknown 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/Unknown 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/Unknown 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Portraits/Unknown 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tile/DefaultTerrainFit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tile/Terrain Tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tile/Underground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/Basic Tiles Only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/BasicTileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/City Ground Tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/DefaultTerrainFit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/Fireflies pot v2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/Fireflies pot.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/House (Inside) Tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/House (Outside And Inside) Tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/House (Outside) Tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/Terrain Tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/Vegetation Tileset 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/Vegetation Tileset 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tilesets/map.tmx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,6 +297,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tile" />
       <recent name="$PROJECT_DIR$/resources/images/Assets/Map" />
       <recent name="$PROJECT_DIR$/States" />
@@ -153,7 +382,7 @@
       <workItem from="1570892527313" duration="401000" />
       <workItem from="1570930411353" duration="5491000" />
       <workItem from="1570945037354" duration="250000" />
-      <workItem from="1570954824799" duration="735000" />
+      <workItem from="1570954824799" duration="8140000" />
     </task>
     <servers />
   </component>

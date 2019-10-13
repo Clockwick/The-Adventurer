@@ -75,14 +75,15 @@ void EditorState::initGui() {
 }
 
 void EditorState::initTileMap() {
-    this->tileMap = new TileMap(this->state_data->gridSize, 10, 10, "resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tile/DefaultTerrainFit.png");
+    this->tileMap = new TileMap(this->state_data->gridSize, 10, 10, "resources/images/Assets/Map/16x16/Tile/DefaultTerrainFit.png");
 }
 
 void EditorState::initPauseMenu() {
     this->pmenu = new PauseMenu(*this->window, this->font);
 
-    this->pmenu->addButton("QUIT", 1300.f, "Quit");
+    this->pmenu->addButton("QUIT", 1400.f, "Quit");
     this->pmenu->addButton("SAVE", 1100.f, "Save");
+    this->pmenu->addButton("LOAD", 1250.f, "Load");
 
 }
 
@@ -156,7 +157,7 @@ void EditorState::updateEditorInput(const float &dt) {
     }
     //Remove tile
     else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeyTime()) {
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeyTime()) {
+        if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(this->mousePosWindow))) {
             if (!this->textureSelector->getActive())
             {
                 this->tileMap->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
@@ -188,7 +189,11 @@ void EditorState::updatePauseMenuButtons() {
     if (this->pmenu->isButtonPressed(("QUIT")) && this->getKeyTime())
         this->endState();
     if (this->pmenu->isButtonPressed(("SAVE")) && this->getKeyTime())
-        this->tileMap->saveToFile("config/text.slmp");
+        this->tileMap->saveToFile("text.slmp");
+    if (this->pmenu->isButtonPressed(("LOAD")) && this->getKeyTime())
+        this->tileMap->loadFromFile("text.slmp");
+
+
 }
 //Render
 void EditorState::render(sf::RenderTarget *target) {

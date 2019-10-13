@@ -36,6 +36,9 @@ private:
     std::string textureFile;
 
 
+    void clear();
+
+
 };
 
 #endif //GUJARUNSFML_TILEMAP_H
