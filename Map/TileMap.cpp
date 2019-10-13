@@ -129,7 +129,7 @@ void TileMap::saveToFile(const std::string file_name) {
      texture_file
 
      All tiles:
-     gridPos x y , Texture rect x y, type
+     gridPos x y , Texture rect x y, collision ,type
      */
 
     std::ofstream out_file;
@@ -150,8 +150,8 @@ void TileMap::saveToFile(const std::string file_name) {
 
                 for (size_t z = 0; z < this->layers; z++)
                 {
-                    out_file << 1 << 1 << 2 << 3 << 5 << " ";
-                    //out_file << this->map[x][y][z];
+                    if (this->map[x][y][z])
+                        out_file << this->map[x][y][z]->getAsString() << " "; //Last space must not saved
                 }
             }
         }
