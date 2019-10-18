@@ -144,6 +144,7 @@ void EditorState::updateButtons() {
 }
 
 void EditorState::updateEditorInput(const float &dt) {
+
     //Add tile
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeyTime()) {
         if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(this->mousePosWindow))) {
