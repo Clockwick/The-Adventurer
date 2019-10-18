@@ -96,12 +96,13 @@ void EditorState::initVariables() {
     this->textureRect = sf::IntRect(0,0, static_cast<int>(this->state_data->gridSize) * 0.45, static_cast<int>(this->state_data->gridSize) * 0.45);
     this->collision = false;
     this->type = TileTypes::DEFAULT;
+    this->cameraSpeed = 300.f;
 }
 
 //Update
 void EditorState::update(const float &dt) {
 
-    this->updateMousePos();
+    this->updateMousePos(&this->view);
     this->updateKeytime(dt);
     this->updateInput(dt);
 
@@ -184,6 +185,21 @@ void EditorState::updateEditorInput(const float &dt) {
         //Decrease type
         if (this->type > 0)
             --this->type;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    {
+        this->view.move(0, -this->cameraSpeed * dt);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+        this->view.move(-this->cameraSpeed*dt, 0);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        this->view.move(0, this->cameraSpeed * dt);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        this->view.move(this->cameraSpeed * dt, 0);
     }
 
 

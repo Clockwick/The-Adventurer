@@ -45,6 +45,7 @@ private:
     sf::View view;
     bool collision;
     short type;
+    float cameraSpeed;
 
     //Functions
     //Init
