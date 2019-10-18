@@ -42,12 +42,14 @@ private:
     sf::Text cursorText;
     gui::TextureSelector* textureSelector;
     sf::RectangleShape sidebar;
+    sf::View view;
     bool collision;
     short type;
 
     //Functions
     //Init
     void initFonts();
+    void initView();
     void initPauseMenu();
     void initTileMap();
     void initBackground();

@@ -35,7 +35,7 @@ public:
     virtual void render(sf::RenderTarget* target = nullptr) = 0;
     virtual void update(const float& dt) = 0;
     virtual void updateInput(const float& dt) = 0;
-    virtual void updateMousePos();
+    virtual void updateMousePos(sf::View* view = NULL);
     virtual void updateKeytime(const float& dt);
 
     //Functions
