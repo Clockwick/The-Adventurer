@@ -174,15 +174,13 @@ SFML/Audio.hpp
 SFML/Network.hpp
 -
 
-/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.cpp
-EditorState.h
-/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/GameState.cpp
+GameState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
 
-/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
 State.h
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
-../GUI.h
-/Users/arthris/CLionProjects/GujarunSFML/GUI.h
 ../GUI/PauseMenu.h
 /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
 ../Map/TileMap.h

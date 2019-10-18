@@ -18,11 +18,15 @@ public:
     virtual void render(sf::RenderTarget& target);
     virtual void update(const float &dt);
     virtual void move(const float x, const float y, const float &dt);
-    virtual void setPosition(const float x ,const float y);
+
     void createMovementComponents(const float maxVelocity, const float acceleration, const float deceleration);
     void createAnimationComponents(sf::Texture& texture_sheet);
     void createHitboxComponents(sf::Sprite& sprite, float offset_x,
             float offset_y, float width, float height);
+    //Accessors
+    virtual const sf::Vector2f& getPosition() const;
+    //Modifiers
+    virtual void setPosition(const float x ,const float y);
     //Component Functions
     void setTexture(sf::Texture& texture);
 

@@ -7,6 +7,10 @@
 #ifndef GUJARUNSFML_GAMESTATE_H
 #define GUJARUNSFML_GAMESTATE_H
 
+class PauseMenu;
+class Player;
+class TileMap;
+
 class GameState : public State
 {
 
@@ -17,6 +21,7 @@ public:
     void render(sf::RenderTarget* target = nullptr);
     void updatePlayerInput(const float& dt);
     void updateInput(const float& dt);
+    void updateView(const float& dt);
 
 
 
@@ -26,10 +31,15 @@ private:
     TileMap* tileMap;
 
     //Variables
+    sf::View view;
+    sf::RenderTexture renderTexture;
+    sf::Sprite renderSprite;
+
     sf::Font font;
 
     //Functions
-
+    void initDeferredRender();
+    void initView();
     void initTextures();
     void initPlayers();
     void initFonts();

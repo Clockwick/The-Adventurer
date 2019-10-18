@@ -8,6 +8,8 @@
 GameState::GameState(StateData* state_data)
 : State(state_data)
 {
+    this->initDeferredRender();
+    this->initView();
     this->initTextures();
     this->initPlayers();
     this->initFonts();
@@ -24,14 +26,14 @@ GameState::~GameState() {
 
 void GameState::update(const float &dt) {
 
-    this->updateMousePos();
+    this->updateMousePos(&this->view);
     this->updateKeytime(dt);
     this->updateInput(dt);
     if (!this->paused)//Unpaused
     {
+        this->updateView(dt);
         this->updatePlayerInput(dt);
         this->player->update(dt);
-
 
     }
     else //Paused
@@ -50,17 +52,20 @@ void GameState::render(sf::RenderTarget *target) {
     {
         target = this->window;
     }
+    this->renderTexture.clear();
 
-    //this->map.render(*target);
-
-    this->player->render(*target);
-    if (this->paused)
+    this->renderTexture.setView(this->view);
+    this->tileMap->render(this->renderTexture);
+    this->player->render(this->renderTexture);
+    if (this->paused)//Pause Menu Render
     {
-        //Pause Menu Render
-        this->pmenu->render(*target);
-
+        this->renderTexture.setView(this->renderTexture.getDefaultView());
+        this->pmenu->render(renderTexture);
     }
-
+    //Final Render
+    this->renderTexture.display();
+    this->renderSprite.setTexture(this->renderTexture.getTexture());
+    target->draw(this->renderSprite);
 
 
 }
@@ -76,10 +81,6 @@ void GameState::updatePlayerInput(const float &dt) {
     {
         this->player->move(1.0f, 0.0f, dt);
     }
-
-
-
-
 
 
 }
@@ -137,8 +138,28 @@ void GameState::updatePauseMenuButtons() {
 }
 
 void GameState::initTileMap() {
-    this->tileMap = new TileMap(this->state_data->gridSize, 10,10, "resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tile/DefaultTerrainFit.png");
+    this->tileMap = new TileMap(this->state_data->gridSize, 10,10, "resources/images/Assets/Map/16x16/Tile/DefaultTerrainFit.png");
+    this->tileMap->loadFromFile("text.slmp");
+}
 
+void GameState::initView() {
+
+    this->view.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width, this->state_data->gfxSettings->resolution.height));
+    this->view.setCenter(sf::Vector2f(this->state_data->gfxSettings->resolution.width/2.f, this->state_data->gfxSettings->resolution.height/2.f));
+
+}
+
+void GameState::updateView(const float &dt) {
+    this->view.setCenter(this->player->getPosition());
+}
+
+void GameState::initDeferredRender() {
+    this->renderTexture.create(this->state_data->gfxSettings->resolution.width, this->state_data->gfxSettings->resolution.height);
+    this->renderSprite.setTexture(this->renderTexture.getTexture());
+    this->renderSprite.setTextureRect(sf::IntRect(0,0,
+            this->state_data->gfxSettings->resolution.width,
+            this->state_data->gfxSettings->resolution.height)
+            );
 }
 
 

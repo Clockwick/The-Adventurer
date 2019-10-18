@@ -215,7 +215,7 @@ void EditorState::updateGui(const float& dt) {
 
     cursorText.setPosition(this->mousePosView.x + 50, this->mousePosView.y - 50);
     std::stringstream ss;
-    ss << "(" <<this->mousePosView.x << "," << this->mousePosView.y << ")" << std::endl
+    ss << "(" << static_cast<int>(this->mousePosView.x) << "," << static_cast<int>(this->mousePosView.y) << ")" << std::endl
             << "(" <<this->mousePosGrid.x << "," << this->mousePosGrid.y << ")" << std::endl
             << "(" <<this->textureRect.left << "," << this->textureRect.top << ")" << std::endl
             << "Collision: " << this->collision << "\n" << "Type: " << this->type;
@@ -238,9 +238,8 @@ void EditorState::updatePauseMenuButtons() {
 void EditorState::render(sf::RenderTarget *target) {
 
     if(!target)
-    {
         target = this->window;
-    }
+
     target->setView(this->view);
     this->tileMap->render(*target);
     target->setView(this->window->getDefaultView());
@@ -252,6 +251,7 @@ void EditorState::render(sf::RenderTarget *target) {
     if (this->paused)
     {
         //Pause Menu Render
+        target->setView(this->window->getDefaultView());
         this->pmenu->render(*target);
 
     }
@@ -262,12 +262,17 @@ void EditorState::render(sf::RenderTarget *target) {
 
 
 void EditorState::renderGui(sf::RenderTarget& target) {
-    if (this->textureSelector->getActive())
+    if (!this->textureSelector->getActive()) {
+        target.setView(this->view);
         target.draw(this->selectorRect);
-
+    }
+    target.setView(this->window->getDefaultView());
     this->textureSelector->render(target);
-    target.draw(this->cursorText);
     target.draw(this->sidebar);
+
+    target.setView(this->view);
+    target.draw(this->cursorText);
+
 }
 
 void EditorState::renderButtons(sf::RenderTarget &target) {
