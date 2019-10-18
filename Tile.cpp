@@ -14,8 +14,8 @@ Tile::Tile(unsigned grid_x, unsigned grid_y, float gridSizeF, sf::Texture& textu
         bool collision , short type)
 {
     this->shape.setSize(sf::Vector2f(gridSizeF, gridSizeF));
-    this->shape.setFillColor(sf::Color(255, 153, 204));
-    //this->shape.setOutlineColor(sf::Color::Black);
+    this->shape.setFillColor(sf::Color::White);
+    //this->shape.setOutlineColor(sf::Color::Green);
     //this->shape.setOutlineThickness(1.f);
     this->shape.setPosition(static_cast<float>(grid_x) * gridSizeF, static_cast<float> (grid_y) * gridSizeF);
     this->shape.setTexture(&texture);

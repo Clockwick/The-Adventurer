@@ -133,7 +133,7 @@ void Game::initVariables() {
 
     this->window = NULL;
     this->deltaTime = 0.f;
-    this->gridSize = 100.f;
+    this->gridSize = 90.f;
 
 }
 
