@@ -180,6 +180,10 @@ SFML/Audio.hpp
 SFML/Network.hpp
 -
 
+/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.cpp
+EditorState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
+
 /Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
 State.h
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
