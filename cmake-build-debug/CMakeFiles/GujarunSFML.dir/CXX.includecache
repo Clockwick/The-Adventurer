@@ -124,13 +124,29 @@ SFML/Audio.hpp
 SFML/System.hpp
 -
 
+/Users/arthris/CLionProjects/GujarunSFML/Game.cpp
+Game.h
+/Users/arthris/CLionProjects/GujarunSFML/Game.h
+
+/Users/arthris/CLionProjects/GujarunSFML/Game.h
+States/mainmenuState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
+States/GameState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
+
 /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
 Precom.h
 /Users/arthris/CLionProjects/GujarunSFML/Precom.h
 
+/Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.cpp
+TileMap.h
+/Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
+
 /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
 ../Tile.h
 /Users/arthris/CLionProjects/GujarunSFML/Tile.h
+../Entities/Entity.h
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
 
 /Users/arthris/CLionProjects/GujarunSFML/Precom.h
 algorithm
@@ -174,6 +190,20 @@ SFML/Audio.hpp
 SFML/Network.hpp
 -
 
+/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.cpp
+EditorState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
+
+/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
+State.h
+/Users/arthris/CLionProjects/GujarunSFML/States/State.h
+../GUI.h
+/Users/arthris/CLionProjects/GujarunSFML/GUI.h
+../GUI/PauseMenu.h
+/Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
+../Map/TileMap.h
+/Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
+
 /Users/arthris/CLionProjects/GujarunSFML/States/GameState.cpp
 GameState.h
 /Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
@@ -186,15 +216,47 @@ State.h
 ../Map/TileMap.h
 /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
 
+/Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.h
+State.h
+/Users/arthris/CLionProjects/GujarunSFML/States/State.h
+../GUI.h
+/Users/arthris/CLionProjects/GujarunSFML/GUI.h
+
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
 ../Entities/Player.h
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
 ../GraphicsSettings.h
 /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
 
+/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.cpp
+mainmenuState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
+
+/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
+GameState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
+../GUI.h
+/Users/arthris/CLionProjects/GujarunSFML/GUI.h
+EditorState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
+SettingsState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.h
+../GraphicsSettings.h
+/Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
+
 /Users/arthris/CLionProjects/GujarunSFML/Tile.h
 Precom.h
 /Users/arthris/CLionProjects/GujarunSFML/Precom.h
+
+/Users/arthris/CLionProjects/GujarunSFML/main.cpp
+iostream
+-
+SFML/Graphics.hpp
+-
+States/State.h
+/Users/arthris/CLionProjects/GujarunSFML/States/State.h
+Game.h
+/Users/arthris/CLionProjects/GujarunSFML/Game.h
 
 /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 SFML/System.hpp

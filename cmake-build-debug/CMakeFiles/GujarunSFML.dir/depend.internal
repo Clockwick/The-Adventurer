@@ -969,6 +969,10 @@ CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o
+ /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
+ /Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.h
+ /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
+ /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.cpp
  /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
  /Users/arthris/CLionProjects/GujarunSFML/Precom.h

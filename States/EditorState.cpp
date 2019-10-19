@@ -51,7 +51,6 @@ void EditorState::initText() {
     cursorText.setCharacterSize(16);
     cursorText.setFillColor(sf::Color::White);
 
-
 }
 
 void EditorState::initGui() {
@@ -72,6 +71,7 @@ void EditorState::initGui() {
             this->state_data->gridSize, this->tileMap->getTileSheet(),
             this->font, "Edit"
             );
+
 }
 
 void EditorState::initTileMap() {

@@ -968,6 +968,10 @@ CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.o: /usr/local/cellar/sfml/2.5.1/
 CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
+CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Components/HitboxComponent.h
+CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Components/MovementComponent.h
+CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Entities/Entity.h
 CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Map/TileMap.cpp
 CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Map/TileMap.h
 CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Precom.h

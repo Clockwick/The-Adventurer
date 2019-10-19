@@ -34,6 +34,10 @@ TileMap::TileMap(float gridSize, unsigned width , unsigned height, std::string t
     {
         std::cout << "ERROR::TILEMAP::FAILED TO LOAD TILETEXTURESHEET" << std::endl;
     }
+    this->collisionBox.setSize(sf::Vector2f(gridSize, gridSize));
+    this->collisionBox.setFillColor(sf::Color(255,0,0,50));
+    this->collisionBox.setOutlineColor(sf::Color::Red);
+    this->collisionBox.setOutlineThickness(1.f);
 }
 
 TileMap::~TileMap()
@@ -81,7 +85,7 @@ void TileMap::update()
 
 }
 
-void TileMap::render(sf::RenderTarget &target)
+void TileMap::render(sf::RenderTarget &target,Entity *entity)
 {
     for (auto &x : this->map)
     {
@@ -91,9 +95,13 @@ void TileMap::render(sf::RenderTarget &target)
 
             for (auto *z : y)
             {
-                if (z != nullptr)
+                if (z != nullptr) {
                     z->render(target);
-
+                    if (z->getCollision()) {
+                        this->collisionBox.setPosition(z->getPosition());
+                        target.draw(this->collisionBox);
+                    }
+                }
             }
         }
 
@@ -242,6 +250,11 @@ void TileMap::clear() {
         this->map[x].clear();
     }
     this->map.clear();
+
+}
+
+void TileMap::updateCollision(Entity *entity) {
+
 
 }
 

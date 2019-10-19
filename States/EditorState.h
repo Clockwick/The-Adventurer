@@ -43,6 +43,7 @@ private:
     gui::TextureSelector* textureSelector;
     sf::RectangleShape sidebar;
     sf::View view;
+    sf::RectangleShape collisionBox;
     bool collision;
     short type;
     float cameraSpeed;

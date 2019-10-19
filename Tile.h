@@ -16,6 +16,9 @@ public:
     void update();
     void render(sf::RenderTarget& target);
     const std::string getAsString() const;
+    const sf::Vector2f& getPosition() const;
+    const bool& getCollision() const;
+
 protected:
     sf::RectangleShape shape;
     short type;
