@@ -17,6 +17,12 @@ TileMap::TileMap(float gridSize, unsigned width , unsigned height, std::string t
     this->layers = 1;
     this->textureFile = texture_file;
 
+    this->fromX = 0;
+    this->toX = 0;
+    this->fromY = 0;
+    this->toY = 0;
+    this->layer = 0;
+
     this->map.resize(this->maxSizeWorldGrid.x, std::vector <std::vector<Tile*>>());
     for (size_t x = 0; x < this->maxSizeWorldGrid.x;x++)
     {
@@ -280,6 +286,52 @@ void TileMap::updateCollision(Entity *entity) {
     }
 
     //Tiles
+    this->fromX = entity->getGridPosition(this->gridSizeU).x - 2;
+    if (this->fromX < 0)
+    {
+        this->fromX = 0;
+    }
+    else if (this->fromX >= this->maxSizeWorldGrid.x)
+    {
+        this->fromX = this->maxSizeWorldGrid.x;
+    }
+    if (this->fromY < 0)
+    {
+        this->fromY = 0;
+    }
+    else if (this->fromY >= this->maxSizeWorldGrid.y)
+    {
+        this->fromY = this->maxSizeWorldGrid.y;
+    }
+    if (this->toX < 0)
+    {
+        this->toX = 0;
+    }
+    else if (this->toX > this->maxSizeWorldGrid.x)
+    {
+        this->toX = this->maxSizeWorldGrid.x;
+    }
+    if (this->toY < 0)
+    {
+        this->toY = 0;
+    }
+    else if (this->toY > this->maxSizeWorldGrid.y)
+    {
+        this->toY = this->maxSizeWorldGrid.y;
+    }
+    this->toX = entity->getGridPosition(this->gridSizeU).x + 1;
+
+    this->fromY  = entity->getGridPosition(this->gridSizeU).y - 2;
+
+    this->toY = entity->getGridPosition(this->gridSizeU).y + 1;
+    if (this->)
+    for (size_t x = this->fromX; x < this->toX;x++)
+    {
+        for (size_t y = this->fromY; y < this->toY; y++)
+        {
+
+        }
+    }
 
 }
 

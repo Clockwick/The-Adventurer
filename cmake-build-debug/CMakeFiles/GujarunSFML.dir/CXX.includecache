@@ -42,10 +42,6 @@ SFML/Audio.hpp
 SFML/System.hpp
 -
 
-/Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.cpp
-MovementComponent.h
-/Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
-
 /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
 iostream
 -
@@ -150,10 +146,6 @@ States/GameState.h
 Precom.h
 /Users/arthris/CLionProjects/GujarunSFML/Precom.h
 
-/Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.cpp
-TileMap.h
-/Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
-
 /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
 ../Tile.h
 /Users/arthris/CLionProjects/GujarunSFML/Tile.h
@@ -202,10 +194,6 @@ SFML/Audio.hpp
 SFML/Network.hpp
 -
 
-/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.cpp
-EditorState.h
-/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
-
 /Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
 State.h
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
@@ -215,10 +203,6 @@ State.h
 /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
 ../Map/TileMap.h
 /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
-
-/Users/arthris/CLionProjects/GujarunSFML/States/GameState.cpp
-GameState.h
-/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
 
 /Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
 State.h

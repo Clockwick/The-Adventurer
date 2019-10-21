@@ -42,6 +42,14 @@ private:
     sf::RectangleShape collisionBox;
 
 
+    //Culling
+    int fromX;
+    int fromY;
+    int toX;
+    int toY;
+    int layer;
+
+
     void clear();
 
 

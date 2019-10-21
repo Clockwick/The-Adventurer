@@ -90,4 +90,17 @@ void Entity::stopVelocityY() {
         this->movementComponents->stopVelocityY();
 }
 
+const sf::Vector2u Entity::getGridPosition(const unsigned gridSizeU) {
+    if (this->hitboxComponents)
+        return sf::Vector2u(
+                static_cast<unsigned>(this->hitboxComponents->getPosition().x) / gridSizeU ,
+                static_cast<unsigned>(this->hitboxComponents->getPosition().y) / gridSizeU
+                );
+    return sf::Vector2u(
+            static_cast<unsigned>(this->sprite.getPosition().x) / gridSizeU ,
+            static_cast<unsigned>(this->sprite.getPosition().y) / gridSizeU
+    );
+
+}
+
 
