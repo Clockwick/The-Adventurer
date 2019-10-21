@@ -34,6 +34,7 @@ void Player::initComponents() {
 
 void Player::initVariables() {
     this->attacking = false;
+    this->sliding = false;
 }
 
 void Player::update(const float& dt)
@@ -76,6 +77,7 @@ void Player::updateAnimation(const float &dt)
 
     if (this->movementComponents->getState(SLIDE_RIGHT))
     {
+        this->sliding = true;
         this->sprite.setOrigin(0.f,0.f);
         this->sprite.setScale(1.f,1.f);
         this->createHitboxComponents(this->sprite, 12.f,21.f,29.f,15.f);
@@ -84,6 +86,7 @@ void Player::updateAnimation(const float &dt)
 
     else if (this->movementComponents->getState(SLIDE_LEFT))
     {
+        this->sliding = true;
         this->sprite.setOrigin(50.f,0.f);
         this->sprite.setScale(-1.f,1.f);
         this->createHitboxComponents(this->sprite, 8.f,21.f,29.f,15.f);
@@ -117,4 +120,11 @@ void Player::updateAnimation(const float &dt)
 
     this->hitboxComponents->update();
 
+}
+
+void Player::render(sf::RenderTarget& target) {
+    target.draw(this->sprite);
+
+    if (this->hitboxComponents)
+        this->hitboxComponents->render(target);
 }

@@ -42,6 +42,10 @@ SFML/Audio.hpp
 SFML/System.hpp
 -
 
+/Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.cpp
+MovementComponent.h
+/Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
+
 /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
 iostream
 -
@@ -66,6 +70,10 @@ SFML/Audio.hpp
 SFML/System.hpp
 -
 
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.cpp
+Entity.h
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
+
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
 ../Components/HitboxComponent.h
 /Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.h
@@ -73,6 +81,10 @@ SFML/System.hpp
 /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
 ../Components/AnimationComponent.h
 /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
+
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.cpp
+Player.h
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
 
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
 Entity.h
@@ -216,11 +228,19 @@ State.h
 ../Map/TileMap.h
 /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
 
+/Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.cpp
+SettingsState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.h
+
 /Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.h
 State.h
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
 ../GUI.h
 /Users/arthris/CLionProjects/GujarunSFML/GUI.h
+
+/Users/arthris/CLionProjects/GujarunSFML/States/State.cpp
+State.h
+/Users/arthris/CLionProjects/GujarunSFML/States/State.h
 
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
 ../Entities/Player.h

@@ -156,6 +156,20 @@ const bool MovementComponents::getState(const short unsigned state) const {
     return false;
 }
 
+void MovementComponents::stopVelocity() {
+    //Stop velocity
+    this->velocity.x = 0.f;
+    this->velocity.y = 0.f;
+}
+
+void MovementComponents::stopVelocityX() {
+    this->velocity.x = 0.f;
+}
+
+void MovementComponents::stopVelocityY() {
+    this->velocity.y = 0.f;
+}
+
 
 
 

@@ -36,7 +36,9 @@ public:
     const bool slide() const;
     const bool standstill() const;
     const bool isSit() const;
-
+    void stopVelocity();
+    void stopVelocityX();
+    void stopVelocityY();
 private:
     float maxVelocity;
     float acceleration;

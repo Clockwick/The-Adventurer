@@ -15,9 +15,12 @@ public:
     virtual ~Entity();
 
     //Functions
-    virtual void render(sf::RenderTarget& target);
-    virtual void update(const float &dt);
+    virtual void render(sf::RenderTarget& target) = 0;
+    virtual void update(const float &dt) = 0;
     virtual void move(const float x, const float y, const float &dt);
+    virtual void stopVelocity();
+    virtual void stopVelocityX();
+    virtual void stopVelocityY();
 
     void createMovementComponents(const float maxVelocity, const float acceleration, const float deceleration);
     void createAnimationComponents(sf::Texture& texture_sheet);
@@ -25,6 +28,7 @@ public:
             float offset_y, float width, float height);
     //Accessors
     virtual const sf::Vector2f& getPosition() const;
+    virtual const sf::FloatRect getGlobalBounds() const;
     //Modifiers
     virtual void setPosition(const float x ,const float y);
     //Component Functions

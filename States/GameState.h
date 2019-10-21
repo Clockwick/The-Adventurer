@@ -22,6 +22,7 @@ public:
     void updatePlayerInput(const float& dt);
     void updateInput(const float& dt);
     void updateView(const float& dt);
+    void updateTileMap(const float& dt);
 
 
 

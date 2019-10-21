@@ -34,6 +34,7 @@ void GameState::update(const float &dt) {
         this->updateView(dt);
         this->updatePlayerInput(dt);
         this->player->update(dt);
+        this->updateTileMap(dt);
 
     }
     else //Paused
@@ -151,6 +152,7 @@ void GameState::initView() {
 
 void GameState::updateView(const float &dt) {
     this->view.setCenter(this->player->getPosition());
+
 }
 
 void GameState::initDeferredRender() {
@@ -160,6 +162,11 @@ void GameState::initDeferredRender() {
             this->state_data->gfxSettings->resolution.width,
             this->state_data->gfxSettings->resolution.height)
             );
+}
+
+void GameState::updateTileMap(const float &dt) {
+    this->tileMap->update();
+    this->tileMap->updateCollision(this->player);
 }
 
 
