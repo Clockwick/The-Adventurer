@@ -420,6 +420,33 @@ Precom.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Precom.cpp.s
 .PHONY : Precom.cpp.s
 
+Sound/Sound.o: Sound/Sound.cpp.o
+
+.PHONY : Sound/Sound.o
+
+# target to build an object file
+Sound/Sound.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Sound/Sound.cpp.o
+.PHONY : Sound/Sound.cpp.o
+
+Sound/Sound.i: Sound/Sound.cpp.i
+
+.PHONY : Sound/Sound.i
+
+# target to preprocess a source file
+Sound/Sound.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Sound/Sound.cpp.i
+.PHONY : Sound/Sound.cpp.i
+
+Sound/Sound.s: Sound/Sound.cpp.s
+
+.PHONY : Sound/Sound.s
+
+# target to generate assembly for a file
+Sound/Sound.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Sound/Sound.cpp.s
+.PHONY : Sound/Sound.cpp.s
+
 States/EditorState.o: States/EditorState.cpp.o
 
 .PHONY : States/EditorState.o
@@ -651,6 +678,9 @@ help:
 	@echo "... Precom.o"
 	@echo "... Precom.i"
 	@echo "... Precom.s"
+	@echo "... Sound/Sound.o"
+	@echo "... Sound/Sound.i"
+	@echo "... Sound/Sound.s"
 	@echo "... States/EditorState.o"
 	@echo "... States/EditorState.i"
 	@echo "... States/EditorState.s"
