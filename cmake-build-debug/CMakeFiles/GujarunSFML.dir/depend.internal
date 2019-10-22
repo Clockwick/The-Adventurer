@@ -1186,6 +1186,52 @@ CMakeFiles/GujarunSFML.dir/Precom.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Window.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
+CMakeFiles/GujarunSFML.dir/Sound/Sound.cpp.o
+ /Users/arthris/CLionProjects/GujarunSFML/Sound/Sound.cpp
+ /Users/arthris/CLionProjects/GujarunSFML/Sound/Sound.h
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/InputSoundFile.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Listener.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Music.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/OutputSoundFile.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Sound.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundBuffer.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundBufferRecorder.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileFactory.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileFactory.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileReader.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileWriter.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundRecorder.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundSource.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundStream.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Config.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Clock.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Err.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Export.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/FileInputStream.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/InputStream.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Lock.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/MemoryInputStream.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Mutex.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/NonCopyable.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Sleep.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/String.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/String.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Thread.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Thread.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/ThreadLocal.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/ThreadLocalPtr.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/ThreadLocalPtr.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Time.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Utf.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Utf.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector2.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector2.inl
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector3.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector3.inl
 CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.h

@@ -5,6 +5,7 @@ Mainmenu::Mainmenu(StateData* state_data)
 : State(state_data)
 {
     this->initVariables();
+    this->initAudio();
     this->initBackground();
     this->initFonts();
     this->initButtons();
@@ -137,22 +138,27 @@ void Mainmenu::updateButtons() {
     }
     if (this->buttons["GAME_STATE"]->isPressed())
     {
+        this->soundBt.play();
+        this->musicBG.stop();
         this->states->push(new GameState(this->state_data));
 
     }
     if (this->buttons["SETTINGS_STATE"]->isPressed())
     {
+        this->soundBt.play();
         this->states->push(new SettingsState(this->state_data));
     }
 
     if (this->buttons["EDITOR_STATE"]->isPressed())
     {
+        this->soundBt.play();
         this->states->push(new EditorState(this->state_data));
 
     }
 
     if (this->buttons["EXIT_STATE"]->isPressed())
     {
+        this->soundBt.play();
         this->endState();
     }
 
@@ -164,6 +170,16 @@ void Mainmenu::renderButtons(sf::RenderTarget &target) {
 
         it.second->render(target) ;
     }
+}
+
+void Mainmenu::initAudio() {
+    this->soundBufferBt.loadFromFile("resources/Audio/buttonclick.wav");
+    this->soundBt.setBuffer(soundBufferBt);
+
+    //Init Background Audio
+    this->musicBG.openFromFile("resources/Audio/Theforestawake.ogg");
+    this->musicBG.play();
+
 }
 
 

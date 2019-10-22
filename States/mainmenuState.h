@@ -28,11 +28,19 @@ private:
     gui::Button* gamestates_btn;
     std::map <std::string, gui::Button*> buttons;
     sf::Texture backgroundTexture;
+
+    //Audio
+
+    sf::Sound soundBt;
+    sf::SoundBuffer soundBufferBt;
+    sf::Music musicBG;
     //Functions
     void initFonts();
     void initButtons();
     void initBackground();
     void initVariables();
+    void initAudio();
+
 
 
 };
