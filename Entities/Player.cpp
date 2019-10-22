@@ -7,6 +7,7 @@
 Player::Player(float x,  float y,sf::Texture& texture_sheet) {
 
     this->initVariables();
+    this->initAudio();
     this->setPosition(x , y);
 
     this->initComponents();
@@ -53,6 +54,7 @@ void Player::updateAttack()
     if(this->movementComponents->getState(ATTACK))
     {
         this->attacking = true;
+        this->swordSound.play();
         //this->createHitboxComponents(this->sprite,15.f,5.f,31.f,30.f);
     }
 
@@ -128,3 +130,10 @@ void Player::render(sf::RenderTarget& target) {
     if (this->hitboxComponents)
         this->hitboxComponents->render(target);
 }
+
+void Player::initAudio() {
+    this->swordSoundBF.loadFromFile("resources/Audio/swordswing.wav");
+    this->swordSound.setBuffer(swordSoundBF);
+
+}
+

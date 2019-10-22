@@ -153,6 +153,12 @@ void GameState::initView() {
 void GameState::updateView(const float &dt) {
     this->view.setCenter(this->player->getPosition());
 
+    if (this->player->sliding)
+    {
+        this->player->sliding = false;
+        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y - 15.f);
+    }
+
 }
 
 void GameState::initDeferredRender() {

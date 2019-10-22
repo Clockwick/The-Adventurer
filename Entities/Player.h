@@ -15,19 +15,21 @@ public:
     void updateAttack();
     void updateAnimation(const float& dt);
     void update(const float& dt);
-
     void render(sf::RenderTarget& target);
-
 
     //Variables
     bool sliding;
 private:
     void initVariables();
     void initComponents();
+    void initAudio();
 private:
     bool attacking;
 
 
+    //Audio
+    sf::SoundBuffer swordSoundBF;
+    sf::Sound swordSound;
 
 
 

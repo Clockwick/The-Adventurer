@@ -176,15 +176,9 @@ SFML/Audio.hpp
 SFML/Network.hpp
 -
 
-/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
-State.h
-/Users/arthris/CLionProjects/GujarunSFML/States/State.h
-../GUI.h
-/Users/arthris/CLionProjects/GujarunSFML/GUI.h
-../GUI/PauseMenu.h
-/Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
-../Map/TileMap.h
-/Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
+/Users/arthris/CLionProjects/GujarunSFML/States/GameState.cpp
+GameState.h
+/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
 
 /Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
 State.h
@@ -193,32 +187,10 @@ State.h
 /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
 ../Map/TileMap.h
 /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
-
-/Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.h
-State.h
-/Users/arthris/CLionProjects/GujarunSFML/States/State.h
-../GUI.h
-/Users/arthris/CLionProjects/GujarunSFML/GUI.h
 
 /Users/arthris/CLionProjects/GujarunSFML/States/State.h
 ../Entities/Player.h
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
-../GraphicsSettings.h
-/Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
-
-/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.cpp
-mainmenuState.h
-/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
-
-/Users/arthris/CLionProjects/GujarunSFML/States/mainmenuState.h
-GameState.h
-/Users/arthris/CLionProjects/GujarunSFML/States/GameState.h
-../GUI.h
-/Users/arthris/CLionProjects/GujarunSFML/GUI.h
-EditorState.h
-/Users/arthris/CLionProjects/GujarunSFML/States/EditorState.h
-SettingsState.h
-/Users/arthris/CLionProjects/GujarunSFML/States/SettingsState.h
 ../GraphicsSettings.h
 /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
 

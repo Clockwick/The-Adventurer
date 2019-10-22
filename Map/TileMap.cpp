@@ -324,7 +324,6 @@ void TileMap::updateCollision(Entity *entity) {
     this->fromY  = entity->getGridPosition(this->gridSizeU).y - 2;
 
     this->toY = entity->getGridPosition(this->gridSizeU).y + 1;
-    if (this->)
     for (size_t x = this->fromX; x < this->toX;x++)
     {
         for (size_t y = this->fromY; y < this->toY; y++)
