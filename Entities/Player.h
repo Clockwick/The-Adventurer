@@ -19,6 +19,7 @@ public:
 
     //Variables
     bool sliding;
+    bool sitting;
 private:
     void initVariables();
     void initComponents();

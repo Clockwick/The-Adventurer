@@ -36,6 +36,7 @@ void Player::initComponents() {
 void Player::initVariables() {
     this->attacking = false;
     this->sliding = false;
+    this->sitting = false;
 }
 
 void Player::update(const float& dt)
@@ -113,6 +114,7 @@ void Player::updateAnimation(const float &dt)
     }
     else if (this->movementComponents->getState(SIT))
     {
+        this->sitting = true;
         this->createHitboxComponents(this->sprite, 15.f , 15.f, 20.f, 20.f);
         this->animationComponents->play("SIT", dt);
     }
