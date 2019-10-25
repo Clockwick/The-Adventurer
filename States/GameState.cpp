@@ -139,7 +139,7 @@ void GameState::updatePauseMenuButtons() {
 }
 
 void GameState::initTileMap() {
-    this->tileMap = new TileMap(this->state_data->gridSize, 10,10, "resources/images/Assets/Map/16x16/Tile/DefaultTerrainFit.png");
+    this->tileMap = new TileMap(this->state_data->gridSize, 10,10, "resources/images/Assets/Map/16x16/Tile/TerrainSet.png");
     this->tileMap->loadFromFile("text.slmp");
 }
 
