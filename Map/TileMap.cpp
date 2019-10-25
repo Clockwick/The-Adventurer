@@ -293,8 +293,18 @@ void TileMap::updateCollision(Entity *entity) {
     }
     else if (this->fromX >= this->maxSizeWorldGrid.x)
     {
-        this->fromX = this->maxSizeWorldGrid.x;
+        this->fromX = this->maxSizeWorldGrid.x - 1;
     }
+    this->toX = entity->getGridPosition(this->gridSizeU).x + 1;
+    if (this->toX < 0)
+    {
+        this->toX = 0;
+    }
+    else if (this->toX > this->maxSizeWorldGrid.x)
+    {
+        this->toX = this->maxSizeWorldGrid.x - 1;
+    }
+    this->fromY  = entity->getGridPosition(this->gridSizeU).y - 2;
     if (this->fromY < 0)
     {
         this->fromY = 0;
@@ -303,14 +313,7 @@ void TileMap::updateCollision(Entity *entity) {
     {
         this->fromY = this->maxSizeWorldGrid.y;
     }
-    if (this->toX < 0)
-    {
-        this->toX = 0;
-    }
-    else if (this->toX > this->maxSizeWorldGrid.x)
-    {
-        this->toX = this->maxSizeWorldGrid.x;
-    }
+    this->toY = entity->getGridPosition(this->gridSizeU).y + 1;
     if (this->toY < 0)
     {
         this->toY = 0;
@@ -319,11 +322,15 @@ void TileMap::updateCollision(Entity *entity) {
     {
         this->toY = this->maxSizeWorldGrid.y;
     }
-    this->toX = entity->getGridPosition(this->gridSizeU).x + 1;
 
-    this->fromY  = entity->getGridPosition(this->gridSizeU).y - 2;
 
-    this->toY = entity->getGridPosition(this->gridSizeU).y + 1;
+
+
+
+
+    //Debug
+    std::cout << this->fromX << " " << this->toX << "\n";
+    std::cout << this->fromY << " " << this->toY << "\n";
     for (size_t x = this->fromX; x < this->toX;x++)
     {
         for (size_t y = this->fromY; y < this->toY; y++)
