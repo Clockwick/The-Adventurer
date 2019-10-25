@@ -95,25 +95,73 @@ void TileMap::update()
 
 void TileMap::render(sf::RenderTarget &target,Entity *entity)
 {
-    for (auto &x : this->map)
+    this->layer = 0;
+    this->fromX = entity->getGridPosition(this->gridSizeU).x - 2;
+    if (this->fromX < 0)
     {
-
-        for (auto &y : x)
+        this->fromX = 0;
+    }
+    else if (this->fromX >= this->maxSizeWorldGrid.x)
+    {
+        this->fromX = this->maxSizeWorldGrid.x - 1;
+    }
+    this->toX = entity->getGridPosition(this->gridSizeU).x + 1;
+    if (this->toX < 0)
+    {
+        this->toX = 0;
+    }
+    else if (this->toX > this->maxSizeWorldGrid.x)
+    {
+        this->toX = this->maxSizeWorldGrid.x - 1;
+    }
+    this->fromY  = entity->getGridPosition(this->gridSizeU).y - 2;
+    if (this->fromY < 0)
+    {
+        this->fromY = 0;
+    }
+    else if (this->fromY >= this->maxSizeWorldGrid.y)
+    {
+        this->fromY = this->maxSizeWorldGrid.y;
+    }
+    this->toY = entity->getGridPosition(this->gridSizeU).y + 1;
+    if (this->toY < 0)
+    {
+        this->toY = 0;
+    }
+    else if (this->toY > this->maxSizeWorldGrid.y)
+    {
+        this->toY = this->maxSizeWorldGrid.y;
+    }
+    for (size_t x = this->fromX; x < this->toX;x++)
+    {
+        for (size_t y = this->fromY; y < this->toY; y++)
         {
-
-            for (auto *z : y)
-            {
-                if (z != nullptr) {
-                    z->render(target);
-                    if (z->getCollision()) {
-                        this->collisionBox.setPosition(z->getPosition());
-                        target.draw(this->collisionBox);
-                    }
-                }
+            this->map[x][y][this->layer]->render(target);
+            if (this->map[x][y][this->layer]->getCollision()) {
+                this->collisionBox.setPosition(this->map[x][y][this->layer]->getPosition());
+                target.draw(this->collisionBox);
             }
         }
-
     }
+//    for (auto &x : this->map)
+//    {
+//
+//        for (auto &y : x)
+//        {
+//
+//            for (auto *z : y)
+//            {
+//                if (z != nullptr) {
+//                    z->render(target);
+//                    if (z->getCollision()) {
+//                        this->collisionBox.setPosition(z->getPosition());
+//                        target.draw(this->collisionBox);
+//                    }
+//                }
+//            }
+//        }
+//
+//    }
 }
 
 const sf::Texture *TileMap::getTileSheet() const
@@ -286,6 +334,7 @@ void TileMap::updateCollision(Entity *entity) {
     }
 
     //Tiles
+    this->layer = 0;
     this->fromX = entity->getGridPosition(this->gridSizeU).x - 2;
     if (this->fromX < 0)
     {
