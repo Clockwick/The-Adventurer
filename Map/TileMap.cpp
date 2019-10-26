@@ -332,7 +332,7 @@ void TileMap::render(sf::RenderTarget &target,Entity *entity) {
             {
                 if (this->map[x][y][this->layer]->getCollision() && this->map[x][y][this->layer]->intersects(entity->getGlobalBounds()))
                 {
-                    std::cout << "Collide" << std::endl;
+                    std::cout << "COLLISION!!" << std::endl;
                 }
             }
         }

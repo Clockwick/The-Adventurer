@@ -42,6 +42,7 @@ private:
     sf::RectangleShape collisionBox;
 
 
+
     //Culling
     int fromX;
     int fromY;

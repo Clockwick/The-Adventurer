@@ -111,6 +111,7 @@ void EditorState::update(const float &dt) {
         this->updateButtons();
         this->updateGui(dt);
         this->updateEditorInput(dt);
+//        std::cout << "Collision in Editor: " << this->collision << std::endl;
     }
     else //Paused
     {
@@ -253,6 +254,7 @@ void EditorState::render(sf::RenderTarget *target) {
         //Pause Menu Render
         target->setView(this->window->getDefaultView());
         this->pmenu->render(*target);
+
 
     }
 

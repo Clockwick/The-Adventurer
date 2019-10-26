@@ -19,7 +19,7 @@ Tile::Tile(unsigned grid_x, unsigned grid_y, float gridSizeF, sf::Texture& textu
     this->shape.setTexture(&texture);
     this->shape.setTextureRect(texture_rect);
 
-    this->collision = false;
+    this->collision = collision;
     this->type = 0;
 
 }
@@ -48,12 +48,15 @@ const std::string Tile::getAsString() const {
     return ss.str();
 }
 //Accessors
-const sf::Vector2f &Tile::getPosition() const {
-    return this->shape.getPosition();
-}
+
 const bool &Tile::getCollision() const {
     return this->collision;
 }
+
+const sf::Vector2f &Tile::getPosition() const {
+    return this->shape.getPosition();
+}
+
 
 const bool Tile::intersects(const sf::FloatRect bounds) const {
     return this->shape.getGlobalBounds().intersects(bounds);

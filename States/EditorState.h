@@ -13,7 +13,7 @@ class GUI;
 class TileMap;
 class PauseMenu;
 class State;
-
+class Tile;
 
 class EditorState : public State
 {
@@ -45,9 +45,9 @@ private:
     sf::RectangleShape sidebar;
     sf::View view;
     sf::RectangleShape collisionBox;
-    bool collision;
     short type;
     float cameraSpeed;
+    bool collision;
 
     //Functions
     //Init
@@ -65,7 +65,7 @@ private:
     void updatePauseMenuButtons();
 
 
-private:
+protected:
 
 };
 #endif //GUJARUNSFML_EDITORSTATE_H
