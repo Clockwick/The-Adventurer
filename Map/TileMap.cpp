@@ -93,302 +93,252 @@ void TileMap::update()
 
 }
 
-void TileMap::render(sf::RenderTarget &target,Entity *entity)
-{
-    this->layer = 0;
-    this->fromX = entity->getGridPosition(this->gridSizeU).x - 2;
-    if (this->fromX < 0)
-    {
-        this->fromX = 0;
-    }
-    else if (this->fromX >= this->maxSizeWorldGrid.x)
-    {
-        this->fromX = this->maxSizeWorldGrid.x - 1;
-    }
-    this->toX = entity->getGridPosition(this->gridSizeU).x + 1;
-    if (this->toX < 0)
-    {
-        this->toX = 0;
-    }
-    else if (this->toX > this->maxSizeWorldGrid.x)
-    {
-        this->toX = this->maxSizeWorldGrid.x - 1;
-    }
-    this->fromY  = entity->getGridPosition(this->gridSizeU).y - 2;
-    if (this->fromY < 0)
-    {
-        this->fromY = 0;
-    }
-    else if (this->fromY >= this->maxSizeWorldGrid.y)
-    {
-        this->fromY = this->maxSizeWorldGrid.y;
-    }
-    this->toY = entity->getGridPosition(this->gridSizeU).y + 1;
-    if (this->toY < 0)
-    {
-        this->toY = 0;
-    }
-    else if (this->toY > this->maxSizeWorldGrid.y)
-    {
-        this->toY = this->maxSizeWorldGrid.y;
-    }
-    for (size_t x = this->fromX; x < this->toX;x++)
-    {
-        for (size_t y = this->fromY; y < this->toY; y++)
-        {
-            this->map[x][y][this->layer]->render(target);
-            if (this->map[x][y][this->layer]->getCollision()) {
-                this->collisionBox.setPosition(this->map[x][y][this->layer]->getPosition());
-                target.draw(this->collisionBox);
+void TileMap::render(sf::RenderTarget &target,Entity *entity) {
+        if (entity) {
+            this->layer = 0;
+            this->fromX = entity->getGridPosition(this->gridSizeU).x - 1;
+            if (this->fromX < 2) {
+                this->fromX = 2;
+            } else if (this->fromX > this->maxSizeWorldGrid.x) {
+                this->fromX = this->maxSizeWorldGrid.x;
             }
-        }
-    }
-//    for (auto &x : this->map)
-//    {
-//
-//        for (auto &y : x)
-//        {
-//
-//            for (auto *z : y)
-//            {
-//                if (z != nullptr) {
-//                    z->render(target);
-//                    if (z->getCollision()) {
-//                        this->collisionBox.setPosition(z->getPosition());
-//                        target.draw(this->collisionBox);
-//                    }
-//                }
-//            }
-//        }
-//
-//    }
-}
+            this->toX = entity->getGridPosition(this->gridSizeU).x + 3;
+            if (this->toX < 0) {
+                this->toX = 0;
+            } else if (this->toX > this->maxSizeWorldGrid.x) {
+                this->toX = this->maxSizeWorldGrid.x;
+            }
+            this->fromY = entity->getGridPosition(this->gridSizeU).y - 1;
+            if (this->fromY < 0) {
+                this->fromY = 0;
+            } else if (this->fromY > this->maxSizeWorldGrid.y) {
+                this->fromY = this->maxSizeWorldGrid.y;
+            }
+            this->toY = entity->getGridPosition(this->gridSizeU).y + 3;
+            if (this->toY < 0) {
+                this->toY = 0;
+            } else if (this->toY > this->maxSizeWorldGrid.y) {
+                this->toY = this->maxSizeWorldGrid.y;
+            }
 
-const sf::Texture *TileMap::getTileSheet() const
-{
-    return &this->tileSheet;
-}
-
-void TileMap::saveToFile(const std::string file_name) {
-    /*Save Tilemap to text file
-    Format:
-     Size x y
-     gridSize
-     layers
-     texture_file
-
-     All tiles:
-     gridPos x y layer, Texture rect x y, collision ,type
-     */
-
-    std::ofstream out_file;
-    out_file.open(file_name);
-
-    if (out_file.is_open())
-    {
-        out_file << this->maxSizeWorldGrid.x << " " << this->maxSizeWorldGrid.y << std::endl
-         << this->gridSizeU << std::endl
-         << this->layers << std::endl
-         << this->textureFile << std::endl;
-
-        for (size_t x = 0; x < this->maxSizeWorldGrid.x;x++)
-        {
-
-            for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
-            {
-
-                for (size_t z = 0; z < this->layers; z++)
-                {
-                    if (this->map[x][y][z])
-                        out_file << x << " " << y << " " << z << " " << this->map[x][y][z]->getAsString() << " "; //Last space must not saved
+            for (size_t x = this->fromX; x < this->toX; x++) {
+                for (size_t y = this->fromY; y < this->toY; y++) {
+                    this->map[x][y][this->layer]->render(target);
+                    if (this->map[x][y][this->layer]->getCollision()) {
+                        this->collisionBox.setPosition(this->map[x][y][this->layer]->getPosition());
+                        target.draw(this->collisionBox);
+                    }
                 }
             }
         }
-    }
-    else
-    {
-        std::cout << "ERROR::TILEMAP::COULD NOT SAVE TO FILE::FILENAME: " << file_name << std::endl;
 
-    }
-    out_file.close();
+        else {
+            for (auto &x : this->map) {
+
+                for (auto &y : x) {
+
+                    for (auto *z : y) {
+                        if (z != nullptr) {
+                            z->render(target);
+                            if (z->getCollision()) {
+                                this->collisionBox.setPosition(z->getPosition());
+                                target.draw(this->collisionBox);
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
 
 }
 
-void TileMap::loadFromFile(const std::string file_name) {
-    std::ifstream in_file;
-    in_file.open(file_name);
 
-    if (in_file.is_open())
-    {
-        sf::Vector2i size;
-        unsigned gridSize = 0;
-        unsigned layers = 0;
-        std::string texture_file = "I love Thanunchai";
-        unsigned x = 0;
-        unsigned y = 0;
-        unsigned z = 0;
-        unsigned trX = 0;
-        unsigned trY = 0;
-        bool collision = false;
-        short type = 0;
+    const sf::Texture *TileMap::getTileSheet() const {
+        return &this->tileSheet;
+    }
 
-        //Basic Loading
-        in_file >> size.x >> size.y >> gridSize >> layers >> texture_file;
+    void TileMap::saveToFile(const std::string file_name) {
+        /*Save Tilemap to text file
+        Format:
+         Size x y
+         gridSize
+         layers
+         texture_file
 
-        //Tiles
+         All tiles:
+         gridPos x y layer, Texture rect x y, collision ,type
+         */
 
-        this->gridSizeU = gridSize;
-        this->gridSizeF = static_cast<float>(gridSize);
-        this->maxSizeWorldGrid.x = size.x;
-        this->maxSizeWorldGrid.y = size.y;
-        this->layers = layers;
-        this->textureFile = texture_file;
+        std::ofstream out_file;
+        out_file.open(file_name);
 
-        this->clear();
+        if (out_file.is_open()) {
+            out_file << this->maxSizeWorldGrid.x << " " << this->maxSizeWorldGrid.y << std::endl
+                     << this->gridSizeU << std::endl
+                     << this->layers << std::endl
+                     << this->textureFile << std::endl;
 
-        this->map.resize(this->maxSizeWorldGrid.x, std::vector <std::vector<Tile*>>());
-        for (size_t x = 0; x < this->maxSizeWorldGrid.x;x++)
+            for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++) {
+
+                for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++) {
+
+                    for (size_t z = 0; z < this->layers; z++) {
+                        if (this->map[x][y][z])
+                            out_file << x << " " << y << " " << z << " " << this->map[x][y][z]->getAsString()
+                                     << " "; //Last space must not saved
+                    }
+                }
+            }
+        } else {
+            std::cout << "ERROR::TILEMAP::COULD NOT SAVE TO FILE::FILENAME: " << file_name << std::endl;
+
+        }
+        out_file.close();
+
+    }
+
+    void TileMap::loadFromFile(const std::string file_name) {
+        std::ifstream in_file;
+        in_file.open(file_name);
+
+        if (in_file.is_open()) {
+            sf::Vector2i size;
+            unsigned gridSize = 0;
+            unsigned layers = 0;
+            std::string texture_file = "I love Thanunchai";
+            unsigned x = 0;
+            unsigned y = 0;
+            unsigned z = 0;
+            unsigned trX = 0;
+            unsigned trY = 0;
+            bool collision = false;
+            short type = 0;
+
+            //Basic Loading
+            in_file >> size.x >> size.y >> gridSize >> layers >> texture_file;
+
+            //Tiles
+
+            this->gridSizeU = gridSize;
+            this->gridSizeF = static_cast<float>(gridSize);
+            this->maxSizeWorldGrid.x = size.x;
+            this->maxSizeWorldGrid.y = size.y;
+            this->layers = layers;
+            this->textureFile = texture_file;
+
+            this->clear();
+
+            this->map.resize(this->maxSizeWorldGrid.x, std::vector<std::vector<Tile *>>());
+            for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++) {
+
+                for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++) {
+                    this->map[x].resize(this->maxSizeWorldGrid.y, std::vector<Tile *>());
+
+                    for (size_t z = 0; z < this->layers; z++) {
+                        this->map[x][y].resize(this->layers, nullptr);
+
+                    }
+                }
+            }
+            if (!this->tileSheet.loadFromFile(texture_file)) {
+                std::cout << "ERROR::TILEMAP::FAILED TO LOAD TILE_TEXTURE_SHEET." << std::endl;
+            }
+
+            //Load All Tiles
+            while (in_file >> x >> y >> z >> trX >> trY >> collision >> type) {
+                this->map[x][y][z] = new Tile(x, y,
+                                              this->gridSizeF, this->tileSheet,
+                                              sf::IntRect(trX, trY, this->gridSizeU, this->gridSizeU),
+                                              collision, type);
+
+            }
+
+
+        } else {
+            std::cout << "ERROR::TILEMAP::COULD NOT LOAD FROM FILE::FILENAME: " << file_name << std::endl;
+
+        }
+        in_file.close();
+    }
+
+    void TileMap::clear() {
+        for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++) {
+            this->map.push_back(std::vector<std::vector<Tile *>>());
+
+            for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++) {
+                this->map[x].resize(this->maxSizeWorldGrid.y);
+                this->map[x].push_back(std::vector<Tile *>());
+
+                for (size_t z = 0; z < this->layers; z++) {
+                    delete this->map[x][y][z];
+                    this->map[x][y][z] = nullptr;
+                }
+                this->map[x][y].clear();
+            }
+            this->map[x].clear();
+        }
+        this->map.clear();
+
+    }
+
+    void TileMap::updateCollision(Entity *entity) {
+
+        //World Bounds
+        if (entity->getPosition().x < 180.f) {
+            entity->setPosition(180.f, entity->getPosition().y);
+            entity->stopVelocityX();
+        } else if (entity->getPosition().x + entity->getGlobalBounds().width > this->maxSizeWorldF.x + 25) {
+            entity->setPosition(this->maxSizeWorldF.x - entity->getGlobalBounds().width + 25, entity->getPosition().y);
+            entity->stopVelocityX();
+        }
+        if (entity->getPosition().y < 0.f) {
+            entity->setPosition(entity->getPosition().x + entity->getGlobalBounds().height, 0.f);
+            entity->stopVelocityY();
+        } else if (entity->getPosition().y > this->maxSizeWorldF.y) {
+            entity->setPosition(entity->getPosition().x, this->maxSizeWorldF.y - entity->getGlobalBounds().height);
+            entity->stopVelocityY();
+        }
+
+        // Tiles
+        this->layer = 0;
+        this->fromX = entity->getGridPosition(this->gridSizeU).x - 1;
+        if (this->fromX < 2) {
+            this->fromX = 2;
+        } else if (this->fromX > this->maxSizeWorldGrid.x) {
+            this->fromX = this->maxSizeWorldGrid.x;
+        }
+        this->toX = entity->getGridPosition(this->gridSizeU).x + 3;
+        if (this->toX < 0) {
+            this->toX = 0;
+        } else if (this->toX > this->maxSizeWorldGrid.x) {
+            this->toX = this->maxSizeWorldGrid.x;
+        }
+        this->fromY = entity->getGridPosition(this->gridSizeU).y - 1;
+        if (this->fromY < 0) {
+            this->fromY = 0;
+        } else if (this->fromY > this->maxSizeWorldGrid.y) {
+            this->fromY = this->maxSizeWorldGrid.y;
+        }
+        this->toY = entity->getGridPosition(this->gridSizeU).y + 3;
+        if (this->toY < 0) {
+            this->toY = 0;
+        } else if (this->toY > this->maxSizeWorldGrid.y) {
+            this->toY = this->maxSizeWorldGrid.y;
+        }
+        for (size_t x = fromX; x < this->toX; x++)
         {
-
-            for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
+            for (size_t y = fromY ; y  < this->toY; y++)
             {
-                this->map[x].resize(this->maxSizeWorldGrid.y,std::vector<Tile*>());
-
-                for (size_t z = 0; z < this->layers; z++)
+                if (this->map[x][y][this->layer]->getCollision() && this->map[x][y][this->layer]->intersects(entity->getGlobalBounds()))
                 {
-                    this->map[x][y].resize(this->layers, nullptr);
-
+                    std::cout << "Collide" << std::endl;
                 }
             }
         }
-        if (!this->tileSheet.loadFromFile(texture_file))
-        {
-            std::cout << "ERROR::TILEMAP::FAILED TO LOAD TILE_TEXTURE_SHEET." << std::endl;
-        }
-
-        //Load All Tiles
-        while (in_file >> x >> y >> z >> trX >> trY >> collision >> type)
-        {
-            this->map[x][y][z] = new Tile(x ,y ,
-                    this->gridSizeF, this->tileSheet,
-                    sf::IntRect(trX, trY, this->gridSizeU, this->gridSizeU),
-                    collision, type);
-
-        }
 
 
     }
-    else
-    {
-        std::cout << "ERROR::TILEMAP::COULD NOT LOAD FROM FILE::FILENAME: " << file_name << std::endl;
-
-    }
-    in_file.close();
-}
-
-void TileMap::clear() {
-    for (size_t x = 0; x < this->maxSizeWorldGrid.x;x++)
-    {
-        this->map.push_back(std::vector <std::vector<Tile*>>());
-
-        for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
-        {
-            this->map[x].resize(this->maxSizeWorldGrid.y);
-            this->map[x].push_back(std::vector<Tile*>());
-
-            for (size_t z = 0; z < this->layers; z++)
-            {
-                delete this->map[x][y][z];
-                this->map[x][y][z] = nullptr;
-            }
-            this->map[x][y].clear();
-        }
-        this->map[x].clear();
-    }
-    this->map.clear();
-
-}
-
-void TileMap::updateCollision(Entity *entity) {
-
-    //World Bounds
-    if (entity->getPosition().x < 0.f)
-    {
-       entity->setPosition(0.f, entity->getPosition().y);
-       entity->stopVelocityX();
-    }
-    else if (entity->getPosition().x + entity->getGlobalBounds().width> this->maxSizeWorldF.x)
-    {
-        entity->setPosition(this->maxSizeWorldF.x - entity->getGlobalBounds().width, entity->getPosition().y );
-        entity->stopVelocityX();
-    }
-    if (entity->getPosition().y < 0.f)
-    {
-        entity->setPosition(entity->getPosition().x + entity->getGlobalBounds().height, 0.f);
-        entity->stopVelocityY();
-    }
-    else if (entity->getPosition().y > this->maxSizeWorldF.y)
-    {
-        entity->setPosition(entity->getPosition().x, this->maxSizeWorldF.y - entity->getGlobalBounds().height);
-        entity->stopVelocityY();
-    }
-
-    //Tiles
-    this->layer = 0;
-    this->fromX = entity->getGridPosition(this->gridSizeU).x - 2;
-    if (this->fromX < 0)
-    {
-        this->fromX = 0;
-    }
-    else if (this->fromX >= this->maxSizeWorldGrid.x)
-    {
-        this->fromX = this->maxSizeWorldGrid.x - 1;
-    }
-    this->toX = entity->getGridPosition(this->gridSizeU).x + 1;
-    if (this->toX < 0)
-    {
-        this->toX = 0;
-    }
-    else if (this->toX > this->maxSizeWorldGrid.x)
-    {
-        this->toX = this->maxSizeWorldGrid.x - 1;
-    }
-    this->fromY  = entity->getGridPosition(this->gridSizeU).y - 2;
-    if (this->fromY < 0)
-    {
-        this->fromY = 0;
-    }
-    else if (this->fromY >= this->maxSizeWorldGrid.y)
-    {
-        this->fromY = this->maxSizeWorldGrid.y;
-    }
-    this->toY = entity->getGridPosition(this->gridSizeU).y + 1;
-    if (this->toY < 0)
-    {
-        this->toY = 0;
-    }
-    else if (this->toY > this->maxSizeWorldGrid.y)
-    {
-        this->toY = this->maxSizeWorldGrid.y;
-    }
-
-
-
-
-
-
-    //Debug
-    std::cout << this->fromX << " " << this->toX << "\n";
-    std::cout << this->fromY << " " << this->toY << "\n";
-    for (size_t x = this->fromX; x < this->toX;x++)
-    {
-        for (size_t y = this->fromY; y < this->toY; y++)
-        {
-
-        }
-    }
-
-}
 
 
 

@@ -146,28 +146,7 @@ void EditorState::updateButtons() {
 
 void EditorState::updateEditorInput(const float &dt) {
 
-    //Add tile
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeyTime()) {
-        if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(this->mousePosWindow))) {
-            if (!this->textureSelector->getActive())
-            {
-                this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect, this->collision, this->type);
 
-            } else {
-                this->textureRect = this->textureSelector->getTextureRect();
-            }
-        }
-    }
-    //Remove tile
-    else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeyTime()) {
-        if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(this->mousePosWindow))) {
-            if (!this->textureSelector->getActive())
-            {
-                this->tileMap->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
-
-            }
-        }
-    }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::C) && this->getKeyTime())
     {
         if(this->collision)
@@ -202,7 +181,28 @@ void EditorState::updateEditorInput(const float &dt) {
         this->view.move(this->cameraSpeed * dt, 0);
     }
 
+//Add tile
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeyTime()) {
+        if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(this->mousePosWindow))) {
+            if (!this->textureSelector->getActive())
+            {
+                this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect, this->collision, this->type);
 
+            } else {
+                this->textureRect = this->textureSelector->getTextureRect();
+            }
+        }
+    }
+        //Remove tile
+    else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeyTime()) {
+        if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(this->mousePosWindow))) {
+            if (!this->textureSelector->getActive())
+            {
+                this->tileMap->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+
+            }
+        }
+    }
 
 }
 void EditorState::updateGui(const float& dt) {
