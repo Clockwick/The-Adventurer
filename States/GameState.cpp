@@ -82,6 +82,15 @@ void GameState::updatePlayerInput(const float &dt) {
     {
         this->player->move(1.0f, 0.0f, dt);
     }
+//    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+//    {
+//        this->player->move(0.0f, -1.0f, dt);
+//    }
+//    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+//    {
+//        this->player->move(0.f, 1.0f, dt);
+//    }
+
 
 
 }
@@ -139,7 +148,7 @@ void GameState::updatePauseMenuButtons() {
 }
 
 void GameState::initTileMap() {
-    this->tileMap = new TileMap(this->state_data->gridSize, 10,10, "resources/images/Assets/Map/16x16/Tile/TerrainSet.png");
+    this->tileMap = new TileMap(this->state_data->gridSize, 100,100, "resources/images/Assets/Map/16x16/Tile/TerrainSet.png");
     this->tileMap->loadFromFile("text.slmp");
 }
 
@@ -177,7 +186,7 @@ void GameState::initDeferredRender() {
 
 void GameState::updateTileMap(const float &dt) {
     this->tileMap->update();
-    this->tileMap->updateCollision(this->player);
+    this->tileMap->updateCollision(this->player, dt);
 }
 
 

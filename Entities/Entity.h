@@ -30,6 +30,8 @@ public:
     virtual const sf::Vector2f& getPosition() const;
     virtual const sf::Vector2u getGridPosition(const unsigned gridSizeI) const;
     virtual const sf::FloatRect getGlobalBounds() const;
+    virtual const sf::FloatRect& getNextPositionBounds(const float& dt) const;
+    virtual const sf::Vector2f& getVelocity() const {return this->movementComponents->getVelocity();}
     //Modifiers
     virtual void setPosition(const float x ,const float y);
     //Component Functions

@@ -24,7 +24,7 @@ public:
     void saveToFile(const std::string file_name);
     void loadFromFile(const std::string file_name);
 
-    void updateCollision(Entity* entity);
+    void updateCollision(Entity* entity, const float& dt);
 
     //Accessor
     const sf::Texture * getTileSheet() const;
@@ -40,6 +40,7 @@ private:
     sf::Texture tileSheet;
     std::string textureFile;
     sf::RectangleShape collisionBox;
+
 
 
 

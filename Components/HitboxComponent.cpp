@@ -15,9 +15,8 @@ HitboxComponents::HitboxComponents(sf::Sprite& sprite,float offset_x, float offs
     this->hitbox.setPosition(this->sprite.getPosition().x + offset_x, this->sprite.getPosition().y + offset_y);
     this->hitbox.setSize(sf::Vector2f(width, height));
     this->hitbox.setFillColor(sf::Color::Transparent);
+    this->hitbox.setOutlineColor(sf::Color::Green);
     this->hitbox.setOutlineThickness(1.f);
-    this->hitbox.setOutlineColor(sf::Color::Red);
-
 }
 
 HitboxComponents::~HitboxComponents()
@@ -32,7 +31,7 @@ void HitboxComponents::render(sf::RenderTarget &target) {
 void HitboxComponents::update() {
     this->hitbox.setPosition(this->sprite.getPosition().x + offsetX, this->sprite.getPosition().y + offsetY);
 }
-bool HitboxComponents::Intersect(const sf::FloatRect& frect) {
+bool HitboxComponents::intersects(const sf::FloatRect& frect) {
 
     return this->hitbox.getGlobalBounds().intersects(frect);
 }
@@ -44,7 +43,7 @@ const sf::Vector2f& HitboxComponents::getPosition() const {
 //Modifiers
 void HitboxComponents::setPosition(sf::Vector2f& position) {
     this->hitbox.setPosition(position);
-    this->sprite.setPosition(position.x - offsetX, position.y - offsetY);
+    this->sprite.setPosition(position.x - this->offsetX, position.y - this->offsetY);
 
 }
 

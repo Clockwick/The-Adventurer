@@ -111,7 +111,6 @@ void EditorState::update(const float &dt) {
         this->updateButtons();
         this->updateGui(dt);
         this->updateEditorInput(dt);
-//        std::cout << "Collision in Editor: " << this->collision << std::endl;
     }
     else //Paused
     {

@@ -45,7 +45,7 @@ TileMap::TileMap(float gridSize, unsigned width , unsigned height, std::string t
     this->collisionBox.setSize(sf::Vector2f(gridSize, gridSize));
     this->collisionBox.setFillColor(sf::Color(255,0,0,50));
     this->collisionBox.setOutlineColor(sf::Color::Red);
-    this->collisionBox.setOutlineThickness(1.f);
+    this->collisionBox.setOutlineThickness(-1.f);
 }
 
 TileMap::~TileMap()
@@ -282,7 +282,7 @@ void TileMap::render(sf::RenderTarget &target,Entity *entity) {
 
     }
 
-    void TileMap::updateCollision(Entity *entity) {
+    void TileMap::updateCollision(Entity *entity, const float& dt) {
 
         //World Bounds
         if (entity->getPosition().x < 180.f) {
@@ -330,10 +330,61 @@ void TileMap::render(sf::RenderTarget &target,Entity *entity) {
         {
             for (size_t y = fromY ; y  < this->toY; y++)
             {
-                if (this->map[x][y][this->layer]->getCollision() && this->map[x][y][this->layer]->intersects(entity->getGlobalBounds()))
+                sf::FloatRect playerBounds = entity->getGlobalBounds();
+                sf::FloatRect wallBounds = this->map[x][y][this->layer]->getGlobalBounds();
+                sf::FloatRect nextPositionBounds = entity->getNextPositionBounds(dt) ;
+                if (this->map[x][y][this->layer]->getCollision() && this->map[x][y][this->layer]->intersects(nextPositionBounds))
                 {
-                    std::cout << "COLLISION!!" << std::endl;
+                    //Bottom collision
+                    if (playerBounds.top < wallBounds.top
+                        && playerBounds.top + playerBounds.height < wallBounds.top + wallBounds.height
+                        && playerBounds.left < wallBounds.left + wallBounds.width
+                        && playerBounds.left + playerBounds.width > wallBounds.left
+                            )
+                    {
+                        entity->stopVelocityY();
+                        entity->setPosition(playerBounds.left + 15.f, wallBounds.top - playerBounds.height + 5.5f);
+                    }
+
+                        //Top collision
+                    else if (playerBounds.top > wallBounds.top
+                             && playerBounds.top + playerBounds.height > wallBounds.top + wallBounds.height
+                             && playerBounds.left < wallBounds.left + wallBounds.width
+                             && playerBounds.left + playerBounds.width > wallBounds.left
+                            )
+                    {
+                        entity->stopVelocityY();
+                        entity->setPosition(playerBounds.left+ 15.f, wallBounds.top + wallBounds.height + 5.5f);
+                    }
+
+                    //Right collision
+                    if (playerBounds.left < wallBounds.left
+                        && playerBounds.left + playerBounds.width < wallBounds.left + wallBounds.width
+                        && playerBounds.top < wallBounds.top + wallBounds.height
+                        && playerBounds.top + playerBounds.height > wallBounds.top
+                            )
+                    {
+                        entity->stopVelocity();
+                        entity->setPosition(wallBounds.left - playerBounds.width + 29, playerBounds.top + 5);
+                    }
+
+
+
+                        //Left collision
+                    else if (playerBounds.left > wallBounds.left
+                             && playerBounds.left + playerBounds.width > wallBounds.left + wallBounds.width
+                             && playerBounds.top < wallBounds.top + wallBounds.height
+                             && playerBounds.top + playerBounds.height > wallBounds.top
+                            )
+                    {
+                        entity->stopVelocity();
+                        entity->setPosition(wallBounds.left + wallBounds.width, playerBounds.top + 5);
+                    }
+
+
                 }
+
+                std::cout << "Velocity X : "<< entity->getVelocity().x << " Velocity Y : " << entity->getVelocity().y << std::endl;
             }
         }
 
