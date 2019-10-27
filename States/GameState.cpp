@@ -33,8 +33,8 @@ void GameState::update(const float &dt) {
     {
         this->updateView(dt);
         this->updatePlayerInput(dt);
-        this->player->update(dt);
         this->updateTileMap(dt);
+        this->player->update(dt);
 
     }
     else //Paused
@@ -82,14 +82,14 @@ void GameState::updatePlayerInput(const float &dt) {
     {
         this->player->move(1.0f, 0.0f, dt);
     }
-//    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-//    {
-//        this->player->move(0.0f, -1.0f, dt);
-//    }
-//    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-//    {
-//        this->player->move(0.f, 1.0f, dt);
-//    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    {
+        this->player->move(0.0f, -1.0f, dt);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    {
+        this->player->move(0.f, 1.0f, dt);
+    }
 
 
 
@@ -97,7 +97,7 @@ void GameState::updatePlayerInput(const float &dt) {
 
 void GameState::initTextures() {
 
-    if (!this->textures["PLAYER_SHEET"].loadFromFile("resources/images/Assets/Player/Adventurer/adventurer-Sheet.png"))
+    if (!this->textures["PLAYER_SHEET"].loadFromFile("resources/images/Assets/Player/Adventurer/adventurer-Sheet2x.png"))
     {
         std::cout << "Cannot Load Player Image" << std::endl;
     }
@@ -118,7 +118,7 @@ void GameState::initFonts() {
 }
 
 void GameState::initPlayers() {
-    this->player = new Player(500,500, this->textures["PLAYER_SHEET"]);
+    this->player = new Player(500,465, this->textures["PLAYER_SHEET"]);
 
 }
 
@@ -154,7 +154,7 @@ void GameState::initTileMap() {
 
 void GameState::initView() {
 
-    this->view.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width, this->state_data->gfxSettings->resolution.height));
+    this->view.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width/2.f, this->state_data->gfxSettings->resolution.height/2.f));
     this->view.setCenter(sf::Vector2f(this->state_data->gfxSettings->resolution.width/2.f, this->state_data->gfxSettings->resolution.height/2.f));
 
 }
@@ -165,12 +165,12 @@ void GameState::updateView(const float &dt) {
     if (this->player->sliding)
     {
         this->player->sliding = false;
-        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y - 15.f);
+        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y);
     }
     else if(this->player->sitting)
     {
         this->player->sitting = false;
-        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y - 10.f);
+        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y );
     }
 
 }

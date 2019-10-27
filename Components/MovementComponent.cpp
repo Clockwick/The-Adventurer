@@ -120,7 +120,6 @@ const bool MovementComponents::getState(const short unsigned state) const {
 
             break;
         case MOVING:
-
             if (this->velocity.x != 0.f || this->velocity.y != 0.f)
                 return true;
             break;
