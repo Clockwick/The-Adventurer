@@ -9,7 +9,7 @@
 class Player : public Entity
 {
 public:
-    Player(float x,  float y,sf::Texture& texture_sheet);
+    Player(float x,  float y, const float& jumpHeight, sf::Texture& texture_sheet);
     virtual ~Player();
 
     void updateAttack();
@@ -26,6 +26,7 @@ private:
     void initAudio();
 private:
     bool attacking;
+    const float jumpHeight;
 
 
     //Audio

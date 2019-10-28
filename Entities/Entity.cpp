@@ -33,6 +33,7 @@ void Entity::render(sf::RenderTarget &target) {
 }
 void Entity::update(const float &dt) {
 
+
 }
 //Component Functions
 void Entity::setTexture(sf::Texture& texture) {
@@ -48,9 +49,11 @@ void Entity::setPosition(const float x, const float y) {
 
 }
 
-void Entity::createMovementComponents(const float maxVelocity, const float acceleration, const float deceleration) {
 
-    this->movementComponents = new MovementComponents(this->sprite, maxVelocity, acceleration, deceleration);
+
+void Entity::createMovementComponents(const float maxVelocity, const float acceleration, const float deceleration , const float& jumpHeight) {
+
+    this->movementComponents = new MovementComponents(this->sprite, maxVelocity, acceleration, deceleration , jumpHeight);
 
 }
 
@@ -110,6 +113,25 @@ const sf::FloatRect &Entity::getNextPositionBounds(const float& dt) const {
 
     return sf::FloatRect();
 }
+
+void Entity::jump() {
+    if (this->movementComponents && this->canJump) {
+
+        this->movementComponents->getcanJump(this->canJump);
+        this->movementComponents->jump();
+        this->canJump = false;
+
+    }
+}
+
+void Entity::allowJump(bool &canJump) {
+    this->canJump = canJump;
+
+}
+
+
+
+
 
 
 

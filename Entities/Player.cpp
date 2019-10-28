@@ -4,7 +4,9 @@
 
 #include "Player.h"
 //Constructor , DeConstructor
-Player::Player(float x,  float y,sf::Texture& texture_sheet) {
+Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_sheet)
+: jumpHeight(jumpHeight)
+{
 
     this->initVariables();
     this->initAudio();
@@ -12,7 +14,7 @@ Player::Player(float x,  float y,sf::Texture& texture_sheet) {
 
     this->initComponents();
 
-    this->createMovementComponents(300.0f, 15.0f, 5.0f);
+    this->createMovementComponents(300, 15.0f, 5.0f, this->jumpHeight);
     this->createAnimationComponents( texture_sheet);
 
     this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);
@@ -44,8 +46,6 @@ void Player::update(const float& dt)
     this->movementComponents->update(dt);
     this->updateAttack();
     this->updateAnimation(dt);
-
-
 
 
 }

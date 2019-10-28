@@ -8,6 +8,7 @@
 #include "../Tile.h"
 #include "../Entities/Entity.h"
 
+
 class Tile;
 class Entity;
 class TileMap
@@ -29,7 +30,6 @@ public:
     //Accessor
     const sf::Texture * getTileSheet() const;
 
-
 private:
     unsigned gridSizeU;
     sf::Vector2u maxSizeWorldGrid;
@@ -40,6 +40,7 @@ private:
     sf::Texture tileSheet;
     std::string textureFile;
     sf::RectangleShape collisionBox;
+    bool canJump;
 
 
 

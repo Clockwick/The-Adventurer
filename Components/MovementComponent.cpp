@@ -4,9 +4,10 @@
 
 #include "MovementComponent.h"
 
-MovementComponents::MovementComponents(sf::Sprite& sprite, float maxVelocity, float accerelation, float deceleration)
-: sprite(sprite),maxVelocity(maxVelocity), acceleration(accerelation), deceleration(deceleration)
+MovementComponents::MovementComponents(sf::Sprite& sprite, float maxVelocity, float accerelation, float deceleration, const float& jumpHeight)
+: sprite(sprite),maxVelocity(maxVelocity), acceleration(accerelation), deceleration(deceleration), jumpHeight(jumpHeight)
 {
+
 
 }
 
@@ -17,6 +18,7 @@ MovementComponents::~MovementComponents() {
 void MovementComponents::update(const float &dt) {
     /* Set Maximum Velocity and Deceleration */
     /* X-axis */
+
     if (this->velocity.x > 0.0f)
     {
 
@@ -40,29 +42,15 @@ void MovementComponents::update(const float &dt) {
             this->velocity.x = 0;
         }
     }
-    /* Y-axis */
-    if (this->velocity.y > 0.0f) {
-        if(this->velocity.y > this->maxVelocity)
-        {
-            this->velocity.y = this->maxVelocity;
-        }
-        this->velocity.y -= this->deceleration;
-        if (this->velocity.y < 0.0f) {
-            this->velocity.y = 0.0f;
-        }
-    }
-    else if (this->velocity.y < 0.0f)
+    if (this->canJump && this->velocity.y != 0)
     {
-        if (this->velocity.y < -this->maxVelocity)
-        {
-            this->velocity.y = -this->maxVelocity;
-        }
-        this->velocity.y += this->deceleration;
-        if (this->velocity.y > 0.0f)
-        {
-            this->velocity.y = 0.0f;
-        }
+        this->velocity.y += 981.f * dt;
+
     }
+
+
+
+
     //Final move
     this->sprite.move(this->velocity * dt);
 }
@@ -70,9 +58,6 @@ void MovementComponents::update(const float &dt) {
 void MovementComponents::move(const float dir_x, const float dir_y, const float& dt) {
     //Acceleration
     this->velocity.x += this->acceleration * dir_x;
-    this->velocity.y += this->acceleration * dir_y;
-
-
 
 
 }
@@ -167,6 +152,15 @@ void MovementComponents::stopVelocityX() {
 
 void MovementComponents::stopVelocityY() {
     this->velocity.y = 0.f;
+}
+
+void MovementComponents::jump() {
+
+    this->velocity.y = -sqrtf(2 * 981.f * this->jumpHeight);
+}
+
+void MovementComponents::getcanJump(bool &canJump) {
+    this->canJump = canJump;
 }
 
 

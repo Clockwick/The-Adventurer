@@ -24,8 +24,6 @@ public:
     void updateView(const float& dt);
     void updateTileMap(const float& dt);
 
-
-
 private:
     Player* player;
     PauseMenu* pmenu;
@@ -37,6 +35,10 @@ private:
     sf::Sprite renderSprite;
 
     sf::Font font;
+
+    bool canJump;
+
+
 
     //Functions
     void initDeferredRender();

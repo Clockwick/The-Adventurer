@@ -4,6 +4,7 @@
 #include <sstream>
 #include <stack>
 #include <map>
+#include <math.h>
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
 #include <SFML/Window.hpp>
@@ -19,7 +20,7 @@ class MovementComponents
 {
 public:
 
-    MovementComponents(sf::Sprite& sprite, float maxVelocity, float accerelation, float deceleration);
+    MovementComponents(sf::Sprite& sprite, float maxVelocity, float accerelation, float deceleration, const float& jumpHeight);
     virtual ~MovementComponents();
 
 
@@ -39,10 +40,15 @@ public:
     void stopVelocity();
     void stopVelocityX();
     void stopVelocityY();
+    void jump();
+    void getcanJump(bool& canJump);
 private:
     float maxVelocity;
     float acceleration;
     float deceleration;
+    const float jumpHeight;
+    const float maxVelocityY = -300.f;
+    bool canJump;
 
 
     sf::Sprite& sprite;

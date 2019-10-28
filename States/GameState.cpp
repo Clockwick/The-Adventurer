@@ -29,6 +29,7 @@ void GameState::update(const float &dt) {
     this->updateMousePos(&this->view);
     this->updateKeytime(dt);
     this->updateInput(dt);
+
     if (!this->paused)//Unpaused
     {
         this->updateView(dt);
@@ -84,11 +85,11 @@ void GameState::updatePlayerInput(const float &dt) {
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        this->player->move(0.0f, -1.0f, dt);
+        this->player->jump();
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        this->player->move(0.f, 1.0f, dt);
+        this->player->move(0.f, 0.0f, dt);
     }
 
 
@@ -118,7 +119,7 @@ void GameState::initFonts() {
 }
 
 void GameState::initPlayers() {
-    this->player = new Player(500,465, this->textures["PLAYER_SHEET"]);
+    this->player = new Player(500,470, 250.f, this->textures["PLAYER_SHEET"]);
 
 }
 
