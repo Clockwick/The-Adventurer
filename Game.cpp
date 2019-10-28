@@ -35,16 +35,21 @@ void Game::update() {
     this->updateSFMLEvent();
 
     if (!this->states.empty()) {
-        this->states.top()->update(this->deltaTime); // ???
+    {
+        if (this->window->hasFocus()) {
+            this->states.top()->update(this->deltaTime); // ???
 
 
-        if (this->states.top()->getQuit()) {
-            this->states.top()->endState();
-            delete this->states.top();
-            this->states.pop();
+            if (this->states.top()->getQuit()) {
+                this->states.top()->endState();
+                delete this->states.top();
+                this->states.pop();
 
+            }
         }
     }
+    }
+
     else
     {
         this->window->close();
