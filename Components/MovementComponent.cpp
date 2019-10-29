@@ -42,11 +42,13 @@ void MovementComponents::update(const float &dt) {
             this->velocity.x = 0;
         }
     }
-    if (this->canJump && this->velocity.y != 0)
+    if (this->canJump && this->velocity.y != 0 && this->sprite.getPosition().y < 465)
     {
         this->velocity.y += 981.f * dt;
-
     }
+    std::cout << this->sprite.getPosition().y << std::endl;
+
+
 
 
 
@@ -151,7 +153,7 @@ void MovementComponents::stopVelocityX() {
 }
 
 void MovementComponents::stopVelocityY() {
-    this->velocity.y = 0.f;
+        this->velocity.y = 0.f;
 }
 
 void MovementComponents::jump() {
@@ -162,6 +164,7 @@ void MovementComponents::jump() {
 void MovementComponents::getcanJump(bool &canJump) {
     this->canJump = canJump;
 }
+
 
 
 

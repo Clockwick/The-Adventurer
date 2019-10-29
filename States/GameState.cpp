@@ -29,6 +29,7 @@ void GameState::update(const float &dt) {
     this->updateMousePos(&this->view);
     this->updateKeytime(dt);
     this->updateInput(dt);
+    std::cout << this->player->getVelocity().y << std::endl;
 
     if (!this->paused)//Unpaused
     {
@@ -102,7 +103,7 @@ void GameState::initTextures() {
     {
         std::cout << "Cannot Load Player Image" << std::endl;
     }
-    std::cout << "Welcome to the Game!!" << std::endl;
+    std::cout << "Successfully Loaded Player" << std::endl;
 
 
 

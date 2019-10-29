@@ -334,7 +334,7 @@ void TileMap::render(sf::RenderTarget &target,Entity *entity) {
                 if (this->map[x][y][this->layer]->getCollision() &&
                     this->map[x][y][this->layer]->intersects(nextPositionBounds)) {
                     //Bottom collision
-                    if (playerBounds.top < wallBounds.top
+                    if (playerBounds.top < wallBounds.top - 69.999f
                         && playerBounds.top + playerBounds.height < wallBounds.top + wallBounds.height
                         && playerBounds.left < wallBounds.left + wallBounds.width
                         && playerBounds.left + playerBounds.width > wallBounds.left
@@ -346,9 +346,9 @@ void TileMap::render(sf::RenderTarget &target,Entity *entity) {
                         entity->setPosition(playerBounds.left + 20, wallBounds.top - playerBounds.height + 9);
                     }
 
-//                        Top collision
+                    //Top collision
                     else if (playerBounds.top > wallBounds.top
-                             && playerBounds.top + playerBounds.height > wallBounds.top + wallBounds.height
+                             && playerBounds.top + playerBounds.height > wallBounds.top + wallBounds.height + 80
                              && playerBounds.left < wallBounds.left + wallBounds.width
                              && playerBounds.left + playerBounds.width > wallBounds.left
                             ) {
@@ -372,10 +372,10 @@ void TileMap::render(sf::RenderTarget &target,Entity *entity) {
 
 
 
-                        //Left collision
+                    //Left collision
                     else if (playerBounds.left > wallBounds.left
                              && playerBounds.left + playerBounds.width > wallBounds.left + wallBounds.width + 75
-                             && playerBounds.top < wallBounds.top + wallBounds.height + 5
+                             && playerBounds.top < wallBounds.top + wallBounds.height
                              && playerBounds.top + playerBounds.height > wallBounds.top
                             ) {
                         std::cout << "Left Collision" << std::endl;

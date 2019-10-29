@@ -4,11 +4,6 @@
 
 #include "Entity.h"
 
-void Entity::initVariables() {
-    this->movementComponents = NULL;
-    this->animationComponents = NULL;
-    this->hitboxComponents = NULL;
-}
 
 Entity::Entity() {
 
@@ -19,6 +14,12 @@ Entity::~Entity() {
     delete this->movementComponents;
     delete this->animationComponents;
     delete this->hitboxComponents;
+}
+
+void Entity::initVariables() {
+    this->movementComponents = NULL;
+    this->animationComponents = NULL;
+    this->hitboxComponents = NULL;
 }
 
 void Entity::move(const float dir_x, const float dir_y, const float& dt) {
@@ -111,7 +112,7 @@ const sf::FloatRect &Entity::getNextPositionBounds(const float& dt) const {
         return this->hitboxComponents->getNextPosition(this->movementComponents->getVelocity() * dt);
     }
 
-    return sf::FloatRect();
+    return sf::FloatRect(-1,-1,-1,-1);
 }
 
 void Entity::jump() {
