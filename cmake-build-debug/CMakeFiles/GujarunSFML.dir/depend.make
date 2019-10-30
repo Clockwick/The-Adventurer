@@ -107,6 +107,113 @@ CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o: /usr/local/cella
 CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: ../Components/AttributeComponent.cpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: ../Components/AttributeComponent.h
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: ../Precom.h
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/InputSoundFile.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Listener.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Music.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/OutputSoundFile.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Sound.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundBuffer.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundBufferRecorder.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileFactory.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileFactory.inl
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileReader.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundFileWriter.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundRecorder.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundSource.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/SoundStream.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Config.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/BlendMode.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/CircleShape.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Color.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/ConvexShape.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Drawable.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Export.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Font.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Glsl.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Glsl.inl
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Glyph.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Image.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/PrimitiveType.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Rect.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Rect.inl
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/RectangleShape.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/RenderStates.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/RenderTarget.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/RenderTexture.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/RenderWindow.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Shader.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Shape.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Sprite.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Text.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Texture.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Transform.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Transformable.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/Vertex.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/VertexArray.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/VertexBuffer.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/View.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Export.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Ftp.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Http.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/IpAddress.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Packet.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Socket.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/SocketHandle.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/SocketSelector.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/TcpListener.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/TcpSocket.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/UdpSocket.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Clock.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Err.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Export.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/FileInputStream.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/InputStream.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Lock.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/MemoryInputStream.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Mutex.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/NonCopyable.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Sleep.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/String.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/String.inl
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Thread.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Thread.inl
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/ThreadLocal.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/ThreadLocalPtr.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/ThreadLocalPtr.inl
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Time.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Utf.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Utf.inl
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector2.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector2.inl
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector3.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector3.inl
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Clipboard.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Context.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/ContextSettings.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Cursor.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Event.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Export.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/GlResource.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Joystick.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Keyboard.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Mouse.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Sensor.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Touch.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/VideoMode.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/Window.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
+CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
+
 CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o: ../Components/HitboxComponent.cpp
 CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
@@ -320,10 +427,12 @@ CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o: /usr/local/cellar
 CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Entities/Entity.cpp
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Entities/Entity.h
+CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: ../Precom.h
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp
@@ -429,11 +538,13 @@ CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: /usr/local/cellar/sfml/2.5.1/i
 CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Entities/Entity.h
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Entities/Player.cpp
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Entities/Player.h
+CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: ../Precom.h
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
 CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp
@@ -740,6 +851,7 @@ CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: /usr/local/cellar/sfml/2.5.1/inc
 CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Entities/Entity.h
@@ -969,6 +1081,7 @@ CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.o: /usr/local/cellar/sfml/2.5.1/
 CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o: ../Entities/Entity.h
@@ -1233,6 +1346,7 @@ CMakeFiles/GujarunSFML.dir/Sound/Sound.cpp.o: /usr/local/cellar/sfml/2.5.1/inclu
 CMakeFiles/GujarunSFML.dir/Sound/Sound.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Vector3.inl
 
 CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o: ../Entities/Entity.h
@@ -1351,6 +1465,7 @@ CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o: /usr/local/cellar/sfml/2.5.
 CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Entities/Entity.h
@@ -1469,6 +1584,7 @@ CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: /usr/local/cellar/sfml/2.5.1/
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o: ../Entities/Entity.h
@@ -1584,6 +1700,7 @@ CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o: /usr/local/cellar/sfml/2.
 CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/States/State.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/States/State.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/GujarunSFML.dir/States/State.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/States/State.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/States/State.cpp.o: ../Entities/Entity.h
@@ -1697,6 +1814,7 @@ CMakeFiles/GujarunSFML.dir/States/State.cpp.o: /usr/local/cellar/sfml/2.5.1/incl
 CMakeFiles/GujarunSFML.dir/States/State.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Entities/Entity.h
@@ -1925,6 +2043,7 @@ CMakeFiles/GujarunSFML.dir/Tile.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML
 CMakeFiles/GujarunSFML.dir/Tile.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Components/AnimationComponent.h
+CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Entities/Entity.h

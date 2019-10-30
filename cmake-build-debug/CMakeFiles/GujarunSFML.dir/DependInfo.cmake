@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o"
+  "/Users/arthris/CLionProjects/GujarunSFML/Components/AttributeComponent.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o"
   "/Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.cpp" "/Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o"

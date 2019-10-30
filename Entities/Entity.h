@@ -4,6 +4,7 @@
 #include "../Components/HitboxComponent.h"
 #include "../Components/MovementComponent.h"
 #include "../Components/AnimationComponent.h"
+#include "../Components/AttributeComponent.h"
 #ifndef GUJARUNSFML_ENTITY_H
 #define GUJARUNSFML_ENTITY_H
 
@@ -21,6 +22,7 @@ public:
     virtual void stopVelocity();
     virtual void stopVelocityX();
     virtual void stopVelocityY();
+    virtual void saveVelocityY(const float& velocityY);
     virtual void jump();
 
 
@@ -28,9 +30,10 @@ public:
     void createAnimationComponents(sf::Texture& texture_sheet);
     void createHitboxComponents(sf::Sprite& sprite, float offset_x,
             float offset_y, float width, float height);
+    void createAttributeComponents();
     //Accessors
     virtual const sf::Vector2f& getPosition() const;
-    virtual const sf::Vector2u getGridPosition(const unsigned gridSizeI) const;
+    virtual const sf::Vector2i getGridPosition(const int gridSizeI) const;
     virtual const sf::FloatRect getGlobalBounds() const;
     virtual const sf::FloatRect& getNextPositionBounds(const float& dt) const;
     virtual const sf::Vector2f& getVelocity() const {return this->movementComponents->getVelocity();}
@@ -50,6 +53,7 @@ protected:
     MovementComponents* movementComponents;
     AnimationComponent* animationComponents;
     HitboxComponents* hitboxComponents;
+    AttributeComponent* attributeComponents;
 
 
 private:

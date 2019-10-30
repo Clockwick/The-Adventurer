@@ -43,8 +43,8 @@ TileMap::TileMap(float gridSize, unsigned width , unsigned height, std::string t
         std::cout << "ERROR::TILEMAP::FAILED TO LOAD TILETEXTURESHEET" << std::endl;
     }
     this->collisionBox.setSize(sf::Vector2f(gridSize, gridSize));
-    this->collisionBox.setFillColor(sf::Color(255,0,0,50));
-    this->collisionBox.setOutlineColor(sf::Color::Red);
+    this->collisionBox.setFillColor(sf::Color(150,150,0,50));
+    this->collisionBox.setOutlineColor(sf::Color::Yellow);
     this->collisionBox.setOutlineThickness(-1.f);
 }
 
@@ -95,25 +95,25 @@ void TileMap::update()
 void TileMap::render(sf::RenderTarget &target,Entity *entity) {
         if (entity) {
             this->layer = 0;
-            this->fromX = entity->getGridPosition(this->gridSizeU).x - 1;
+            this->fromX = entity->getGridPosition(this->gridSizeU).x - 3;
             if (this->fromX < 2) {
                 this->fromX = 2;
             } else if (this->fromX > this->maxSizeWorldGrid.x) {
                 this->fromX = this->maxSizeWorldGrid.x;
             }
-            this->toX = entity->getGridPosition(this->gridSizeU).x + 3;
+            this->toX = entity->getGridPosition(this->gridSizeU).x + 5;
             if (this->toX < 0) {
                 this->toX = 0;
             } else if (this->toX > this->maxSizeWorldGrid.x) {
                 this->toX = this->maxSizeWorldGrid.x;
             }
-            this->fromY = entity->getGridPosition(this->gridSizeU).y - 1;
+            this->fromY = entity->getGridPosition(this->gridSizeU).y - 3;
             if (this->fromY < 0) {
                 this->fromY = 0;
             } else if (this->fromY > this->maxSizeWorldGrid.y) {
                 this->fromY = this->maxSizeWorldGrid.y;
             }
-            this->toY = entity->getGridPosition(this->gridSizeU).y + 3;
+            this->toY = entity->getGridPosition(this->gridSizeU).y + 5;
             if (this->toY < 0) {
                 this->toY = 0;
             } else if (this->toY > this->maxSizeWorldGrid.y) {
@@ -263,15 +263,22 @@ void TileMap::render(sf::RenderTarget &target,Entity *entity) {
 
     void TileMap::clear() {
         for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++) {
-            this->map.push_back(std::vector<std::vector<Tile *>>());
+            this->map.push_back(std::vector<std::vector<std::vector<Tile *>>>());
 
             for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++) {
                 this->map[x].resize(this->maxSizeWorldGrid.y);
-                this->map[x].push_back(std::vector<Tile *>());
+                this->map[x].push_back(std::vector<std::vector<Tile *>>());
 
                 for (size_t z = 0; z < this->layers; z++) {
-                    delete this->map[x][y][z];
-                    this->map[x][y][z] = nullptr;
+
+                    this->map[x][y].resize(this->layers);
+
+                    for (int k = 0; k < this->map[x][y][z].size(); k++)
+                    {
+                        delete this->map[x][y][z][k];
+                        this->map[x][y][z][k] = nullptr;
+                    }
+
                 }
                 this->map[x][y].clear();
             }
@@ -342,6 +349,7 @@ void TileMap::render(sf::RenderTarget &target,Entity *entity) {
                         std::cout << "Bottom Collision" << std::endl;
                         this->canJump = true;
                         entity->allowJump(this->canJump);
+                        entity->saveVelocityY(entity->getVelocity().y);
                         entity->stopVelocityY();
                         entity->setPosition(playerBounds.left + 20, wallBounds.top - playerBounds.height + 9);
                     }

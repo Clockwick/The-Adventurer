@@ -14,12 +14,14 @@ Entity::~Entity() {
     delete this->movementComponents;
     delete this->animationComponents;
     delete this->hitboxComponents;
+    delete this->attributeComponents;
 }
 
 void Entity::initVariables() {
     this->movementComponents = NULL;
     this->animationComponents = NULL;
     this->hitboxComponents = NULL;
+    this->attributeComponents = NULL;
 }
 
 void Entity::move(const float dir_x, const float dir_y, const float& dt) {
@@ -67,6 +69,10 @@ void Entity::createHitboxComponents(sf::Sprite& sprite, float offset_x,
     this->hitboxComponents = new HitboxComponents(sprite, offset_x,offset_y, width, height);
 }
 
+void Entity::createAttributeComponents() {
+    this->attributeComponents = new AttributeComponent();
+}
+
 const sf::Vector2f &Entity::getPosition() const {
     if (this->hitboxComponents)
         return this->hitboxComponents->getPosition();
@@ -94,15 +100,15 @@ void Entity::stopVelocityY() {
         this->movementComponents->stopVelocityY();
 }
 
-const sf::Vector2u Entity::getGridPosition(const unsigned gridSizeU) const {
+const sf::Vector2i Entity::getGridPosition(const int gridSizeI) const {
     if (this->hitboxComponents)
-        return sf::Vector2u(
-                static_cast<int>(this->hitboxComponents->getPosition().x) / gridSizeU ,
-                static_cast<int>(this->hitboxComponents->getPosition().y) / gridSizeU
+        return sf::Vector2i(
+                static_cast<int>(this->hitboxComponents->getPosition().x) / gridSizeI ,
+                static_cast<int>(this->hitboxComponents->getPosition().y) / gridSizeI
         );
-    return sf::Vector2u(
-            static_cast<int>(this->sprite.getPosition().x) / gridSizeU ,
-            static_cast<int>(this->sprite.getPosition().y) / gridSizeU
+    return sf::Vector2i(
+            static_cast<int>(this->sprite.getPosition().x) / gridSizeI ,
+            static_cast<int>(this->sprite.getPosition().y) / gridSizeI
     );
 }
 
@@ -112,7 +118,7 @@ const sf::FloatRect &Entity::getNextPositionBounds(const float& dt) const {
         return this->hitboxComponents->getNextPosition(this->movementComponents->getVelocity() * dt);
     }
 
-    return sf::FloatRect(-1,-1,-1,-1);
+    return sf::FloatRect(-1.f,-1.f,-1.f,-1.f);
 }
 
 void Entity::jump() {
@@ -129,6 +135,13 @@ void Entity::allowJump(bool &canJump) {
     this->canJump = canJump;
 
 }
+
+void Entity::saveVelocityY(const float& velocityY) {
+    if (this->movementComponents)
+        this->movementComponents->saveVelocityY(velocityY);
+
+}
+
 
 
 

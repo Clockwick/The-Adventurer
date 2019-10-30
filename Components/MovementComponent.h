@@ -4,6 +4,7 @@
 #include <sstream>
 #include <stack>
 #include <map>
+#include <vector>
 #include <math.h>
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
@@ -42,6 +43,7 @@ public:
     void stopVelocity();
     void stopVelocityX();
     void stopVelocityY();
+    void saveVelocityY(const float& velocityY);
     void jump();
     void getcanJump(bool& canJump);
 private:
@@ -51,7 +53,9 @@ private:
     const float jumpHeight;
     const float maxVelocityY = -300.f;
     bool canJump;
-
+    std::vector<float> velocityStack;
+    float lastVelocity;
+    int countVelocity;
 
     sf::Sprite& sprite;
     sf::Vector2f velocity;

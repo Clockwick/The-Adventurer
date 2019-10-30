@@ -75,7 +75,7 @@ void EditorState::initGui() {
 }
 
 void EditorState::initTileMap() {
-    this->tileMap = new TileMap(this->state_data->gridSize, 10, 10, "resources/images/Assets/Map/16x16/Tile/TerrainSet.png");
+    this->tileMap = new TileMap(this->state_data->gridSize, 100, 100, "resources/images/Assets/Map/16x16/Tile/TerrainSet.png");
 }
 
 void EditorState::initPauseMenu() {

@@ -150,6 +150,33 @@ Components/AnimationComponent.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.s
 .PHONY : Components/AnimationComponent.cpp.s
 
+Components/AttributeComponent.o: Components/AttributeComponent.cpp.o
+
+.PHONY : Components/AttributeComponent.o
+
+# target to build an object file
+Components/AttributeComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o
+.PHONY : Components/AttributeComponent.cpp.o
+
+Components/AttributeComponent.i: Components/AttributeComponent.cpp.i
+
+.PHONY : Components/AttributeComponent.i
+
+# target to preprocess a source file
+Components/AttributeComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.i
+.PHONY : Components/AttributeComponent.cpp.i
+
+Components/AttributeComponent.s: Components/AttributeComponent.cpp.s
+
+.PHONY : Components/AttributeComponent.s
+
+# target to generate assembly for a file
+Components/AttributeComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.s
+.PHONY : Components/AttributeComponent.cpp.s
+
 Components/HitboxComponent.o: Components/HitboxComponent.cpp.o
 
 .PHONY : Components/HitboxComponent.o
@@ -648,6 +675,9 @@ help:
 	@echo "... Components/AnimationComponent.o"
 	@echo "... Components/AnimationComponent.i"
 	@echo "... Components/AnimationComponent.s"
+	@echo "... Components/AttributeComponent.o"
+	@echo "... Components/AttributeComponent.i"
+	@echo "... Components/AttributeComponent.s"
 	@echo "... Components/HitboxComponent.o"
 	@echo "... Components/HitboxComponent.i"
 	@echo "... Components/HitboxComponent.s"

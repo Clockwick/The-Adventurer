@@ -25,7 +25,7 @@ void MovementComponents::update(const float &dt) {
         if (this->velocity.x > this->maxVelocity) {
             this->velocity.x = this->maxVelocity;
         }
-        this->velocity.x -= this->deceleration;
+        this->velocity.x -= this->deceleration * dt;
         if (this->velocity.x < 0.0f)
         {
             this->velocity.x = 0;
@@ -36,7 +36,7 @@ void MovementComponents::update(const float &dt) {
         {
             this->velocity.x = -this->maxVelocity;
         }
-        this->velocity.x += this->deceleration;
+        this->velocity.x += this->deceleration * dt;
         if (this->velocity.x > 0.0f)
         {
             this->velocity.x = 0;
@@ -59,7 +59,7 @@ void MovementComponents::update(const float &dt) {
 
 void MovementComponents::move(const float dir_x, const float dir_y, const float& dt) {
     //Acceleration
-    this->velocity.x += this->acceleration * dir_x;
+    this->velocity.x += this->acceleration * dir_x * dt;
 
 
 }
@@ -163,6 +163,21 @@ void MovementComponents::jump() {
 
 void MovementComponents::getcanJump(bool &canJump) {
     this->canJump = canJump;
+}
+
+void MovementComponents::saveVelocityY(const float& velocityY) {
+//    this->velocityStack.push_back(this->velocity.y);
+//    this->countVelocity++;
+//    if (this->velocity.y == 0)
+//    {
+//        this->lastVelocity =
+//    }
+//    if (this->countVelocity > 10)
+//    {
+//        this->countVelocity = 0;
+//    }
+
+
 }
 
 

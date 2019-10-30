@@ -14,7 +14,7 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
 
     this->initComponents();
 
-    this->createMovementComponents(300, 15.0f, 5.0f, this->jumpHeight);
+    this->createMovementComponents(300, 1500.0f, 500.0f, this->jumpHeight);
     this->createAnimationComponents( texture_sheet);
 
     this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);

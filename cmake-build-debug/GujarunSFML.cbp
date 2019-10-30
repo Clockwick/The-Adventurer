@@ -88,6 +88,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/AnimationComponent.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/AttributeComponent.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/AttributeComponent.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Components/HitboxComponent.cpp">
 			<Option target="GujarunSFML"/>
 		</Unit>

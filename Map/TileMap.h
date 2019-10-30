@@ -34,7 +34,7 @@ private:
     unsigned gridSizeU;
     sf::Vector2u maxSizeWorldGrid;
     sf::Vector2f maxSizeWorldF;
-    std::vector <std::vector<std::vector<Tile*>>> map;
+    std::vector <std::vector<std::vector<std::vector<Tile*>>>> map;
     unsigned layers;
     float gridSizeF;
     sf::Texture tileSheet;
