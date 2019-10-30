@@ -48,6 +48,7 @@ private:
     short type;
     float cameraSpeed;
     bool collision;
+    int layer;
 
     //Functions
     //Init

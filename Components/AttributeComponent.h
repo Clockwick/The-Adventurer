@@ -16,11 +16,11 @@ public:
     unsigned attributePoints;
 
     //Attributes
-    unsigned Str;
-    unsigned Agi;
-    unsigned Dex;
-    unsigned Int;
-    unsigned Vit;
+    int Str;
+    int Agi;
+    int Dex;
+    int Int;
+    int Vit;
 
     //Stats
     int hp;
@@ -33,9 +33,8 @@ public:
 
 
     //Functions
-    void updateStats();
-    void calculateExpNext();
-    void levelUp();
+    void updateStats(const bool reset);
+    void updateLevel();
     void update();
 
 

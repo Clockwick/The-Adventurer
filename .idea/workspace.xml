@@ -12,53 +12,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Components/AttributeComponent.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/AttributeComponent.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/candy-apple1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/candy-apple2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/candy-bucket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/candy1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/candy2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/candy3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/candy4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/cauldron1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/cauldron2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/pumpkin1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/pumpkin2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/pumpkin3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/spider.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Individual Icons/spiderweb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/MV Icons Halloween - ALL.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tilesets/fantasy_epicweapons_pack1_nobg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/MovementComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/MovementComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/MovementComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/MovementComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Entity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Entity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/AttributeComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AttributeComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/AttributeComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AttributeComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Map/TileMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map/TileMap.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Map/TileMap.h" beforeDir="false" afterPath="$PROJECT_DIR$/Map/TileMap.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/EditorState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/EditorState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/GameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/State.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/State.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/State.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/State.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/State.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/State.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/text.slmp" beforeDir="false" afterPath="$PROJECT_DIR$/text.slmp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -204,7 +177,7 @@
       <workItem from="1572190100347" duration="6219000" />
       <workItem from="1572323104408" duration="1076000" />
       <workItem from="1572362885139" duration="2630000" />
-      <workItem from="1572414931088" duration="1286000" />
+      <workItem from="1572414931088" duration="5609000" />
     </task>
     <servers />
   </component>

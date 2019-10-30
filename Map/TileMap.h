@@ -17,7 +17,7 @@ public:
     TileMap(float gridSize, unsigned width, unsigned height, std::string texture_file);
     virtual ~TileMap();
     void update();
-    void render(sf::RenderTarget& target,Entity *entity = NULL);
+    void render(sf::RenderTarget& target, const sf::Vector2i& gridPosition);
 
     void addTile(const unsigned x, const unsigned y, const unsigned z, const sf::IntRect& texture_rect, const bool& collision, const short type);
     void removeTile(const unsigned x, const unsigned y, const unsigned z);
@@ -28,6 +28,7 @@ public:
     void updateCollision(Entity* entity, const float& dt);
 
     //Accessor
+    const int getLayerSize(const int x, const int y, const int layer) const;
     const sf::Texture * getTileSheet() const;
 
 private:
