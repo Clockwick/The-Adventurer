@@ -30,7 +30,7 @@ public:
     void createAnimationComponents(sf::Texture& texture_sheet);
     void createHitboxComponents(sf::Sprite& sprite, float offset_x,
             float offset_y, float width, float height);
-    void createAttributeComponents();
+    void createAttributeComponents(int level);
     //Accessors
     virtual const sf::Vector2f& getPosition() const;
     virtual const sf::Vector2i getGridPosition(const int gridSizeI) const;

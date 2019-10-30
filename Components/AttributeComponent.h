@@ -5,7 +5,7 @@
 class AttributeComponent
 {
 public:
-    AttributeComponent();
+    AttributeComponent(int level);
     virtual ~AttributeComponent();
 
 
@@ -36,6 +36,8 @@ public:
     void updateStats(const bool reset);
     void updateLevel();
     void update();
+    std::string debugPrint() const;
+    void gainExp(const int exp);
 
 
 

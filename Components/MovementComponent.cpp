@@ -46,7 +46,7 @@ void MovementComponents::update(const float &dt) {
     {
         this->velocity.y += 981.f * dt;
     }
-    std::cout << this->sprite.getPosition().y << std::endl;
+//    std::cout << this->sprite.getPosition().y << std::endl;
 
 
 
@@ -136,6 +136,10 @@ const bool MovementComponents::getState(const short unsigned state) const {
             break;
         case ATTACK:
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+                return true;
+            break;
+        case JUMP:
+            if (this->canJump)
                 return true;
             break;
     }

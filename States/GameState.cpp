@@ -29,7 +29,6 @@ void GameState::update(const float &dt) {
     this->updateMousePos(&this->view);
     this->updateKeytime(dt);
     this->updateInput(dt);
-    std::cout << this->player->getVelocity().y << std::endl;
 
     if (!this->paused)//Unpaused
     {

@@ -16,6 +16,7 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
 
     this->createMovementComponents(300, 1500.0f, 500.0f, this->jumpHeight);
     this->createAnimationComponents( texture_sheet);
+    this->createAttributeComponents(1);
 
     this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);
     this->animationComponents->addAnimation("RUN", 15.f, 1, 1, 6, 1, 100, 74);
@@ -23,6 +24,8 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
     this->animationComponents->addAnimation("SIT", 15.f, 4, 0, 6, 0, 100, 74);
     this->animationComponents->addAnimation("ATTACK1", 15.f, 3, 6, 6, 6, 100, 74);
     this->animationComponents->addAnimation("ATTACK2", 15.f, 0, 7, 3, 7, 100, 74);
+    this->animationComponents->addAnimation("JUMP", 15.f , 1 , 2, 7 , 2 , 100 , 74);
+    this->animationComponents->addAnimation("JUMP2", 12.f , 0 , 3, 2 , 3 ,100, 74);
 
 }
 
@@ -39,10 +42,16 @@ void Player::initVariables() {
     this->attacking = false;
     this->sliding = false;
     this->sitting = false;
+    this->isJump = false;
 }
 
 void Player::update(const float& dt)
 {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+        this->attributeComponents->gainExp(20);
+    this->attributeComponents->update();
+    this->updateJumping(dt);
+//    std::cout << this->attributeComponents->debugPrint() << std::endl;
     this->movementComponents->update(dt);
     this->updateAttack();
     this->updateAnimation(dt);
@@ -70,7 +79,7 @@ void Player::updateAnimation(const float &dt)
             this->attacking = false;
 
     }
-    else if (this->movementComponents->getState(IDLE))
+    else if (this->movementComponents->getState(IDLE) && !this->isJump)
     {
 
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
@@ -118,6 +127,11 @@ void Player::updateAnimation(const float &dt)
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("SIT", dt);
     }
+    else if (this->isJump)
+    {
+        this->animationComponents->play("JUMP", dt, true);
+        this->animationComponents->play("JUMP2" ,  dt, true);
+    }
 
 
 
@@ -136,6 +150,21 @@ void Player::render(sf::RenderTarget& target) {
 void Player::initAudio() {
     this->swordSoundBF.loadFromFile("resources/Audio/swordswing.wav");
     this->swordSound.setBuffer(swordSoundBF);
+
+}
+
+void Player::updateJumping(const float& dt) {
+    if (this->movementComponents->getVelocity().y != 0)
+    {
+        this->isJump = true;
+    }
+    else {
+        this->isJump = false;
+
+    }
+
+
+
 
 }
 

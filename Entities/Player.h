@@ -14,6 +14,7 @@ public:
 
     void updateAttack();
     void updateAnimation(const float& dt);
+    void updateJumping(const float& dt);
     void update(const float& dt);
     void render(sf::RenderTarget& target);
 
@@ -27,6 +28,7 @@ private:
 private:
     bool attacking;
     const float jumpHeight;
+    bool isJump;
 
 
     //Audio

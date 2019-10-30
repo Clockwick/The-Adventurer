@@ -15,24 +15,23 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/AttributeComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AttributeComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/AttributeComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AttributeComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/MovementComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/MovementComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/MovementComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/MovementComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Entity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Entity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Map/TileMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map/TileMap.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Map/TileMap.h" beforeDir="false" afterPath="$PROJECT_DIR$/Map/TileMap.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/EditorState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/EditorState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/GameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/State.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/State.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/State.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/State.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Game.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/State.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/State.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/GujarunSFML.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/GujarunSFML" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.slmp" beforeDir="false" afterPath="$PROJECT_DIR$/text.slmp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +176,8 @@
       <workItem from="1572190100347" duration="6219000" />
       <workItem from="1572323104408" duration="1076000" />
       <workItem from="1572362885139" duration="2630000" />
-      <workItem from="1572414931088" duration="5609000" />
+      <workItem from="1572414931088" duration="6468000" />
+      <workItem from="1572424047614" duration="5588000" />
     </task>
     <servers />
   </component>

@@ -5,10 +5,10 @@
 #include "AttributeComponent.h"
 
 
-AttributeComponent::AttributeComponent() {
+AttributeComponent::AttributeComponent(int level) {
     this->level = level;
     this->exp = 0;
-    this->expNext = (50 / 3) * (pow(this->level, 3) - 6 * pow(this->level,2) + (this->level * 17) - 12);
+    this->expNext = static_cast<int>((50 / 3) * (pow(this->level, 3) - 6 * pow(this->level,2) + (this->level * 17) - 12));
     this->attributePoints = 3;
 
 
@@ -51,7 +51,6 @@ void AttributeComponent::updateStats(const bool reset) {
 
 void AttributeComponent::update() {
     this->updateLevel();
-    this->updateStats();
 }
 
 void AttributeComponent::updateLevel() {
@@ -59,10 +58,26 @@ void AttributeComponent::updateLevel() {
     {
         ++this->level;
         this->exp -= this->expNext;
-        this->expNext = (50 / 3) * (pow(this->level, 3) - 6 * pow(this->level,2) + (this->level * 17) - 12);
+        this->expNext = static_cast<int>((50 / 3) * (pow(this->level, 3) - 6 * pow(this->level,2) + (this->level * 17) - 12));
         ++this->attributePoints;
 
     }
 
+}
+std::string AttributeComponent::debugPrint() const
+{
+    std::stringstream ss;
+
+    ss << "Level: " << this->level << "\n"
+       << "Exp: " << this->exp << "\n"
+       << "Exp Next: " << this->expNext << "\n"
+       << "Attp: " << this->attributePoints << "\n";
+
+    return ss.str();
+}
+
+void AttributeComponent::gainExp(const int exp) {
+    this->exp += exp;
+    this->updateLevel();
 }
 
