@@ -14,9 +14,9 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
 
     this->initComponents();
 
+    this->createAttributeComponents(1);
     this->createMovementComponents(300, 1500.0f, 500.0f, this->jumpHeight);
     this->createAnimationComponents( texture_sheet);
-    this->createAttributeComponents(1);
 
     this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);
     this->animationComponents->addAnimation("RUN", 15.f, 1, 1, 6, 1, 100, 74);
@@ -49,11 +49,11 @@ void Player::update(const float& dt)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         this->attributeComponents->gainExp(20);
-    this->attributeComponents->update();
-    this->updateJumping(dt);
+//    system("clear");
 //    std::cout << this->attributeComponents->debugPrint() << std::endl;
     this->movementComponents->update(dt);
     this->updateAttack();
+    this->updateJumping(dt);
     this->updateAnimation(dt);
 
 
@@ -162,9 +162,6 @@ void Player::updateJumping(const float& dt) {
         this->isJump = false;
 
     }
-
-
-
 
 }
 

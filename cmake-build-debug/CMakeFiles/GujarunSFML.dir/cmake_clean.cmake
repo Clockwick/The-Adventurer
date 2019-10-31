@@ -19,6 +19,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.o"
   "CMakeFiles/GujarunSFML.dir/Sound/Sound.cpp.o"
   "CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o"
+  "CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o"
   "GujarunSFML.pdb"
   "GujarunSFML"
 )

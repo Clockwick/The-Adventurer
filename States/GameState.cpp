@@ -12,6 +12,7 @@ GameState::GameState(StateData* state_data)
     this->initView();
     this->initTextures();
     this->initPlayers();
+    this->initPlayerGUI();
     this->initFonts();
     this->initPauseMenu();
     this->initTileMap();
@@ -20,9 +21,65 @@ GameState::GameState(StateData* state_data)
 
 GameState::~GameState() {
     delete this->player;
+    delete this->playerGui;
     delete this->pmenu;
     delete this->tileMap;
+
 }
+
+
+void GameState::initTextures() {
+
+    if (!this->textures["PLAYER_SHEET"].loadFromFile("resources/images/Assets/Player/Adventurer/adventurer-Sheet2x.png"))
+    {
+        std::cout << "Cannot Load Player Image" << std::endl;
+    }
+    std::cout << "Successfully Loaded Player" << std::endl;
+
+
+
+}
+void GameState::initFonts() {
+    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
+    {
+        std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
+    }
+
+    std::cout << "Successfully Loaded Fonts" << std::endl;
+
+
+}
+
+void GameState::initPlayers() {
+    this->player = new Player(500,470, 150.f, this->textures["PLAYER_SHEET"]);
+
+}
+
+void GameState::initPlayerGUI() {
+    this->playerGui = new PlayerGUI(this->player);
+}
+
+void GameState::initTileMap() {
+    this->tileMap = new TileMap(this->state_data->gridSize, 100,100, "resources/images/Assets/Map/16x16/Tile/TerrainSet.png");
+    this->tileMap->loadFromFile("text.slmp");
+}
+
+void GameState::initView() {
+
+    this->view.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width/2.f, this->state_data->gfxSettings->resolution.height/2.f));
+    this->view.setCenter(sf::Vector2f(this->state_data->gfxSettings->resolution.width/2.f, this->state_data->gfxSettings->resolution.height/2.f));
+
+}
+void GameState::initDeferredRender() {
+    this->renderTexture.create(this->state_data->gfxSettings->resolution.width, this->state_data->gfxSettings->resolution.height);
+    this->renderSprite.setTexture(this->renderTexture.getTexture());
+    this->renderSprite.setTextureRect(sf::IntRect(0,0,
+                                                  this->state_data->gfxSettings->resolution.width,
+                                                  this->state_data->gfxSettings->resolution.height)
+    );
+}
+
+
 
 void GameState::update(const float &dt) {
 
@@ -36,7 +93,7 @@ void GameState::update(const float &dt) {
         this->updatePlayerInput(dt);
         this->updateTileMap(dt);
         this->player->update(dt);
-
+        this->playerGui->update(dt);
     }
     else //Paused
     {
@@ -59,6 +116,9 @@ void GameState::render(sf::RenderTarget *target) {
     this->renderTexture.setView(this->view);
     this->tileMap->render(this->renderTexture, this->player->getGridPosition(static_cast<int>(this->state_data->gridSize)));
     this->player->render(this->renderTexture);
+
+    this->renderTexture.setView(this->renderTexture.getDefaultView());
+    this->playerGui->render(this->renderTexture);
     if (this->paused)//Pause Menu Render
     {
         this->renderTexture.setView(this->renderTexture.getDefaultView());
@@ -96,32 +156,6 @@ void GameState::updatePlayerInput(const float &dt) {
 
 }
 
-void GameState::initTextures() {
-
-    if (!this->textures["PLAYER_SHEET"].loadFromFile("resources/images/Assets/Player/Adventurer/adventurer-Sheet2x.png"))
-    {
-        std::cout << "Cannot Load Player Image" << std::endl;
-    }
-    std::cout << "Successfully Loaded Player" << std::endl;
-
-
-
-}
-void GameState::initFonts() {
-    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
-    {
-        std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
-    }
-
-    std::cout << "Successfully Loaded Fonts" << std::endl;
-
-
-}
-
-void GameState::initPlayers() {
-    this->player = new Player(500,470, 150.f, this->textures["PLAYER_SHEET"]);
-
-}
 
 void GameState::updateInput(const float &dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && this->getKeyTime())
@@ -148,17 +182,6 @@ void GameState::updatePauseMenuButtons() {
 
 }
 
-void GameState::initTileMap() {
-    this->tileMap = new TileMap(this->state_data->gridSize, 100,100, "resources/images/Assets/Map/16x16/Tile/TerrainSet.png");
-    this->tileMap->loadFromFile("text.slmp");
-}
-
-void GameState::initView() {
-
-    this->view.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width/2.f, this->state_data->gfxSettings->resolution.height/2.f));
-    this->view.setCenter(sf::Vector2f(this->state_data->gfxSettings->resolution.width/2.f, this->state_data->gfxSettings->resolution.height/2.f));
-
-}
 
 void GameState::updateView(const float &dt) {
     this->view.setCenter(this->player->getPosition());
@@ -176,19 +199,17 @@ void GameState::updateView(const float &dt) {
 
 }
 
-void GameState::initDeferredRender() {
-    this->renderTexture.create(this->state_data->gfxSettings->resolution.width, this->state_data->gfxSettings->resolution.height);
-    this->renderSprite.setTexture(this->renderTexture.getTexture());
-    this->renderSprite.setTextureRect(sf::IntRect(0,0,
-            this->state_data->gfxSettings->resolution.width,
-            this->state_data->gfxSettings->resolution.height)
-            );
-}
 
 void GameState::updateTileMap(const float &dt) {
     this->tileMap->update();
     this->tileMap->updateCollision(this->player, dt);
 }
+
+void GameState::updatePlayerGUI(const float &dt) {
+    this->playerGui->update(dt);
+
+}
+
 
 
 

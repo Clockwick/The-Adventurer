@@ -10,10 +10,10 @@ public:
 
 
     //Levels
-    unsigned level;
-    unsigned exp;
-    unsigned expNext;
-    unsigned attributePoints;
+    int level;
+    int exp;
+    int expNext;
+    uint attributePoints;
 
     //Attributes
     int Str;

@@ -4,12 +4,14 @@
 #include "State.h"
 #include "../GUI/PauseMenu.h"
 #include "../Map/TileMap.h"
+#include "../PlayerGUI.h"
 #ifndef GUJARUNSFML_GAMESTATE_H
 #define GUJARUNSFML_GAMESTATE_H
 
 class PauseMenu;
 class Player;
 class TileMap;
+class PlayerGUI;
 
 class GameState : public State
 {
@@ -23,9 +25,11 @@ public:
     void updateInput(const float& dt);
     void updateView(const float& dt);
     void updateTileMap(const float& dt);
+    void updatePlayerGUI(const float& dt);
 
 private:
     Player* player;
+    PlayerGUI* playerGui;
     PauseMenu* pmenu;
     TileMap* tileMap;
 
@@ -48,6 +52,7 @@ private:
     void initFonts();
     void initPauseMenu();
     void initTileMap();
+    void initPlayerGUI();
     void updatePauseMenuButtons();
 
 

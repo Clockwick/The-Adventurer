@@ -39,7 +39,6 @@ void Game::update() {
         if (this->window->hasFocus()) {
             this->states.top()->update(this->deltaTime); // ???
 
-
             if (this->states.top()->getQuit()) {
                 this->states.top()->endState();
                 delete this->states.top();

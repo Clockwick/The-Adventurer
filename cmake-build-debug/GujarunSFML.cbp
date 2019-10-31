@@ -148,6 +148,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h">
 			<Option target="GujarunSFML"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.cpp">
+			<Option target="GujarunSFML"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.h">
+			<Option target="GujarunSFML"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/GujarunSFML/Precom.cpp">
 			<Option target="GujarunSFML"/>
 		</Unit>

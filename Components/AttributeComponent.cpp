@@ -8,7 +8,7 @@
 AttributeComponent::AttributeComponent(int level) {
     this->level = level;
     this->exp = 0;
-    this->expNext = static_cast<int>((50 / 3) * (pow(this->level, 3) - 6 * pow(this->level,2) + (this->level * 17) - 12));
+    this->expNext = static_cast<int>((50 / 3) * (pow(this->level + 1, 3) - 6 * pow(this->level + 1,2) + ((this->level + 1) * 17) - 12));
     this->attributePoints = 3;
 
 
@@ -18,6 +18,7 @@ AttributeComponent::AttributeComponent(int level) {
     this->Dex = 1;
     this->Agi = 1;
 
+    this->updateLevel();
     this->updateStats(true);
 }
 

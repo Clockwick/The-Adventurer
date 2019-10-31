@@ -420,6 +420,33 @@ Map/TileMap.cpp.s:
 	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.s
 .PHONY : Map/TileMap.cpp.s
 
+PlayerGUI.o: PlayerGUI.cpp.o
+
+.PHONY : PlayerGUI.o
+
+# target to build an object file
+PlayerGUI.cpp.o:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o
+.PHONY : PlayerGUI.cpp.o
+
+PlayerGUI.i: PlayerGUI.cpp.i
+
+.PHONY : PlayerGUI.i
+
+# target to preprocess a source file
+PlayerGUI.cpp.i:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.i
+.PHONY : PlayerGUI.cpp.i
+
+PlayerGUI.s: PlayerGUI.cpp.s
+
+.PHONY : PlayerGUI.s
+
+# target to generate assembly for a file
+PlayerGUI.cpp.s:
+	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.s
+.PHONY : PlayerGUI.cpp.s
+
 Precom.o: Precom.cpp.o
 
 .PHONY : Precom.o
@@ -705,6 +732,9 @@ help:
 	@echo "... Map/TileMap.o"
 	@echo "... Map/TileMap.i"
 	@echo "... Map/TileMap.s"
+	@echo "... PlayerGUI.o"
+	@echo "... PlayerGUI.i"
+	@echo "... PlayerGUI.s"
 	@echo "... Precom.o"
 	@echo "... Precom.i"
 	@echo "... Precom.s"
