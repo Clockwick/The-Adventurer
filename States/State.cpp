@@ -74,6 +74,15 @@ void State::updateKeytime(const float& dt)
 
 }
 
+const float State::p2pX(const float perc) {
+
+    return 0;
+}
+
+const float State::p2pY(const float perc) {
+    return 0;
+}
+
 
 
 

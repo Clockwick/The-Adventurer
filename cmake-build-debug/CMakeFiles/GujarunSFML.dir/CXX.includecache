@@ -88,7 +88,7 @@ SFML/System.hpp
 Entity.h
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
 
-/Users/arthris/CLionProjects/GujarunSFML/Gui.h
+/Users/arthris/CLionProjects/GujarunSFML/GUI.h
 iostream
 -
 sstream
@@ -115,8 +115,8 @@ PlayerGUI.h
 /Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.h
 Entities/Player.h
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
-Gui.h
-/Users/arthris/CLionProjects/GujarunSFML/Gui.h
+GUI.h
+/Users/arthris/CLionProjects/GujarunSFML/GUI.h
 
 /Users/arthris/CLionProjects/GujarunSFML/Precom.h
 algorithm

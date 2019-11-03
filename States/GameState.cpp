@@ -149,7 +149,8 @@ void GameState::updatePlayerInput(const float &dt) {
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        this->player->move(0.f, 1.0f, dt);
+        this->player->gainEXP(20.f);
+
     }
 
 

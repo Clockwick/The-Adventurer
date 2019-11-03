@@ -862,7 +862,6 @@ CMakeFiles/GujarunSFML.dir/Game.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Game.cpp
  /Users/arthris/CLionProjects/GujarunSFML/Game.h
  /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
- /Users/arthris/CLionProjects/GujarunSFML/Gui.h
  /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
  /Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.h
  /Users/arthris/CLionProjects/GujarunSFML/Precom.h
@@ -1202,7 +1201,7 @@ CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/Components/MovementComponent.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
  /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
- /Users/arthris/CLionProjects/GujarunSFML/Gui.h
+ /Users/arthris/CLionProjects/GujarunSFML/GUI.h
  /Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.cpp
  /Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.h
  /Users/arthris/CLionProjects/GujarunSFML/Precom.h
@@ -1590,7 +1589,6 @@ CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/GUI.h
  /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
  /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
- /Users/arthris/CLionProjects/GujarunSFML/Gui.h
  /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
  /Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.h
  /Users/arthris/CLionProjects/GujarunSFML/Precom.h
@@ -1941,7 +1939,6 @@ CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/GUI.h
  /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
  /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
- /Users/arthris/CLionProjects/GujarunSFML/Gui.h
  /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
  /Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.h
  /Users/arthris/CLionProjects/GujarunSFML/Precom.h
@@ -2173,7 +2170,6 @@ CMakeFiles/GujarunSFML.dir/main.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
  /Users/arthris/CLionProjects/GujarunSFML/Game.h
  /Users/arthris/CLionProjects/GujarunSFML/GraphicsSettings.h
- /Users/arthris/CLionProjects/GujarunSFML/Gui.h
  /Users/arthris/CLionProjects/GujarunSFML/Map/TileMap.h
  /Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.h
  /Users/arthris/CLionProjects/GujarunSFML/Precom.h

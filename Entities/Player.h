@@ -12,6 +12,10 @@ public:
     Player(float x,  float y, const float& jumpHeight, sf::Texture& texture_sheet);
     virtual ~Player();
 
+    void loseHP(const int hp);
+    void loseEXP(const int exp);
+    void gainHP(const int hp);
+    void gainEXP(const int exp);
     void updateAttack();
     void updateAnimation(const float& dt);
     void updateJumping(const float& dt);
@@ -21,6 +25,7 @@ public:
     //Variables
     bool sliding;
     bool sitting;
+    AttributeComponent* getAttributeComponents();
 private:
     void initVariables();
     void initComponents();
@@ -29,6 +34,7 @@ private:
     bool attacking;
     const float jumpHeight;
     bool isJump;
+
 
 
     //Audio

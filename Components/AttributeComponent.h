@@ -13,7 +13,7 @@ public:
     int level;
     int exp;
     int expNext;
-    uint attributePoints;
+    int attributePoints;
 
     //Attributes
     int Str;
@@ -38,6 +38,7 @@ public:
     void update();
     std::string debugPrint() const;
     void gainExp(const int exp);
+    void loseExp(const int exp);
 
 
 

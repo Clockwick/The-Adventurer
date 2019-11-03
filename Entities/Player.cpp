@@ -31,6 +31,7 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
 
 Player::~Player() {
 
+
 }
 //Initializer Function
 
@@ -164,4 +165,35 @@ void Player::updateJumping(const float& dt) {
     }
 
 }
+
+AttributeComponent *Player::getAttributeComponents() {
+    return this->attributeComponents;
+}
+
+void Player::gainHP(const int hp) {
+    this->attributeComponents->hp += hp;
+
+    if (this->attributeComponents->hp > this->attributeComponents->hpMax)
+        this->attributeComponents->hp = this->attributeComponents->hpMax;
+}
+
+void Player::loseHP(const int hp) {
+    this->attributeComponents->hp -= hp;
+
+    if (this->attributeComponents->hp < 0)
+        this->attributeComponents->hp = 0;
+
+}
+void Player::gainEXP(const int exp) {
+    this->attributeComponents->gainExp(exp);
+
+}
+
+void Player::loseEXP(const int exp) {
+    this->attributeComponents->exp -= exp;
+
+    if (this->attributeComponents->exp < 0)
+        this->attributeComponents->exp = 0;
+}
+
 

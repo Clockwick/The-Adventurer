@@ -42,6 +42,8 @@ public:
     void endState();
     void pauseState();
     void unpauseState();
+    const float p2pX(const float perc);
+    const float p2pY(const float perc);
     //Accessor
     const bool& getQuit() const;
     const bool getKeyTime();

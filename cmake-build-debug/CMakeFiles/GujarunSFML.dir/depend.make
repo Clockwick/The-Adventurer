@@ -861,7 +861,6 @@ CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../GUI/PauseMenu.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Game.cpp
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Game.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../GraphicsSettings.h
-CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Gui.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Map/TileMap.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../PlayerGUI.h
 CMakeFiles/GujarunSFML.dir/Game.cpp.o: ../Precom.h
@@ -1201,7 +1200,7 @@ CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o: ../Entities/Entity.h
 CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o: ../Entities/Player.h
-CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o: ../Gui.h
+CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o: ../GUI.h
 CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o: ../PlayerGUI.cpp
 CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o: ../PlayerGUI.h
 CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o: ../Precom.h
@@ -1589,7 +1588,6 @@ CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Entities/Player.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../GUI.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../GUI/PauseMenu.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../GraphicsSettings.h
-CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Gui.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Map/TileMap.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../PlayerGUI.h
 CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o: ../Precom.h
@@ -1940,7 +1938,6 @@ CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Entities/Player.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../GUI.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../GUI/PauseMenu.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../GraphicsSettings.h
-CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Gui.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Map/TileMap.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../PlayerGUI.h
 CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o: ../Precom.h
@@ -2172,7 +2169,6 @@ CMakeFiles/GujarunSFML.dir/main.cpp.o: ../GUI.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../GUI/PauseMenu.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Game.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../GraphicsSettings.h
-CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Gui.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Map/TileMap.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../PlayerGUI.h
 CMakeFiles/GujarunSFML.dir/main.cpp.o: ../Precom.h
