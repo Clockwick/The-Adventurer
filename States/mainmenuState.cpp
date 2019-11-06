@@ -57,22 +57,22 @@ void Mainmenu::initFonts() {
 
 void Mainmenu::initButtons() {
 
-    this->buttons["GAME_STATE"] = new gui::Button(1280.f,798.f-200.f,200.f,65.f,
+    this->buttons["GAME_STATE"] = new gui::Button(p2pX(44.44f),p2pY(33.22f),p2pX(6.94f),p2pY(3.61f),
                                              &this->font, "New Game", 36,
                                              sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                              sf::Color(70,70,70,0),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["SETTINGS_STATE"] = new gui::Button(1280.f,998.f-200.f,200.f,65.f,
+    this->buttons["SETTINGS_STATE"] = new gui::Button(p2pX(44.44f),p2pY(44.33),p2pX(6.94f),p2pY(3.61f),
                                                 &this->font, "Settings", 36,
                                                 sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                                 sf::Color(70,70,70,0 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["EDITOR_STATE"] = new gui::Button(1280.f,1198.f-200.f,200.f,65.f,
+    this->buttons["EDITOR_STATE"] = new gui::Button(p2pX(44.44f),p2pY(55.44),p2pX(6.94f),p2pY(3.61f),
                                                &this->font, "Editor", 36,
                                                sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                                sf::Color(70,70,70,0 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["EXIT_STATE"] = new gui::Button(1280.f,1398.f-200.f,200.f,65.f,
+    this->buttons["EXIT_STATE"] = new gui::Button(p2pX(44.44f),p2pY(66.55f),p2pX(6.94f),p2pY(3.61f),
                                              &this->font, "Exit", 36,
                                              sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                              sf::Color(70,70,70,0),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
