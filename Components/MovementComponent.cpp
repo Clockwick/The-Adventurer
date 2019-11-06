@@ -139,7 +139,6 @@ const bool MovementComponents::getState(const short unsigned state) const {
                 return true;
             break;
         case JUMP:
-            if (this->canJump)
                 return true;
             break;
     }

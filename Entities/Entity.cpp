@@ -37,6 +37,7 @@ void Entity::render(sf::RenderTarget &target) {
 void Entity::update(const float &dt) {
 
 
+
 }
 //Component Functions
 void Entity::setTexture(sf::Texture& texture) {

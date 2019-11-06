@@ -30,7 +30,7 @@ GameState::~GameState() {
 
 void GameState::initTextures() {
 
-    if (!this->textures["PLAYER_SHEET"].loadFromFile("resources/images/Assets/Player/Adventurer/adventurer-Sheet2x.png"))
+    if (!this->textures["PLAYER_SHEET"].loadFromFile("resources/images/Assets/Player/Adventurer/adventurer-Sheet2xnew.png"))
     {
         std::cout << "Cannot Load Player Image" << std::endl;
     }
@@ -149,7 +149,6 @@ void GameState::updatePlayerInput(const float &dt) {
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        this->player->gainEXP(20.f);
 
     }
 

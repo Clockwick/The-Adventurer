@@ -24,8 +24,8 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
     this->animationComponents->addAnimation("SIT", 15.f, 4, 0, 6, 0, 100, 74);
     this->animationComponents->addAnimation("ATTACK1", 15.f, 3, 6, 6, 6, 100, 74);
     this->animationComponents->addAnimation("ATTACK2", 15.f, 0, 7, 3, 7, 100, 74);
-    this->animationComponents->addAnimation("JUMP", 15.f , 1 , 2, 7 , 2 , 100 , 74);
-    this->animationComponents->addAnimation("JUMP2", 12.f , 0 , 3, 2 , 3 ,100, 74);
+    this->animationComponents->addAnimation("JUMP", 15.f , 0 , 2, 9 , 2 , 100 , 74);
+
 
 }
 
@@ -58,6 +58,7 @@ void Player::update(const float& dt)
     this->updateAnimation(dt);
 
 
+
 }
 
 void Player::updateAttack()
@@ -76,7 +77,7 @@ void Player::updateAnimation(const float &dt)
     if (this->attacking)
     {
 
-        if(this->animationComponents->play("ATTACK2", dt, true))
+        if(this->animationComponents->play("ATTACK1", dt, true))
             this->attacking = false;
 
     }
@@ -128,12 +129,11 @@ void Player::updateAnimation(const float &dt)
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("SIT", dt);
     }
-    else if (this->isJump)
-    {
-        this->animationComponents->play("JUMP", dt, true);
-        this->animationComponents->play("JUMP2" ,  dt, true);
-    }
+    else if (this->isJump) {
 
+        this->animationComponents->play("JUMP", dt, 135, 100, true);
+
+    }
 
 
 
