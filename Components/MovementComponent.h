@@ -18,7 +18,7 @@
 #ifndef GUJARUNSFML_MOVEMENTCOMPONENTS_H
 #define GUJARUNSFML_MOVEMENTCOMPONENTS_H
 
-enum movement_states {IDLE = 0, MOVING, MOVING_LEFT, MOVING_RIGHT, SLIDE_RIGHT, SLIDE_LEFT, SIT, ATTACK, JUMP};
+enum movement_states {IDLE = 0, MOVING, MOVING_LEFT, MOVING_RIGHT, SLIDE_RIGHT, SLIDE_LEFT, SIT, ATTACK, JUMP_LEFT, JUMP_RIGHT};
 class MovementComponents
 {
 public:
@@ -45,7 +45,7 @@ public:
     void stopVelocityY();
     void saveVelocityY(const float& velocityY);
     void jump();
-    void getcanJump(bool& canJump);
+    void getcanJump(bool* canJump);
 private:
     float maxVelocity;
     float acceleration;
@@ -53,6 +53,7 @@ private:
     const float jumpHeight;
     const float maxVelocityY = -300.f;
     bool canJump;
+    bool faceRight;
     std::vector<float> velocityStack;
     float lastVelocity;
     int countVelocity;

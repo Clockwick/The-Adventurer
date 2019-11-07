@@ -56,7 +56,7 @@ void GameState::initPlayers() {
 }
 
 void GameState::initPlayerGUI() {
-    this->playerGui = new PlayerGUI(this->player);
+    this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
 }
 
 void GameState::initTileMap() {
@@ -151,8 +151,6 @@ void GameState::updatePlayerInput(const float &dt) {
     {
 
     }
-
-
 
 }
 

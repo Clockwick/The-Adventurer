@@ -331,9 +331,9 @@ void TileMap::render(sf::RenderTarget &target, const sf::Vector2i& gridPosition)
                             && playerBounds.left < wallBounds.left + wallBounds.width
                             && playerBounds.left + playerBounds.width > wallBounds.left
                                 ) {
-//                            std::cout << "Bottom Collision" << std::endl;
+                            std::cout << "Bottom Collision" << std::endl;
                             this->canJump = true;
-                            entity->allowJump(this->canJump);
+                            entity->allowJump(&this->canJump);
 //                            entity->saveVelocityY(entity->getVelocity().y);
                             entity->stopVelocityY();
                             entity->setPosition(playerBounds.left + 20, wallBounds.top - playerBounds.height + 9);
@@ -341,11 +341,11 @@ void TileMap::render(sf::RenderTarget &target, const sf::Vector2i& gridPosition)
 
                             //Top collision
                         else if (playerBounds.top > wallBounds.top
-                                 && playerBounds.top + playerBounds.height > wallBounds.top + wallBounds.height + 80
+                                 && playerBounds.top + playerBounds.height > wallBounds.top + wallBounds.height + 63
                                  && playerBounds.left < wallBounds.left + wallBounds.width
                                  && playerBounds.left + playerBounds.width > wallBounds.left
                                 ) {
-//                            std::cout << "Top Collision" << std::endl;
+                            std::cout << "Top Collision" << std::endl;
 
                             entity->stopVelocityY();
                             entity->setPosition(playerBounds.left + 20, wallBounds.top + wallBounds.height);
@@ -357,7 +357,7 @@ void TileMap::render(sf::RenderTarget &target, const sf::Vector2i& gridPosition)
                             && playerBounds.top < wallBounds.top + wallBounds.height + 5
                             && playerBounds.top + playerBounds.height > wallBounds.top
                                 ) {
-//                            std::cout << "Right Collision" << std::endl;
+                            std::cout << "Right Collision" << std::endl;
 
                             entity->stopVelocityX();
                             entity->setPosition(wallBounds.left - playerBounds.width + 45, playerBounds.top + 10);
@@ -371,7 +371,7 @@ void TileMap::render(sf::RenderTarget &target, const sf::Vector2i& gridPosition)
                                  && playerBounds.top < wallBounds.top + wallBounds.height
                                  && playerBounds.top + playerBounds.height > wallBounds.top
                                 ) {
-//                            std::cout << "Left Collision" << std::endl;
+                            std::cout << "Left Collision" << std::endl;
 
 
                             entity->stopVelocityX();

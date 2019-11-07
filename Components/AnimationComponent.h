@@ -25,6 +25,7 @@ public:
     const bool& isDone(const std::string key);
 
 
+
 private:
     //Class
     class Animation
@@ -55,6 +56,15 @@ private:
         int width;
         int height;
         bool done;
+        bool* testptr;
+
+        void getptr(bool* testptr)
+        {
+            this->testptr = testptr;
+//            std::cout << "Setptr in Animation : " << this->testptr<< std::endl;
+            std::cout << "Ani.cpp: "<< *this->testptr << std::endl;
+
+        }
 
         //Accessor
         const bool& isDone() const
@@ -65,6 +75,8 @@ private:
         const bool& play(const float& dt)
         {
             //Update timer
+            std::cout << "1" <<*this->testptr << "\n";
+
 
             this->done = false;
             this->timer += 100.0f * dt;
@@ -75,6 +87,7 @@ private:
                 //Animate
                 if (this->currentRect != this->endRect) {
                     this->currentRect.left += this->width;
+//                    std::cout << this->testptr << std::endl;
                 }
 
                 else //reset
@@ -90,7 +103,10 @@ private:
         }
         const bool& play(const float& dt, float mod_percent)
         {
+
             //Update timer
+
+            std::cout << 2<< *this->testptr << "\n";
             this->done = false;
             if (mod_percent < 0.5f)
             {
@@ -102,9 +118,11 @@ private:
                 //reset Timer
                 this->timer -= this->animation_timer;
                 //Animate
+
                 if (this->currentRect != this->endRect) {
                     this->currentRect.left += this->width;
                 }
+
 
                 else //reset
                 {
@@ -123,6 +141,11 @@ private:
             this->currentRect = this->startRect;
 
         }
+        void ii()
+        {
+            std::cout << "Ani.cpp Update: "<< *this->testptr << std::endl;
+
+        }
     };
     //Variables
     std::map <std::string, Animation*> animations;
@@ -130,6 +153,21 @@ private:
     sf::Texture& animation_sheet;
     Animation* lastAnimation;
     Animation* priorityAnimation;
+
+    bool* pointer;
+public:
+    void getptr(bool* testptr)
+    {
+        this->pointer = testptr;
+        std::cout << "AniCom.cpp: "<< *this->pointer << std::endl;
+
+//        std::cout << "Setptr in AnimationCom : " << this->pointer << std::endl;
+//        std::cout << "1" << std::endl;
+    }
+
+
+
+
     //Functions
 };
 #endif //GUJARUNSFML_ANIMATIONCOMPONENT_H

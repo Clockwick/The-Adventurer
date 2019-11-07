@@ -124,16 +124,16 @@ const sf::FloatRect &Entity::getNextPositionBounds(const float& dt) const {
 
 void Entity::jump() {
     if (this->movementComponents && this->canJump) {
-
-        this->movementComponents->getcanJump(this->canJump);
-        this->movementComponents->jump();
         this->canJump = false;
+        this->movementComponents->getcanJump(&this->canJump);
+        this->movementComponents->jump();
+
 
     }
 }
 
-void Entity::allowJump(bool &canJump) {
-    this->canJump = canJump;
+void Entity::allowJump(bool *canJump) {
+    this->canJump = *canJump;
 
 }
 

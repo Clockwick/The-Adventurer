@@ -21,7 +21,7 @@ void MovementComponents::update(const float &dt) {
 
     if (this->velocity.x > 0.0f)
     {
-
+        this->faceRight = true;
         if (this->velocity.x > this->maxVelocity) {
             this->velocity.x = this->maxVelocity;
         }
@@ -32,6 +32,7 @@ void MovementComponents::update(const float &dt) {
         }
     }
     else if (this->velocity.x < 0.0f) {
+        this->faceRight = false;
         if (this->velocity.x < -this->maxVelocity)
         {
             this->velocity.x = -this->maxVelocity;
@@ -42,15 +43,18 @@ void MovementComponents::update(const float &dt) {
             this->velocity.x = 0;
         }
     }
-    if (this->canJump && this->velocity.y != 0 && this->sprite.getPosition().y < 465)
+    if (!this->canJump && this->velocity.y != 0 && this->sprite.getPosition().y < 465)
     {
         this->velocity.y += 981.f * dt;
     }
+    else if(!this->canJump && this->sprite.getPosition().y < 465)
+    {
+        this->velocity.y += 981.f * dt;
+    }
+    else
+    {
+    }
 //    std::cout << this->sprite.getPosition().y << std::endl;
-
-
-
-
 
 
     //Final move
@@ -138,7 +142,12 @@ const bool MovementComponents::getState(const short unsigned state) const {
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
                 return true;
             break;
-        case JUMP:
+        case JUMP_RIGHT:
+            if (!this->canJump && this->faceRight)
+                return true;
+            break;
+        case JUMP_LEFT:
+            if (!this->canJump && !this->faceRight)
                 return true;
             break;
     }
@@ -164,8 +173,8 @@ void MovementComponents::jump() {
     this->velocity.y = -sqrtf(2 * 981.f * this->jumpHeight);
 }
 
-void MovementComponents::getcanJump(bool &canJump) {
-    this->canJump = canJump;
+void MovementComponents::getcanJump(bool *canJump) {
+    this->canJump = *canJump;
 }
 
 void MovementComponents::saveVelocityY(const float& velocityY) {
@@ -179,9 +188,8 @@ void MovementComponents::saveVelocityY(const float& velocityY) {
 //    {
 //        this->countVelocity = 0;
 //    }
-
-
 }
+
 
 
 

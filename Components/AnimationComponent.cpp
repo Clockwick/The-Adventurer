@@ -23,6 +23,8 @@ const bool &AnimationComponent::isDone(const std::string key)
 const bool&  AnimationComponent::play(const std::string key, const float &dt, const bool priority) {
     //Reset Last animation
 
+//    std::cout << "1" << key << std::endl;
+//    this->animations[key]->ii();
 
     if (this->priorityAnimation)
     {
@@ -52,6 +54,7 @@ const bool&  AnimationComponent::play(const std::string key, const float &dt, co
     }
 
 
+
 // Play if no priority
     else {
 
@@ -72,10 +75,15 @@ const bool&  AnimationComponent::play(const std::string key, const float &dt, co
 
         this->animations[key]->play(dt);
     }
+//    std::cout << "Setptr in AnimationCo  : " << *this->pointer << std::endl;
+
+//    std::cout << "AnimationComponents : "<< *this->pointer << std::endl;
     return this->animations[key]->isDone();
 }
 const bool& AnimationComponent::play(const std::string key, const float &dt, const float& modifier, const float& max_modifier, const bool priority) {
     //Reset Last animation
+//    std::cout << "2" << key << "\n";
+
 
     if (this->priorityAnimation)
     {
@@ -139,6 +147,8 @@ void AnimationComponent::addAnimation(const std::string key,
         {
     this->animations[key] = new Animation(this->sprite, this->animation_sheet,
             animation_timer, start_x, start_y, frames_x, frames_y , width, height);
+    this->animations[key]->getptr(this->pointer);
+//            std::cout << "2" << std::endl;
 
 }
 

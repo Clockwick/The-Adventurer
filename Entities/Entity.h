@@ -44,7 +44,7 @@ public:
     void setTexture(sf::Texture& texture);
 
     //Allow
-    void allowJump(bool& canJump);
+    void allowJump(bool* canJump);
 
 
 protected:
