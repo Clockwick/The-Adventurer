@@ -1,12 +1,4 @@
-#include <iostream>
-#include <sstream>
-#include <ctime>
-#include <cstdlib>
-#include <vector>
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/System.hpp>
+#include "Precom.h"
 #ifndef GUJARUNSFML_BUTTON_H
 #define GUJARUNSFML_BUTTON_H
 
@@ -14,6 +6,10 @@
 enum button_states{BTN_IDLE = 0, BTN_HOVER, BTN_ACTIVE};
 
 namespace gui {
+
+    const float p2pX(const float perc, const sf::VideoMode& vm);
+    const float p2pY(const float perc, const sf::VideoMode& vm);
+    const unsigned calcCharSize(const sf::VideoMode& vm, const unsigned modifier = 130);
     class Button {
     public:
         Button(float x, float y, float width, float height, sf::Font *font, std::string text, unsigned character_size,

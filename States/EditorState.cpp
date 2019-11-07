@@ -79,11 +79,11 @@ void EditorState::initTileMap() {
 }
 
 void EditorState::initPauseMenu() {
-    this->pmenu = new PauseMenu(*this->window, this->font);
-
-    this->pmenu->addButton("QUIT", 1400.f, "Quit");
-    this->pmenu->addButton("SAVE", 1100.f, "Save");
-    this->pmenu->addButton("LOAD", 1250.f, "Load");
+    const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
+    this->pmenu = new PauseMenu(this->state_data->gfxSettings->resolution, this->font);
+    this->pmenu->addButton("QUIT", gui::p2pY(77.77f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),gui::calcCharSize(vm), "Quit");
+    this->pmenu->addButton("SAVE", gui::p2pY(61.11f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),gui::calcCharSize(vm), "Save");
+    this->pmenu->addButton("LOAD", gui::p2pY(69.44f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),gui::calcCharSize(vm), "Load");
 
 }
 
@@ -115,10 +115,8 @@ void EditorState::update(const float &dt) {
     }
     else //Paused
     {
-
         this->pmenu->update(this->mousePosWindow);
         this->updatePauseMenuButtons();
-
     }
 
 

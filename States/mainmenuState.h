@@ -36,10 +36,10 @@ private:
     sf::Music musicBG;
     //Functions
     void initFonts();
-    void initButtons();
-    void initBackground();
+    void initGui();
     void initVariables();
     void initAudio();
+    void resetGui();
 
 
 

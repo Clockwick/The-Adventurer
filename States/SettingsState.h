@@ -26,10 +26,8 @@ public://Variables
 private://Functions
     void initFonts();
     void initGui();
-    void initBackground();
     void initVariables();
-    void initText();
-
+    void resetGui();
 private://Variables
 
     sf::Font font;

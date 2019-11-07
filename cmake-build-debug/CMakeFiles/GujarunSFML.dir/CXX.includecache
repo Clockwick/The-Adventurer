@@ -84,13 +84,23 @@ SFML/System.hpp
 ../Components/AttributeComponent.h
 /Users/arthris/CLionProjects/GujarunSFML/Components/AttributeComponent.h
 
-/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.cpp
-Player.h
-/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
-
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
 Entity.h
 /Users/arthris/CLionProjects/GujarunSFML/Entities/Entity.h
+
+/Users/arthris/CLionProjects/GujarunSFML/GUI.h
+Precom.h
+/Users/arthris/CLionProjects/GujarunSFML/Precom.h
+
+/Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.cpp
+PlayerGUI.h
+/Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.h
+
+/Users/arthris/CLionProjects/GujarunSFML/PlayerGUI.h
+Entities/Player.h
+/Users/arthris/CLionProjects/GujarunSFML/Entities/Player.h
+GUI.h
+/Users/arthris/CLionProjects/GujarunSFML/GUI.h
 
 /Users/arthris/CLionProjects/GujarunSFML/Precom.h
 algorithm

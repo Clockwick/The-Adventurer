@@ -652,6 +652,7 @@ CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/GUI.cpp
  /Users/arthris/CLionProjects/GujarunSFML/GUI.h
+ /Users/arthris/CLionProjects/GujarunSFML/Precom.h
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp
@@ -701,6 +702,18 @@ CMakeFiles/GujarunSFML.dir/GUI.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/VertexArray.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/VertexBuffer.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/View.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Export.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Ftp.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Http.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/IpAddress.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Packet.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Socket.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/SocketHandle.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/SocketSelector.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/TcpListener.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/TcpSocket.hpp
+ /usr/local/cellar/sfml/2.5.1/include/SFML/Network/UdpSocket.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/System.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/System/Clock.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/System/Err.hpp
@@ -747,6 +760,7 @@ CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o
  /Users/arthris/CLionProjects/GujarunSFML/GUI.h
  /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.cpp
  /Users/arthris/CLionProjects/GujarunSFML/GUI/PauseMenu.h
+ /Users/arthris/CLionProjects/GujarunSFML/Precom.h
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp

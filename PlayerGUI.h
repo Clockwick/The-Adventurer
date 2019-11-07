@@ -12,7 +12,7 @@ class Player;
 
 class PlayerGUI {
 public:
-    PlayerGUI(Player* player);
+    PlayerGUI(Player* player, sf::VideoMode& vm);
     virtual ~PlayerGUI();
 
     //Functions
@@ -29,6 +29,7 @@ public:
 
 private:
     Player* player;
+    sf::VideoMode& vm;
 
     //Level
     std::string levelBarString;

@@ -170,9 +170,10 @@ void GameState::updateInput(const float &dt) {
 }
 
 void GameState::initPauseMenu() {
-    this->pmenu = new PauseMenu(*this->window, this->font);
+    const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
+    this->pmenu = new PauseMenu(this->state_data->gfxSettings->resolution, this->font);
 
-    this->pmenu->addButton("QUIT",1100.f, "Quit");
+    this->pmenu->addButton("QUIT",gui::p2pY(61.11f, vm), gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm), gui::calcCharSize(vm), "Quit");
 
 }
 

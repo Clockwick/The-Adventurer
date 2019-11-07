@@ -651,6 +651,7 @@ CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o: /usr/local/cellar/sfml/2.5.1/i
 
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: ../GUI.cpp
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: ../GUI.h
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: ../Precom.h
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp
@@ -700,6 +701,18 @@ CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/VertexArray.hpp
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/VertexBuffer.hpp
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Graphics/View.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Export.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Ftp.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Http.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/IpAddress.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Packet.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/Socket.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/SocketHandle.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/SocketSelector.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/TcpListener.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/TcpSocket.hpp
+CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Network/UdpSocket.hpp
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System.hpp
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Clock.hpp
 CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/System/Err.hpp
@@ -746,6 +759,7 @@ CMakeFiles/GujarunSFML.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/
 CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: ../GUI.h
 CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: ../GUI/PauseMenu.cpp
 CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: ../GUI/PauseMenu.h
+CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: ../Precom.h
 CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
 CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp

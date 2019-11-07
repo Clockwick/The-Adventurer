@@ -3,6 +3,22 @@
 
 
 
+const float gui::p2pX(const float perc, const sf::VideoMode& vm){
+
+    return std::floor(static_cast<float>(vm.width) * (perc / 100.f));
+}
+
+const float gui::p2pY(const float perc, const sf::VideoMode& vm){
+
+    return std::floor(static_cast<float>(vm.height) * (perc / 100.f));
+}
+
+const unsigned gui::calcCharSize(const sf::VideoMode& vm, const unsigned modifier){
+
+    return static_cast<unsigned>((vm.width + vm.height) / modifier);
+}
+
+
 gui::Button::Button(float x, float y, float width, float height, sf::Font *font, std::string text, unsigned character_size,
                  sf::Color text_idle_color, sf::Color text_hover_color, sf::Color text_active_color, sf::Color idle_color,
                  sf::Color hover_color, sf::Color active_color,sf::Color outline_idle_color,
