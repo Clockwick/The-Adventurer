@@ -115,7 +115,7 @@ void GameState::render(sf::RenderTarget *target) {
 
     this->renderTexture.setView(this->view);
     this->tileMap->render(this->renderTexture, this->player->getGridPosition(static_cast<int>(this->state_data->gridSize)));
-    this->player->render(this->renderTexture);
+    this->player->render(this->renderTexture, false);
 
     this->renderTexture.setView(this->renderTexture.getDefaultView());
     this->playerGui->render(this->renderTexture);

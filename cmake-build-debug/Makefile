@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/arthris/CLionProjects/GujarunSFML
+CMAKE_SOURCE_DIR = /Users/arthris/CLionProjects/The-Adventurer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles /Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles /Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/arthris/CLionProjects/GujarunSFML/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named GujarunSFML
+# Target rules for targets named The-Adventurer
 
 # Build rule for target.
-GujarunSFML: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 GujarunSFML
-.PHONY : GujarunSFML
+The-Adventurer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 The-Adventurer
+.PHONY : The-Adventurer
 
 # fast build rule for target.
-GujarunSFML/fast:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/build
-.PHONY : GujarunSFML/fast
+The-Adventurer/fast:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/build
+.PHONY : The-Adventurer/fast
 
 Components/AnimationComponent.o: Components/AnimationComponent.cpp.o
 
@@ -129,7 +129,7 @@ Components/AnimationComponent.o: Components/AnimationComponent.cpp.o
 
 # target to build an object file
 Components/AnimationComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/AnimationComponent.cpp.o
 .PHONY : Components/AnimationComponent.cpp.o
 
 Components/AnimationComponent.i: Components/AnimationComponent.cpp.i
@@ -138,7 +138,7 @@ Components/AnimationComponent.i: Components/AnimationComponent.cpp.i
 
 # target to preprocess a source file
 Components/AnimationComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/AnimationComponent.cpp.i
 .PHONY : Components/AnimationComponent.cpp.i
 
 Components/AnimationComponent.s: Components/AnimationComponent.cpp.s
@@ -147,7 +147,7 @@ Components/AnimationComponent.s: Components/AnimationComponent.cpp.s
 
 # target to generate assembly for a file
 Components/AnimationComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AnimationComponent.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/AnimationComponent.cpp.s
 .PHONY : Components/AnimationComponent.cpp.s
 
 Components/AttributeComponent.o: Components/AttributeComponent.cpp.o
@@ -156,7 +156,7 @@ Components/AttributeComponent.o: Components/AttributeComponent.cpp.o
 
 # target to build an object file
 Components/AttributeComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/AttributeComponent.cpp.o
 .PHONY : Components/AttributeComponent.cpp.o
 
 Components/AttributeComponent.i: Components/AttributeComponent.cpp.i
@@ -165,7 +165,7 @@ Components/AttributeComponent.i: Components/AttributeComponent.cpp.i
 
 # target to preprocess a source file
 Components/AttributeComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/AttributeComponent.cpp.i
 .PHONY : Components/AttributeComponent.cpp.i
 
 Components/AttributeComponent.s: Components/AttributeComponent.cpp.s
@@ -174,7 +174,7 @@ Components/AttributeComponent.s: Components/AttributeComponent.cpp.s
 
 # target to generate assembly for a file
 Components/AttributeComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/AttributeComponent.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/AttributeComponent.cpp.s
 .PHONY : Components/AttributeComponent.cpp.s
 
 Components/HitboxComponent.o: Components/HitboxComponent.cpp.o
@@ -183,7 +183,7 @@ Components/HitboxComponent.o: Components/HitboxComponent.cpp.o
 
 # target to build an object file
 Components/HitboxComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.o
 .PHONY : Components/HitboxComponent.cpp.o
 
 Components/HitboxComponent.i: Components/HitboxComponent.cpp.i
@@ -192,7 +192,7 @@ Components/HitboxComponent.i: Components/HitboxComponent.cpp.i
 
 # target to preprocess a source file
 Components/HitboxComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.i
 .PHONY : Components/HitboxComponent.cpp.i
 
 Components/HitboxComponent.s: Components/HitboxComponent.cpp.s
@@ -201,7 +201,7 @@ Components/HitboxComponent.s: Components/HitboxComponent.cpp.s
 
 # target to generate assembly for a file
 Components/HitboxComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/HitboxComponent.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.s
 .PHONY : Components/HitboxComponent.cpp.s
 
 Components/MovementComponent.o: Components/MovementComponent.cpp.o
@@ -210,7 +210,7 @@ Components/MovementComponent.o: Components/MovementComponent.cpp.o
 
 # target to build an object file
 Components/MovementComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/MovementComponent.cpp.o
 .PHONY : Components/MovementComponent.cpp.o
 
 Components/MovementComponent.i: Components/MovementComponent.cpp.i
@@ -219,7 +219,7 @@ Components/MovementComponent.i: Components/MovementComponent.cpp.i
 
 # target to preprocess a source file
 Components/MovementComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/MovementComponent.cpp.i
 .PHONY : Components/MovementComponent.cpp.i
 
 Components/MovementComponent.s: Components/MovementComponent.cpp.s
@@ -228,7 +228,7 @@ Components/MovementComponent.s: Components/MovementComponent.cpp.s
 
 # target to generate assembly for a file
 Components/MovementComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Components/MovementComponent.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/MovementComponent.cpp.s
 .PHONY : Components/MovementComponent.cpp.s
 
 Entities/Entity.o: Entities/Entity.cpp.o
@@ -237,7 +237,7 @@ Entities/Entity.o: Entities/Entity.cpp.o
 
 # target to build an object file
 Entities/Entity.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Entity.cpp.o
 .PHONY : Entities/Entity.cpp.o
 
 Entities/Entity.i: Entities/Entity.cpp.i
@@ -246,7 +246,7 @@ Entities/Entity.i: Entities/Entity.cpp.i
 
 # target to preprocess a source file
 Entities/Entity.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Entity.cpp.i
 .PHONY : Entities/Entity.cpp.i
 
 Entities/Entity.s: Entities/Entity.cpp.s
@@ -255,7 +255,7 @@ Entities/Entity.s: Entities/Entity.cpp.s
 
 # target to generate assembly for a file
 Entities/Entity.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Entity.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Entity.cpp.s
 .PHONY : Entities/Entity.cpp.s
 
 Entities/Player.o: Entities/Player.cpp.o
@@ -264,7 +264,7 @@ Entities/Player.o: Entities/Player.cpp.o
 
 # target to build an object file
 Entities/Player.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.o
 .PHONY : Entities/Player.cpp.o
 
 Entities/Player.i: Entities/Player.cpp.i
@@ -273,7 +273,7 @@ Entities/Player.i: Entities/Player.cpp.i
 
 # target to preprocess a source file
 Entities/Player.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.i
 .PHONY : Entities/Player.cpp.i
 
 Entities/Player.s: Entities/Player.cpp.s
@@ -282,7 +282,7 @@ Entities/Player.s: Entities/Player.cpp.s
 
 # target to generate assembly for a file
 Entities/Player.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Entities/Player.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.s
 .PHONY : Entities/Player.cpp.s
 
 GUI.o: GUI.cpp.o
@@ -291,7 +291,7 @@ GUI.o: GUI.cpp.o
 
 # target to build an object file
 GUI.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GUI.cpp.o
 .PHONY : GUI.cpp.o
 
 GUI.i: GUI.cpp.i
@@ -300,7 +300,7 @@ GUI.i: GUI.cpp.i
 
 # target to preprocess a source file
 GUI.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GUI.cpp.i
 .PHONY : GUI.cpp.i
 
 GUI.s: GUI.cpp.s
@@ -309,7 +309,7 @@ GUI.s: GUI.cpp.s
 
 # target to generate assembly for a file
 GUI.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GUI.cpp.s
 .PHONY : GUI.cpp.s
 
 GUI/PauseMenu.o: GUI/PauseMenu.cpp.o
@@ -318,7 +318,7 @@ GUI/PauseMenu.o: GUI/PauseMenu.cpp.o
 
 # target to build an object file
 GUI/PauseMenu.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.o
 .PHONY : GUI/PauseMenu.cpp.o
 
 GUI/PauseMenu.i: GUI/PauseMenu.cpp.i
@@ -327,7 +327,7 @@ GUI/PauseMenu.i: GUI/PauseMenu.cpp.i
 
 # target to preprocess a source file
 GUI/PauseMenu.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.i
 .PHONY : GUI/PauseMenu.cpp.i
 
 GUI/PauseMenu.s: GUI/PauseMenu.cpp.s
@@ -336,7 +336,7 @@ GUI/PauseMenu.s: GUI/PauseMenu.cpp.s
 
 # target to generate assembly for a file
 GUI/PauseMenu.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GUI/PauseMenu.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.s
 .PHONY : GUI/PauseMenu.cpp.s
 
 Game.o: Game.cpp.o
@@ -345,7 +345,7 @@ Game.o: Game.cpp.o
 
 # target to build an object file
 Game.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Game.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Game.cpp.o
 .PHONY : Game.cpp.o
 
 Game.i: Game.cpp.i
@@ -354,7 +354,7 @@ Game.i: Game.cpp.i
 
 # target to preprocess a source file
 Game.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Game.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Game.cpp.i
 .PHONY : Game.cpp.i
 
 Game.s: Game.cpp.s
@@ -363,7 +363,7 @@ Game.s: Game.cpp.s
 
 # target to generate assembly for a file
 Game.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Game.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Game.cpp.s
 .PHONY : Game.cpp.s
 
 GraphicsSettings.o: GraphicsSettings.cpp.o
@@ -372,7 +372,7 @@ GraphicsSettings.o: GraphicsSettings.cpp.o
 
 # target to build an object file
 GraphicsSettings.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GraphicsSettings.cpp.o
 .PHONY : GraphicsSettings.cpp.o
 
 GraphicsSettings.i: GraphicsSettings.cpp.i
@@ -381,7 +381,7 @@ GraphicsSettings.i: GraphicsSettings.cpp.i
 
 # target to preprocess a source file
 GraphicsSettings.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GraphicsSettings.cpp.i
 .PHONY : GraphicsSettings.cpp.i
 
 GraphicsSettings.s: GraphicsSettings.cpp.s
@@ -390,7 +390,7 @@ GraphicsSettings.s: GraphicsSettings.cpp.s
 
 # target to generate assembly for a file
 GraphicsSettings.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/GraphicsSettings.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GraphicsSettings.cpp.s
 .PHONY : GraphicsSettings.cpp.s
 
 Map/TileMap.o: Map/TileMap.cpp.o
@@ -399,7 +399,7 @@ Map/TileMap.o: Map/TileMap.cpp.o
 
 # target to build an object file
 Map/TileMap.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Map/TileMap.cpp.o
 .PHONY : Map/TileMap.cpp.o
 
 Map/TileMap.i: Map/TileMap.cpp.i
@@ -408,7 +408,7 @@ Map/TileMap.i: Map/TileMap.cpp.i
 
 # target to preprocess a source file
 Map/TileMap.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Map/TileMap.cpp.i
 .PHONY : Map/TileMap.cpp.i
 
 Map/TileMap.s: Map/TileMap.cpp.s
@@ -417,7 +417,7 @@ Map/TileMap.s: Map/TileMap.cpp.s
 
 # target to generate assembly for a file
 Map/TileMap.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Map/TileMap.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Map/TileMap.cpp.s
 .PHONY : Map/TileMap.cpp.s
 
 PlayerGUI.o: PlayerGUI.cpp.o
@@ -426,7 +426,7 @@ PlayerGUI.o: PlayerGUI.cpp.o
 
 # target to build an object file
 PlayerGUI.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/PlayerGUI.cpp.o
 .PHONY : PlayerGUI.cpp.o
 
 PlayerGUI.i: PlayerGUI.cpp.i
@@ -435,7 +435,7 @@ PlayerGUI.i: PlayerGUI.cpp.i
 
 # target to preprocess a source file
 PlayerGUI.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/PlayerGUI.cpp.i
 .PHONY : PlayerGUI.cpp.i
 
 PlayerGUI.s: PlayerGUI.cpp.s
@@ -444,7 +444,7 @@ PlayerGUI.s: PlayerGUI.cpp.s
 
 # target to generate assembly for a file
 PlayerGUI.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/PlayerGUI.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/PlayerGUI.cpp.s
 .PHONY : PlayerGUI.cpp.s
 
 Precom.o: Precom.cpp.o
@@ -453,7 +453,7 @@ Precom.o: Precom.cpp.o
 
 # target to build an object file
 Precom.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Precom.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Precom.cpp.o
 .PHONY : Precom.cpp.o
 
 Precom.i: Precom.cpp.i
@@ -462,7 +462,7 @@ Precom.i: Precom.cpp.i
 
 # target to preprocess a source file
 Precom.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Precom.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Precom.cpp.i
 .PHONY : Precom.cpp.i
 
 Precom.s: Precom.cpp.s
@@ -471,7 +471,7 @@ Precom.s: Precom.cpp.s
 
 # target to generate assembly for a file
 Precom.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Precom.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Precom.cpp.s
 .PHONY : Precom.cpp.s
 
 Sound/Sound.o: Sound/Sound.cpp.o
@@ -480,7 +480,7 @@ Sound/Sound.o: Sound/Sound.cpp.o
 
 # target to build an object file
 Sound/Sound.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Sound/Sound.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Sound/Sound.cpp.o
 .PHONY : Sound/Sound.cpp.o
 
 Sound/Sound.i: Sound/Sound.cpp.i
@@ -489,7 +489,7 @@ Sound/Sound.i: Sound/Sound.cpp.i
 
 # target to preprocess a source file
 Sound/Sound.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Sound/Sound.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Sound/Sound.cpp.i
 .PHONY : Sound/Sound.cpp.i
 
 Sound/Sound.s: Sound/Sound.cpp.s
@@ -498,7 +498,7 @@ Sound/Sound.s: Sound/Sound.cpp.s
 
 # target to generate assembly for a file
 Sound/Sound.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Sound/Sound.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Sound/Sound.cpp.s
 .PHONY : Sound/Sound.cpp.s
 
 States/EditorState.o: States/EditorState.cpp.o
@@ -507,7 +507,7 @@ States/EditorState.o: States/EditorState.cpp.o
 
 # target to build an object file
 States/EditorState.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.o
 .PHONY : States/EditorState.cpp.o
 
 States/EditorState.i: States/EditorState.cpp.i
@@ -516,7 +516,7 @@ States/EditorState.i: States/EditorState.cpp.i
 
 # target to preprocess a source file
 States/EditorState.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.i
 .PHONY : States/EditorState.cpp.i
 
 States/EditorState.s: States/EditorState.cpp.s
@@ -525,7 +525,7 @@ States/EditorState.s: States/EditorState.cpp.s
 
 # target to generate assembly for a file
 States/EditorState.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/EditorState.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.s
 .PHONY : States/EditorState.cpp.s
 
 States/GameState.o: States/GameState.cpp.o
@@ -534,7 +534,7 @@ States/GameState.o: States/GameState.cpp.o
 
 # target to build an object file
 States/GameState.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/GameState.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o
 .PHONY : States/GameState.cpp.o
 
 States/GameState.i: States/GameState.cpp.i
@@ -543,7 +543,7 @@ States/GameState.i: States/GameState.cpp.i
 
 # target to preprocess a source file
 States/GameState.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/GameState.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/GameState.cpp.i
 .PHONY : States/GameState.cpp.i
 
 States/GameState.s: States/GameState.cpp.s
@@ -552,7 +552,7 @@ States/GameState.s: States/GameState.cpp.s
 
 # target to generate assembly for a file
 States/GameState.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/GameState.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/GameState.cpp.s
 .PHONY : States/GameState.cpp.s
 
 States/SettingsState.o: States/SettingsState.cpp.o
@@ -561,7 +561,7 @@ States/SettingsState.o: States/SettingsState.cpp.o
 
 # target to build an object file
 States/SettingsState.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/SettingsState.cpp.o
 .PHONY : States/SettingsState.cpp.o
 
 States/SettingsState.i: States/SettingsState.cpp.i
@@ -570,7 +570,7 @@ States/SettingsState.i: States/SettingsState.cpp.i
 
 # target to preprocess a source file
 States/SettingsState.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/SettingsState.cpp.i
 .PHONY : States/SettingsState.cpp.i
 
 States/SettingsState.s: States/SettingsState.cpp.s
@@ -579,7 +579,7 @@ States/SettingsState.s: States/SettingsState.cpp.s
 
 # target to generate assembly for a file
 States/SettingsState.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/SettingsState.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/SettingsState.cpp.s
 .PHONY : States/SettingsState.cpp.s
 
 States/State.o: States/State.cpp.o
@@ -588,7 +588,7 @@ States/State.o: States/State.cpp.o
 
 # target to build an object file
 States/State.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/State.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/State.cpp.o
 .PHONY : States/State.cpp.o
 
 States/State.i: States/State.cpp.i
@@ -597,7 +597,7 @@ States/State.i: States/State.cpp.i
 
 # target to preprocess a source file
 States/State.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/State.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/State.cpp.i
 .PHONY : States/State.cpp.i
 
 States/State.s: States/State.cpp.s
@@ -606,7 +606,7 @@ States/State.s: States/State.cpp.s
 
 # target to generate assembly for a file
 States/State.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/State.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/State.cpp.s
 .PHONY : States/State.cpp.s
 
 States/mainmenuState.o: States/mainmenuState.cpp.o
@@ -615,7 +615,7 @@ States/mainmenuState.o: States/mainmenuState.cpp.o
 
 # target to build an object file
 States/mainmenuState.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o
 .PHONY : States/mainmenuState.cpp.o
 
 States/mainmenuState.i: States/mainmenuState.cpp.i
@@ -624,7 +624,7 @@ States/mainmenuState.i: States/mainmenuState.cpp.i
 
 # target to preprocess a source file
 States/mainmenuState.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.i
 .PHONY : States/mainmenuState.cpp.i
 
 States/mainmenuState.s: States/mainmenuState.cpp.s
@@ -633,7 +633,7 @@ States/mainmenuState.s: States/mainmenuState.cpp.s
 
 # target to generate assembly for a file
 States/mainmenuState.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/States/mainmenuState.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.s
 .PHONY : States/mainmenuState.cpp.s
 
 Tile.o: Tile.cpp.o
@@ -642,7 +642,7 @@ Tile.o: Tile.cpp.o
 
 # target to build an object file
 Tile.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Tile.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Tile.cpp.o
 .PHONY : Tile.cpp.o
 
 Tile.i: Tile.cpp.i
@@ -651,7 +651,7 @@ Tile.i: Tile.cpp.i
 
 # target to preprocess a source file
 Tile.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Tile.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Tile.cpp.i
 .PHONY : Tile.cpp.i
 
 Tile.s: Tile.cpp.s
@@ -660,7 +660,7 @@ Tile.s: Tile.cpp.s
 
 # target to generate assembly for a file
 Tile.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/Tile.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Tile.cpp.s
 .PHONY : Tile.cpp.s
 
 main.o: main.cpp.o
@@ -669,7 +669,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -678,7 +678,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -687,7 +687,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/GujarunSFML.dir/build.make CMakeFiles/GujarunSFML.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -698,7 +698,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... GujarunSFML"
+	@echo "... The-Adventurer"
 	@echo "... Components/AnimationComponent.o"
 	@echo "... Components/AnimationComponent.i"
 	@echo "... Components/AnimationComponent.s"

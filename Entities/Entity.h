@@ -16,7 +16,7 @@ public:
     virtual ~Entity();
 
     //Functions
-    virtual void render(sf::RenderTarget& target) = 0;
+    virtual void render(sf::RenderTarget& target, const bool show_collision) = 0;
     virtual void update(const float &dt) = 0;
     virtual void move(const float x, const float y, const float &dt);
     virtual void stopVelocity();

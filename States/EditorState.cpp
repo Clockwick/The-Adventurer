@@ -67,7 +67,7 @@ void EditorState::initGui() {
     this->selectorRect.setTexture(this->tileMap->getTileSheet());
     this->selectorRect.setTextureRect(this->textureRect);
 
-    this->textureSelector = new gui::TextureSelector(10.f, 10.f, 500.f, 500.f,
+    this->textureSelector = new gui::TextureSelector(10.f, 10.f, 900.f, 900.f,
             this->state_data->gridSize, this->tileMap->getTileSheet(),
             this->font, "Edit"
             );
@@ -241,7 +241,7 @@ void EditorState::render(sf::RenderTarget *target) {
         target = this->window;
 
     target->setView(this->view);
-    this->tileMap->render(*target, this->mousePosGrid);
+    this->tileMap->render(*target, this->mousePosGrid, true);
     target->setView(this->window->getDefaultView());
     this->renderButtons(*target);
     this->renderGui(*target);

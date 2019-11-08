@@ -139,7 +139,7 @@ void Player::updateAnimation(const float &dt)
     else if (!this->canJump && this->movementComponents->getState(JUMP_RIGHT)) {
         this->sprite.setOrigin(0.f, 0.f);
         this->sprite.setScale(1.f, 1.f);
-        this->animationComponents->play("JUMP", dt, 135, 100);
+        this->animationComponents->play("JUMP", dt, 120, 100);
     }
 
 
@@ -150,10 +150,10 @@ void Player::updateAnimation(const float &dt)
 
 }
 
-void Player::render(sf::RenderTarget& target) {
+void Player::render(sf::RenderTarget& target, const bool show_hitbox) {
     target.draw(this->sprite);
 
-    if (this->hitboxComponents)
+    if (show_hitbox)
         this->hitboxComponents->render(target);
 }
 

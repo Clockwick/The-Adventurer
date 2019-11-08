@@ -43,7 +43,7 @@ TileMap::TileMap(float gridSize, unsigned width , unsigned height, std::string t
         std::cout << "ERROR::TILEMAP::FAILED TO LOAD TILETEXTURESHEET" << std::endl;
     }
     this->collisionBox.setSize(sf::Vector2f(gridSize, gridSize));
-    this->collisionBox.setFillColor(sf::Color(150,150,0,50));
+    this->collisionBox.setFillColor(sf::Color(250,250,0,200));
     this->collisionBox.setOutlineColor(sf::Color::Yellow);
     this->collisionBox.setOutlineThickness(-1.f);
 }
@@ -90,7 +90,7 @@ void TileMap::update()
 {
 }
 
-void TileMap::render(sf::RenderTarget &target, const sf::Vector2i& gridPosition) {
+void TileMap::render(sf::RenderTarget &target, const sf::Vector2i& gridPosition, const bool show_collision) {
 
         this->layer = 0;
         this->fromX = gridPosition.x - 3;
@@ -122,9 +122,11 @@ void TileMap::render(sf::RenderTarget &target, const sf::Vector2i& gridPosition)
             for (int y = this->fromY; y < this->toY; y++) {
                 for (int k = 0; k < this->map[x][y][this->layer].size();k++) {
                     this->map[x][y][this->layer][k]->render(target);
-                    if (this->map[x][y][this->layer][k]->getCollision()) {
-                        this->collisionBox.setPosition(this->map[x][y][this->layer][k]->getPosition());
-                        target.draw(this->collisionBox);
+                    if (show_collision) {
+                        if (this->map[x][y][this->layer][k]->getCollision()) {
+                            this->collisionBox.setPosition(this->map[x][y][this->layer][k]->getPosition());
+                            target.draw(this->collisionBox);
+                        }
                     }
                 }
             }

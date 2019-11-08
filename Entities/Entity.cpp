@@ -32,13 +32,6 @@ void Entity::move(const float dir_x, const float dir_y, const float& dt) {
     }
 
 }
-void Entity::render(sf::RenderTarget &target) {
-}
-void Entity::update(const float &dt) {
-
-
-
-}
 //Component Functions
 void Entity::setTexture(sf::Texture& texture) {
     this->sprite.setTexture(texture);

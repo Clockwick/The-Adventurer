@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libelement.a  CMakeFiles/element.dir/State.cpp.o CMakeFiles/element.dir/Game.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libelement.a
