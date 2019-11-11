@@ -50,6 +50,7 @@ private:
     bool collision;
     int layer;
 
+
     //Functions
     //Init
     void initFonts();
