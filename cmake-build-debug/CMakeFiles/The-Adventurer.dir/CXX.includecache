@@ -84,12 +84,14 @@ SFML/System.hpp
 ../Components/AttributeComponent.h
 /Users/arthris/CLionProjects/The-Adventurer/Components/AttributeComponent.h
 
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.cpp
-Player.h
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
+/Users/arthris/CLionProjects/The-Adventurer/Map/TileMap.cpp
+TileMap.h
+/Users/arthris/CLionProjects/The-Adventurer/Map/TileMap.h
 
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
-Entity.h
+/Users/arthris/CLionProjects/The-Adventurer/Map/TileMap.h
+../Tile.h
+/Users/arthris/CLionProjects/The-Adventurer/Tile.h
+../Entities/Entity.h
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
 
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
@@ -133,6 +135,10 @@ SFML/Audio.hpp
 -
 SFML/Network.hpp
 -
+
+/Users/arthris/CLionProjects/The-Adventurer/Tile.h
+Precom.h
+/Users/arthris/CLionProjects/The-Adventurer/Precom.h
 
 /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 SFML/System.hpp
