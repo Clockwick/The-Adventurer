@@ -49,6 +49,7 @@ private:
     float cameraSpeed;
     bool collision;
     int layer;
+    bool tileAddLock;
 
 
     //Functions

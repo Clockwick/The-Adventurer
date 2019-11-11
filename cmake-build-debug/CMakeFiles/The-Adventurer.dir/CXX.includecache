@@ -118,16 +118,6 @@ SFML/Audio.hpp
 SFML/System.hpp
 -
 
-/Users/arthris/CLionProjects/The-Adventurer/Game.cpp
-Game.h
-/Users/arthris/CLionProjects/The-Adventurer/Game.h
-
-/Users/arthris/CLionProjects/The-Adventurer/Game.h
-States/mainmenuState.h
-/Users/arthris/CLionProjects/The-Adventurer/States/mainmenuState.h
-States/GameState.h
-/Users/arthris/CLionProjects/The-Adventurer/States/GameState.h
-
 /Users/arthris/CLionProjects/The-Adventurer/GraphicsSettings.h
 Precom.h
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
@@ -137,12 +127,6 @@ Precom.h
 /Users/arthris/CLionProjects/The-Adventurer/Tile.h
 ../Entities/Entity.h
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
-
-/Users/arthris/CLionProjects/The-Adventurer/PlayerGUI.h
-Entities/Player.h
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
-GUI.h
-/Users/arthris/CLionProjects/The-Adventurer/GUI.h
 
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
 algorithm
@@ -200,57 +184,15 @@ State.h
 ../Map/TileMap.h
 /Users/arthris/CLionProjects/The-Adventurer/Map/TileMap.h
 
-/Users/arthris/CLionProjects/The-Adventurer/States/GameState.h
-State.h
-/Users/arthris/CLionProjects/The-Adventurer/States/State.h
-../GUI/PauseMenu.h
-/Users/arthris/CLionProjects/The-Adventurer/GUI/PauseMenu.h
-../Map/TileMap.h
-/Users/arthris/CLionProjects/The-Adventurer/Map/TileMap.h
-../PlayerGUI.h
-/Users/arthris/CLionProjects/The-Adventurer/PlayerGUI.h
-
-/Users/arthris/CLionProjects/The-Adventurer/States/SettingsState.h
-State.h
-/Users/arthris/CLionProjects/The-Adventurer/States/State.h
-../GUI.h
-/Users/arthris/CLionProjects/The-Adventurer/GUI.h
-
 /Users/arthris/CLionProjects/The-Adventurer/States/State.h
 ../Entities/Player.h
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
 ../GraphicsSettings.h
 /Users/arthris/CLionProjects/The-Adventurer/GraphicsSettings.h
 
-/Users/arthris/CLionProjects/The-Adventurer/States/mainmenuState.cpp
-mainmenuState.h
-/Users/arthris/CLionProjects/The-Adventurer/States/mainmenuState.h
-
-/Users/arthris/CLionProjects/The-Adventurer/States/mainmenuState.h
-GameState.h
-/Users/arthris/CLionProjects/The-Adventurer/States/GameState.h
-../GUI.h
-/Users/arthris/CLionProjects/The-Adventurer/GUI.h
-EditorState.h
-/Users/arthris/CLionProjects/The-Adventurer/States/EditorState.h
-SettingsState.h
-/Users/arthris/CLionProjects/The-Adventurer/States/SettingsState.h
-../GraphicsSettings.h
-/Users/arthris/CLionProjects/The-Adventurer/GraphicsSettings.h
-
 /Users/arthris/CLionProjects/The-Adventurer/Tile.h
 Precom.h
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
-
-/Users/arthris/CLionProjects/The-Adventurer/main.cpp
-iostream
--
-SFML/Graphics.hpp
--
-States/State.h
-/Users/arthris/CLionProjects/The-Adventurer/States/State.h
-Game.h
-/Users/arthris/CLionProjects/The-Adventurer/Game.h
 
 /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 SFML/System.hpp

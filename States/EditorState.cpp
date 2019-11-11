@@ -102,6 +102,7 @@ void EditorState::initVariables() {
     this->type = TileTypes::DEFAULT;
     this->cameraSpeed = 300.f;
     this->layer = 0;
+    this->tileAddLock = false;
 }
 
 //Update
@@ -147,20 +148,6 @@ void EditorState::updateButtons() {
 
 void EditorState::updateEditorInput(const float &dt) {
 
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::C) && this->getKeyTime()) {
-        if (this->collision)
-            this->collision = false;
-        else
-            this->collision = true;
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && this->getKeyTime()) {
-        //Increase type
-        ++this->type;
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && this->getKeyTime()) {
-        //Decrease type
-        if (this->type > 0)
-            --this->type;
-    }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         this->view.move(0, -this->cameraSpeed * dt);
     }
@@ -173,13 +160,36 @@ void EditorState::updateEditorInput(const float &dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         this->view.move(this->cameraSpeed * dt, 0);
     }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::C) && this->getKeyTime()) {
+        this->collision = !this->collision;
+    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && this->getKeyTime()) {
+        //Increase type
+        ++this->type;
+    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && this->getKeyTime()) {
+        //Decrease type
+        if (this->type > 0)
+            --this->type;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::L) && this->getKeyTime()) {
+        this->tileAddLock = !this->tileAddLock;
+    }
+
 
 //Add tile
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeyTime()) {
         if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(this->mousePosWindow))) {
             if (!this->textureSelector->getActive()) {
-                this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect,
-                                       this->collision, this->type);
+                if (this->tileAddLock) {
+                    if (this->tileMap->tileEmpty(this->mousePosGrid.x, this->mousePosGrid.y, 0)) {
+                        this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect,
+                                               this->collision, this->type);
+                    }
+                }
+                    else {
+                        this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect,
+                                               this->collision, this->type);
+                    }
+
 
             } else {
                 this->textureRect = this->textureSelector->getTextureRect();
@@ -197,7 +207,6 @@ void EditorState::updateEditorInput(const float &dt) {
     }
 
 }
-
 void EditorState::updateGui(const float &dt) {
     this->textureSelector->update(this->mousePosWindow, dt);
     if (!this->textureSelector->getActive()) {
@@ -213,7 +222,9 @@ void EditorState::updateGui(const float &dt) {
        << "(" << this->mousePosGrid.x << "," << this->mousePosGrid.y << ")" << std::endl
        << "(" << this->textureRect.left << "," << this->textureRect.top << ")" << std::endl
        << "Collision: " << this->collision << "\n" << "Type: " << this->type << std::endl
-       << "Tile: " << this->tileMap->getLayerSize(this->mousePosGrid.x, this->mousePosGrid.y, this->layer);
+       << "Tile: " << this->tileMap->getLayerSize(this->mousePosGrid.x, this->mousePosGrid.y, this->layer) << std::endl
+       << "Tile Lock: " << this->tileAddLock;
+
     cursorText.setString(ss.str());
 
 

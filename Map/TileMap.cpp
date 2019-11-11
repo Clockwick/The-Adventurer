@@ -405,6 +405,16 @@ const int TileMap::getLayerSize(const int x, const int y, const int layer) const
 
 }
 
+const bool TileMap::tileEmpty(const int x, const int y, const int z) const {
+    if (x >= 0 && x < this->maxSizeWorldGrid.x &&
+    y >= 0 && y < this->maxSizeWorldGrid.y &&
+    z >= 0 && z < this->layers)
+    {
+        return this->map[x][y][z].empty();
+    }
+    return false;
+}
+
 
 
 

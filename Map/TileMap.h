@@ -30,7 +30,7 @@ public:
     //Accessor
     const int getLayerSize(const int x, const int y, const int layer) const;
     const sf::Texture * getTileSheet() const;
-
+    const bool tileEmpty(const int x , const int y, const int z) const;
 private:
     unsigned gridSizeU;
     sf::Vector2u maxSizeWorldGrid;
