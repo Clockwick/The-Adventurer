@@ -62,7 +62,7 @@ private:
         {
             this->testptr = testptr;
 //            std::cout << "Setptr in Animation : " << this->testptr<< std::endl;
-            std::cout << "Ani.cpp: "<< *this->testptr << std::endl;
+//            std::cout << "Ani.cpp: "<< *this->testptr << std::endl;
 
         }
 
@@ -75,7 +75,7 @@ private:
         const bool& play(const float& dt)
         {
             //Update timer
-            std::cout << "1" <<*this->testptr << "\n";
+//            std::cout << "1" <<*this->testptr << "\n";
 
 
             this->done = false;
@@ -106,7 +106,7 @@ private:
 
             //Update timer
 
-            std::cout << 2<< *this->testptr << "\n";
+//            std::cout << 2<< *this->testptr << "\n";
             this->done = false;
             if (mod_percent < 0.5f)
             {
@@ -141,11 +141,7 @@ private:
             this->currentRect = this->startRect;
 
         }
-        void ii()
-        {
-            std::cout << "Ani.cpp Update: "<< *this->testptr << std::endl;
 
-        }
     };
     //Variables
     std::map <std::string, Animation*> animations;
@@ -159,7 +155,7 @@ public:
     void getptr(bool* testptr)
     {
         this->pointer = testptr;
-        std::cout << "AniCom.cpp: "<< *this->pointer << std::endl;
+//        std::cout << "AniCom.cpp: "<< *this->pointer << std::endl;
 
 //        std::cout << "Setptr in AnimationCom : " << this->pointer << std::endl;
 //        std::cout << "1" << std::endl;

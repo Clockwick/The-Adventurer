@@ -19,14 +19,15 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
     this->createAnimationComponents( texture_sheet);
     this->animationComponents->getptr(&this->isJump);
     this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);
-    this->animationComponents->addAnimation("RUN", 15.f, 1, 1, 6, 1, 100, 74);
-    this->animationComponents->addAnimation("SLIDE", 15.f, 3, 3, 6, 3, 100, 74);
+    this->animationComponents->addAnimation("RUN", 15.f, 0, 1, 5, 1, 100, 74);
+    this->animationComponents->addAnimation("SLIDE", 15.f, 0, 3, 3, 3, 100, 74);
     this->animationComponents->addAnimation("SIT", 15.f, 4, 0, 6, 0, 100, 74);
-    this->animationComponents->addAnimation("ATTACK1", 15.f, 3, 6, 6, 6, 100, 74);
+    this->animationComponents->addAnimation("ATTACK1", 15.f, 0, 6, 6, 6, 100, 74);
     this->animationComponents->addAnimation("ATTACK2", 15.f, 0, 7, 3, 7, 100, 74);
-    this->animationComponents->addAnimation("JUMP", 15.f , 0 , 2, 9 , 2 , 100 , 74);
+    this->animationComponents->addAnimation("ATTACK3", 15.f, 0, 8, 5, 8, 100 , 74);
+    this->animationComponents->addAnimation("JUMP", 15.f , 0 , 2, 13 , 2 , 100 , 74);
     ;
-    std::cout << "Player.cpp: "<< this->isJump << std::endl;
+//    std::cout << "Player.cpp: "<< this->isJump << std::endl;
 
 
 }
