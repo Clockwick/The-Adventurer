@@ -106,6 +106,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h">
 			<Option target="The-Adventurer"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.cpp">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.cpp">
 			<Option target="The-Adventurer"/>
 		</Unit>

@@ -231,6 +231,33 @@ Components/MovementComponent.cpp.s:
 	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/MovementComponent.cpp.s
 .PHONY : Components/MovementComponent.cpp.s
 
+Components/SkillComponent.o: Components/SkillComponent.cpp.o
+
+.PHONY : Components/SkillComponent.o
+
+# target to build an object file
+Components/SkillComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/SkillComponent.cpp.o
+.PHONY : Components/SkillComponent.cpp.o
+
+Components/SkillComponent.i: Components/SkillComponent.cpp.i
+
+.PHONY : Components/SkillComponent.i
+
+# target to preprocess a source file
+Components/SkillComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/SkillComponent.cpp.i
+.PHONY : Components/SkillComponent.cpp.i
+
+Components/SkillComponent.s: Components/SkillComponent.cpp.s
+
+.PHONY : Components/SkillComponent.s
+
+# target to generate assembly for a file
+Components/SkillComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/SkillComponent.cpp.s
+.PHONY : Components/SkillComponent.cpp.s
+
 Entities/Entity.o: Entities/Entity.cpp.o
 
 .PHONY : Entities/Entity.o
@@ -711,6 +738,9 @@ help:
 	@echo "... Components/MovementComponent.o"
 	@echo "... Components/MovementComponent.i"
 	@echo "... Components/MovementComponent.s"
+	@echo "... Components/SkillComponent.o"
+	@echo "... Components/SkillComponent.i"
+	@echo "... Components/SkillComponent.s"
 	@echo "... Entities/Entity.o"
 	@echo "... Entities/Entity.i"
 	@echo "... Entities/Entity.s"

@@ -5,6 +5,7 @@
 #include "../Components/MovementComponent.h"
 #include "../Components/AnimationComponent.h"
 #include "../Components/AttributeComponent.h"
+#include "../Components/SkillComponent.h"
 #ifndef GUJARUNSFML_ENTITY_H
 #define GUJARUNSFML_ENTITY_H
 
@@ -31,6 +32,7 @@ public:
     void createHitboxComponents(sf::Sprite& sprite, float offset_x,
             float offset_y, float width, float height);
     void createAttributeComponents(int level);
+    void createSkillComponents();
     //Accessors
     virtual const sf::Vector2f& getPosition() const;
     virtual const sf::Vector2i getGridPosition(const int gridSizeI) const;
@@ -56,6 +58,7 @@ protected:
     AnimationComponent* animationComponents;
     HitboxComponents* hitboxComponents;
     AttributeComponent* attributeComponents;
+    SkillComponent* skillComponents;
 
 
 private:

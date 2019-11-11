@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/The-Adventurer.dir/Components/AttributeComponent.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Components/MovementComponent.cpp.o"
+  "CMakeFiles/The-Adventurer.dir/Components/SkillComponent.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Entities/Entity.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.o"
   "CMakeFiles/The-Adventurer.dir/GUI.cpp.o"

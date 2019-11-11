@@ -10,23 +10,20 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
 
     this->initVariables();
     this->initAudio();
-    this->setPosition(x , y);
+
 
     this->initComponents();
 
-    this->createAttributeComponents(1);
+
     this->createMovementComponents(300, 1500.0f, 500.0f, this->jumpHeight);
+    this->createAttributeComponents(1);
+    this->createSkillComponents();
     this->createAnimationComponents( texture_sheet);
     this->animationComponents->getptr(&this->isJump);
-    this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);
-    this->animationComponents->addAnimation("RUN", 15.f, 0, 1, 5, 1, 100, 74);
-    this->animationComponents->addAnimation("SLIDE", 15.f, 0, 3, 3, 3, 100, 74);
-    this->animationComponents->addAnimation("SIT", 15.f, 4, 0, 6, 0, 100, 74);
-    this->animationComponents->addAnimation("ATTACK1", 15.f, 0, 6, 6, 6, 100, 74);
-    this->animationComponents->addAnimation("ATTACK2", 15.f, 0, 7, 3, 7, 100, 74);
-    this->animationComponents->addAnimation("ATTACK3", 15.f, 0, 8, 5, 8, 100 , 74);
-    this->animationComponents->addAnimation("JUMP", 15.f , 0 , 2, 13 , 2 , 100 , 74);
-    ;
+    this->initAnimation();
+    this->setPosition(x , y);
+
+
 //    std::cout << "Player.cpp: "<< this->isJump << std::endl;
 
 
@@ -48,6 +45,17 @@ void Player::initVariables() {
     this->sitting = false;
     this->isJump = true;
 }
+void Player::initAnimation() {
+    this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);
+    this->animationComponents->addAnimation("RUN", 15.f, 0, 1, 5, 1, 100, 74);
+    this->animationComponents->addAnimation("SLIDE", 15.f, 0, 3, 3, 3, 100, 74);
+    this->animationComponents->addAnimation("SIT", 15.f, 4, 0, 6, 0, 100, 74);
+    this->animationComponents->addAnimation("ATTACK1", 15.f, 0, 6, 6, 6, 100, 74);
+    this->animationComponents->addAnimation("ATTACK2", 15.f, 0, 7, 3, 7, 100, 74);
+    this->animationComponents->addAnimation("ATTACK3", 15.f, 0, 8, 5, 8, 100 , 74);
+    this->animationComponents->addAnimation("JUMP", 15.f , 0 , 2, 13 , 2 , 100 , 74);
+}
+
 
 void Player::update(const float& dt)
 {
@@ -205,5 +213,6 @@ void Player::loseEXP(const int exp) {
     if (this->attributeComponents->exp < 0)
         this->attributeComponents->exp = 0;
 }
+
 
 

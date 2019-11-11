@@ -30,6 +30,7 @@ private:
     void initVariables();
     void initComponents();
     void initAudio();
+    void initAnimation();
 private:
     bool attacking;
     const float jumpHeight;
