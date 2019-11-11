@@ -11,18 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Map/TileMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map/TileMap.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Map/TileMap.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Map/TileMap.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/The-Adventurer" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/The-Adventurer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tile/TerrainSet.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tile/TerrainSet.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tile/TerrainSet.xcf" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Assets/Map/16x16/Tile/TerrainSet.xcf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.slmp" beforeDir="false" afterPath="$PROJECT_DIR$/text.slmp" afterDir="false" />
-    </list>
+    <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

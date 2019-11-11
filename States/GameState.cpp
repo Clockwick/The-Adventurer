@@ -30,7 +30,7 @@ GameState::~GameState() {
 
 void GameState::initTextures() {
 
-    if (!this->textures["PLAYER_SHEET"].loadFromFile("resources/images/Assets/Player/Adventurer/adventurer-Sheet2xnew.png"))
+    if (!this->textures["PLAYER_SHEET"].loadFromFile("resources/images/Assets/Player/Adventurer/adventurer-Sheet3x.png"))
     {
         std::cout << "Cannot Load Player Image" << std::endl;
     }
