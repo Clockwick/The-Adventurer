@@ -258,6 +258,33 @@ Components/SkillComponent.cpp.s:
 	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/SkillComponent.cpp.s
 .PHONY : Components/SkillComponent.cpp.s
 
+Entities/Enemy.o: Entities/Enemy.cpp.o
+
+.PHONY : Entities/Enemy.o
+
+# target to build an object file
+Entities/Enemy.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Enemy.cpp.o
+.PHONY : Entities/Enemy.cpp.o
+
+Entities/Enemy.i: Entities/Enemy.cpp.i
+
+.PHONY : Entities/Enemy.i
+
+# target to preprocess a source file
+Entities/Enemy.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Enemy.cpp.i
+.PHONY : Entities/Enemy.cpp.i
+
+Entities/Enemy.s: Entities/Enemy.cpp.s
+
+.PHONY : Entities/Enemy.s
+
+# target to generate assembly for a file
+Entities/Enemy.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Enemy.cpp.s
+.PHONY : Entities/Enemy.cpp.s
+
 Entities/Entity.o: Entities/Entity.cpp.o
 
 .PHONY : Entities/Entity.o
@@ -741,6 +768,9 @@ help:
 	@echo "... Components/SkillComponent.o"
 	@echo "... Components/SkillComponent.i"
 	@echo "... Components/SkillComponent.s"
+	@echo "... Entities/Enemy.o"
+	@echo "... Entities/Enemy.i"
+	@echo "... Entities/Enemy.s"
 	@echo "... Entities/Entity.o"
 	@echo "... Entities/Entity.i"
 	@echo "... Entities/Entity.s"
