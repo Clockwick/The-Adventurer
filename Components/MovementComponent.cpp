@@ -4,9 +4,10 @@
 
 #include "MovementComponent.h"
 
-MovementComponents::MovementComponents(sf::Sprite& sprite, float maxVelocity, float accerelation, float deceleration, const float& jumpHeight)
-: sprite(sprite),maxVelocity(maxVelocity), acceleration(accerelation), deceleration(deceleration), jumpHeight(jumpHeight)
-{
+MovementComponents::MovementComponents(sf::Sprite &sprite, float maxVelocity, float accerelation, float deceleration,
+                                       const float &jumpHeight)
+        : sprite(sprite), maxVelocity(maxVelocity), acceleration(accerelation), deceleration(deceleration),
+          jumpHeight(jumpHeight) {
 
 
 }
@@ -19,40 +20,30 @@ void MovementComponents::update(const float &dt) {
     /* Set Maximum Velocity and Deceleration */
     /* X-axis */
 
-    if (this->velocity.x > 0.0f)
-    {
+    if (this->velocity.x > 0.0f) {
         this->faceRight = true;
         if (this->velocity.x > this->maxVelocity) {
             this->velocity.x = this->maxVelocity;
         }
         this->velocity.x -= this->deceleration * dt;
-        if (this->velocity.x < 0.0f)
-        {
+        if (this->velocity.x < 0.0f) {
             this->velocity.x = 0;
         }
-    }
-    else if (this->velocity.x < 0.0f) {
+    } else if (this->velocity.x < 0.0f) {
         this->faceRight = false;
-        if (this->velocity.x < -this->maxVelocity)
-        {
+        if (this->velocity.x < -this->maxVelocity) {
             this->velocity.x = -this->maxVelocity;
         }
         this->velocity.x += this->deceleration * dt;
-        if (this->velocity.x > 0.0f)
-        {
+        if (this->velocity.x > 0.0f) {
             this->velocity.x = 0;
         }
     }
-    if (!this->canJump && this->velocity.y != 0 && this->sprite.getPosition().y < 465)
-    {
+    if (!this->canJump && this->velocity.y != 0 && this->sprite.getPosition().y < 465) {
         this->velocity.y += 981.f * dt;
-    }
-    else if(!this->canJump && this->sprite.getPosition().y < 465)
-    {
+    } else if (!this->canJump && this->sprite.getPosition().y < 465) {
         this->velocity.y += 981.f * dt;
-    }
-    else
-    {
+    } else {
     }
 //    std::cout << this->sprite.getPosition().y << std::endl;
 
@@ -61,50 +52,34 @@ void MovementComponents::update(const float &dt) {
     this->sprite.move(this->velocity * dt);
 }
 
-void MovementComponents::move(const float dir_x, const float dir_y, const float& dt) {
+void MovementComponents::move(const float dir_x, const float dir_y, const float &dt) {
     //Acceleration
     this->velocity.x += this->acceleration * dir_x * dt;
 
 
 }
 
-const sf::Vector2f &MovementComponents::getVelocity( ) const {
-   return this->velocity;
+const sf::Vector2f &MovementComponents::getVelocity() const {
+    return this->velocity;
 }
 
-const bool MovementComponents::idle() const {
-    return false;
-}
-
-const bool MovementComponents::moving() const {
-    return false;
-}
-
-const bool MovementComponents::leftMoving() const {
-    return 0;
-}
-
-const bool MovementComponents::slide() const {
-    return 0;
-}
 const bool MovementComponents::standstill() const {
-    if (this->velocity.x == 0.f && this->velocity.y == 0.f)
-        return true;
-    return false;
+    return this->velocity.x == 0.f;
 }
+
 const bool MovementComponents::isSit() const {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         return true;
     return 0;
 }
+
 const float &MovementComponents::getMaxVelocity() const {
     return this->maxVelocity;
 }
 
 
 const bool MovementComponents::getState(const short unsigned state) const {
-    switch (state)
-    {
+    switch (state) {
         case IDLE:
             if (standstill() && !isSit())
                 return true;
@@ -130,12 +105,12 @@ const bool MovementComponents::getState(const short unsigned state) const {
                 return true;
             break;
         case SLIDE_RIGHT:
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && this->velocity.x > 0.f)
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && this->velocity.x > 0.f)
                 return true;
 
             break;
         case SLIDE_LEFT:
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && this->velocity.x < 0.f)
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && this->velocity.x < 0.f)
                 return true;
             break;
         case ATTACK:
@@ -165,7 +140,7 @@ void MovementComponents::stopVelocityX() {
 }
 
 void MovementComponents::stopVelocityY() {
-        this->velocity.y = 0.f;
+    this->velocity.y = 0.f;
 }
 
 void MovementComponents::jump() {
@@ -177,7 +152,7 @@ void MovementComponents::getcanJump(bool *canJump) {
     this->canJump = *canJump;
 }
 
-void MovementComponents::saveVelocityY(const float& velocityY) {
+void MovementComponents::saveVelocityY(const float &velocityY) {
 //    this->velocityStack.push_back(this->velocity.y);
 //    this->countVelocity++;
 //    if (this->velocity.y == 0)

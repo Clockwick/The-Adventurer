@@ -33,11 +33,6 @@ public:
     const sf::Vector2f& getVelocity() const;
     const float& getMaxVelocity() const;
     const bool getState(const short unsigned state) const;
-    const bool idle() const;
-    const bool moving() const;
-    const bool leftMoving() const;
-    const bool rightMoving() const;
-    const bool slide() const;
     const bool standstill() const;
     const bool isSit() const;
     void stopVelocity();

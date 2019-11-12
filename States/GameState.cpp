@@ -51,7 +51,7 @@ void GameState::initFonts() {
 }
 
 void GameState::initPlayers() {
-    this->player = new Player(500,470, 150.f, this->textures["PLAYER_SHEET"]);
+    this->player = new Player(500,470, 200.f, this->textures["PLAYER_SHEET"]);
 
 }
 

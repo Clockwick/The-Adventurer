@@ -44,6 +44,7 @@ void Player::initVariables() {
     this->sliding = false;
     this->sitting = false;
     this->isJump = true;
+    this->canJump = true;
 }
 void Player::initAnimation() {
     this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);
@@ -59,16 +60,16 @@ void Player::initAnimation() {
 
 void Player::update(const float& dt)
 {
+    this->updateJumping(dt);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         this->attributeComponents->gainExp(20);
 //    system("clear");
 //    std::cout << this->attributeComponents->debugPrint() << std::endl;
     this->movementComponents->update(dt);
     this->updateAttack();
-    this->updateJumping(dt);
     this->updateAnimation(dt);
 
-//    std::cout << "In player.cpp: " << this->isJump << std::endl;
+    std::cout << "In player.cpp: " << this->isJump << std::endl;
 
 
 
@@ -94,15 +95,14 @@ void Player::updateAnimation(const float &dt)
             this->attacking = false;
 
     }
-    else if (this->movementComponents->getState(IDLE) && !this->isJump)
+    if (this->movementComponents->getState(IDLE) && !this->isJump)
     {
-
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("IDLE", dt);
 
     }
 
-    if (this->movementComponents->getState(SLIDE_RIGHT) && this->canJump)
+    else if (this->movementComponents->getState(SLIDE_RIGHT) && this->canJump)
     {
         this->sliding = true;
         this->sprite.setOrigin(0.f,0.f);
@@ -173,14 +173,7 @@ void Player::initAudio() {
 }
 
 void Player::updateJumping(const float& dt) {
-    if (this->movementComponents->getVelocity().y != 0)
-    {
-        this->isJump = true;
-    }
-    else {
-        this->isJump = false;
-
-    }
+    this->isJump = this->movementComponents->getVelocity().y != 0;
 
 }
 

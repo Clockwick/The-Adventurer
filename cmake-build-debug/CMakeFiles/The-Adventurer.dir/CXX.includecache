@@ -78,14 +78,6 @@ SFML/System.hpp
 ../Precom.h
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
 
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.cpp
-Enemy.h
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.h
-
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.h
-Entity.h
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
-
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
 ../Components/HitboxComponent.h
 /Users/arthris/CLionProjects/The-Adventurer/Components/HitboxComponent.h
@@ -97,6 +89,14 @@ Entity.h
 /Users/arthris/CLionProjects/The-Adventurer/Components/AttributeComponent.h
 ../Components/SkillComponent.h
 /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
+
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.cpp
+Player.h
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
+
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
+Entity.h
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
 
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
 algorithm
