@@ -112,6 +112,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h">
 			<Option target="The-Adventurer"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/EnemySpawner.cpp">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/EnemySpawner.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.cpp">
 			<Option target="The-Adventurer"/>
 		</Unit>
@@ -176,6 +182,18 @@
 			<Option target="The-Adventurer"/>
 		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Sound/Sound.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/DefaultMode.cpp">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/DefaultMode.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EditorMode.cpp">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EditorMode.h">
 			<Option target="The-Adventurer"/>
 		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/EditorState.cpp">

@@ -34,8 +34,7 @@ private:
     PlayerGUI* playerGui;
 
     //Enemy
-    Enemy* testEnemy;
-//
+
     PauseMenu* pmenu;
     TileMap* tileMap;
 

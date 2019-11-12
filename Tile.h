@@ -6,15 +6,15 @@
 #define GUJARUNSFML_TILE_H
 #include "Precom.h"
 
-enum TileTypes {DEFAULT = 0, DAMAGING};
+enum TileTypes {DEFAULT = 0, DAMAGING, ENEMYSPAWNER};
 class Tile{
 public:
     Tile();
-    Tile(unsigned grid_x, unsigned grid_y, float gridSizeF, sf::Texture& texture, const sf::IntRect& texture_rect,
+    Tile(int grid_x, int grid_y, float gridSizeF, sf::Texture& texture, const sf::IntRect& texture_rect,
             bool collision = false, short type = TileTypes::DEFAULT);
     virtual ~Tile();
-    void update();
-    void render(sf::RenderTarget& target);
+    virtual void update();
+    virtual void render(sf::RenderTarget &target, const sf::Vector2f player_position = sf::Vector2f());
     const std::string getAsString() const;
     const sf::Vector2f& getPosition() const;
     const bool intersects(const sf::FloatRect bounds) const;

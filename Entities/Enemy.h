@@ -3,6 +3,7 @@
 #define GUJARUNSFML_ENEMY_H
 
 #include "Entity.h"
+#include "../EnemySpawner.h"
 
 class Enemy : public Entity
 {
@@ -17,8 +18,10 @@ private:
     bool attacking;
     bool isJump;
 
+    EnemySpawner& enemySpawner;
+
 public:
-    Enemy(float x,  float y, const float& jumpHeight,sf::Texture& texture_sheet);
+    Enemy(EnemySpawner& enemy_spawner, float x,  float y, const float& jumpHeight,sf::Texture& texture_sheet);
     virtual ~Enemy();
 
     //FUNCTIONS

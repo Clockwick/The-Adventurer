@@ -16,7 +16,6 @@ class TileMap
 public:
     TileMap(float gridSize, int width, int height, std::string texture_file);
     virtual ~TileMap();
-    void update();
     void render(sf::RenderTarget& target, const sf::Vector2i& gridPosition, const bool show_collision = false);
 
     void addTile(const int x, const int y, const int z, const sf::IntRect& texture_rect, const bool& collision, const short type);
@@ -25,7 +24,7 @@ public:
     void saveToFile(const std::string file_name);
     void loadFromFile(const std::string file_name);
 
-    void updateCollision(Entity* entity, const float& dt);
+    void update(Entity* entity, const float& dt);
 
     //Accessor
     const int getLayerSize(const int x, const int y, const int layer) const;
@@ -44,9 +43,6 @@ private:
     std::string textureFile;
     sf::RectangleShape collisionBox;
     bool canJump;
-
-
-
 
     //Culling
     int fromX;

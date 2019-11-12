@@ -258,6 +258,33 @@ Components/SkillComponent.cpp.s:
 	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Components/SkillComponent.cpp.s
 .PHONY : Components/SkillComponent.cpp.s
 
+EnemySpawner.o: EnemySpawner.cpp.o
+
+.PHONY : EnemySpawner.o
+
+# target to build an object file
+EnemySpawner.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/EnemySpawner.cpp.o
+.PHONY : EnemySpawner.cpp.o
+
+EnemySpawner.i: EnemySpawner.cpp.i
+
+.PHONY : EnemySpawner.i
+
+# target to preprocess a source file
+EnemySpawner.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/EnemySpawner.cpp.i
+.PHONY : EnemySpawner.cpp.i
+
+EnemySpawner.s: EnemySpawner.cpp.s
+
+.PHONY : EnemySpawner.s
+
+# target to generate assembly for a file
+EnemySpawner.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/EnemySpawner.cpp.s
+.PHONY : EnemySpawner.cpp.s
+
 Entities/Enemy.o: Entities/Enemy.cpp.o
 
 .PHONY : Entities/Enemy.o
@@ -555,6 +582,60 @@ Sound/Sound.cpp.s:
 	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Sound/Sound.cpp.s
 .PHONY : Sound/Sound.cpp.s
 
+States/EditorModes/DefaultMode.o: States/EditorModes/DefaultMode.cpp.o
+
+.PHONY : States/EditorModes/DefaultMode.o
+
+# target to build an object file
+States/EditorModes/DefaultMode.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o
+.PHONY : States/EditorModes/DefaultMode.cpp.o
+
+States/EditorModes/DefaultMode.i: States/EditorModes/DefaultMode.cpp.i
+
+.PHONY : States/EditorModes/DefaultMode.i
+
+# target to preprocess a source file
+States/EditorModes/DefaultMode.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.i
+.PHONY : States/EditorModes/DefaultMode.cpp.i
+
+States/EditorModes/DefaultMode.s: States/EditorModes/DefaultMode.cpp.s
+
+.PHONY : States/EditorModes/DefaultMode.s
+
+# target to generate assembly for a file
+States/EditorModes/DefaultMode.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.s
+.PHONY : States/EditorModes/DefaultMode.cpp.s
+
+States/EditorModes/EditorMode.o: States/EditorModes/EditorMode.cpp.o
+
+.PHONY : States/EditorModes/EditorMode.o
+
+# target to build an object file
+States/EditorModes/EditorMode.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.o
+.PHONY : States/EditorModes/EditorMode.cpp.o
+
+States/EditorModes/EditorMode.i: States/EditorModes/EditorMode.cpp.i
+
+.PHONY : States/EditorModes/EditorMode.i
+
+# target to preprocess a source file
+States/EditorModes/EditorMode.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.i
+.PHONY : States/EditorModes/EditorMode.cpp.i
+
+States/EditorModes/EditorMode.s: States/EditorModes/EditorMode.cpp.s
+
+.PHONY : States/EditorModes/EditorMode.s
+
+# target to generate assembly for a file
+States/EditorModes/EditorMode.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.s
+.PHONY : States/EditorModes/EditorMode.cpp.s
+
 States/EditorState.o: States/EditorState.cpp.o
 
 .PHONY : States/EditorState.o
@@ -768,6 +849,9 @@ help:
 	@echo "... Components/SkillComponent.o"
 	@echo "... Components/SkillComponent.i"
 	@echo "... Components/SkillComponent.s"
+	@echo "... EnemySpawner.o"
+	@echo "... EnemySpawner.i"
+	@echo "... EnemySpawner.s"
 	@echo "... Entities/Enemy.o"
 	@echo "... Entities/Enemy.i"
 	@echo "... Entities/Enemy.s"
@@ -801,6 +885,12 @@ help:
 	@echo "... Sound/Sound.o"
 	@echo "... Sound/Sound.i"
 	@echo "... Sound/Sound.s"
+	@echo "... States/EditorModes/DefaultMode.o"
+	@echo "... States/EditorModes/DefaultMode.i"
+	@echo "... States/EditorModes/DefaultMode.s"
+	@echo "... States/EditorModes/EditorMode.o"
+	@echo "... States/EditorModes/EditorMode.i"
+	@echo "... States/EditorModes/EditorMode.s"
 	@echo "... States/EditorState.o"
 	@echo "... States/EditorState.i"
 	@echo "... States/EditorState.s"
