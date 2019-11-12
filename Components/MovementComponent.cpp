@@ -114,7 +114,7 @@ const bool MovementComponents::getState(const short unsigned state) const {
                 return true;
             break;
         case ATTACK:
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
                 return true;
             break;
         case JUMP_RIGHT:
@@ -152,18 +152,7 @@ void MovementComponents::getcanJump(bool *canJump) {
     this->canJump = *canJump;
 }
 
-void MovementComponents::saveVelocityY(const float &velocityY) {
-//    this->velocityStack.push_back(this->velocity.y);
-//    this->countVelocity++;
-//    if (this->velocity.y == 0)
-//    {
-//        this->lastVelocity =
-//    }
-//    if (this->countVelocity > 10)
-//    {
-//        this->countVelocity = 0;
-//    }
-}
+
 
 
 

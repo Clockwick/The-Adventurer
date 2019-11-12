@@ -23,7 +23,6 @@ public:
     virtual void stopVelocity();
     virtual void stopVelocityX();
     virtual void stopVelocityY();
-    virtual void saveVelocityY(const float& velocityY);
     virtual void jump();
 
 

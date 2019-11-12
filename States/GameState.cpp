@@ -135,22 +135,19 @@ void GameState::render(sf::RenderTarget *target) {
 
 void GameState::updatePlayerInput(const float &dt) {
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
         this->player->move(-1.0f, 0.0f, dt);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         this->player->move(1.0f, 0.0f, dt);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
         this->player->jump();
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
 
-    }
 
 }
 
@@ -183,18 +180,49 @@ void GameState::updatePauseMenuButtons() {
 
 
 void GameState::updateView(const float &dt) {
-    this->view.setCenter(this->player->getPosition());
+//    this->view.setCenter(this->player->getPosition());
+//
+//    if (this->player->sliding)
+//    {
+//        this->player->sliding = false;
+//        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y);
+//    }
+//    else if(this->player->sitting)
+//    {
+//        this->player->sitting = false;
+//        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y );
+//    }
+    this->view.setCenter(
+            std::floor(this->player->getPosition().x + (static_cast<float>(this->mousePosWindow.x) - static_cast<float>(this->state_data->gfxSettings->resolution.width / 2)) / 10.f),
+            std::floor(this->player->getPosition().y + (static_cast<float>(this->mousePosWindow.y) - static_cast<float>(this->state_data->gfxSettings->resolution.height / 2)) / 10.f)
+    );
 
-    if (this->player->sliding)
+    if (this->tileMap->getMaxSizeF().x >= this->view.getSize().x)
     {
-        this->player->sliding = false;
-        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y);
+        if (this->view.getCenter().x - this->view.getSize().x / 2.f < 0.f)
+        {
+            this->view.setCenter(0.f + this->view.getSize().x / 2.f, this->view.getCenter().y);
+        }
+        else if (this->view.getCenter().x + this->view.getSize().x / 2.f > this->tileMap->getMaxSizeF().x)
+        {
+            this->view.setCenter(this->tileMap->getMaxSizeF().x - this->view.getSize().x / 2.f, this->view.getCenter().y);
+        }
     }
-    else if(this->player->sitting)
+
+    if (this->tileMap->getMaxSizeF().y >= this->view.getSize().y)
     {
-        this->player->sitting = false;
-        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y );
+        if (this->view.getCenter().y - this->view.getSize().y / 2.f < 0.f)
+        {
+            this->view.setCenter(this->view.getCenter().x, 0.f + this->view.getSize().y / 2.f);
+        }
+        else if (this->view.getCenter().y + this->view.getSize().y / 2.f > this->tileMap->getMaxSizeF().y)
+        {
+            this->view.setCenter(this->view.getCenter().x, this->tileMap->getMaxSizeF().y - this->view.getSize().y / 2.f);
+        }
     }
+
+    this->viewGridPosition.x = static_cast<int>(this->view.getCenter().x) / static_cast<int>(this->state_data->gridSize);
+    this->viewGridPosition.y = static_cast<int>(this->view.getCenter().y) / static_cast<int>(this->state_data->gridSize);
 
 }
 

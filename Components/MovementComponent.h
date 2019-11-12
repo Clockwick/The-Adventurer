@@ -38,7 +38,6 @@ public:
     void stopVelocity();
     void stopVelocityX();
     void stopVelocityY();
-    void saveVelocityY(const float& velocityY);
     void jump();
     void getcanJump(bool* canJump);
 private:
@@ -49,9 +48,7 @@ private:
     const float maxVelocityY = -300.f;
     bool canJump;
     bool faceRight;
-    std::vector<float> velocityStack;
-    float lastVelocity;
-    int countVelocity;
+
 
     sf::Sprite& sprite;
     sf::Vector2f velocity;

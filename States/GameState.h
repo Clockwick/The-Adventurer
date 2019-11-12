@@ -33,6 +33,8 @@ private:
     PauseMenu* pmenu;
     TileMap* tileMap;
 
+    sf::Vector2i viewGridPosition;
+
     //Variables
     sf::View view;
     sf::RenderTexture renderTexture;

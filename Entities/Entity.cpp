@@ -116,11 +116,9 @@ const sf::Vector2i Entity::getGridPosition(const int gridSizeI) const {
 
 const sf::FloatRect &Entity::getNextPositionBounds(const float& dt) const {
     if (this->hitboxComponents && this->movementComponents)
-    {
         return this->hitboxComponents->getNextPosition(this->movementComponents->getVelocity() * dt);
-    }
 
-    return sf::FloatRect(-1.f,-1.f,-1.f,-1.f);
+    return sf::FloatRect(1,1,1,1);
 }
 
 void Entity::jump() {
@@ -128,8 +126,6 @@ void Entity::jump() {
         this->canJump = false;
         this->movementComponents->getcanJump(&this->canJump);
         this->movementComponents->jump();
-
-
     }
 }
 
@@ -138,11 +134,6 @@ void Entity::allowJump(bool *canJump) {
 
 }
 
-void Entity::saveVelocityY(const float& velocityY) {
-    if (this->movementComponents)
-        this->movementComponents->saveVelocityY(velocityY);
-
-}
 
 
 
