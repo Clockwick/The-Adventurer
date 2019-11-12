@@ -24,6 +24,7 @@ public:
     //FUNCTIONS
     void update(const float& dt);
     void render(sf::RenderTarget& target, const bool show_hitbox);
+    void updateAnimation(const float& dt);
 
 };
 #endif //GUJARUNSFML_ENEMY_H

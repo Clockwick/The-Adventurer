@@ -69,7 +69,7 @@ void Player::update(const float& dt)
     this->updateAttack();
     this->updateAnimation(dt);
 
-    std::cout << "In player.cpp: " << this->isJump << std::endl;
+//    std::cout << "In player.cpp: " << this->isJump << std::endl;
 
 
 
@@ -150,9 +150,6 @@ void Player::updateAnimation(const float &dt)
         this->sprite.setScale(1.f, 1.f);
         this->animationComponents->play("JUMP", dt, 120, 100);
     }
-
-
-
 
 
     this->hitboxComponents->update();

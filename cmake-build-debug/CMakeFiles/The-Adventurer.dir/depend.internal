@@ -1092,6 +1092,7 @@ CMakeFiles/The-Adventurer.dir/Game.cpp.o
  /Users/arthris/CLionProjects/The-Adventurer/Components/HitboxComponent.h
  /Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
  /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.h
  /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
  /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
  /Users/arthris/CLionProjects/The-Adventurer/GUI.h
@@ -1825,6 +1826,7 @@ CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o
  /Users/arthris/CLionProjects/The-Adventurer/Components/HitboxComponent.h
  /Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
  /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.h
  /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
  /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
  /Users/arthris/CLionProjects/The-Adventurer/GUI.h
@@ -2178,6 +2180,7 @@ CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o
  /Users/arthris/CLionProjects/The-Adventurer/Components/HitboxComponent.h
  /Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
  /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.h
  /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
  /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
  /Users/arthris/CLionProjects/The-Adventurer/GUI.h
@@ -2409,6 +2412,7 @@ CMakeFiles/The-Adventurer.dir/main.cpp.o
  /Users/arthris/CLionProjects/The-Adventurer/Components/HitboxComponent.h
  /Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
  /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.h
  /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
  /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
  /Users/arthris/CLionProjects/The-Adventurer/GUI.h

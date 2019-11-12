@@ -1091,6 +1091,7 @@ CMakeFiles/The-Adventurer.dir/Game.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/The-Adventurer.dir/Game.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/The-Adventurer.dir/Game.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/The-Adventurer.dir/Game.cpp.o: ../Components/SkillComponent.h
+CMakeFiles/The-Adventurer.dir/Game.cpp.o: ../Entities/Enemy.h
 CMakeFiles/The-Adventurer.dir/Game.cpp.o: ../Entities/Entity.h
 CMakeFiles/The-Adventurer.dir/Game.cpp.o: ../Entities/Player.h
 CMakeFiles/The-Adventurer.dir/Game.cpp.o: ../GUI.h
@@ -1824,6 +1825,7 @@ CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o: ../Components/AttributeCom
 CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o: ../Components/SkillComponent.h
+CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o: ../Entities/Enemy.h
 CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o: ../Entities/Entity.h
 CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o: ../Entities/Player.h
 CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o: ../GUI.h
@@ -2177,6 +2179,7 @@ CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o: ../Components/Attribut
 CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o: ../Components/SkillComponent.h
+CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o: ../Entities/Enemy.h
 CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o: ../Entities/Entity.h
 CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o: ../Entities/Player.h
 CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o: ../GUI.h
@@ -2408,6 +2411,7 @@ CMakeFiles/The-Adventurer.dir/main.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/The-Adventurer.dir/main.cpp.o: ../Components/HitboxComponent.h
 CMakeFiles/The-Adventurer.dir/main.cpp.o: ../Components/MovementComponent.h
 CMakeFiles/The-Adventurer.dir/main.cpp.o: ../Components/SkillComponent.h
+CMakeFiles/The-Adventurer.dir/main.cpp.o: ../Entities/Enemy.h
 CMakeFiles/The-Adventurer.dir/main.cpp.o: ../Entities/Entity.h
 CMakeFiles/The-Adventurer.dir/main.cpp.o: ../Entities/Player.h
 CMakeFiles/The-Adventurer.dir/main.cpp.o: ../GUI.h

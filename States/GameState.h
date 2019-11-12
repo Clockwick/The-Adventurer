@@ -5,6 +5,7 @@
 #include "../GUI/PauseMenu.h"
 #include "../Map/TileMap.h"
 #include "../PlayerGUI.h"
+#include "../Entities/Enemy.h"
 #ifndef GUJARUNSFML_GAMESTATE_H
 #define GUJARUNSFML_GAMESTATE_H
 
@@ -28,8 +29,13 @@ public:
     void updatePlayerGUI(const float& dt);
 
 private:
+    //Player
     Player* player;
     PlayerGUI* playerGui;
+
+    //Enemy
+    Enemy* testEnemy;
+//
     PauseMenu* pmenu;
     TileMap* tileMap;
 
