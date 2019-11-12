@@ -26,7 +26,7 @@ public:
 
     //FUNCTIONS
     void update(const float& dt);
-    void render(sf::RenderTarget& target, const bool show_hitbox);
+    void render(sf::RenderTarget& target, const bool show_hitbox = false);
     void updateAnimation(const float& dt);
 
 };

@@ -43,7 +43,7 @@ public:
     virtual void updateGui(const float &dt) = 0;
 
     virtual void renderGui(sf::RenderTarget& target) = 0;
-    virtual void render(sf::RenderTarget* target = nullptr) = 0;
+    virtual void render(sf::RenderTarget& target) = 0;
 
     const bool getKeyTime();
 

@@ -99,7 +99,7 @@ void EditorState::update(const float &dt) {
     {
         this->updateButtons();
         this->updateEditorInput(dt);
-        this->modes[EditorModes::DEFAULT_MODE]->update(dt);
+        this->updateModes(dt);
     } else //Paused
     {
         this->pmenu->update(this->mousePosWindow);
@@ -158,6 +158,11 @@ void EditorState::updatePauseMenuButtons() {
 
 
 }
+void EditorState::updateModes(const float &dt) {
+    this->modes[EditorModes::DEFAULT_MODE]->update(dt);
+
+}
+
 
 //Render
 void EditorState::render(sf::RenderTarget *target) {
@@ -170,6 +175,7 @@ void EditorState::render(sf::RenderTarget *target) {
     target->setView(this->window->getDefaultView());
     this->renderButtons(*target);
     this->renderGui(*target);
+    this->renderModes(*target);
 
 
     if (this->paused) {
@@ -182,7 +188,6 @@ void EditorState::render(sf::RenderTarget *target) {
 
 void EditorState::renderGui(sf::RenderTarget &target) {
 
-    this->modes[EditorModes::DEFAULT_MODE]->render(&target);
 }
 
 void EditorState::renderButtons(sf::RenderTarget &target) {
@@ -190,6 +195,12 @@ void EditorState::renderButtons(sf::RenderTarget &target) {
         it.second->render(target);
     }
 }
+
+void EditorState::renderModes(sf::RenderTarget &target) {
+    this->modes[EditorModes::DEFAULT_MODE]->render(target);
+
+}
+
 
 
 

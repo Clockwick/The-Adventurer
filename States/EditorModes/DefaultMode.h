@@ -37,7 +37,7 @@ public:
 
     void renderGui(sf::RenderTarget &target);
 
-    void render(sf::RenderTarget *target = nullptr);
+    void render(sf::RenderTarget& target);
 
 };
 

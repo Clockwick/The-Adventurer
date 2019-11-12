@@ -29,6 +29,8 @@ public:
     void updateInput(const float& dt);
     void renderGui(sf::RenderTarget& target);
     void updateButtons();
+    void updateModes(const float& dt);
+    void renderModes(sf::RenderTarget& target);
     void renderButtons(sf::RenderTarget& target);
     void updateEditorInput(const float &dt);
 
