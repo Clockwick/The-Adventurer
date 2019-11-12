@@ -5,8 +5,7 @@
 #include "Enemy.h"
 //Constructor , DeConstructor
 Enemy::Enemy(float x,  float y, const float& jumpHeight,sf::Texture& texture_sheet)
-        : jumpHeight(jumpHeight)
-{
+        : jumpHeight(jumpHeight) {
 
     this->initVariables();
     this->initAudio();
@@ -14,11 +13,11 @@ Enemy::Enemy(float x,  float y, const float& jumpHeight,sf::Texture& texture_she
     this->createMovementComponents(300, 1500.0f, 500.0f, this->jumpHeight);
     this->createAttributeComponents(1);
     this->createSkillComponents();
-    this->createAnimationComponents( texture_sheet);
+    this->createAnimationComponents(texture_sheet);
     this->initAnimation();
-    this->setPosition(x , y);
+    this->setPosition(x, y);
 
-
+}
 Enemy::~Enemy() {
 
 
