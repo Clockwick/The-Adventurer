@@ -25,6 +25,7 @@ private:
     //Variables
     sf::Font font;
     sf::RectangleShape background;
+    sf::RectangleShape btnBackground;
     std::map <std::string, gui::Button*> buttons;
     sf::Texture backgroundTexture;
 

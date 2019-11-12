@@ -13,17 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Map/TileMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Map/TileMap.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/EditorModes/DefaultMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorModes/DefaultMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/EditorModes/DefaultMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorModes/DefaultMode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/EditorModes/EditorMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorModes/EditorMode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/EditorState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/EditorState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/EditorState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/mainmenuState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/mainmenuState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/mainmenuState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/mainmenuState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Map/TileMap.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Map/TileMap.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Game.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Game.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/The-Adventurer" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/The-Adventurer" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,7 +66,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -195,7 +189,7 @@
       <workItem from="1573188410045" duration="3452000" />
       <workItem from="1573530076100" duration="228000" />
       <workItem from="1573553159526" duration="3731000" />
-      <workItem from="1573568227389" duration="9264000" />
+      <workItem from="1573568227389" duration="9921000" />
     </task>
     <servers />
   </component>

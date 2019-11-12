@@ -25,7 +25,6 @@ Mainmenu::~Mainmenu() {
 
 void Mainmenu::initVariables() {
 
-
 }
 void Mainmenu::initFonts() {
     if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
@@ -34,7 +33,6 @@ void Mainmenu::initFonts() {
     }
 
     std::cout << "Successfully Loaded Fonts" << std::endl;
-
 
 }
 
@@ -50,10 +48,9 @@ void Mainmenu::initGui() {
     if(!this->backgroundTexture.loadFromFile("resources/images/background/Testbackground.jpg"))
     {
         std::cout << "Failed to load BackgroundImage" << std::endl;
-
-
     }
     this->background.setTexture(&this->backgroundTexture);
+
     std::cout << "Successfully Loaded BackgroundImage" << std::endl;
 
     this->buttons["GAME_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(33.22f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
@@ -91,11 +88,10 @@ void Mainmenu::update(const float &dt) {
 void Mainmenu::render(sf::RenderTarget *target) {
 
     if(!target)
-    {
         target = this->window;
-    }
 
     target->draw(this->background);
+    target->draw(this->btnBackground);
     this->renderButtons(*target);
 
     //For Checking (x,y) from Mouse
@@ -120,9 +116,6 @@ void Mainmenu::updateInput(const float &dt) {
 
 
 }
-
-
-
 
 void Mainmenu::updateButtons() {
 
