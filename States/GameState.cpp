@@ -11,6 +11,7 @@ GameState::GameState(StateData* state_data)
     this->initDeferredRender();
     this->initView();
     this->initTextures();
+    this->initEnemies();
     this->initPlayers();
     this->initPlayerGUI();
     this->initFonts();
@@ -26,6 +27,9 @@ GameState::~GameState() {
     delete this->pmenu;
     delete this->tileMap;
 
+    for (size_t i = 0; i < this->activeEnemies.size(); i++)
+        delete this->activeEnemies[i];
+
 }
 
 
@@ -37,6 +41,11 @@ void GameState::initTextures() {
     }
     std::cout << "Successfully Loaded Player" << std::endl;
 
+    if (!this->textures["SLIME_SHEET"].loadFromFile("resources/images/Assets/Monsters/Slime/Slime.png"))
+    {
+        std::cout << "Cannot Load Slime Image" << std::endl;
+    }
+    std::cout << "Successfully Loaded Slime" << std::endl;
 
 
 }
@@ -52,13 +61,21 @@ void GameState::initFonts() {
 }
 
 void GameState::initPlayers() {
-    this->player = new Player(500,470, 200.f, this->textures["PLAYER_SHEET"]);
+    this->player = new Player(500.f,470.f, 200.f, this->textures["PLAYER_SHEET"]);
 
 }
 
 void GameState::initPlayerGUI() {
     this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
 }
+void GameState::initEnemies() {
+    this->activeEnemies.push_back(new Enemy(1100.f , 440.f, 100, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Enemy(800.f , 440.f, 100, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Enemy(900.f , 440.f, 100, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Enemy(1000.f , 440.f, 100, this->textures["SLIME_SHEET"]));
+}
+
+
 
 void GameState::initTileMap() {
     this->tileMap = new TileMap(this->state_data->gridSize, 100,100, "resources/images/Assets/Map/16x16/Tile/TerrainSet.png");
@@ -95,6 +112,10 @@ void GameState::update(const float &dt) {
         this->updateTileMap(dt);
         this->player->update(dt);
         this->playerGui->update(dt);
+        for (auto *i : this->activeEnemies)
+        {
+            i->update(dt);
+        }
     }
     else //Paused
     {
@@ -109,18 +130,23 @@ void GameState::update(const float &dt) {
 void GameState::render(sf::RenderTarget *target) {
 
     if(!target)
-    {
         target = this->window;
-    }
+
     this->renderTexture.clear();
     this->renderTexture.setView(this->view);
     this->tileMap->render(this->renderTexture, this->player->getGridPosition(static_cast<int>(this->state_data->gridSize)));
+    for (auto *i : this->activeEnemies)
+    {
+        i->render(this->renderTexture);
+    }
     this->player->render(this->renderTexture, false);
+
 
     this->renderTexture.setView(this->renderTexture.getDefaultView());
 
     this->playerGui->render(this->renderTexture);
-    if (this->paused)//Pause Menu Render
+    //Pause Menu Render
+    if (this->paused)
     {
         this->renderTexture.setView(this->renderTexture.getDefaultView());
         this->pmenu->render(renderTexture);
@@ -230,6 +256,11 @@ void GameState::updateView(const float &dt) {
 
 void GameState::updateTileMap(const float &dt) {
     this->tileMap->update(this->player, dt);
+    for (auto *i : this->activeEnemies)
+    {
+        this->tileMap->update(i, dt);
+    }
+
 }
 
 void GameState::updatePlayerGUI(const float &dt) {

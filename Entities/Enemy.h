@@ -18,10 +18,10 @@ private:
     bool attacking;
     bool isJump;
 
-    EnemySpawner& enemySpawner;
+//    EnemySpawner& enemySpawner;
 
 public:
-    Enemy(EnemySpawner& enemy_spawner, float x,  float y, const float& jumpHeight,sf::Texture& texture_sheet);
+    Enemy( float x,  float y, const float& jumpHeight,sf::Texture& texture_sheet);
     virtual ~Enemy();
 
     //FUNCTIONS

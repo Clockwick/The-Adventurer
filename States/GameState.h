@@ -34,7 +34,7 @@ private:
     PlayerGUI* playerGui;
 
     //Enemy
-
+    std::vector<Enemy*> activeEnemies;
     PauseMenu* pmenu;
     TileMap* tileMap;
 
@@ -61,6 +61,7 @@ private:
     void initTileMap();
     void initPlayerGUI();
     void updatePauseMenuButtons();
+    void initEnemies();
 
 
 };

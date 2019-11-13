@@ -14,15 +14,11 @@ Mainmenu::Mainmenu(StateData* state_data)
 }
 
 Mainmenu::~Mainmenu() {
-    auto it = this->buttons.begin();
-    for (it = this->buttons.begin(); it != this->buttons.end();++it){
+    for (auto it = this->buttons.begin(); it != this->buttons.end();++it){
         delete it->second;
     }
-
 }
 //Initializer
-
-
 void Mainmenu::initVariables() {
 
 }
@@ -31,8 +27,6 @@ void Mainmenu::initFonts() {
     {
         std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
     }
-
-    std::cout << "Successfully Loaded Fonts" << std::endl;
 
 }
 
@@ -51,7 +45,6 @@ void Mainmenu::initGui() {
     }
     this->background.setTexture(&this->backgroundTexture);
 
-    std::cout << "Successfully Loaded BackgroundImage" << std::endl;
 
     this->buttons["GAME_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(33.22f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
                                              &this->font, "New Game", gui::calcCharSize(vm),

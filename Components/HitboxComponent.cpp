@@ -51,7 +51,7 @@ void HitboxComponents::setPosition(sf::Vector2f& position) {
 void HitboxComponents::setPosition(const float x, const float y) {
 
     this->hitbox.setPosition(x, y);
-    this->sprite.setPosition(x - offsetX, y - offsetY);
+    this->sprite.setPosition(x - this->offsetX, y - this->offsetY);
 
 }
 

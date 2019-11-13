@@ -205,7 +205,7 @@ void TileMap::render(sf::RenderTarget &target, const sf::Vector2i &gridPosition,
     } else if (this->fromX > this->maxSizeWorldGrid.x) {
         this->fromX = this->maxSizeWorldGrid.x;
     }
-    this->toX = gridPosition.x + 11;
+    this->toX = gridPosition.x + 15 ;
     if (this->toX < 0) {
         this->toX = 0;
     } else if (this->toX > this->maxSizeWorldGrid.x) {
