@@ -64,16 +64,31 @@ void TileMap::addTile(const int x, const int y, const int z, const sf::IntRect &
 }
 
 
-void TileMap::removeTile(const int x, const int y, const int z) {
+void TileMap::removeTile(const int x, const int y, const int z, const int type) {
     //Remove tile if internal Tile map allowed
     if (x < this->maxSizeWorldGrid.x && x >= 0 &&
         y < this->maxSizeWorldGrid.y && y >= 0 &&
-        z <= this->layers && z >= 0) {
+        z < this->layers && z >= 0) {
         if (!this->map[x][y][z].empty()) {
-            /* Remove Tiles */
-            delete this->map[x][y][z][this->map[x][y][z].size() - 1];
-            this->map[x][y][z].pop_back();
-            std::cout << "DEBUG:: REMOVE TILE!" << std::endl;
+            if (type >= 0)
+            {
+                if (this->map[x][y][z].back()->getType() == type) {
+                    /* Remove Tiles */
+                    delete this->map[x][y][z][this->map[x][y][z].size() - 1];
+                    this->map[x][y][z].pop_back();
+//                    std::cout << "DEBUG:: REMOVE TILE!" << std::endl;
+                }
+
+            }
+            else
+            {
+                /* Remove Tiles */
+                delete this->map[x][y][z][this->map[x][y][z].size() - 1];
+                this->map[x][y][z].pop_back();
+//                std::cout << "DEBUG:: REMOVE TILE!" << std::endl;
+            }
+
+
         }
     }
 
@@ -235,6 +250,12 @@ void TileMap::render(sf::RenderTarget &target, const sf::Vector2i &gridPosition,
                         target.draw(this->collisionBox);
                     }
                 }
+                    if (this->map[x][y][this->layer][k]->getType() == TileTypes::ENEMYSPAWNER)
+                    {
+                        this->collisionBox.setPosition(this->map[x][y][this->layer][k]->getPosition());
+                        target.draw(this->collisionBox);
+                    }
+
             }
         }
     }
@@ -404,6 +425,10 @@ const bool TileMap::tileEmpty(const int x, const int y, const int z) const {
 
 const sf::Vector2f &TileMap::getMaxSizeF() const {
     return this->maxSizeWorldF;
+}
+
+const bool TileMap::checkType(const int x, const int y, const int z,const int type) const {
+    return this->map[x][y][this->layer].back()->getType() == type;
 }
 
 

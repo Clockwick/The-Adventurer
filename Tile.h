@@ -15,11 +15,14 @@ public:
     virtual ~Tile();
     virtual void update();
     virtual void render(sf::RenderTarget &target, const sf::Vector2f player_position = sf::Vector2f());
+
+    //ACCESSORS
     const std::string getAsString() const;
     const sf::Vector2f& getPosition() const;
     const bool intersects(const sf::FloatRect bounds) const;
     const sf::FloatRect getGlobalBounds() const;
     const bool& getCollision() const;
+    const short& getType() const;
 
 protected:
     sf::RectangleShape shape;

@@ -157,10 +157,11 @@ void Player::updateAnimation(const float &dt)
 }
 
 void Player::render(sf::RenderTarget& target, const bool show_hitbox) {
-    target.draw(this->sprite);
-
     if (show_hitbox)
         this->hitboxComponents->render(target);
+    else
+        target.draw(this->sprite);
+
 }
 
 void Player::initAudio() {

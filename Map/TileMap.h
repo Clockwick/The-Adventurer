@@ -19,7 +19,7 @@ public:
     void render(sf::RenderTarget& target, const sf::Vector2i& gridPosition, const bool show_collision = false);
 
     void addTile(const int x, const int y, const int z, const sf::IntRect& texture_rect, const bool& collision, const short type);
-    void removeTile(const int x, const int y, const int z);
+    void removeTile(const int x, const int y, const int z, const int type =  -1);
 
     void saveToFile(const std::string file_name);
     void loadFromFile(const std::string file_name);
@@ -31,6 +31,7 @@ public:
     const sf::Texture * getTileSheet() const;
     const bool tileEmpty(const int x , const int y, const int z) const;
     const sf::Vector2f& getMaxSizeF() const;
+    const bool checkType(const int x, const int y, const int z, const int type) const;
 private:
     int gridSizeI;
     sf::Vector2i maxSizeWorldGrid;

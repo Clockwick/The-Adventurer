@@ -159,7 +159,7 @@ void Mainmenu::initAudio() {
 
     //Init Background Audio
     this->musicBG.openFromFile("resources/Audio/Theforestawake.ogg");
-    this->musicBG.play();
+//    this->musicBG.play();
 
 }
 

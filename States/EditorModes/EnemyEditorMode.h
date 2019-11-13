@@ -11,6 +11,12 @@ private:
     sf::RectangleShape selectorRect;
     sf::Text cursorText;
     sf::RectangleShape sidebar;
+    sf::IntRect textureRect;//
+
+    int type;
+    int amount;
+    int timeToSpawn;
+    float maxDistance;
 
     void initGui();
     void initVariables();

@@ -147,7 +147,7 @@ void EditorState::updateEditorInput(const float &dt) {
         this->view.move(this->cameraSpeed * dt, 0);
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::PageUp))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
         if (this->activeMode < this->modes.size() - 1)
         {
@@ -159,7 +159,7 @@ void EditorState::updateEditorInput(const float &dt) {
         }
     }
 
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::PageDown))
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
         if (this->activeMode > 0)
         {

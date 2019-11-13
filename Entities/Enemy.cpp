@@ -46,10 +46,11 @@ void Enemy::update(const float &dt) {
 }
 
 void Enemy::render(sf::RenderTarget &target, const bool show_hitbox) {
-    target.draw(this->sprite);
 
     if (show_hitbox)
         this->hitboxComponents->render(target);
+    else
+        target.draw(this->sprite);
 }
 
 void Enemy::initAudio() {

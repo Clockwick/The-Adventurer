@@ -66,3 +66,7 @@ const sf::FloatRect Tile::getGlobalBounds() const {
    return this->shape.getGlobalBounds();
 }
 
+const short &Tile::getType() const {
+    return this->type;
+}
+

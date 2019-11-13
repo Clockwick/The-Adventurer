@@ -38,7 +38,10 @@ void EnemyEditorMode::initGui() {
 }
 
 void EnemyEditorMode::initVariables() {
-
+    type = 0;
+    amount = 1;
+    timeToSpawn = 60;
+    maxDistance = 1000.f;
 }
 
 
@@ -49,6 +52,20 @@ void EnemyEditorMode::update(const float &dt) {
 }
 
 void EnemyEditorMode::updateInput(const float &dt) {
+    //Add tile
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeyTime()) {
+        if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(*this->editorStateData->mousePosWindow))) {
+                        this->tileMap->addTile(this->editorStateData->mousePosGrid->x, this->editorStateData->mousePosGrid->y, 0, this->textureRect,
+                                               true, TileTypes::ENEMYSPAWNER);
+        }
+    }
+        //Remove tile
+    else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeyTime()) {
+        if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(*this->editorStateData->mousePosWindow))) {
+                this->tileMap->removeTile(this->editorStateData->mousePosGrid->x, this->editorStateData->mousePosGrid->y, 0, TileTypes::ENEMYSPAWNER);
+
+        }
+    }
 
 }
 
@@ -58,9 +75,10 @@ void EnemyEditorMode::updateGui(const float &dt) {
     this->cursorText.setPosition(this->editorStateData->mousePosView->x + 100.f,  this->editorStateData->mousePosView->y - 50.f);
     std::stringstream ss;
     ss << "\n"
-       << "Collision: " << "\n"
-       << "Tile: " << "\n"
-       << "Tile Lock: " ;
+        << "Enemy type: " << this->type << "\n"
+       << "Enemy amount: " << this->amount <<"\n"
+       << "Time to Spawn: " << this->timeToSpawn << "\n"
+       << "maxDistance: " << this->maxDistance;
 
     cursorText.setString(ss.str());
 
@@ -70,6 +88,9 @@ void EnemyEditorMode::renderGui(sf::RenderTarget &target) {
     target.setView(*this->editorStateData->view);
     target.draw(this->selectorRect);
     target.draw(this->cursorText);
+
+    target.setView(target.getDefaultView());
+    target.draw(this->sidebar);
 }
 
 void EnemyEditorMode::render(sf::RenderTarget &target) {
