@@ -4,6 +4,7 @@
 #include "../State.h"
 #include "../../Map/TileMap.h"
 #include "../../GUI.h"
+
 class EditorStateData
 {
 public:

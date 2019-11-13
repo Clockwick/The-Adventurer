@@ -68,6 +68,9 @@ void EditorState::initView() {
 
 void EditorState::initModes() {
     this->modes.push_back(new DefaultMode(this->state_data, this->tileMap, &this->editorStateData));
+    this->modes.push_back(new EnemyEditorMode(this->state_data, this->tileMap, &this->editorStateData));
+
+    this->activeMode = EditorModes::DEFAULT_MODE;
 }
 
 void EditorState::initVariables() {
@@ -144,6 +147,30 @@ void EditorState::updateEditorInput(const float &dt) {
         this->view.move(this->cameraSpeed * dt, 0);
     }
 
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::PageUp))
+    {
+        if (this->activeMode < this->modes.size() - 1)
+        {
+            this->activeMode++;
+        }
+        else
+        {
+            std::cout << "ERROR::EDITIORSTATE::CANNOT CHANGE MODE UP" << std::endl;
+        }
+    }
+
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::PageDown))
+    {
+        if (this->activeMode > 0)
+        {
+            this->activeMode--;
+        }
+        else
+        {
+            std::cout << "ERROR::EDITIORSTATE::CANNOT CHANGE MODE DOWN" << std::endl;
+        }
+    }
+
 
 }
 
@@ -159,7 +186,8 @@ void EditorState::updatePauseMenuButtons() {
 
 }
 void EditorState::updateModes(const float &dt) {
-    this->modes[EditorModes::DEFAULT_MODE]->update(dt);
+    this->modes[this->activeMode]->update(dt);
+    std::cout << this->activeMode << std::endl;
 
 }
 
@@ -197,7 +225,7 @@ void EditorState::renderButtons(sf::RenderTarget &target) {
 }
 
 void EditorState::renderModes(sf::RenderTarget &target) {
-    this->modes[EditorModes::DEFAULT_MODE]->render(target);
+    this->modes[this->activeMode]->render(target);
 
 }
 

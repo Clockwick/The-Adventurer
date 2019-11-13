@@ -5,8 +5,8 @@
 #include "../GUI.h"
 #include "../GUI/PauseMenu.h"
 #include "../Map/TileMap.h"
-#include "EditorModes/EditorMode.h"
-#include "EditorModes/DefaultMode.h"
+#include "EditorModes/EditorModes.h"
+
 
 #ifndef GUJARUNSFML_EDITORSTATE_H
 #define GUJARUNSFML_EDITORSTATE_H
@@ -50,6 +50,7 @@ private:
 
 
     std::vector<EditorMode*> modes;
+    unsigned activeMode;
     //Functions
 
     //Init

@@ -636,6 +636,33 @@ States/EditorModes/EditorMode.cpp.s:
 	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.s
 .PHONY : States/EditorModes/EditorMode.cpp.s
 
+States/EditorModes/EnemyEditorMode.o: States/EditorModes/EnemyEditorMode.cpp.o
+
+.PHONY : States/EditorModes/EnemyEditorMode.o
+
+# target to build an object file
+States/EditorModes/EnemyEditorMode.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.o
+.PHONY : States/EditorModes/EnemyEditorMode.cpp.o
+
+States/EditorModes/EnemyEditorMode.i: States/EditorModes/EnemyEditorMode.cpp.i
+
+.PHONY : States/EditorModes/EnemyEditorMode.i
+
+# target to preprocess a source file
+States/EditorModes/EnemyEditorMode.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.i
+.PHONY : States/EditorModes/EnemyEditorMode.cpp.i
+
+States/EditorModes/EnemyEditorMode.s: States/EditorModes/EnemyEditorMode.cpp.s
+
+.PHONY : States/EditorModes/EnemyEditorMode.s
+
+# target to generate assembly for a file
+States/EditorModes/EnemyEditorMode.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.s
+.PHONY : States/EditorModes/EnemyEditorMode.cpp.s
+
 States/EditorState.o: States/EditorState.cpp.o
 
 .PHONY : States/EditorState.o
@@ -891,6 +918,9 @@ help:
 	@echo "... States/EditorModes/EditorMode.o"
 	@echo "... States/EditorModes/EditorMode.i"
 	@echo "... States/EditorModes/EditorMode.s"
+	@echo "... States/EditorModes/EnemyEditorMode.o"
+	@echo "... States/EditorModes/EnemyEditorMode.i"
+	@echo "... States/EditorModes/EnemyEditorMode.s"
 	@echo "... States/EditorState.o"
 	@echo "... States/EditorState.i"
 	@echo "... States/EditorState.s"

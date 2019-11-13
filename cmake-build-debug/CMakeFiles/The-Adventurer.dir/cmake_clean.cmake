@@ -18,6 +18,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/The-Adventurer.dir/Sound/Sound.cpp.o"
   "CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o"
   "CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.o"
+  "CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.o"
   "CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.o"
   "CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o"
   "CMakeFiles/The-Adventurer.dir/States/SettingsState.cpp.o"

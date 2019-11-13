@@ -129,6 +129,7 @@ void TileMap::update(Entity *entity, const float &dt) {
         for (int y = fromY; y < this->toY; y++) {
             for (int k = 0; k < this->map[x][y][this->layer].size(); k++) {
                 this->map[x][y][this->layer][k]->update();
+
                 sf::FloatRect playerBounds = entity->getGlobalBounds();
                 sf::FloatRect wallBounds = this->map[x][y][this->layer][k]->getGlobalBounds();
                 sf::FloatRect nextPositionBounds = entity->getNextPositionBounds(dt);

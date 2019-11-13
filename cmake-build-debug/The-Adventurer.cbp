@@ -196,6 +196,15 @@
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EditorMode.h">
 			<Option target="The-Adventurer"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EditorModes.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EnemyEditorMode.cpp">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EnemyEditorMode.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/EditorState.cpp">
 			<Option target="The-Adventurer"/>
 		</Unit>

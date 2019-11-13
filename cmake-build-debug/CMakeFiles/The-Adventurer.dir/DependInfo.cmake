@@ -23,6 +23,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/arthris/CLionProjects/The-Adventurer/Sound/Sound.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Sound/Sound.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/DefaultMode.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EditorMode.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.o"
+  "/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EnemyEditorMode.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/States/EditorState.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/States/GameState.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/States/SettingsState.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/SettingsState.cpp.o"
