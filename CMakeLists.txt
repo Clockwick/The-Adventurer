@@ -18,5 +18,5 @@ add_executable(The-Adventurer main.cpp Game.cpp Game.h States/State.cpp States/S
         States/EditorState.h Components/HitboxComponent.cpp Components/HitboxComponent.h Tile.cpp Tile.h GUI/PauseMenu.cpp GUI/PauseMenu.h States/SettingsState.cpp
         States/SettingsState.h Map/TileMap.cpp Map/TileMap.h Precom.cpp Precom.h GraphicsSettings.cpp GraphicsSettings.h Sound/Sound.cpp Sound/Sound.h
         Components/AttributeComponent.cpp Components/AttributeComponent.h PlayerGUI.cpp PlayerGUI.h Components/SkillComponent.cpp Components/SkillComponent.h
-        Entities/Enemy.cpp Entities/Enemy.h EnemySpawner.cpp EnemySpawner.h States/EditorModes/EditorMode.cpp States/EditorModes/EditorMode.h States/EditorModes/DefaultMode.cpp States/EditorModes/DefaultMode.h States/EditorModes/EnemyEditorMode.cpp States/EditorModes/EnemyEditorMode.h States/EditorModes/EditorModes.h)
+        Entities/Enemy.cpp Entities/Enemy.h EnemySpawner.cpp EnemySpawner.h States/EditorModes/EditorMode.cpp States/EditorModes/EditorMode.h States/EditorModes/DefaultMode.cpp States/EditorModes/DefaultMode.h States/EditorModes/EnemyEditorMode.cpp States/EditorModes/EnemyEditorMode.h States/EditorModes/EditorModes.h Entities/Slime.cpp Entities/Slime.h)
 target_link_libraries(The-Adventurer sfml-graphics sfml-network sfml-window sfml-audio sfml-system)

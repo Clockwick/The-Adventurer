@@ -9,9 +9,9 @@ class Enemy : public Entity
 {
 private:
     //INITIAL
-    void initVariables();
-    void initAudio();
-    void initAnimation();
+    virtual void initVariables() = 0;
+    virtual void initAudio() = 0;
+    virtual void initAnimation() = 0;
 
     //VARS
     float jumpHeight;
@@ -21,13 +21,13 @@ private:
 //    EnemySpawner& enemySpawner;
 
 public:
-    Enemy( float x,  float y, const float& jumpHeight,sf::Texture& texture_sheet);
+    Enemy();
     virtual ~Enemy();
 
     //FUNCTIONS
-    void update(const float& dt);
-    void render(sf::RenderTarget& target, const bool show_hitbox = false);
-    void updateAnimation(const float& dt);
+    virtual void update(const float& dt) = 0;
+    virtual void render(sf::RenderTarget& target, const bool show_hitbox = false) = 0;
+    virtual void updateAnimation(const float& dt) = 0;
 
 };
 #endif //GUJARUNSFML_ENEMY_H

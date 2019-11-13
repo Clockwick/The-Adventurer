@@ -3,6 +3,7 @@
 //
 
 #include "GameState.h"
+#include "../Entities/Slime.h"
 
 
 GameState::GameState(StateData* state_data)
@@ -69,10 +70,10 @@ void GameState::initPlayerGUI() {
     this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
 }
 void GameState::initEnemies() {
-//    this->activeEnemies.push_back(new Enemy(1100.f , 440.f, 100, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Enemy(800.f , 440.f, 100, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Enemy(900.f , 440.f, 100, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Enemy(1000.f , 440.f, 100, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1100.f , 440.f, 100, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(800.f , 440.f, 100, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(900.f , 440.f, 100, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1000.f , 440.f, 100, this->textures["SLIME_SHEET"]));
 }
 
 

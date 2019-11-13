@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/The-Adventurer.dir/Entities/Enemy.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Entities/Entity.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.o"
+  "CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o"
   "CMakeFiles/The-Adventurer.dir/GUI.cpp.o"
   "CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Game.cpp.o"

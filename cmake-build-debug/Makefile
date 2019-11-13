@@ -366,6 +366,33 @@ Entities/Player.cpp.s:
 	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.s
 .PHONY : Entities/Player.cpp.s
 
+Entities/Slime.o: Entities/Slime.cpp.o
+
+.PHONY : Entities/Slime.o
+
+# target to build an object file
+Entities/Slime.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o
+.PHONY : Entities/Slime.cpp.o
+
+Entities/Slime.i: Entities/Slime.cpp.i
+
+.PHONY : Entities/Slime.i
+
+# target to preprocess a source file
+Entities/Slime.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.i
+.PHONY : Entities/Slime.cpp.i
+
+Entities/Slime.s: Entities/Slime.cpp.s
+
+.PHONY : Entities/Slime.s
+
+# target to generate assembly for a file
+Entities/Slime.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.s
+.PHONY : Entities/Slime.cpp.s
+
 GUI.o: GUI.cpp.o
 
 .PHONY : GUI.o
@@ -888,6 +915,9 @@ help:
 	@echo "... Entities/Player.o"
 	@echo "... Entities/Player.i"
 	@echo "... Entities/Player.s"
+	@echo "... Entities/Slime.o"
+	@echo "... Entities/Slime.i"
+	@echo "... Entities/Slime.s"
 	@echo "... GUI.o"
 	@echo "... GUI.i"
 	@echo "... GUI.s"
