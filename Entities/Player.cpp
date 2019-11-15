@@ -81,24 +81,25 @@ void Player::update(const float& dt)
 void Player::updateAttack()
 {
 
-    if(this->movementComponents->getState(ATTACK)) {
+    if(this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump) {
         this->attacking = true;
         if (this->playSound)
             this->swordSound.play();
         //this->createHitboxComponents(this->sprite,15.f,5.f,31.f,30.f);
     }
-    else if (this->movementComponents->getState(ATTACK1))
+    else if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump)
     {
         this->attacking1 = true;
         if (this->playSound)
             this->swordSound.play();
     }
-    else if (this->movementComponents->getState(ATTACK2))
+    else if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump)
     {
         this->attacking2 = true;
         if (this->playSound)
             this->swordSound.play();
     }
+    std::cout << this->sliding << "\n";
 
 }
 
@@ -142,12 +143,13 @@ void Player::updateAnimation(const float &dt)
     }
     if (this->movementComponents->getState(IDLE) && !this->isJump && !this->attacking && !this->attacking1 && !this->attacking2)
     {
+        this->sliding = false;
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("IDLE", dt);
 
     }
 
-    else if (this->movementComponents->getState(SLIDE_RIGHT) && this->canJump)
+    else if (this->movementComponents->getState(SLIDE_RIGHT) && this->canJump && !this->attacking && !this->attacking1 && !this->attacking2)
     {
         this->sliding = true;
         this->sprite.setOrigin(0.f,0.f);
@@ -156,7 +158,7 @@ void Player::updateAnimation(const float &dt)
         this->animationComponents->play("SLIDE", dt);
     }
 
-    else if (this->movementComponents->getState(SLIDE_LEFT) && this->canJump)
+    else if (this->movementComponents->getState(SLIDE_LEFT) && this->canJump && !this->attacking && !this->attacking1 && !this->attacking2)
     {
         this->sliding = true;
         this->sprite.setOrigin(100.f,0.f);
@@ -166,6 +168,7 @@ void Player::updateAnimation(const float &dt)
     }
     else if (this->movementComponents->getState(MOVING_RIGHT) && this->canJump)
     {
+        this->sliding = false;
         this->sprite.setOrigin(0.f, 0.f);
         this->sprite.setScale(1.f, 1.f);
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
@@ -173,24 +176,28 @@ void Player::updateAnimation(const float &dt)
                                         this->movementComponents->getMaxVelocity());
     }
     else if (this->movementComponents->getState(MOVING_LEFT) && this->canJump) {
+        this->sliding = false;
         this->sprite.setOrigin(100.f, 0.f);
         this->sprite.setScale(-1.f, 1.f);
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("RUN", dt, this->movementComponents->getVelocity().x,
                                         this->movementComponents->getMaxVelocity());
     }
-    else if (this->movementComponents->getState(SIT) && this->canJump)
+    else if (this->movementComponents->getState(SIT) && this->canJump && !this->attacking && !this->attacking1 && !this->attacking2)
     {
+        this->sliding = false;
         this->sitting = true;
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("SIT", dt);
     }
     else if (!this->canJump && this->movementComponents->getState(JUMP_LEFT)) {
+        this->sliding = false;
         this->sprite.setOrigin(100.f, 0.f);
         this->sprite.setScale(-1.f, 1.f);
         this->animationComponents->play("JUMP", dt, 135, 100);
     }
     else if (!this->canJump && this->movementComponents->getState(JUMP_RIGHT)) {
+        this->sliding = false;
         this->sprite.setOrigin(0.f, 0.f);
         this->sprite.setScale(1.f, 1.f);
         this->animationComponents->play("JUMP", dt, 120, 100);
@@ -250,6 +257,15 @@ void Player::loseEXP(const int exp) {
         this->attributeComponents->exp = 0;
 }
 
+bool Player::getAttack() {
+    return this->attacking;
+}
+bool Player::getAttack1() {
+    return this->attacking1;
+}
+bool Player::getAttack2() {
+    return this->attacking2;
+}
 
 
 

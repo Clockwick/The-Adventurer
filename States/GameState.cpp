@@ -9,6 +9,7 @@
 GameState::GameState(StateData* state_data)
 : State(state_data)
 {
+    this->initVariables();
     this->initDeferredRender();
     this->initView();
     this->initTextures();
@@ -58,6 +59,14 @@ void GameState::initFonts() {
 
     std::cout << "Successfully Loaded Fonts" << std::endl;
 
+
+}
+
+
+void GameState::initVariables() {
+    this->attacking = false;
+    this->attacking1 = false;
+    this->attacking2 = false;
 
 }
 
@@ -162,7 +171,9 @@ void GameState::render(sf::RenderTarget *target) {
 
 
 void GameState::updatePlayerInput(const float &dt) {
-
+    this->attacking = this->player->getAttack();
+    this->attacking1 = this->player->getAttack1();
+    this->attacking2  = this->player->getAttack2();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !this->attacking&& !this->attacking1&& !this->attacking2)
     {
         this->player->move(-1.0f, 0.0f, dt);
@@ -174,6 +185,7 @@ void GameState::updatePlayerInput(const float &dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         this->player->jump();
     }
+
 }
 
 
@@ -186,6 +198,7 @@ void GameState::updateInput(const float &dt) {
         else
             this->unpauseState();
     }
+
 
 }
 
@@ -267,6 +280,7 @@ void GameState::updatePlayerGUI(const float &dt) {
     this->playerGui->update(dt);
 
 }
+
 
 
 

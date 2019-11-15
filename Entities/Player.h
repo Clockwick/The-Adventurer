@@ -21,7 +21,9 @@ public:
     void updateJumping(const float& dt);
     void update(const float& dt);
     void render(sf::RenderTarget& target, const bool show_hitbox = false);
-    void getAttack(bool* attacking);
+    bool getAttack();
+    bool getAttack1();
+    bool getAttack2();
 
     //Variables
     bool sliding;

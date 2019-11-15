@@ -55,6 +55,7 @@ private:
 
 
     //Functions
+    void initVariables();
     void initDeferredRender();
     void initView();
     void initTextures();
