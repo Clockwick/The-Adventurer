@@ -21,6 +21,7 @@ public:
     void updateJumping(const float& dt);
     void update(const float& dt);
     void render(sf::RenderTarget& target, const bool show_hitbox = false);
+    void getAttack(bool* attacking);
 
     //Variables
     bool sliding;
@@ -37,6 +38,7 @@ private:
     bool attacking2;
     const float jumpHeight;
     bool isJump;
+    bool playSound;
 
 
 

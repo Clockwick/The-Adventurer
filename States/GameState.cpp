@@ -163,11 +163,11 @@ void GameState::render(sf::RenderTarget *target) {
 
 void GameState::updatePlayerInput(const float &dt) {
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !this->attacking&& !this->attacking1&& !this->attacking2)
     {
         this->player->move(-1.0f, 0.0f, dt);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !this->attacking&& !this->attacking1&& !this->attacking2)
     {
         this->player->move(1.0f, 0.0f, dt);
     }

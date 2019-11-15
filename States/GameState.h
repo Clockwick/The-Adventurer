@@ -48,6 +48,9 @@ private:
     sf::Font font;
 
     bool canJump;
+    bool attacking;
+    bool attacking1;
+    bool attacking2;
 
 
 

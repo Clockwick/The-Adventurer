@@ -47,15 +47,16 @@ void Player::initVariables() {
     this->sitting = false;
     this->isJump = true;
     this->canJump = true;
+    this->playSound = true;
 }
 void Player::initAnimation() {
     this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);
     this->animationComponents->addAnimation("RUN", 15.f, 0, 1, 5, 1, 100, 74);
     this->animationComponents->addAnimation("SLIDE", 15.f, 0, 3, 3, 3, 100, 74);
     this->animationComponents->addAnimation("SIT", 15.f, 4, 0, 6, 0, 100, 74);
-    this->animationComponents->addAnimation("ATTACK1", 15.f, 0, 6, 6, 6, 100, 74);
-    this->animationComponents->addAnimation("ATTACK2", 20.f, 0, 7, 3, 7, 100, 74);
-    this->animationComponents->addAnimation("ATTACK3", 15.f, 0, 8, 5, 8, 100 , 74);
+    this->animationComponents->addAnimation("ATTACK1", 13.f, 0, 6, 6, 6, 100, 74);
+    this->animationComponents->addAnimation("ATTACK2", 17.f, 0, 7, 3, 7, 100, 74);
+    this->animationComponents->addAnimation("ATTACK3", 12.f, 0, 8, 5, 8, 100 , 74);
     this->animationComponents->addAnimation("JUMP", 15.f , 0 , 2, 13 , 2 , 100 , 74);
 }
 
@@ -79,11 +80,24 @@ void Player::update(const float& dt)
 
 void Player::updateAttack()
 {
-    if(this->movementComponents->getState(ATTACK))
-    {
+
+    if(this->movementComponents->getState(ATTACK)) {
         this->attacking = true;
-        this->swordSound.play();
+        if (this->playSound)
+            this->swordSound.play();
         //this->createHitboxComponents(this->sprite,15.f,5.f,31.f,30.f);
+    }
+    else if (this->movementComponents->getState(ATTACK1))
+    {
+        this->attacking1 = true;
+        if (this->playSound)
+            this->swordSound.play();
+    }
+    else if (this->movementComponents->getState(ATTACK2))
+    {
+        this->attacking2 = true;
+        if (this->playSound)
+            this->swordSound.play();
     }
 
 }
@@ -92,31 +106,41 @@ void Player::updateAnimation(const float &dt)
 {
     if (this->attacking && this->canJump)
     {
+        this->movementComponents->stopVelocityX();
 
-        if(this->animationComponents->play("ATTACK1", dt, true))
+        if(this->animationComponents->play("ATTACK1", dt))
+        {
             this->attacking = false;
+            this->playSound = true;
+        }
+        else
+            this->playSound = false;
 
     }
-    else if (this->movementComponents->getState(ATTACK1))
-    {
-        this->attacking1 = true;
-    }
-    else if (this->movementComponents->getState(ATTACK2))
-    {
-        this->attacking2 = true;
-    }
-//
+
     else if (this->attacking1 && this->canJump)
     {
-        if (this->animationComponents->play("ATTACK2", dt, true))
+        this->movementComponents->stopVelocityX();
+        if (this->animationComponents->play("ATTACK2", dt))
+        {
             this->attacking1 = false;
+            this->playSound = true;
+        }
+        else
+            this->playSound = false;
+
     }
     else if (this->attacking2 && this->canJump)
     {
-        if (this->animationComponents->play("ATTACK3", dt, true))
+        this->movementComponents->stopVelocityX();
+        if (this->animationComponents->play("ATTACK3", dt)) {
             this->attacking2 = false;
+            this->playSound = true;
+        }
+        else
+            this->playSound = false;
     }
-    if (this->movementComponents->getState(IDLE) && !this->isJump)
+    if (this->movementComponents->getState(IDLE) && !this->isJump && !this->attacking && !this->attacking1 && !this->attacking2)
     {
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("IDLE", dt);
@@ -225,6 +249,8 @@ void Player::loseEXP(const int exp) {
     if (this->attributeComponents->exp < 0)
         this->attributeComponents->exp = 0;
 }
+
+
 
 
 

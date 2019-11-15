@@ -52,12 +52,8 @@ void Slime::initAudio() {
 }
 
 void Slime::updateAnimation(const float &dt) {
-//    if (this->attacking && this->canJump) {
-//
-//        if (this->animationComponents->play("ATTACK1", dt, true))
-//            this->attacking = false;
-//
-//    }
+
+
     if (this->movementComponents->getState(IDLE) && !this->isJump) {
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("IDLE", dt);
