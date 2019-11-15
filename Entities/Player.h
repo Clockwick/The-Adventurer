@@ -33,6 +33,8 @@ private:
     void initAnimation();
 private:
     bool attacking;
+    bool attacking1;
+    bool attacking2;
     const float jumpHeight;
     bool isJump;
 

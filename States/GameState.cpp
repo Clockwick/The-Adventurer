@@ -70,10 +70,10 @@ void GameState::initPlayerGUI() {
     this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
 }
 void GameState::initEnemies() {
-    this->activeEnemies.push_back(new Slime(1100.f , 440.f, 100, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(800.f , 440.f, 100, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(900.f , 440.f, 100, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(1000.f , 440.f, 100, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(900.f, 470.f, 70, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1000.f , 470.f, 70, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1100.f , 470.f, 70, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1200.f , 470.f, 70, this->textures["SLIME_SHEET"]));
 }
 
 
@@ -171,12 +171,9 @@ void GameState::updatePlayerInput(const float &dt) {
     {
         this->player->move(1.0f, 0.0f, dt);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-    {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         this->player->jump();
     }
-
-
 }
 
 
@@ -261,6 +258,8 @@ void GameState::updateTileMap(const float &dt) {
     {
         this->tileMap->update(i, dt);
     }
+
+
 
 }
 

@@ -117,6 +117,14 @@ const bool MovementComponents::getState(const short unsigned state) const {
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
                 return true;
             break;
+        case ATTACK1:
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::G))
+                return true;
+            break;
+        case ATTACK2:
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+                return true;
+            break;
         case JUMP_RIGHT:
             if (!this->canJump && this->faceRight)
                 return true;
@@ -144,7 +152,6 @@ void MovementComponents::stopVelocityY() {
 }
 
 void MovementComponents::jump() {
-
     this->velocity.y = -sqrtf(2 * 981.f * this->jumpHeight);
 }
 

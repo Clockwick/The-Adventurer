@@ -26,6 +26,7 @@ public:
     void update(const float& dt);
     void render(sf::RenderTarget& target, const bool show_hitbox = false);
     void updateAnimation(const float& dt);
+    void updateJumping(const float& dt);
 };
 
 #endif //GUJARUNSFML_SLIME_H

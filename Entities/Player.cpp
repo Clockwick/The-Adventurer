@@ -41,6 +41,8 @@ void Player::initComponents() {
 
 void Player::initVariables() {
     this->attacking = false;
+    this->attacking1 = false;
+    this->attacking2 = false;
     this->sliding = false;
     this->sitting = false;
     this->isJump = true;
@@ -52,7 +54,7 @@ void Player::initAnimation() {
     this->animationComponents->addAnimation("SLIDE", 15.f, 0, 3, 3, 3, 100, 74);
     this->animationComponents->addAnimation("SIT", 15.f, 4, 0, 6, 0, 100, 74);
     this->animationComponents->addAnimation("ATTACK1", 15.f, 0, 6, 6, 6, 100, 74);
-    this->animationComponents->addAnimation("ATTACK2", 15.f, 0, 7, 3, 7, 100, 74);
+    this->animationComponents->addAnimation("ATTACK2", 20.f, 0, 7, 3, 7, 100, 74);
     this->animationComponents->addAnimation("ATTACK3", 15.f, 0, 8, 5, 8, 100 , 74);
     this->animationComponents->addAnimation("JUMP", 15.f , 0 , 2, 13 , 2 , 100 , 74);
 }
@@ -94,6 +96,25 @@ void Player::updateAnimation(const float &dt)
         if(this->animationComponents->play("ATTACK1", dt, true))
             this->attacking = false;
 
+    }
+    else if (this->movementComponents->getState(ATTACK1))
+    {
+        this->attacking1 = true;
+    }
+    else if (this->movementComponents->getState(ATTACK2))
+    {
+        this->attacking2 = true;
+    }
+//
+    else if (this->attacking1 && this->canJump)
+    {
+        if (this->animationComponents->play("ATTACK2", dt, true))
+            this->attacking1 = false;
+    }
+    else if (this->attacking2 && this->canJump)
+    {
+        if (this->animationComponents->play("ATTACK3", dt, true))
+            this->attacking2 = false;
     }
     if (this->movementComponents->getState(IDLE) && !this->isJump)
     {
