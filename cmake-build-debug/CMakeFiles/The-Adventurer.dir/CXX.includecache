@@ -78,6 +78,18 @@ SFML/System.hpp
 ../Precom.h
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
 
+/Users/arthris/CLionProjects/The-Adventurer/EnemySpawner.h
+Precom.h
+/Users/arthris/CLionProjects/The-Adventurer/Precom.h
+Tile.h
+/Users/arthris/CLionProjects/The-Adventurer/Tile.h
+
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.h
+Entity.h
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
+../EnemySpawner.h
+/Users/arthris/CLionProjects/The-Adventurer/EnemySpawner.h
+
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
 ../Components/HitboxComponent.h
 /Users/arthris/CLionProjects/The-Adventurer/Components/HitboxComponent.h
@@ -90,13 +102,13 @@ SFML/System.hpp
 ../Components/SkillComponent.h
 /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
 
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.cpp
-Player.h
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Slime.cpp
+Slime.h
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Slime.h
 
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
-Entity.h
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Slime.h
+Enemy.h
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.h
 
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
 algorithm
@@ -139,6 +151,10 @@ SFML/Audio.hpp
 -
 SFML/Network.hpp
 -
+
+/Users/arthris/CLionProjects/The-Adventurer/Tile.h
+Precom.h
+/Users/arthris/CLionProjects/The-Adventurer/Precom.h
 
 /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 SFML/System.hpp

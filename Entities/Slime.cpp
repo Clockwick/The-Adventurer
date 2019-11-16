@@ -43,8 +43,7 @@ void Slime::render(sf::RenderTarget &target, const bool show_hitbox) {
 
     if (show_hitbox)
         this->hitboxComponents->render(target);
-    else
-        target.draw(this->sprite);
+    target.draw(this->sprite);
 }
 
 void Slime::initAudio() {

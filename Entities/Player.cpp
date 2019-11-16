@@ -99,7 +99,7 @@ void Player::updateAttack()
         if (this->playSound)
             this->swordSound.play();
     }
-    std::cout << this->sliding << "\n";
+//    std::cout << this->sliding << "\n";
 
 }
 
@@ -211,8 +211,7 @@ void Player::updateAnimation(const float &dt)
 void Player::render(sf::RenderTarget& target, const bool show_hitbox) {
     if (show_hitbox)
         this->hitboxComponents->render(target);
-    else
-        target.draw(this->sprite);
+    target.draw(this->sprite);
 
 }
 
