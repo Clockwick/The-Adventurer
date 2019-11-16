@@ -65,7 +65,7 @@ void GameState::initFonts() {
 
 void GameState::initGui() {
 
-    this->sidebar.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width, 100.f));
+    this->sidebar.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width, 75.f));
     this->sidebar.setPosition(sf::Vector2f(0.f, this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y));
     this->sidebar.setFillColor(sf::Color(50, 50, 50, 100));
     this->sidebar.setOutlineColor(sf::Color(200, 200, 200, 150));
@@ -81,7 +81,8 @@ void GameState::initVariables() {
     this->isHit = false;
     this->blink = false;
     this->count = 0;
-
+    this->bounceLeft = false;
+    this->bounceRight = false;
 }
 
 void GameState::initPlayers() {
@@ -120,8 +121,6 @@ void GameState::initDeferredRender() {
                                                   this->state_data->gfxSettings->resolution.height)
     );
 }
-
-
 
 void GameState::update(const float &dt) {
 
@@ -166,7 +165,35 @@ void GameState::render(sf::RenderTarget *target) {
         i->render(this->renderTexture, true);
     }
     if (!this->blink)
+    {
+        this->player->setColor(sf::Color::White);
         this->player->render(this->renderTexture, true);
+    }
+
+    else
+    {
+        std::cout << this->smallTime << "\n";
+
+        this->smallTime = this->smallClock.getElapsedTime().asSeconds();
+        if (this->smallTime >= 0.5f) {
+
+            this->player->setColor(sf::Color::Transparent);
+            this->player->render(this->renderTexture, true);
+            this->smallCount++;
+            this->smallClock.restart();
+            if (this->smallCount >= 4) {
+                this->smallCount = 0;
+                this->blink = false;
+            }
+        }
+        else
+        {
+            std::cout << "Red" << "\n";
+            this->player->setColor(sf::Color::Red);
+            this->player->render(this->renderTexture, true);
+        }
+
+    }
 
 
 
@@ -305,8 +332,6 @@ void GameState::updateTileMap(const float &dt) {
         this->tileMap->update(i, dt);
     }
 
-
-
 }
 
 void GameState::updatePlayerGUI(const float &dt) {
@@ -319,6 +344,15 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
     sf::FloatRect enemyBounds = enemy->getGlobalBounds();
     sf::FloatRect nextPositionBounds = entity->getNextPositionBounds(dt);
     this->time = this->clock.getElapsedTime().asSeconds();
+    this->blinkTime = this->blinkClock.getElapsedTime().asSeconds();
+    if (this->blinkTime >= 2.f)
+    {
+        this->blink = false;
+        this->blinkClock.restart();
+    }
+
+
+
     for (auto *i : this->activeEnemies) {
         if (i->intersects(nextPositionBounds)) {
 
@@ -326,31 +360,37 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
             if (playerBounds.left < enemyBounds.left
                 && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
-                && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 3.f) {
+                && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 2.f) {
                 std::cout << "Right Collision" << std::endl;
                 this->player->loseHP(1);
-                this->player->gotAttackLeft();
+
+                this->player->stopVelocityX();
                 this->isHit = true;
+
                 if (this->isHit) {
+                    this->blink = true;
+                    this->blinkClock.restart();
                     this->isHit = false;
                     this->clock.restart();
                 }
 
+
             }
-
-
 
                 //Left collision
             else if (playerBounds.left > enemyBounds.left
                      && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
                      && playerBounds.top < enemyBounds.top + enemyBounds.height
-                     && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 3.f) {
+                     && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 2.f) {
                 std::cout << "Left Collision" << std::endl;
 
                 this->player->loseHP(1);
-                this->player->gotAttackRight();
+
+                this->player->stopVelocityX();
                 this->isHit = true;
                 if (this->isHit) {
+                    this->blink = true;
+                    this->blinkClock.restart();
                     this->isHit = false;
                     this->clock.restart();
                 }

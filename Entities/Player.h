@@ -21,11 +21,12 @@ public:
     void updateJumping(const float& dt);
     void update(const float& dt);
     void render(sf::RenderTarget& target, const bool show_hitbox = false);
-    void gotAttackLeft();
-    void gotAttackRight();
+    void gotAttackLeft(const float velocity, const float& dt);
+    void gotAttackRight(const float velocity, const float& dt);
     bool getAttack();
     bool getAttack1();
     bool getAttack2();
+    void setColor(sf::Color color);
 
     //Variables
     bool sliding;
@@ -42,6 +43,7 @@ private:
     const float jumpHeight;
     bool isJump;
     bool playSound;
+    sf::Vector2f velocity;
 
 
 

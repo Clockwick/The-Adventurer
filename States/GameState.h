@@ -70,6 +70,12 @@ private:
     bool blink;
     sf::Clock blinkClock;
     float blinkTime;
+    sf::Clock smallClock;
+    float smallTime;
+    int smallCount;
+
+    bool bounceLeft;
+    bool bounceRight;
 
 
     //Gui Staff

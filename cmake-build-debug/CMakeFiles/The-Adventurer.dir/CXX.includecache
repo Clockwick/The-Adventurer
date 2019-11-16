@@ -34,10 +34,6 @@ SFML/System.hpp
 ../Precom.h
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
 
-/Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.cpp
-MovementComponent.h
-/Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
-
 /Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
 iostream
 -
@@ -93,6 +89,10 @@ Entity.h
 /Users/arthris/CLionProjects/The-Adventurer/Components/AttributeComponent.h
 ../Components/SkillComponent.h
 /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
+
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.cpp
+Player.h
+/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
 
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
 Entity.h
