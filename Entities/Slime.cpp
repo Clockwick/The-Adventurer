@@ -6,6 +6,8 @@ Slime::Slime(float x, float y, const float &jumpHeight, sf::Texture &texture_she
     this->initVariables();
     this->initAudio();
 
+
+    this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
     this->createMovementComponents(300, 1500.0f, 500.0f, this->jumpHeight);
     this->createAttributeComponents(1);
     this->createSkillComponents();
@@ -41,9 +43,9 @@ void Slime::update(const float &dt) {
 
 void Slime::render(sf::RenderTarget &target, const bool show_hitbox) {
 
+    target.draw(this->sprite);
     if (show_hitbox)
         this->hitboxComponents->render(target);
-    target.draw(this->sprite);
 }
 
 void Slime::initAudio() {

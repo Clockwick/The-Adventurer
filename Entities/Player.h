@@ -31,7 +31,6 @@ public:
     AttributeComponent* getAttributeComponents();
 private:
     void initVariables();
-    void initComponents();
     void initAudio();
     void initAnimation();
 private:

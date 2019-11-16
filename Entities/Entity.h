@@ -55,7 +55,7 @@ protected:
 
     MovementComponents* movementComponents;
     AnimationComponent* animationComponents;
-    HitboxComponents* hitboxComponents;
+    HitboxComponent* hitboxComponents;
     AttributeComponent* attributeComponents;
     SkillComponent* skillComponents;
 

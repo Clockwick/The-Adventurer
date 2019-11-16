@@ -216,6 +216,7 @@ CMakeFiles/The-Adventurer.dir/Components/AttributeComponent.cpp.o: /usr/local/ce
 
 CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.o: ../Components/HitboxComponent.cpp
 CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.o: ../Components/HitboxComponent.h
+CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.o: ../Precom.h
 CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio.hpp
 CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/AlResource.hpp
 CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Audio/Export.hpp

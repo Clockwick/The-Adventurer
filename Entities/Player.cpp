@@ -10,18 +10,14 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
 
     this->initVariables();
     this->initAudio();
-
-
-    this->initComponents();
-
-
+    this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
     this->createMovementComponents(300, 1500.0f, 500.0f, this->jumpHeight);
+    this->createAnimationComponents( texture_sheet);
     this->createAttributeComponents(1);
     this->createSkillComponents();
-    this->createAnimationComponents( texture_sheet);
     this->animationComponents->getptr(&this->isJump);
-    this->initAnimation();
     this->setPosition(x , y);
+    this->initAnimation();
 
 
 //    std::cout << "Player.cpp: "<< this->isJump << std::endl;
@@ -35,9 +31,6 @@ Player::~Player() {
 }
 //Initializer Function
 
-void Player::initComponents() {
-    //GIVE VALUE TO createMovementComponents
-}
 
 void Player::initVariables() {
     this->attacking = false;
@@ -208,10 +201,11 @@ void Player::updateAnimation(const float &dt)
 
 }
 
-void Player::render(sf::RenderTarget& target) {
+void Player::render(sf::RenderTarget& target, const bool show_hitbox) {
+    target.draw(this->sprite);
     if (show_hitbox)
         this->hitboxComponents->render(target);
-    target.draw(this->sprite);
+
 
 }
 

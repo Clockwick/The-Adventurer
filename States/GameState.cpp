@@ -144,12 +144,12 @@ void GameState::render(sf::RenderTarget *target) {
 
     this->renderTexture.clear();
     this->renderTexture.setView(this->view);
-    this->tileMap->render(this->renderTexture, this->player->getGridPosition(static_cast<int>(this->state_data->gridSize)));
+    this->tileMap->render(this->renderTexture, this->player->getGridPosition(static_cast<int>(this->state_data->gridSize)), false);
     for (auto *i : this->activeEnemies)
     {
-        i->render(this->renderTexture, false);
+        i->render(this->renderTexture, true);
     }
-    this->player->render(this->renderTexture, false);
+    this->player->render(this->renderTexture, true);
 
 
     this->renderTexture.setView(this->renderTexture.getDefaultView());
