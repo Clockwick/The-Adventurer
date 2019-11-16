@@ -59,13 +59,10 @@ void Player::update(const float& dt)
     this->updateJumping(dt);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         this->attributeComponents->gainExp(20);
-//    system("clear");
-//    std::cout << this->attributeComponents->debugPrint() << std::endl;
     this->movementComponents->update(dt);
     this->updateAttack();
     this->updateAnimation(dt);
 
-//    std::cout << "In player.cpp: " << this->isJump << std::endl;
 
 
 
@@ -78,19 +75,21 @@ void Player::updateAttack()
         this->attacking = true;
         if (this->playSound)
             this->swordSound.play();
-        //this->createHitboxComponents(this->sprite,15.f,5.f,31.f,30.f);
+//        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f); Attack type
     }
     else if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump)
     {
         this->attacking1 = true;
         if (this->playSound)
             this->swordSound.play();
+//        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f);// Attack type
     }
     else if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump)
     {
         this->attacking2 = true;
         if (this->playSound)
             this->swordSound.play();
+//        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f);// Attack type
     }
 //    std::cout << this->sliding << "\n";
 

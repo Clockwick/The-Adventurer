@@ -79,10 +79,10 @@ void GameState::initPlayerGUI() {
     this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
 }
 void GameState::initEnemies() {
-    this->activeEnemies.push_back(new Slime(900.f, 470.f, 70, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(1000.f , 470.f, 70, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(1100.f , 470.f, 70, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(1200.f , 470.f, 70, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(900.f, 475.f, 100.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1000.f , 475.f, 100.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1100.f , 475.f, 100.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1200.f , 475.f, 100.f, this->textures["SLIME_SHEET"]));
 }
 
 
@@ -94,8 +94,8 @@ void GameState::initTileMap() {
 
 void GameState::initView() {
 
-    this->view.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width/2.f, this->state_data->gfxSettings->resolution.height/2.f));
-    this->view.setCenter(sf::Vector2f(this->state_data->gfxSettings->resolution.width/2.f, this->state_data->gfxSettings->resolution.height/2.f));
+    this->view.setSize(sf::Vector2f(static_cast<float>(this->state_data->gfxSettings->resolution.width)/2.f, static_cast<float>(this->state_data->gfxSettings->resolution.height)/2.f));
+    this->view.setCenter(sf::Vector2f(static_cast<float>(this->state_data->gfxSettings->resolution.width)/2.f, static_cast<float>(this->state_data->gfxSettings->resolution.height)/2.f));
 
 }
 void GameState::initDeferredRender() {
@@ -175,13 +175,19 @@ void GameState::updatePlayerInput(const float &dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !this->player->getAttack()&& !this->player->getAttack1()&& !this->player->getAttack2())
     {
         this->player->move(-1.0f, 0.0f, dt);
+        for (auto *i : this->activeEnemies)
+            i->move(-1.0f, 0.0f, dt);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !this->player->getAttack()&& !this->player->getAttack1()&& !this->player->getAttack2())
     {
         this->player->move(1.0f, 0.0f, dt);
+        for (auto *i : this->activeEnemies)
+            i->move(1.0f,0.0f, dt);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         this->player->jump();
+        for (auto *i : this->activeEnemies)
+            i->jump();
     }
 
 }
