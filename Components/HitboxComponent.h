@@ -2,6 +2,7 @@
 #ifndef HITBOXCOMPONENT_H
 #define HITBOXCOMPONENT_H
 #include "../Precom.h"
+enum HitTypes {DEFAULT_COL = 0 , ATTACK_COL};
 
 class HitboxComponent
 {
@@ -11,6 +12,7 @@ private:
     sf::FloatRect nextPosition;
     float offsetX;
     float offsetY;
+
 
 public:
     HitboxComponent(sf::Sprite& sprite,
