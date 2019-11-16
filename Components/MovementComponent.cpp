@@ -152,7 +152,6 @@ void MovementComponents::stopVelocityY() {
 
 void MovementComponents::jump() {
     this->velocity.y = -sqrtf(2 * 981.f * this->jumpHeight);
-    std::cout << this->velocity.y << std::endl;
 }
 
 void MovementComponents::getcanJump(bool *canJump) {

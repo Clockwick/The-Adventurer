@@ -10,6 +10,7 @@ GameState::GameState(StateData* state_data)
 : State(state_data)
 {
     this->initVariables();
+    this->initGui();
     this->initDeferredRender();
     this->initView();
     this->initTextures();
@@ -59,6 +60,16 @@ void GameState::initFonts() {
 
     std::cout << "Successfully Loaded Fonts" << std::endl;
 
+
+}
+
+void GameState::initGui() {
+
+    this->sidebar.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width, 100.f));
+    this->sidebar.setPosition(sf::Vector2f(0.f, this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y));
+    this->sidebar.setFillColor(sf::Color(50, 50, 50, 100));
+    this->sidebar.setOutlineColor(sf::Color(200, 200, 200, 150));
+    this->sidebar.setOutlineThickness(1.f);
 
 }
 
@@ -160,6 +171,7 @@ void GameState::render(sf::RenderTarget *target) {
 
 
     this->renderTexture.setView(this->renderTexture.getDefaultView());
+    this->renderGui(this->renderTexture);
 
     this->playerGui->render(this->renderTexture);
     //Pause Menu Render
@@ -171,6 +183,7 @@ void GameState::render(sf::RenderTarget *target) {
     //Final Render
     this->renderTexture.display();
     this->renderSprite.setTexture(this->renderTexture.getTexture());
+
     target->draw(this->renderSprite);
 
 
@@ -227,6 +240,14 @@ void GameState::updatePauseMenuButtons() {
         this->endState();
 
 }
+void GameState::updateGui(const float &dt) {
+
+}
+
+void GameState::renderGui(sf::RenderTarget &target) {
+    target.draw(this->sidebar);
+}
+
 
 
 void GameState::updateView(const float &dt) {
@@ -342,3 +363,5 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
 
 
 }
+
+

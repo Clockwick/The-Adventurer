@@ -21,13 +21,17 @@ public:
     GameState(StateData* state_data);
     virtual ~GameState();
     void update(const float& dt);
-    void render(sf::RenderTarget* target = nullptr);
+    void updateGui(const float& dt);
     void updatePlayerInput(const float& dt);
     void updateInput(const float& dt);
     void updateView(const float& dt);
     void updateTileMap(const float& dt);
     void updatePlayerGUI(const float& dt);
     void updateCollision(Entity *entity, Enemy* enemy, const float& dt);
+
+    //Render
+    void render(sf::RenderTarget* target = nullptr);
+    void renderGui(sf::RenderTarget& target);
 
 private:
     //Player
@@ -57,6 +61,7 @@ private:
 
     //Hitbox
 
+
     //Clock
     sf::Clock clock;
     float time;
@@ -65,6 +70,10 @@ private:
     bool blink;
     sf::Clock blinkClock;
     float blinkTime;
+
+
+    //Gui Staff
+    sf::RectangleShape sidebar;
 
     //Functions
     void initVariables();
@@ -78,6 +87,7 @@ private:
     void initPlayerGUI();
     void updatePauseMenuButtons();
     void initEnemies();
+    void initGui();
 
 
 };
