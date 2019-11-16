@@ -259,6 +259,16 @@ bool Player::getAttack2() {
     return this->attacking2;
 }
 
+void Player::gotAttackLeft() {
+    this->sprite.move(-50,0);
+
+}
+
+void Player::gotAttackRight() {
+    this->sprite.move(50, 0);
+
+}
+
 
 
 

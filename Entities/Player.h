@@ -21,6 +21,8 @@ public:
     void updateJumping(const float& dt);
     void update(const float& dt);
     void render(sf::RenderTarget& target, const bool show_hitbox = false);
+    void gotAttackLeft();
+    void gotAttackRight();
     bool getAttack();
     bool getAttack1();
     bool getAttack2();

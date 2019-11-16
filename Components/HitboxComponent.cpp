@@ -30,6 +30,9 @@ HitboxComponent::HitboxComponent(sf::Sprite& sprite,
 
 }
 
+const short &HitboxComponent::getType() const {
+    return this->type;
+}
 HitboxComponent::~HitboxComponent()
 {
 

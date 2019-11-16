@@ -52,8 +52,19 @@ private:
     bool attacking;
     bool attacking1;
     bool attacking2;
+    bool isHit;
+    int count;
 
+    //Hitbox
 
+    //Clock
+    sf::Clock clock;
+    float time;
+
+    //Blink
+    bool blink;
+    sf::Clock blinkClock;
+    float blinkTime;
 
     //Functions
     void initVariables();

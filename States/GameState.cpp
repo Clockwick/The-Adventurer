@@ -67,6 +67,9 @@ void GameState::initVariables() {
     this->attacking = false;
     this->attacking1 = false;
     this->attacking2 = false;
+    this->isHit = false;
+    this->blink = false;
+    this->count = 0;
 
 }
 
@@ -151,7 +154,9 @@ void GameState::render(sf::RenderTarget *target) {
     {
         i->render(this->renderTexture, true);
     }
-    this->player->render(this->renderTexture, true);
+    if (!this->blink)
+        this->player->render(this->renderTexture, true);
+
 
 
     this->renderTexture.setView(this->renderTexture.getDefaultView());
@@ -169,6 +174,7 @@ void GameState::render(sf::RenderTarget *target) {
     target->draw(this->renderSprite);
 
 
+
 }
 
 
@@ -177,19 +183,19 @@ void GameState::updatePlayerInput(const float &dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !this->player->getAttack()&& !this->player->getAttack1()&& !this->player->getAttack2())
     {
         this->player->move(-1.0f, 0.0f, dt);
-        for (auto *i : this->activeEnemies)
-            i->move(-1.0f, 0.0f, dt);
+//        for (auto *i : this->activeEnemies)
+//            i->move(-1.0f, 0.0f, dt);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !this->player->getAttack()&& !this->player->getAttack1()&& !this->player->getAttack2())
     {
         this->player->move(1.0f, 0.0f, dt);
-        for (auto *i : this->activeEnemies)
-            i->move(1.0f,0.0f, dt);
+//        for (auto *i : this->activeEnemies)
+//            i->move(1.0f,0.0f, dt);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         this->player->jump();
-        for (auto *i : this->activeEnemies)
-            i->jump();
+//        for (auto *i : this->activeEnemies)
+//            i->jump();
     }
 
 }
@@ -291,16 +297,23 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
     sf::FloatRect playerBounds = entity->getGlobalBounds();
     sf::FloatRect enemyBounds = enemy->getGlobalBounds();
     sf::FloatRect nextPositionBounds = entity->getNextPositionBounds(dt);
+    this->time = this->clock.getElapsedTime().asSeconds();
     for (auto *i : this->activeEnemies) {
         if (i->intersects(nextPositionBounds)) {
 
             //Right collision
             if (playerBounds.left < enemyBounds.left
-                && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width - 62
+                && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
-                && playerBounds.top + playerBounds.height > enemyBounds.top
-                    ) {
+                && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 3.f) {
                 std::cout << "Right Collision" << std::endl;
+                this->player->loseHP(1);
+                this->player->gotAttackLeft();
+                this->isHit = true;
+                if (this->isHit) {
+                    this->isHit = false;
+                    this->clock.restart();
+                }
 
             }
 
@@ -308,20 +321,24 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
 
                 //Left collision
             else if (playerBounds.left > enemyBounds.left
-                     && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width + 75
+                     && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
                      && playerBounds.top < enemyBounds.top + enemyBounds.height
-                     && playerBounds.top + playerBounds.height > enemyBounds.top
-                    ) {
+                     && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 3.f) {
                 std::cout << "Left Collision" << std::endl;
 
+                this->player->loseHP(1);
+                this->player->gotAttackRight();
+                this->isHit = true;
+                if (this->isHit) {
+                    this->isHit = false;
+                    this->clock.restart();
+                }
             }
+
+
         }
+
     }
 
+
 }
-
-
-
-
-
-

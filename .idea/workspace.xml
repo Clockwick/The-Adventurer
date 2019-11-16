@@ -13,25 +13,25 @@
   <component name="ChangeListManager">
     <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/AttributeComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AttributeComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/HitboxComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/HitboxComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/HitboxComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/HitboxComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Enemy.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Enemy.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Entity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Entity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entities/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Slime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Slime.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Slime.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Slime.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/GameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameState.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/GameState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Components/HitboxComponent.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Enemy.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Enemy.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/PlayerGUI.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/PlayerGUI.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/The-Adventurer" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/The-Adventurer" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
