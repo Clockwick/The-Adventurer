@@ -62,8 +62,8 @@ void Entity::createAnimationComponents(sf::Texture &texture_sheet) {
 }
 
 void Entity::createHitboxComponents(sf::Sprite& sprite, float offset_x,
-                                    float offset_y, float width, float height) {
-    this->hitboxComponents = new HitboxComponent(sprite, offset_x,offset_y, width, height);
+                                    float offset_y, float width, float height, short type) {
+    this->hitboxComponents = new HitboxComponent(sprite, offset_x,offset_y, width, height, type);
 }
 
 void Entity::createAttributeComponents(int level) {

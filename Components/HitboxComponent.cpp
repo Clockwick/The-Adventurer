@@ -2,19 +2,31 @@
 
 HitboxComponent::HitboxComponent(sf::Sprite& sprite,
                                  float offset_x, float offset_y,
-                                 float width, float height)
-        : sprite(sprite), offsetX(offset_x), offsetY(offset_y)
+                                 float width, float height, short type)
+        : sprite(sprite), offsetX(offset_x), offsetY(offset_y), type(type)
 {
     this->nextPosition.left = 0.f;
     this->nextPosition.top = 0.f;
     this->nextPosition.width = width;
     this->nextPosition.height = height;
 
-    this->hitbox.setPosition(this->sprite.getPosition().x + offset_x, this->sprite.getPosition().y + offset_y);
-    this->hitbox.setSize(sf::Vector2f(width, height));
-    this->hitbox.setFillColor(sf::Color::Transparent);
-    this->hitbox.setOutlineThickness(-1.f);
-    this->hitbox.setOutlineColor(sf::Color::Red);
+    if (this->type == HitTypes::DEFAULT_COL)
+    {
+        this->hitbox.setPosition(this->sprite.getPosition().x + offset_x, this->sprite.getPosition().y + offset_y);
+        this->hitbox.setSize(sf::Vector2f(width, height));
+        this->hitbox.setFillColor(sf::Color::Transparent);
+        this->hitbox.setOutlineThickness(-1.f);
+        this->hitbox.setOutlineColor(sf::Color::Cyan);
+    }
+    if (this->type == HitTypes::ATTACK_COL)
+    {
+        this->hitbox.setPosition(this->sprite.getPosition().x + offset_x, this->sprite.getPosition().y + offset_y);
+        this->hitbox.setSize(sf::Vector2f(width, height));
+        this->hitbox.setFillColor(sf::Color::Transparent);
+        this->hitbox.setOutlineThickness(-1.f);
+        this->hitbox.setOutlineColor(sf::Color::Red);
+    }
+
 
 }
 
@@ -22,6 +34,12 @@ HitboxComponent::~HitboxComponent()
 {
 
 }
+
+//INITIALIZATION
+void HitboxComponent::initVariables() {
+    this->type = HitTypes::DEFAULT_COL;
+}
+
 
 //Accessors
 const sf::Vector2f & HitboxComponent::getPosition() const
@@ -70,3 +88,4 @@ void HitboxComponent::render(sf::RenderTarget & target)
 {
     target.draw(this->hitbox);
 }
+

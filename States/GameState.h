@@ -27,6 +27,7 @@ public:
     void updateView(const float& dt);
     void updateTileMap(const float& dt);
     void updatePlayerGUI(const float& dt);
+    void updateCollision(Entity *entity, Enemy* enemy, const float& dt);
 
 private:
     //Player

@@ -13,11 +13,18 @@ private:
     float offsetX;
     float offsetY;
 
+    short type;
+
+    //Func
+    void initVariables();
+
+
+
 
 public:
     HitboxComponent(sf::Sprite& sprite,
                     float offset_x, float offset_y,
-                    float width, float height);
+                    float width, float height, short type = HitTypes::DEFAULT_COL);
     virtual ~HitboxComponent();
 
     //Accessors

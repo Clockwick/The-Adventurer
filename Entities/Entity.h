@@ -29,7 +29,7 @@ public:
     void createMovementComponents(const float maxVelocity, const float acceleration, const float deceleration , const float& jumpHeight);
     void createAnimationComponents(sf::Texture& texture_sheet);
     void createHitboxComponents(sf::Sprite& sprite, float offset_x,
-            float offset_y, float width, float height);
+            float offset_y, float width, float height, short type = HitTypes::DEFAULT_COL);
     void createAttributeComponents(int level);
     void createSkillComponents();
     //Accessors

@@ -7,7 +7,7 @@ Slime::Slime(float x, float y, const float &jumpHeight, sf::Texture &texture_she
     this->initAudio();
 
 
-    this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
+    this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f,HitTypes::ATTACK_COL);
     this->createMovementComponents(100, 1000.0f, 250.0f, this->jumpHeight);
     this->createAttributeComponents(1);
     this->createSkillComponents();
@@ -55,19 +55,19 @@ void Slime::updateAnimation(const float &dt) {
 
 
     if (this->movementComponents->getState(IDLE) && !this->isJump) {
-        this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
+        this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f, HitTypes::ATTACK_COL);
         this->animationComponents->play("IDLE", dt);
 
     }  else if (this->movementComponents->getState(MOVING_RIGHT) && this->canJump) {
         this->sprite.setOrigin(0.f, 0.f);
         this->sprite.setScale(1.f, 1.f);
-        this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
+        this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f, HitTypes::ATTACK_COL);
         this->animationComponents->play("RUN", dt, this->movementComponents->getVelocity().x,
                                         this->movementComponents->getMaxVelocity());
     } else if (this->movementComponents->getState(MOVING_LEFT) && this->canJump) {
         this->sprite.setOrigin(100.f, 0.f);
         this->sprite.setScale(-1.f, 1.f);
-        this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
+        this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f, HitTypes::ATTACK_COL);
         this->animationComponents->play("RUN", dt, this->movementComponents->getVelocity().x,
                                         this->movementComponents->getMaxVelocity());
     }
@@ -87,4 +87,8 @@ void Slime::updateAnimation(const float &dt) {
 void Slime::updateJumping(const float& dt) {
     this->isJump = this->movementComponents->getVelocity().y != 0;
 
+}
+const bool Slime::intersects(const sf::FloatRect bounds) const
+{
+    return this->sprite.getGlobalBounds().intersects(bounds);
 }

@@ -122,8 +122,10 @@ void GameState::update(const float &dt) {
         this->updateTileMap(dt);
         this->player->update(dt);
         this->playerGui->update(dt);
+
         for (auto *i : this->activeEnemies)
         {
+            this->updateCollision(this->player, i, dt);
             i->update(dt);
         }
     }
@@ -282,6 +284,39 @@ void GameState::updateTileMap(const float &dt) {
 
 void GameState::updatePlayerGUI(const float &dt) {
     this->playerGui->update(dt);
+
+}
+
+void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
+    sf::FloatRect playerBounds = entity->getGlobalBounds();
+    sf::FloatRect enemyBounds = enemy->getGlobalBounds();
+    sf::FloatRect nextPositionBounds = entity->getNextPositionBounds(dt);
+    for (auto *i : this->activeEnemies) {
+        if (i->intersects(nextPositionBounds)) {
+
+            //Right collision
+            if (playerBounds.left < enemyBounds.left
+                && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width - 62
+                && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
+                && playerBounds.top + playerBounds.height > enemyBounds.top
+                    ) {
+                std::cout << "Right Collision" << std::endl;
+
+            }
+
+
+
+                //Left collision
+            else if (playerBounds.left > enemyBounds.left
+                     && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width + 75
+                     && playerBounds.top < enemyBounds.top + enemyBounds.height
+                     && playerBounds.top + playerBounds.height > enemyBounds.top
+                    ) {
+                std::cout << "Left Collision" << std::endl;
+
+            }
+        }
+    }
 
 }
 

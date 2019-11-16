@@ -27,6 +27,7 @@ public:
     void render(sf::RenderTarget& target, const bool show_hitbox = false);
     void updateAnimation(const float& dt);
     void updateJumping(const float& dt);
+    const bool intersects(const sf::FloatRect bounds) const;
 };
 
 #endif //GUJARUNSFML_SLIME_H

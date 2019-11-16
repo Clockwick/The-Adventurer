@@ -75,21 +75,21 @@ void Player::updateAttack()
         this->attacking = true;
         if (this->playSound)
             this->swordSound.play();
-//        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f); Attack type
+        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, HitTypes::ATTACK_COL); // Attack type
     }
     else if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump)
     {
         this->attacking1 = true;
         if (this->playSound)
             this->swordSound.play();
-//        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f);// Attack type
+        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65., HitTypes::ATTACK_COL);// Attack type
     }
     else if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump)
     {
         this->attacking2 = true;
         if (this->playSound)
             this->swordSound.play();
-//        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f);// Attack type
+        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, HitTypes::ATTACK_COL);// Attack type
     }
 //    std::cout << this->sliding << "\n";
 
@@ -258,6 +258,7 @@ bool Player::getAttack1() {
 bool Player::getAttack2() {
     return this->attacking2;
 }
+
 
 
 

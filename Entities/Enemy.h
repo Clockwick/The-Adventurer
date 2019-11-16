@@ -28,6 +28,7 @@ public:
     virtual void update(const float& dt) = 0;
     virtual void render(sf::RenderTarget& target, const bool show_hitbox = false) = 0;
     virtual void updateAnimation(const float& dt) = 0;
+    virtual const bool intersects(const sf::FloatRect bounds) const = 0;
 
 };
 #endif //GUJARUNSFML_ENEMY_H
