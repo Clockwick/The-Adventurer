@@ -105,7 +105,7 @@ void Player::updateAttack()
 
 void Player::updateAnimation(const float &dt)
 {
-    if (this->attacking && this->canJump)
+    if (this->attacking && !this->isJump)
     {
         this->movementComponents->stopVelocityX();
 
@@ -119,7 +119,7 @@ void Player::updateAnimation(const float &dt)
 
     }
 
-    else if (this->attacking1 && this->canJump)
+    else if (this->attacking1 && !this->isJump)
     {
         this->movementComponents->stopVelocityX();
         if (this->animationComponents->play("ATTACK2", dt))
@@ -131,7 +131,7 @@ void Player::updateAnimation(const float &dt)
             this->playSound = false;
 
     }
-    else if (this->attacking2 && this->canJump)
+    else if (this->attacking2 && !this->isJump)
     {
         this->movementComponents->stopVelocityX();
         if (this->animationComponents->play("ATTACK3", dt)) {
@@ -208,7 +208,7 @@ void Player::updateAnimation(const float &dt)
 
 }
 
-void Player::render(sf::RenderTarget& target, const bool show_hitbox) {
+void Player::render(sf::RenderTarget& target) {
     if (show_hitbox)
         this->hitboxComponents->render(target);
     target.draw(this->sprite);

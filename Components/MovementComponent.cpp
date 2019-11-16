@@ -114,7 +114,7 @@ const bool MovementComponents::getState(const short unsigned state) const {
                 return true;
             break;
         case ATTACK:
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
                 return true;
             break;
         case ATTACK1:
