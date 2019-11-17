@@ -421,6 +421,32 @@ CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/The-Adventurer/Entities/Slime.cpp -o CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.s
 
+CMakeFiles/The-Adventurer.dir/Items/Items.cpp.o: CMakeFiles/The-Adventurer.dir/flags.make
+CMakeFiles/The-Adventurer.dir/Items/Items.cpp.o: ../Items/Items.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/The-Adventurer.dir/Items/Items.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/The-Adventurer.dir/Items/Items.cpp.o -c /Users/arthris/CLionProjects/The-Adventurer/Items/Items.cpp
+
+CMakeFiles/The-Adventurer.dir/Items/Items.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/The-Adventurer.dir/Items/Items.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arthris/CLionProjects/The-Adventurer/Items/Items.cpp > CMakeFiles/The-Adventurer.dir/Items/Items.cpp.i
+
+CMakeFiles/The-Adventurer.dir/Items/Items.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/The-Adventurer.dir/Items/Items.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/The-Adventurer/Items/Items.cpp -o CMakeFiles/The-Adventurer.dir/Items/Items.cpp.s
+
+CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.o: CMakeFiles/The-Adventurer.dir/flags.make
+CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.o: ../Items/Inventory.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.o -c /Users/arthris/CLionProjects/The-Adventurer/Items/Inventory.cpp
+
+CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arthris/CLionProjects/The-Adventurer/Items/Inventory.cpp > CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.i
+
+CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arthris/CLionProjects/The-Adventurer/Items/Inventory.cpp -o CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.s
+
 # Object files for target The-Adventurer
 The__Adventurer_OBJECTS = \
 "CMakeFiles/The-Adventurer.dir/main.cpp.o" \
@@ -450,7 +476,9 @@ The__Adventurer_OBJECTS = \
 "CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.o" \
 "CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o" \
 "CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.o" \
-"CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o"
+"CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o" \
+"CMakeFiles/The-Adventurer.dir/Items/Items.cpp.o" \
+"CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.o"
 
 # External object files for target The-Adventurer
 The__Adventurer_EXTERNAL_OBJECTS =
@@ -483,6 +511,8 @@ The-Adventurer: CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.
 The-Adventurer: CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o
 The-Adventurer: CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.o
 The-Adventurer: CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o
+The-Adventurer: CMakeFiles/The-Adventurer.dir/Items/Items.cpp.o
+The-Adventurer: CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.o
 The-Adventurer: CMakeFiles/The-Adventurer.dir/build.make
 The-Adventurer: /usr/local/cellar/sfml/2.5.1/lib/libsfml-graphics.2.5.1.dylib
 The-Adventurer: /usr/local/cellar/sfml/2.5.1/lib/libsfml-network.2.5.1.dylib
@@ -490,7 +520,7 @@ The-Adventurer: /usr/local/cellar/sfml/2.5.1/lib/libsfml-window.2.5.1.dylib
 The-Adventurer: /usr/local/cellar/sfml/2.5.1/lib/libsfml-audio.2.5.1.dylib
 The-Adventurer: /usr/local/cellar/sfml/2.5.1/lib/libsfml-system.2.5.1.dylib
 The-Adventurer: CMakeFiles/The-Adventurer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Linking CXX executable The-Adventurer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking CXX executable The-Adventurer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/The-Adventurer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

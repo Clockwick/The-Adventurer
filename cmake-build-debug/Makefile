@@ -501,6 +501,60 @@ GraphicsSettings.cpp.s:
 	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GraphicsSettings.cpp.s
 .PHONY : GraphicsSettings.cpp.s
 
+Items/Inventory.o: Items/Inventory.cpp.o
+
+.PHONY : Items/Inventory.o
+
+# target to build an object file
+Items/Inventory.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.o
+.PHONY : Items/Inventory.cpp.o
+
+Items/Inventory.i: Items/Inventory.cpp.i
+
+.PHONY : Items/Inventory.i
+
+# target to preprocess a source file
+Items/Inventory.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.i
+.PHONY : Items/Inventory.cpp.i
+
+Items/Inventory.s: Items/Inventory.cpp.s
+
+.PHONY : Items/Inventory.s
+
+# target to generate assembly for a file
+Items/Inventory.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.s
+.PHONY : Items/Inventory.cpp.s
+
+Items/Items.o: Items/Items.cpp.o
+
+.PHONY : Items/Items.o
+
+# target to build an object file
+Items/Items.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Items/Items.cpp.o
+.PHONY : Items/Items.cpp.o
+
+Items/Items.i: Items/Items.cpp.i
+
+.PHONY : Items/Items.i
+
+# target to preprocess a source file
+Items/Items.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Items/Items.cpp.i
+.PHONY : Items/Items.cpp.i
+
+Items/Items.s: Items/Items.cpp.s
+
+.PHONY : Items/Items.s
+
+# target to generate assembly for a file
+Items/Items.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Items/Items.cpp.s
+.PHONY : Items/Items.cpp.s
+
 Map/TileMap.o: Map/TileMap.cpp.o
 
 .PHONY : Map/TileMap.o
@@ -930,6 +984,12 @@ help:
 	@echo "... GraphicsSettings.o"
 	@echo "... GraphicsSettings.i"
 	@echo "... GraphicsSettings.s"
+	@echo "... Items/Inventory.o"
+	@echo "... Items/Inventory.i"
+	@echo "... Items/Inventory.s"
+	@echo "... Items/Items.o"
+	@echo "... Items/Items.i"
+	@echo "... Items/Items.s"
 	@echo "... Map/TileMap.o"
 	@echo "... Map/TileMap.i"
 	@echo "... Map/TileMap.s"

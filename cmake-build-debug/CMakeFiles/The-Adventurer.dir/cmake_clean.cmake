@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Game.cpp.o"
   "CMakeFiles/The-Adventurer.dir/GraphicsSettings.cpp.o"
+  "CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.o"
+  "CMakeFiles/The-Adventurer.dir/Items/Items.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Map/TileMap.cpp.o"
   "CMakeFiles/The-Adventurer.dir/PlayerGUI.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Precom.cpp.o"

@@ -166,6 +166,18 @@
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/GraphicsSettings.h">
 			<Option target="The-Adventurer"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Items/Inventory.cpp">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Items/Inventory.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Items/Items.cpp">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Items/Items.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Map/TileMap.cpp">
 			<Option target="The-Adventurer"/>
 		</Unit>
