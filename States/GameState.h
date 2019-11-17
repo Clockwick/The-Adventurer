@@ -65,6 +65,7 @@ private:
     //Clock
     sf::Clock clock;
     float time;
+    bool checkTimeOut;
 
     //Blink
     bool blink;

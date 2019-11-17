@@ -433,7 +433,7 @@ gui::InventorySelector::InventorySelector(float x, float y, float width, float h
 
     this->bounds.setSize(sf::Vector2f(width, height));
     this->bounds.setPosition(8, y - 925);
-    this->bounds.setFillColor(sf::Color(50,50,50,100));
+    this->bounds.setFillColor(sf::Color(50,50,50));
     this->bounds.setOutlineThickness(1.f);
     this->bounds.setOutlineColor(sf::Color(255,255,255,200));
 
@@ -454,7 +454,7 @@ gui::InventorySelector::InventorySelector(float x, float y, float width, float h
     this->inventoryTag.setSize(sf::Vector2f(width, gridSize));
     this->inventoryTag.setOrigin(sf::Vector2f(this->bounds.getPosition().x + this->bounds.getSize().x / 2.f, 0.f));
     this->inventoryTag.setPosition(sf::Vector2f(this->bounds.getPosition().x + this->bounds.getGlobalBounds().width/2.f + 8.f, this->bounds.getPosition().y));
-    this->inventoryTag.setFillColor(sf::Color(50, 50, 50, 100));
+    this->inventoryTag.setFillColor(sf::Color(50, 50, 50));
     this->inventoryTag.setOutlineColor(sf::Color(200, 200, 200, 150));
     this->inventoryTag.setOutlineThickness(1.f);
     this->inventoryText.setFont(font);

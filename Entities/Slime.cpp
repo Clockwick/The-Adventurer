@@ -38,6 +38,7 @@ void Slime::update(const float &dt) {
     this->updateJumping(dt);
     this->movementComponents->update(dt);
     this->updateAnimation(dt);
+
 }
 
 void Slime::render(sf::RenderTarget &target, const bool show_hitbox) {

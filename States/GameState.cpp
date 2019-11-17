@@ -94,6 +94,7 @@ void GameState::initVariables() {
     this->count = 0;
     this->bounceLeft = false;
     this->bounceRight = false;
+    this->checkTimeOut = false;
 
     this->inventoryRect = sf::IntRect(0, 0, static_cast<int>(this->state_data->gridSize) * 0.45,
                                     static_cast<int>(this->state_data->gridSize) * 0.45);
@@ -165,7 +166,7 @@ void GameState::update(const float &dt) {
         this->updatePauseMenuButtons();
 
     }
-    std::cout << this->slimeBlink << "\n";
+//    std::cout << this->slimeBlink << "\n";
 
 }
 
@@ -359,6 +360,7 @@ void GameState::updatePlayerGUI(const float &dt) {
 }
 
 void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
+
     sf::FloatRect playerBounds = entity->getGlobalBounds();
     sf::FloatRect enemyBounds = enemy->getGlobalBounds();
     sf::FloatRect nextPositionBounds = entity->getNextPositionBounds(dt);
@@ -370,12 +372,8 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
         this->blink = false;
         this->blinkClock.restart();
     }
-    if (this->blinkSlimeTime >= 1.f)
-    {
-        this->slimeBlink = false;
-        this->blinkSlimeClock.restart();
-    }
 
+//    std::cout << this->blinkSlimeTime << std::endl;
 
 
     for (auto *i : this->activeEnemies) {
@@ -388,14 +386,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
             {
                 std::cout << "Slime HIT!!" << std::endl;
                 i->gotAttackRight();
-                this->isHit = true;
-                if (this->isHit) {
-                    this->slimeBlink = true;
-                    this->blinkSlimeClock.restart();
-                    this->isHit = false;
-                    this->clock.restart();
-                }
-                
+
 
 
             }
@@ -405,14 +396,8 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                      && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 1.f) {
                 std::cout << "Slime HIT!!" << std::endl;
                 i->gotAttackLeft();
-                this->isHit = true;
-                if (this->isHit) {
-                    this->slimeBlink = true;
-                    this->blinkSlimeClock.restart();
-                    this->isHit = false;
-                    this->clock.restart();
-                }
             }
+
 
         }
         else if (i->intersects(nextPositionBounds) && this->player->getType() == HitTypes::DEFAULT_COL) {

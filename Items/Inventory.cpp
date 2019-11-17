@@ -74,7 +74,7 @@ Inventory::~Inventory()
 void Inventory::operator=(const Inventory& other) {
     if (this != &other)
     {
-        for (size_t i = 0; i < ; ++i) {
+        for (size_t i = 0; i < this->nrOfItems; ++i) {
             delete this->items[i];
         }
         delete[] this->items;
