@@ -35,6 +35,7 @@ void Slime::initAnimation() {
 
 
 void Slime::update(const float &dt) {
+    this->updateMoving(dt);
     this->updateJumping(dt);
     this->movementComponents->update(dt);
     this->updateAnimation(dt);
@@ -87,6 +88,7 @@ void Slime::updateAnimation(const float &dt) {
 }
 void Slime::updateJumping(const float& dt) {
     this->isJump = this->movementComponents->getVelocity().y != 0;
+    std::cout << this->getVelocity().x << std::endl;
 
 }
 const bool Slime::intersects(const sf::FloatRect bounds) const
@@ -95,10 +97,25 @@ const bool Slime::intersects(const sf::FloatRect bounds) const
 }
 
 void Slime::gotAttackLeft() {
+//    this->getVelocity().x += 5;
+////    if (this->getVelocity().x <= 0.f)
+////        this->getVelocity().x = 0.f;
+////    if (this->getVelocity().x >= 4.f)
+////        this->getVelocity().x = 4.f;
+//    this->getVelocity().y = 10 * abs(-pow(this->getVelocity().x - 2,2)+4);
+    this->getVelocity().x -= 100.0f;
+    this->jump();
 }
 
 void Slime::gotAttackRight() {
-
+//    this->getVelocity().x -= 5;
+////    if (this->getVelocity().x <= -4.f)
+////        this->getVelocity().x = -4.f;
+////    if (this->getVelocity().x >= 0.f)
+////        this->getVelocity().x = 0.f;
+//    this->getVelocity().y = 10 * abs(-pow(this->getVelocity().x + 2,2)+4);
+    this->getVelocity().x += 100.0f;
+    this->jump();
 }
 void Slime::gainHP(const int hp) {
     this->attributeComponents->hp += hp;
@@ -121,5 +138,10 @@ AttributeComponent *Slime::getAttributeComponents() {
 
 MovementComponents *Slime::getMovementComponents() {
     return this->movementComponents;
+}
+
+void Slime::updateMoving(const float &dt) {
+    this->sprite.move(this->getVelocity() * dt);
+
 }
 

@@ -40,6 +40,7 @@ public:
     void updateAnimation(const float& dt);
     void updateJumping(const float& dt);
     const bool intersects(const sf::FloatRect bounds) const;
+    void updateMoving(const float& dt);
 
 
     //Got Attack

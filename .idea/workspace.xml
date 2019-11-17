@@ -14,12 +14,9 @@
     <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/AttributeComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AttributeComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/HitboxComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/HitboxComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/MovementComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/MovementComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/MovementComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/MovementComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Enemy.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Enemy.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Entity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entities/Slime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Slime.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entities/Slime.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Slime.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/GameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameState.cpp" afterDir="false" />
@@ -201,7 +198,7 @@
       <workItem from="1573903249624" duration="593000" />
       <workItem from="1573963671577" duration="3390000" />
       <workItem from="1573990259434" duration="1015000" />
-      <workItem from="1573993450809" duration="8717000" />
+      <workItem from="1573993450809" duration="12770000" />
     </task>
     <servers />
   </component>

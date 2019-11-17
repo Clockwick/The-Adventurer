@@ -74,6 +74,14 @@ private:
     float smallTime;
     int smallCount;
 
+    //Bot
+    void updateMovementAI(const float &dt);
+    bool autoMoveLeft;
+    bool autoMoveRight;
+    Enemy* enemyAI;
+    void setAI(Enemy* enemy);
+
+
 
 
 

@@ -58,7 +58,7 @@ void MovementComponents::move(const float dir_x, const float dir_y, const float 
 
 }
 
-const sf::Vector2f &MovementComponents::getVelocity() const {
+sf::Vector2f &MovementComponents::getVelocity(){
     return this->velocity;
 }
 

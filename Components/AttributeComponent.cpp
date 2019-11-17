@@ -12,7 +12,7 @@ AttributeComponent::AttributeComponent(int level) {
     this->attributePoints = 3;
 
 
-    this->Vit = 1;
+    this->Vit = 3;
     this->Str = 1;
     this->Int = 1;
     this->Dex = 1;
@@ -34,7 +34,7 @@ void AttributeComponent::updateStats(const bool reset) {
     this->damageMin = this->Str * 2 + this->Str / 2 + this->Int / 5;
 
     //HP
-    this->hpMax = this->Vit * 8 + this->Vit + this->Str/2 + this->Int / 5 * this->level;
+    this->hpMax = 1000.f;
 
     //ACCURACY
     this->accuracy = this->Dex * 4 + this->Dex / 3 + this->Int / 5;

@@ -30,7 +30,7 @@ public:
     //functions
     void update(const float& dt);
     void move(const float x, const float y, const float& dt);
-    const sf::Vector2f& getVelocity() const;
+    sf::Vector2f& getVelocity();
     const float& getMaxVelocity() const;
     const bool getState(const short unsigned state) const;
     const bool standstill() const;

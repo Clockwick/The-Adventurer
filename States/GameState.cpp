@@ -91,6 +91,8 @@ void GameState::initVariables() {
     this->isHit = false;
     this->blink = false;
     this->count = 0;
+    this->autoMoveLeft = false;
+    this->autoMoveRight = false;
 
     this->inventoryRect = sf::IntRect(0, 0, static_cast<int>(this->state_data->gridSize) * 0.45,
                                     static_cast<int>(this->state_data->gridSize) * 0.45);
@@ -105,10 +107,10 @@ void GameState::initPlayerGUI() {
     this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
 }
 void GameState::initEnemies() {
-    this->activeEnemies.push_back(new Slime(900.f, 475.f, 100.f, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(1000.f , 475.f, 100.f, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(1100.f , 475.f, 100.f, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(1200.f , 475.f, 100.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(900.f, 475.f, 40.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1000.f , 475.f, 40.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1100.f , 475.f, 40.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1200.f , 475.f, 40.f, this->textures["SLIME_SHEET"]));
 }
 
 
@@ -148,6 +150,7 @@ void GameState::update(const float &dt) {
         this->updateTileMap(dt);
         this->player->update(dt);
         this->playerGui->update(dt);
+        this->updateMovementAI(dt);
 
         for (auto *i : this->activeEnemies)
         {
@@ -381,6 +384,10 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
             {
                 this->activeEnemies[i]->gotAttackRight();
                 this->activeEnemies[i]->loseHP(5);
+                this->autoMoveLeft = true;
+                this->setAI(this->activeEnemies[i]);
+//                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
+
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
                 {
                     this->player->gainEXP(10);
@@ -394,6 +401,9 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                      && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 1.f) {
                 this->activeEnemies[i]->gotAttackLeft();
                 this->activeEnemies[i]->loseHP(5);
+                this->autoMoveRight = true;
+                this->setAI(this->activeEnemies[i]);
+                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
                 {
                     this->player->gainEXP(10);
@@ -448,6 +458,43 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
     }
 
 
+}
+
+void GameState::updateMovementAI(const float &dt) {
+    if (this->autoMoveLeft)
+    {
+        std::cout << "AutoMoveL" << "\n";
+
+        if (this->enemyAI->getPosition().x > this->player->getPosition().x)
+            this->enemyAI->move(-1.0f, 0.f, dt);
+
+        else if (this->enemyAI->getPosition().x < this->player->getPosition().x)
+            this->enemyAI->move(1.0f, 0.f, dt);
+
+
+
+
+    }
+
+    if (this->autoMoveRight)
+    {
+        std::cout << "AutoMoveR" << "\n";
+
+        if (this->enemyAI->getPosition().x < this->player->getPosition().x)
+            this->enemyAI->move(1.0f, 0.f, dt);
+
+        else if (this->enemyAI->getPosition().x > this->player->getPosition().x)
+            this->enemyAI->move(-1.0f, 0.f, dt);
+
+
+
+    }
+
+
+}
+
+void GameState::setAI(Enemy *enemy) {
+    this->enemyAI = enemy;
 }
 
 
