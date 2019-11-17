@@ -77,6 +77,8 @@ Entity.h
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
 ../EnemySpawner.h
 /Users/arthris/CLionProjects/The-Adventurer/EnemySpawner.h
+../Components/AttributeComponent.h
+/Users/arthris/CLionProjects/The-Adventurer/Components/AttributeComponent.h
 
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
 ../Components/HitboxComponent.h
@@ -97,6 +99,8 @@ Entity.h
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Slime.h
 Enemy.h
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.h
+../Components/MovementComponent.h
+/Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
 
 /Users/arthris/CLionProjects/The-Adventurer/GUI.h
 Precom.h

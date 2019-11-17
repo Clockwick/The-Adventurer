@@ -3,6 +3,7 @@
 #define GUJARUNSFML_SLIME_H
 
 #include "Enemy.h"
+#include "../Components/MovementComponent.h"
 
 class Slime : public Enemy
 {
@@ -16,6 +17,17 @@ private:
     float jumpHeight;
     bool attacking;
     bool isJump;
+
+    //Hp
+    void gainHP(const int hp);
+    void loseHP(const int hp);
+
+
+    //Attributes
+    AttributeComponent* getAttributeComponents();
+
+    //Movement
+    MovementComponents* getMovementComponents();
 
 
 public:

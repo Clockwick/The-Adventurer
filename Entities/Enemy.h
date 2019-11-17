@@ -4,6 +4,7 @@
 
 #include "Entity.h"
 #include "../EnemySpawner.h"
+#include "../Components/AttributeComponent.h"
 
 class Enemy : public Entity
 {
@@ -36,6 +37,12 @@ public:
 
     //Color
     virtual void setColor(sf::Color color);
+
+    //Hp
+    virtual void gainHP(const int hp);
+    virtual void loseHP(const int hp);
+
+    virtual AttributeComponent* getAttributeComponents();
 
 };
 #endif //GUJARUNSFML_ENEMY_H

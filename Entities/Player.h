@@ -28,7 +28,6 @@ public:
     bool getAttack2();
     void setColor(sf::Color color);
     const short& getType() const;
-
     //Variables
     bool sliding;
     bool sitting;

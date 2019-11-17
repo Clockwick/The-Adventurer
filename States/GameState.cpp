@@ -90,11 +90,7 @@ void GameState::initVariables() {
     this->attacking2 = false;
     this->isHit = false;
     this->blink = false;
-    this->slimeBlink = true;
     this->count = 0;
-    this->bounceLeft = false;
-    this->bounceRight = false;
-    this->checkTimeOut = false;
 
     this->inventoryRect = sf::IntRect(0, 0, static_cast<int>(this->state_data->gridSize) * 0.45,
                                     static_cast<int>(this->state_data->gridSize) * 0.45);
@@ -239,6 +235,7 @@ void GameState::updatePlayerInput(const float &dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !this->player->getAttack()&& !this->player->getAttack1()&& !this->player->getAttack2())
     {
         this->player->move(-1.0f, 0.0f, dt);
+
 //        for (auto *i : this->activeEnemies)
 //            i->move(-1.0f, 0.0f, dt);
     }
@@ -366,41 +363,48 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
     sf::FloatRect nextPositionBounds = entity->getNextPositionBounds(dt);
     this->time = this->clock.getElapsedTime().asSeconds();
     this->blinkTime = this->blinkClock.getElapsedTime().asSeconds();
-    this->blinkSlimeTime = this->blinkSlimeClock.getElapsedTime().asSeconds();
     if (this->blinkTime >= 2.f)
     {
         this->blink = false;
         this->blinkClock.restart();
     }
 
-//    std::cout << this->blinkSlimeTime << std::endl;
 
 
-    for (auto *i : this->activeEnemies) {
-        if (i->intersects(nextPositionBounds) && this->player->getType() == HitTypes::ATTACK_COL)
+    for (int i = 0; i < this->activeEnemies.size(); i++) {
+        if (this->activeEnemies[i]->intersects(nextPositionBounds) && this->player->getType() == HitTypes::ATTACK_COL)
         {
             if (playerBounds.left < enemyBounds.left
                 && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
                 && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 1.f)
             {
-                std::cout << "Slime HIT!!" << std::endl;
-                i->gotAttackRight();
-
-
+                this->activeEnemies[i]->gotAttackRight();
+                this->activeEnemies[i]->loseHP(5);
+                if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
+                {
+                    this->player->gainEXP(10);
+                    this->activeEnemies.erase(this->activeEnemies.begin() + i);
+                }
 
             }
             else if (playerBounds.left > enemyBounds.left
                      && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
                      && playerBounds.top < enemyBounds.top + enemyBounds.height
                      && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 1.f) {
-                std::cout << "Slime HIT!!" << std::endl;
-                i->gotAttackLeft();
+                this->activeEnemies[i]->gotAttackLeft();
+                this->activeEnemies[i]->loseHP(5);
+                if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
+                {
+                    this->player->gainEXP(10);
+                    this->activeEnemies.erase(this->activeEnemies.begin() + i);
+                }
+
             }
 
 
         }
-        else if (i->intersects(nextPositionBounds) && this->player->getType() == HitTypes::DEFAULT_COL) {
+        else if (this->activeEnemies[i]->intersects(nextPositionBounds) && this->player->getType() == HitTypes::DEFAULT_COL) {
 
             //Right collision
             if (playerBounds.left < enemyBounds.left
@@ -418,9 +422,6 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                     this->isHit = false;
                     this->clock.restart();
                 }
-
-
-
             }
 
                 //Left collision

@@ -2,6 +2,7 @@
 #ifndef HITBOXCOMPONENT_H
 #define HITBOXCOMPONENT_H
 #include "../Precom.h"
+
 enum HitTypes {DEFAULT_COL = 0 , ATTACK_COL};
 
 class HitboxComponent

@@ -40,6 +40,7 @@ public:
     void stopVelocityY();
     void jump();
     void getcanJump(bool* canJump);
+
 private:
     float maxVelocity;
     float acceleration;

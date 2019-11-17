@@ -65,22 +65,16 @@ private:
     //Clock
     sf::Clock clock;
     float time;
-    bool checkTimeOut;
 
     //Blink
     bool blink;
-    bool slimeBlink;
     sf::Clock blinkClock;
     float blinkTime;
-    sf::Clock blinkSlimeClock;
-    float blinkSlimeTime;
     sf::Clock smallClock;
     float smallTime;
     int smallCount;
 
 
-    bool bounceLeft;
-    bool bounceRight;
 
 
     //Gui Staff

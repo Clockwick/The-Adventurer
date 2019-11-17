@@ -95,10 +95,31 @@ const bool Slime::intersects(const sf::FloatRect bounds) const
 }
 
 void Slime::gotAttackLeft() {
-    this->sprite.move(-20.f , 0);
 }
 
 void Slime::gotAttackRight() {
-    this->sprite.move(20.f , 0);
+
+}
+void Slime::gainHP(const int hp) {
+    this->attributeComponents->hp += hp;
+
+    if (this->attributeComponents->hp > this->attributeComponents->hpMax)
+        this->attributeComponents->hp = this->attributeComponents->hpMax;
+}
+
+void Slime::loseHP(const int hp) {
+    this->attributeComponents->hp -= hp;
+
+    if (this->attributeComponents->hp < 0)
+        this->attributeComponents->hp = 0;
+
+}
+
+AttributeComponent *Slime::getAttributeComponents() {
+    return this->attributeComponents;
+}
+
+MovementComponents *Slime::getMovementComponents() {
+    return this->movementComponents;
 }
 
