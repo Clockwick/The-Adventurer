@@ -27,8 +27,10 @@ GameState::GameState(StateData* state_data)
 GameState::~GameState() {
     delete this->player;
     delete this->playerGui;
+    delete this->inventorySelector;
     delete this->pmenu;
     delete this->tileMap;
+
 
     for (size_t i = 0; i < this->activeEnemies.size(); i++)
         delete this->activeEnemies[i];
@@ -64,12 +66,20 @@ void GameState::initFonts() {
 }
 
 void GameState::initGui() {
+    const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
 
     this->sidebar.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width, 75.f));
     this->sidebar.setPosition(sf::Vector2f(0.f, this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y));
     this->sidebar.setFillColor(sf::Color(50, 50, 50, 100));
     this->sidebar.setOutlineColor(sf::Color(200, 200, 200, 150));
     this->sidebar.setOutlineThickness(1.f);
+
+    this->inventorySelector = new gui::InventorySelector(gui::p2pX(60.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
+            900.f, 900.f,
+            this->state_data->gridSize, this->font, "Inventory"
+    );
+
+
 
 }
 
@@ -84,6 +94,9 @@ void GameState::initVariables() {
     this->count = 0;
     this->bounceLeft = false;
     this->bounceRight = false;
+
+    this->inventoryRect = sf::IntRect(0, 0, static_cast<int>(this->state_data->gridSize) * 0.45,
+                                    static_cast<int>(this->state_data->gridSize) * 0.45);
 }
 
 void GameState::initPlayers() {
@@ -134,6 +147,7 @@ void GameState::update(const float &dt) {
     {
         this->updateView(dt);
         this->updatePlayerInput(dt);
+        this->updateGui(dt);
         this->updateTileMap(dt);
         this->player->update(dt);
         this->playerGui->update(dt);
@@ -269,10 +283,14 @@ void GameState::updatePauseMenuButtons() {
 
 }
 void GameState::updateGui(const float &dt) {
+    this->inventorySelector->update(this->mousePosWindow, dt);
 
 }
 
 void GameState::renderGui(sf::RenderTarget &target) {
+
+    target.setView(this->state_data->window->getDefaultView());
+    this->inventorySelector->render(target);
     target.draw(this->sidebar);
 }
 

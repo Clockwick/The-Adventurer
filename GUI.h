@@ -127,6 +127,46 @@ namespace gui {
 
     };
 
+    class InventorySelector
+    {
+    public:
+        InventorySelector(float x, float y, float width, float height,float gridSize, sf::Font& font, std::string text);
+        ~InventorySelector();
+
+        //Accessor
+        const bool& getActive();
+        const sf::IntRect& getTextureRect() const;
+        const bool& getInventoryActive();
+
+        //Functions
+
+        void update(const sf::Vector2i& mousePosWindow, const float& dt);
+        void render(sf::RenderTarget& target);
+
+        const bool getKeytime();
+        void updateKeytime(const float& dt);
+
+    private:
+        sf::RectangleShape bounds;
+        sf::RectangleShape selector;
+        sf::Vector2u mousePosGrid;
+        sf::IntRect textureRect;
+        gui::Button* hide_button;
+
+        bool active;
+        bool hidden;
+        float gridSize;
+        float keytime;
+        const float keytimeMax;
+
+
+        //Sidebar
+        sf::RectangleShape inventoryTag;
+        bool inventoryActive;
+        sf::Text inventoryText;
+
+    };
+
 }
 
 

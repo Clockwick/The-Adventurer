@@ -416,6 +416,150 @@ void gui::TextureSelector::render(sf::RenderTarget &target) {
     this->hide_button->render(target);
 }
 
+/*=================================================================*/
+//                      InventorySelector                          //
+gui::InventorySelector::InventorySelector(float x, float y, float width, float height,float gridSize, sf::Font& font, std::string text)
+        : keytimeMax(1.f), keytime(0.f)
+{
+
+
+
+    this->gridSize = gridSize;
+    this->active = false;
+    this->inventoryActive = false;
+    this->hidden = true;
+
+    float offset = gridSize;
+
+    this->bounds.setSize(sf::Vector2f(width, height));
+    this->bounds.setPosition(8, y - 925);
+    this->bounds.setFillColor(sf::Color(50,50,50,100));
+    this->bounds.setOutlineThickness(1.f);
+    this->bounds.setOutlineColor(sf::Color(255,255,255,200));
+
+    this->selector.setPosition(x, y);
+    this->selector.setSize(sf::Vector2f(gridSize, gridSize));
+    this->selector.setFillColor(sf::Color::Transparent);
+    this->selector.setOutlineThickness(1.f);
+    this->selector.setOutlineColor(sf::Color::White);
+
+    this->textureRect.width = static_cast<int>(gridSize);
+    this->textureRect.height = static_cast<int>(gridSize);
+
+    this->hide_button = new gui::Button(x,y,175.f,50.f,
+                                        &font, text, 24,
+                                        sf::Color(255,255,255,200),sf::Color(255,255,255,250),sf::Color(255,255,255,50),
+                                        sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50)
+    );
+    this->inventoryTag.setSize(sf::Vector2f(width, gridSize));
+    this->inventoryTag.setOrigin(sf::Vector2f(this->bounds.getPosition().x + this->bounds.getSize().x / 2.f, 0.f));
+    this->inventoryTag.setPosition(sf::Vector2f(this->bounds.getPosition().x + this->bounds.getGlobalBounds().width/2.f + 8.f, this->bounds.getPosition().y));
+    this->inventoryTag.setFillColor(sf::Color(50, 50, 50, 100));
+    this->inventoryTag.setOutlineColor(sf::Color(200, 200, 200, 150));
+    this->inventoryTag.setOutlineThickness(1.f);
+    this->inventoryText.setFont(font);
+    this->inventoryText.setString(text);
+    this->inventoryText.setCharacterSize(36.f);
+    this->inventoryText.setPosition(this->bounds.getPosition().x + this->bounds.getGlobalBounds().width/2.f - 50.f, this->bounds.getPosition().y + 20.f);
+
+
+}
+
+gui::InventorySelector::~InventorySelector() {
+    delete this->hide_button;
+
+}
+
+//Accessor
+const bool &gui::InventorySelector::getActive() {
+    return this->active;
+}
+
+const sf::IntRect &gui::InventorySelector::getTextureRect() const {
+    return this->textureRect;
+}
+const bool &gui::InventorySelector::getInventoryActive() {
+    return this->inventoryActive;
+}
+
+
+const bool gui::InventorySelector::getKeytime()
+{
+    if (this->keytime >= this->keytimeMax)
+    {
+        this->keytime = 0.f;
+        return true;
+
+    }
+
+    return false;
+}
+
+
+//Functions
+void gui::InventorySelector::update(const sf::Vector2i& mousePosWindow, const float &dt) {
+
+    this->updateKeytime(dt);
+    this->hide_button->update(mousePosWindow);
+    if (this->hide_button->isPressed() && this->getKeytime())
+    {
+        if(this->hidden)
+        {
+            this->hidden = false;
+        }
+        else
+        {
+            this->hidden = true;
+        }
+    }
+    if (!this->hidden)
+    {
+        this->active = false;
+        this->inventoryActive = false;
+
+        if (this->bounds.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosWindow)) && !this->inventoryActive)
+        {
+            this->active = true;
+
+            this->mousePosGrid.x = (mousePosWindow.x - static_cast<int>(this->bounds.getPosition().x)) / static_cast<unsigned>(this->gridSize);
+            this->mousePosGrid.y = (mousePosWindow.y - static_cast<int>(this->bounds.getPosition().y)) / static_cast<unsigned>(this->gridSize);
+            this->selector.setPosition(this->bounds.getPosition().x + this->mousePosGrid.x * this->gridSize,
+                                       this->bounds.getPosition().y + this->mousePosGrid.y * this->gridSize);
+            //Update TextureRect
+            this->textureRect.left = static_cast<int>(this->selector.getPosition().x - this->bounds.getPosition().x);
+            this->textureRect.top = static_cast<int>(this->selector.getPosition().y - this->bounds.getPosition().y);
+        }
+        if (this->inventoryTag.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosWindow)))
+        {
+            this->inventoryActive = true;
+
+        }
+
+    }
+
+}
+
+void gui::InventorySelector::updateKeytime(const float& dt)
+{
+    if (this->keytime < this->keytimeMax)
+        this->keytime += 10.f * dt;
+
+}
+
+
+void gui::InventorySelector::render(sf::RenderTarget &target) {
+    this->hide_button->render(target);
+
+    if (!this->hidden) {
+        target.draw(this->bounds);
+        target.draw(this->inventoryTag);
+        target.draw(this->inventoryText);
+        if (this->active && !this->inventoryActive)
+            target.draw(this->selector);
+    }
+
+    this->hide_button->render(target);
+}
 
 
 

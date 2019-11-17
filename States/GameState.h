@@ -84,6 +84,15 @@ private:
 
     //Gui Staff
     sf::RectangleShape sidebar;
+    sf::RectangleShape selectorRect;
+    sf::IntRect inventoryRect;
+    sf::Text cursorText;
+    gui::InventorySelector* inventorySelector;
+
+    short type;
+    bool collision;
+    int layer;
+    bool tileAddLock;
 
     //Functions
     void initVariables();
