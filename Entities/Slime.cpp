@@ -92,3 +92,12 @@ const bool Slime::intersects(const sf::FloatRect bounds) const
 {
     return this->sprite.getGlobalBounds().intersects(bounds);
 }
+
+void Slime::gotAttackLeft() {
+    this->sprite.move(-20.f , 0);
+}
+
+void Slime::gotAttackRight() {
+    this->sprite.move(20.f , 0);
+}
+

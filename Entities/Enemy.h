@@ -30,5 +30,12 @@ public:
     virtual void updateAnimation(const float& dt) = 0;
     virtual const bool intersects(const sf::FloatRect bounds) const = 0;
 
+    //Attack
+    virtual void gotAttackLeft() = 0;
+    virtual void gotAttackRight() = 0;
+
+    //Color
+    virtual void setColor(sf::Color color);
+
 };
 #endif //GUJARUNSFML_ENEMY_H

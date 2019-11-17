@@ -13,4 +13,10 @@ Enemy::~Enemy() {
 
 }
 
+void Enemy::setColor(sf::Color color)
+{
+    this->sprite.setColor(color);
+}
+
+
 

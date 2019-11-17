@@ -14,6 +14,7 @@ class Player;
 class TileMap;
 class PlayerGUI;
 
+
 class GameState : public State
 {
 
@@ -61,18 +62,21 @@ private:
 
     //Hitbox
 
-
     //Clock
     sf::Clock clock;
     float time;
 
     //Blink
     bool blink;
+    bool slimeBlink;
     sf::Clock blinkClock;
     float blinkTime;
+    sf::Clock blinkSlimeClock;
+    float blinkSlimeTime;
     sf::Clock smallClock;
     float smallTime;
     int smallCount;
+
 
     bool bounceLeft;
     bool bounceRight;

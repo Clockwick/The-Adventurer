@@ -28,6 +28,14 @@ public:
     void updateAnimation(const float& dt);
     void updateJumping(const float& dt);
     const bool intersects(const sf::FloatRect bounds) const;
+
+
+    //Got Attack
+    void gotAttackLeft();
+    void gotAttackRight();
+
+
+
 };
 
 #endif //GUJARUNSFML_SLIME_H

@@ -41,6 +41,7 @@ void Player::initVariables() {
     this->isJump = true;
     this->canJump = true;
     this->playSound = true;
+    this->type = HitTypes::DEFAULT_COL;
 }
 void Player::initAnimation() {
     this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);
@@ -72,24 +73,27 @@ void Player::updateAttack()
 {
 
     if(this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump) {
+        this->type = HitTypes::ATTACK_COL;
         this->attacking = true;
         if (this->playSound)
             this->swordSound.play();
-        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, HitTypes::ATTACK_COL); // Attack type
+        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type); // Attack type
     }
     else if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump)
     {
+        this->type = HitTypes::ATTACK_COL;
         this->attacking1 = true;
         if (this->playSound)
             this->swordSound.play();
-        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65., HitTypes::ATTACK_COL);// Attack type
+        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65., this->type);// Attack type
     }
     else if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump)
     {
+        this->type = HitTypes::ATTACK_COL;
         this->attacking2 = true;
         if (this->playSound)
             this->swordSound.play();
-        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, HitTypes::ATTACK_COL);// Attack type
+        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type);// Attack type
     }
 //    std::cout << this->sliding << "\n";
 
@@ -97,6 +101,7 @@ void Player::updateAttack()
 
 void Player::updateAnimation(const float &dt)
 {
+
     if (this->attacking && !this->isJump)
     {
         this->movementComponents->stopVelocityX();
@@ -135,6 +140,7 @@ void Player::updateAnimation(const float &dt)
     }
     if (this->movementComponents->getState(IDLE) && !this->isJump && !this->attacking && !this->attacking1 && !this->attacking2)
     {
+        this->type = HitTypes::DEFAULT_COL;
         this->sliding = false;
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("IDLE", dt);
@@ -143,6 +149,7 @@ void Player::updateAnimation(const float &dt)
 
     else if (this->movementComponents->getState(SLIDE_RIGHT) && this->canJump && !this->attacking && !this->attacking1 && !this->attacking2)
     {
+        this->type = HitTypes::DEFAULT_COL;
         this->sliding = true;
         this->sprite.setOrigin(0.f,0.f);
         this->sprite.setScale(1.f,1.f);
@@ -152,6 +159,7 @@ void Player::updateAnimation(const float &dt)
 
     else if (this->movementComponents->getState(SLIDE_LEFT) && this->canJump && !this->attacking && !this->attacking1 && !this->attacking2)
     {
+        this->type = HitTypes::DEFAULT_COL;
         this->sliding = true;
         this->sprite.setOrigin(100.f,0.f);
         this->sprite.setScale(-1.f,1.f);
@@ -160,6 +168,7 @@ void Player::updateAnimation(const float &dt)
     }
     else if (this->movementComponents->getState(MOVING_RIGHT) && this->canJump)
     {
+        this->type = HitTypes::DEFAULT_COL;
         this->sliding = false;
         this->sprite.setOrigin(0.f, 0.f);
         this->sprite.setScale(1.f, 1.f);
@@ -168,6 +177,7 @@ void Player::updateAnimation(const float &dt)
                                         this->movementComponents->getMaxVelocity());
     }
     else if (this->movementComponents->getState(MOVING_LEFT) && this->canJump) {
+        this->type = HitTypes::DEFAULT_COL;
         this->sliding = false;
         this->sprite.setOrigin(100.f, 0.f);
         this->sprite.setScale(-1.f, 1.f);
@@ -177,18 +187,21 @@ void Player::updateAnimation(const float &dt)
     }
     else if (this->movementComponents->getState(SIT) && this->canJump && !this->attacking && !this->attacking1 && !this->attacking2)
     {
+        this->type = HitTypes::DEFAULT_COL;
         this->sliding = false;
         this->sitting = true;
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("SIT", dt);
     }
     else if (!this->canJump && this->movementComponents->getState(JUMP_LEFT)) {
+        this->type = HitTypes::DEFAULT_COL;
         this->sliding = false;
         this->sprite.setOrigin(100.f, 0.f);
         this->sprite.setScale(-1.f, 1.f);
         this->animationComponents->play("JUMP", dt, 135, 100);
     }
     else if (!this->canJump && this->movementComponents->getState(JUMP_RIGHT)) {
+        this->type = HitTypes::DEFAULT_COL;
         this->sliding = false;
         this->sprite.setOrigin(0.f, 0.f);
         this->sprite.setScale(1.f, 1.f);
@@ -271,6 +284,10 @@ void Player::gotAttackRight(const float velocity, const float& dt) {
 void Player::setColor(sf::Color color) {
     this->sprite.setColor(color);
 
+}
+
+const short &Player::getType() const {
+    return this->type;
 }
 
 

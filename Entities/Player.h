@@ -27,6 +27,7 @@ public:
     bool getAttack1();
     bool getAttack2();
     void setColor(sf::Color color);
+    const short& getType() const;
 
     //Variables
     bool sliding;
@@ -44,6 +45,7 @@ private:
     bool isJump;
     bool playSound;
     sf::Vector2f velocity;
+    short type;
 
 
 

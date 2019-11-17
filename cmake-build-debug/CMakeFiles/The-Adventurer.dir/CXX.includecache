@@ -90,10 +90,6 @@ Entity.h
 ../Components/SkillComponent.h
 /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
 
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.cpp
-Player.h
-/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
-
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
 Entity.h
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h

@@ -18,9 +18,6 @@ private:
     //Func
     void initVariables();
 
-
-
-
 public:
     HitboxComponent(sf::Sprite& sprite,
                     float offset_x, float offset_y,
