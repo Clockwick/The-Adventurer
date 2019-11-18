@@ -148,6 +148,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/GUI.h">
 			<Option target="The-Adventurer"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/GUI/Dead.cpp">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/GUI/Dead.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/GUI/PauseMenu.cpp">
 			<Option target="The-Adventurer"/>
 		</Unit>

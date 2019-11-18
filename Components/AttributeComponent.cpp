@@ -34,9 +34,8 @@ void AttributeComponent::updateStats(const bool reset) {
     this->damageMin = this->Str * 2 + this->Str / 2 + this->Int / 5;
 
     //HP
-    this->hpMax = 1000.f;
-    ''
-//    this->hpMax = this->Vit * 8 + this->Vit + this->Str/2 + this->Int / 5;
+//    this->hpMax = 1000.f;
+    this->hpMax = this->Vit * 8 + this->Vit + this->Str/2 + this->Int / 5;
 
     //ACCURACY
     this->accuracy = this->Dex * 4 + this->Dex / 3 + this->Int / 5;

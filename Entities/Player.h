@@ -27,12 +27,14 @@ public:
     bool getAttack1();
     bool getAttack2();
     void setColor(sf::Color color);
+
     const short& getType() const;
     //Variables
     bool sliding;
     bool sitting;
     AttributeComponent* getAttributeComponents();
     MovementComponents* getMovementComponents();
+    AnimationComponent* getAnimationComponents();
 private:
     void initVariables();
     void initAudio();

@@ -17,8 +17,8 @@ DefaultMode::~DefaultMode()
 }
 
 void DefaultMode::initVariables() {
-    this->textureRect = sf::IntRect(0, 0, static_cast<int>(this->stateData->gridSize) * 0.45,
-                                    static_cast<int>(this->stateData->gridSize) * 0.45);
+    this->textureRect = sf::IntRect(0, 0, static_cast<int>(this->stateData->gridSize) ,
+                                    static_cast<int>(this->stateData->gridSize));
     this->collision = false;
     this->type = TileTypes::DEFAULT;
     this->layer = 0;

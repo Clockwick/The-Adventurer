@@ -19,6 +19,7 @@ GameState::GameState(StateData* state_data)
     this->initPlayerGUI();
     this->initFonts();
     this->initPauseMenu();
+    this->initDeadMenu();
     this->initTileMap();
 
 
@@ -30,6 +31,8 @@ GameState::~GameState() {
     delete this->inventorySelector;
     delete this->pmenu;
     delete this->tileMap;
+    delete this->deadmenu;
+    delete this->status;
 
 
     for (size_t i = 0; i < this->activeEnemies.size(); i++)
@@ -77,7 +80,15 @@ void GameState::initGui() {
     this->inventorySelector = new gui::InventorySelector(gui::p2pX(60.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
             900.f, 900.f,
             this->state_data->gridSize, this->font, "Inventory"
+
     );
+    this->status = new gui::Status(gui::p2pX(70.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
+                                                         900.f, 900.f,
+                                                         this->state_data->gridSize, this->font, "Status"
+
+    );
+
+
 
 
 
@@ -93,6 +104,8 @@ void GameState::initVariables() {
     this->count = 0;
     this->autoMoveLeft = false;
     this->autoMoveRight = false;
+    this->isDead = false;
+    this->reallyDead = false;
 
     this->inventoryRect = sf::IntRect(0, 0, static_cast<int>(this->state_data->gridSize) * 0.45,
                                     static_cast<int>(this->state_data->gridSize) * 0.45);
@@ -142,7 +155,7 @@ void GameState::update(const float &dt) {
     this->updateKeytime(dt);
     this->updateInput(dt);
 
-    if (!this->paused)//Unpaused
+    if (!this->paused && !this->reallyDead && !this->isDead)//Unpaused
     {
         this->updateView(dt);
         this->updatePlayerInput(dt);
@@ -158,9 +171,18 @@ void GameState::update(const float &dt) {
             i->update(dt);
         }
     }
+    else if (this->isDead)
+    {
+        this->playerGui->update(dt);
+        this->playDead(dt);
+    }
+    else if (this->reallyDead)
+    {
+        this->deadmenu->update(this->mousePosWindow);
+        this->updateDeadMenuButtons();
+    }
     else //Paused
     {
-
         this->pmenu->update(this->mousePosWindow);
         this->updatePauseMenuButtons();
 
@@ -204,6 +226,7 @@ void GameState::render(sf::RenderTarget *target) {
         }
         else
         {
+
             this->player->setColor(sf::Color::Red);
             this->player->render(this->renderTexture, true);
         }
@@ -221,6 +244,11 @@ void GameState::render(sf::RenderTarget *target) {
     {
         this->renderTexture.setView(this->renderTexture.getDefaultView());
         this->pmenu->render(renderTexture);
+    }
+    if (this->reallyDead)
+    {
+        this->renderTexture.setView(this->renderTexture.getDefaultView());
+        this->deadmenu->render(renderTexture);
     }
     //Final Render
     this->renderTexture.display();
@@ -278,69 +306,94 @@ void GameState::initPauseMenu() {
 
 }
 
+void GameState::initDeadMenu() {
+    const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
+    this->deadmenu = new DeadMenu(this->state_data->gfxSettings->resolution, this->font);
+
+    this->deadmenu->addButton("QUIT",gui::p2pY(61.11f, vm), gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm), gui::calcCharSize(vm), "Exit");
+
+
+}
+
 void GameState::updatePauseMenuButtons() {
     if (this->pmenu->isButtonPressed(("QUIT")) && this->getKeyTime())
         this->endState();
 
 }
+void GameState::updateDeadMenuButtons() {
+    if (this->deadmenu->isButtonPressed("QUIT") && this->getKeyTime())
+        this->endState();
+
+}
 void GameState::updateGui(const float &dt) {
     this->inventorySelector->update(this->mousePosWindow, dt);
-
+    this->status->update(this->mousePosWindow, dt);
 }
 
 void GameState::renderGui(sf::RenderTarget &target) {
 
     target.setView(this->state_data->window->getDefaultView());
     this->inventorySelector->render(target);
+    this->status->render(target);
     target.draw(this->sidebar);
 }
 
 
 
 void GameState::updateView(const float &dt) {
-//    this->view.setCenter(this->player->getPosition());
-//
-//    if (this->player->sliding)
-//    {
-//        this->player->sliding = false;
-//        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y);
-//    }
-//    else if(this->player->sitting)
-//    {
-//        this->player->sitting = false;
-//        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y );
-//    }
-    this->view.setCenter(
-            std::floor(this->player->getPosition().x + (static_cast<float>(this->mousePosWindow.x) - static_cast<float>(this->state_data->gfxSettings->resolution.width / 2)) / 10.f),
-            std::floor(this->player->getPosition().y + (static_cast<float>(this->mousePosWindow.y) - static_cast<float>(this->state_data->gfxSettings->resolution.height / 2)) / 10.f)
-    );
 
-    if (this->tileMap->getMaxSizeF().x >= this->view.getSize().x)
+    if (this->inventorySelector->getActive() || this->status->getActive())
     {
-        if (this->view.getCenter().x - this->view.getSize().x / 2.f < 0.f)
+        this->view.setCenter(this->player->getPosition());
+
+        if (this->player->sliding)
         {
-            this->view.setCenter(0.f + this->view.getSize().x / 2.f, this->view.getCenter().y);
+            this->player->sliding = false;
+            this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y);
         }
-        else if (this->view.getCenter().x + this->view.getSize().x / 2.f > this->tileMap->getMaxSizeF().x)
+        else if(this->player->sitting)
         {
-            this->view.setCenter(this->tileMap->getMaxSizeF().x - this->view.getSize().x / 2.f, this->view.getCenter().y);
+            this->player->sitting = false;
+            this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y );
         }
     }
+    else {
 
-    if (this->tileMap->getMaxSizeF().y >= this->view.getSize().y)
-    {
-        if (this->view.getCenter().y - this->view.getSize().y / 2.f < 0.f)
-        {
-            this->view.setCenter(this->view.getCenter().x, 0.f + this->view.getSize().y / 2.f);
+
+        this->view.setCenter(
+                std::floor(this->player->getPosition().x + (static_cast<float>(this->mousePosWindow.x) -
+                                                            static_cast<float>(
+                                                                    this->state_data->gfxSettings->resolution.width /
+                                                                    2)) / 10.f),
+                std::floor(this->player->getPosition().y + (static_cast<float>(this->mousePosWindow.y) -
+                                                            static_cast<float>(
+                                                                    this->state_data->gfxSettings->resolution.height /
+                                                                    2)) / 10.f)
+        );
+
+        if (this->tileMap->getMaxSizeF().x >= this->view.getSize().x) {
+            if (this->view.getCenter().x - this->view.getSize().x / 2.f < 0.f) {
+                this->view.setCenter(0.f + this->view.getSize().x / 2.f, this->view.getCenter().y);
+            } else if (this->view.getCenter().x + this->view.getSize().x / 2.f > this->tileMap->getMaxSizeF().x) {
+                this->view.setCenter(this->tileMap->getMaxSizeF().x - this->view.getSize().x / 2.f,
+                                     this->view.getCenter().y);
+            }
         }
-        else if (this->view.getCenter().y + this->view.getSize().y / 2.f > this->tileMap->getMaxSizeF().y)
-        {
-            this->view.setCenter(this->view.getCenter().x, this->tileMap->getMaxSizeF().y - this->view.getSize().y / 2.f);
+
+        if (this->tileMap->getMaxSizeF().y >= this->view.getSize().y) {
+            if (this->view.getCenter().y - this->view.getSize().y / 2.f < 0.f) {
+                this->view.setCenter(this->view.getCenter().x, 0.f + this->view.getSize().y / 2.f);
+            } else if (this->view.getCenter().y + this->view.getSize().y / 2.f > this->tileMap->getMaxSizeF().y) {
+                this->view.setCenter(this->view.getCenter().x,
+                                     this->tileMap->getMaxSizeF().y - this->view.getSize().y / 2.f);
+            }
         }
+
+        this->viewGridPosition.x =
+                static_cast<int>(this->view.getCenter().x) / static_cast<int>(this->state_data->gridSize);
+        this->viewGridPosition.y =
+                static_cast<int>(this->view.getCenter().y) / static_cast<int>(this->state_data->gridSize);
     }
-
-    this->viewGridPosition.x = static_cast<int>(this->view.getCenter().x) / static_cast<int>(this->state_data->gridSize);
-    this->viewGridPosition.y = static_cast<int>(this->view.getCenter().y) / static_cast<int>(this->state_data->gridSize);
 
 }
 
@@ -386,7 +439,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 this->activeEnemies[i]->loseHP(5);
                 this->autoMoveLeft = true;
                 this->setAI(this->activeEnemies[i]);
-                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
+//                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
 
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
                 {
@@ -403,7 +456,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 this->activeEnemies[i]->loseHP(5);
                 this->autoMoveRight = true;
                 this->setAI(this->activeEnemies[i]);
-                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
+//                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
                 {
                     this->player->gainEXP(10);
@@ -421,8 +474,8 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
                 && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 2.f) {
-                std::cout << "Right Collision" << std::endl;
-                this->player->loseHP(1);
+//                std::cout << "Right Collision" << std::endl;
+                this->player->loseHP(4);
                 this->player->stopVelocityX();
                 this->isHit = true;
 
@@ -432,6 +485,11 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                     this->isHit = false;
                     this->clock.restart();
                 }
+                if (this->player->getAttributeComponents()->hp <= 0)
+                {
+                    this->player->loseEXP(50);
+                    this->isDead = true;
+                }
             }
 
                 //Left collision
@@ -439,9 +497,9 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                      && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
                      && playerBounds.top < enemyBounds.top + enemyBounds.height
                      && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 2.f) {
-                std::cout << "Left Collision" << std::endl;
+//                std::cout << "Left Collision" << std::endl;
 
-                this->player->loseHP(1);
+                this->player->loseHP(4);
                 this->player->stopVelocityX();
                 this->isHit = true;
                 if (this->isHit) {
@@ -449,6 +507,11 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                     this->blinkClock.restart();
                     this->isHit = false;
                     this->clock.restart();
+                }
+                if (this->player->getAttributeComponents()->hp <= 0)
+                {
+                    this->player->loseEXP(50);
+                    this->isDead = true;
                 }
             }
 
@@ -494,6 +557,25 @@ void GameState::updateMovementAI(const float &dt) {
 void GameState::setAI(Enemy *enemy) {
     this->enemyAI = enemy;
 }
+void GameState::playDead(const float& dt)
+{
+    if (this->isDead)
+    {
+        this->view.setCenter(this->player->getPosition());
+        if (this->player->getAnimationComponents()->play("Dead",dt, 25 ,100, true))
+        {
+            this->reallyDead = true;
+            this->isDead = false;
+        }
+
+    }
+
+}
+
+
+
+
+
 
 
 

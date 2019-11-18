@@ -6,6 +6,7 @@
 #include "../Map/TileMap.h"
 #include "../PlayerGUI.h"
 #include "../Entities/Enemy.h"
+#include "../GUI/Dead.h"
 #ifndef GUJARUNSFML_GAMESTATE_H
 #define GUJARUNSFML_GAMESTATE_H
 
@@ -43,6 +44,7 @@ private:
     std::vector<Enemy*> activeEnemies;
     PauseMenu* pmenu;
     TileMap* tileMap;
+    DeadMenu* deadmenu;
 
     sf::Vector2i viewGridPosition;
 
@@ -92,10 +94,19 @@ private:
     sf::Text cursorText;
     gui::InventorySelector* inventorySelector;
 
+    sf::RectangleShape statusSideBar;
+    sf::IntRect statusRect;
+    sf::Text statusCursorText;
+    gui::Status* status;
+
     short type;
     bool collision;
     int layer;
     bool tileAddLock;
+
+    //Dead
+    bool isDead;
+    bool reallyDead;
 
     //Functions
     void initVariables();
@@ -108,8 +119,11 @@ private:
     void initTileMap();
     void initPlayerGUI();
     void updatePauseMenuButtons();
+    void updateDeadMenuButtons();
     void initEnemies();
     void initGui();
+    void initDeadMenu();
+    void playDead(const float& dt);
 
 
 };

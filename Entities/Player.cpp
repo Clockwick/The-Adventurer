@@ -52,6 +52,7 @@ void Player::initAnimation() {
     this->animationComponents->addAnimation("ATTACK2", 17.f, 0, 7, 3, 7, 100, 74);
     this->animationComponents->addAnimation("ATTACK3", 12.f, 0, 8, 5, 8, 100 , 74);
     this->animationComponents->addAnimation("JUMP", 15.f , 0 , 2, 13 , 2 , 100 , 74);
+    this->animationComponents->addAnimation("Dead", 25.f , 0 ,9, 9 , 9, 100, 74);
 }
 
 
@@ -317,6 +318,11 @@ const short &Player::getType() const {
 MovementComponents *Player::getMovementComponents() {
     return this->movementComponents;
 }
+
+AnimationComponent *Player::getAnimationComponents() {
+    return this->animationComponents;
+}
+
 
 
 

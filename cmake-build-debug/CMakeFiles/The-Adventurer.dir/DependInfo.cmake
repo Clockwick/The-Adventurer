@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/Entities/Slime.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/GUI.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/GUI.cpp.o"
+  "/Users/arthris/CLionProjects/The-Adventurer/GUI/Dead.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/GUI/PauseMenu.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/Game.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Game.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/GraphicsSettings.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/GraphicsSettings.cpp.o"

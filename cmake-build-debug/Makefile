@@ -420,6 +420,33 @@ GUI.cpp.s:
 	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GUI.cpp.s
 .PHONY : GUI.cpp.s
 
+GUI/Dead.o: GUI/Dead.cpp.o
+
+.PHONY : GUI/Dead.o
+
+# target to build an object file
+GUI/Dead.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o
+.PHONY : GUI/Dead.cpp.o
+
+GUI/Dead.i: GUI/Dead.cpp.i
+
+.PHONY : GUI/Dead.i
+
+# target to preprocess a source file
+GUI/Dead.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.i
+.PHONY : GUI/Dead.cpp.i
+
+GUI/Dead.s: GUI/Dead.cpp.s
+
+.PHONY : GUI/Dead.s
+
+# target to generate assembly for a file
+GUI/Dead.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.s
+.PHONY : GUI/Dead.cpp.s
+
 GUI/PauseMenu.o: GUI/PauseMenu.cpp.o
 
 .PHONY : GUI/PauseMenu.o
@@ -975,6 +1002,9 @@ help:
 	@echo "... GUI.o"
 	@echo "... GUI.i"
 	@echo "... GUI.s"
+	@echo "... GUI/Dead.o"
+	@echo "... GUI/Dead.i"
+	@echo "... GUI/Dead.s"
 	@echo "... GUI/PauseMenu.o"
 	@echo "... GUI/PauseMenu.i"
 	@echo "... GUI/PauseMenu.s"
