@@ -88,7 +88,7 @@ void Slime::updateAnimation(const float &dt) {
 }
 void Slime::updateJumping(const float& dt) {
     this->isJump = this->movementComponents->getVelocity().y != 0;
-    std::cout << this->getVelocity().x << std::endl;
+//    std::cout << this->getVelocity().x << std::endl;
 
 }
 const bool Slime::intersects(const sf::FloatRect bounds) const

@@ -41,6 +41,7 @@ public:
     void jump();
     void getcanJump(bool* canJump);
 
+    bool faceRight;
 private:
     float maxVelocity;
     float acceleration;
@@ -48,7 +49,6 @@ private:
     const float jumpHeight;
     const float maxVelocityY = -300.f;
     bool canJump;
-    bool faceRight;
 
 
     sf::Sprite& sprite;

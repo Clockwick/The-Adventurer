@@ -71,29 +71,53 @@ void Player::update(const float& dt)
 
 void Player::updateAttack()
 {
-
-    if(this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump) {
+    if(this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump && this->getMovementComponents()->faceRight) {
         this->type = HitTypes::ATTACK_COL;
         this->attacking = true;
         if (this->playSound)
             this->swordSound.play();
         this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type); // Attack type
     }
-    else if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump)
+    else if (this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump && !this->getMovementComponents()->faceRight)
+    {
+        this->type = HitTypes::ATTACK_COL;
+        this->attacking = true;
+        if (this->playSound)
+            this->swordSound.play();
+        this->createHitboxComponents(this->sprite,-20.f,10.f,80.f,65.f, this->type); // Modify
+
+    }
+    if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump && this->getMovementComponents()->faceRight)
     {
         this->type = HitTypes::ATTACK_COL;
         this->attacking1 = true;
         if (this->playSound)
             this->swordSound.play();
-        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65., this->type);// Attack type
+        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type);// Attack type
     }
-    else if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump)
+    else if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump && !this->getMovementComponents()->faceRight)
+    {
+        this->type = HitTypes::ATTACK_COL;
+        this->attacking1 = true;
+        if (this->playSound)
+            this->swordSound.play();
+        this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type);// Modify
+    }
+    if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump&& this->getMovementComponents()->faceRight)
     {
         this->type = HitTypes::ATTACK_COL;
         this->attacking2 = true;
         if (this->playSound)
             this->swordSound.play();
         this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type);// Attack type
+    }
+    if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump&& !this->getMovementComponents()->faceRight)
+    {
+        this->type = HitTypes::ATTACK_COL;
+        this->attacking2 = true;
+        if (this->playSound)
+            this->swordSound.play();
+        this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type);// Modify
     }
 //    std::cout << this->sliding << "\n";
 
@@ -153,7 +177,7 @@ void Player::updateAnimation(const float &dt)
         this->sliding = true;
         this->sprite.setOrigin(0.f,0.f);
         this->sprite.setScale(1.f,1.f);
-        this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);;
+        this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("SLIDE", dt);
     }
 
@@ -288,6 +312,10 @@ void Player::setColor(sf::Color color) {
 
 const short &Player::getType() const {
     return this->type;
+}
+
+MovementComponents *Player::getMovementComponents() {
+    return this->movementComponents;
 }
 
 

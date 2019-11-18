@@ -107,10 +107,10 @@ void GameState::initPlayerGUI() {
     this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
 }
 void GameState::initEnemies() {
-    this->activeEnemies.push_back(new Slime(900.f, 475.f, 40.f, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(1000.f , 475.f, 40.f, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(1100.f , 475.f, 40.f, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(1200.f , 475.f, 40.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(1900.f, 475.f, 40.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(2000.f , 280.f, 40.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(2100.f , 475.f, 40.f, this->textures["SLIME_SHEET"]));
+    this->activeEnemies.push_back(new Slime(2200.f , 475.f, 40.f, this->textures["SLIME_SHEET"]));
 }
 
 
@@ -211,9 +211,9 @@ void GameState::render(sf::RenderTarget *target) {
     }
 
 
-
     this->renderTexture.setView(this->renderTexture.getDefaultView());
     this->renderGui(this->renderTexture);
+
 
     this->playerGui->render(this->renderTexture);
     //Pause Menu Render
@@ -386,7 +386,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 this->activeEnemies[i]->loseHP(5);
                 this->autoMoveLeft = true;
                 this->setAI(this->activeEnemies[i]);
-//                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
+                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
 
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
                 {
@@ -463,7 +463,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
 void GameState::updateMovementAI(const float &dt) {
     if (this->autoMoveLeft)
     {
-        std::cout << "AutoMoveL" << "\n";
+//        std::cout << "AutoMoveL" << "\n";
 
         if (this->enemyAI->getPosition().x > this->player->getPosition().x)
             this->enemyAI->move(-1.0f, 0.f, dt);
@@ -472,13 +472,11 @@ void GameState::updateMovementAI(const float &dt) {
             this->enemyAI->move(1.0f, 0.f, dt);
 
 
-
-
     }
 
     if (this->autoMoveRight)
     {
-        std::cout << "AutoMoveR" << "\n";
+//        std::cout << "AutoMoveR" << "\n";
 
         if (this->enemyAI->getPosition().x < this->player->getPosition().x)
             this->enemyAI->move(1.0f, 0.f, dt);

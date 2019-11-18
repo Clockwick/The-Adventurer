@@ -32,6 +32,7 @@ public:
     bool sliding;
     bool sitting;
     AttributeComponent* getAttributeComponents();
+    MovementComponents* getMovementComponents();
 private:
     void initVariables();
     void initAudio();
