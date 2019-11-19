@@ -178,12 +178,12 @@ namespace gui {
         //Text
         sf::Font* textFont;
         sf::Text text;
+        sf::Text value;
 
         void initVariables();
 
     public:
-        TextGui(float x, float y, sf::Font* font, unsigned char_size, sf::Color text_color, sf::Color outline_color, std::string text
-                , AttributeComponent* value);
+        TextGui(float x, float y, sf::Font* font, unsigned char_size, sf::Color text_color, sf::Color outline_color, std::string text, std::string value);
         virtual ~TextGui();
 
         void update();
@@ -255,9 +255,6 @@ namespace gui {
         sf::Font *statusFont;
         void allText();
         void initText();
-
-
-
 
     };
 

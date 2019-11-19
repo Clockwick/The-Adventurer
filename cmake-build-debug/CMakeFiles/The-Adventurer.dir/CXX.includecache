@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/arthris/CLionProjects/The-Adventurer/Components/AttributeComponent.h
+../Precom.h
+/Users/arthris/CLionProjects/The-Adventurer/Precom.h
+
 /Users/arthris/CLionProjects/The-Adventurer/GUI.cpp
 GUI.h
 /Users/arthris/CLionProjects/The-Adventurer/GUI.h
@@ -13,6 +17,8 @@ GUI.h
 /Users/arthris/CLionProjects/The-Adventurer/GUI.h
 Precom.h
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
+Components/AttributeComponent.h
+/Users/arthris/CLionProjects/The-Adventurer/Components/AttributeComponent.h
 
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
 algorithm

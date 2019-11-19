@@ -1098,6 +1098,7 @@ CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o: /usr/local/cellar/sfml/2.5.1
 CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
+CMakeFiles/The-Adventurer.dir/GUI.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/The-Adventurer.dir/GUI.cpp.o: ../GUI.cpp
 CMakeFiles/The-Adventurer.dir/GUI.cpp.o: ../GUI.h
 CMakeFiles/The-Adventurer.dir/GUI.cpp.o: ../Precom.h
@@ -1205,6 +1206,7 @@ CMakeFiles/The-Adventurer.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SF
 CMakeFiles/The-Adventurer.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/The-Adventurer.dir/GUI.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
+CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o: ../GUI.h
 CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o: ../GUI/Dead.cpp
 CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o: ../GUI/Dead.h
@@ -1313,6 +1315,7 @@ CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o: /usr/local/cellar/sfml/2.5.1/inclu
 CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o: /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 
+CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.o: ../Components/AttributeComponent.h
 CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.o: ../GUI.h
 CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.o: ../GUI/PauseMenu.cpp
 CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.o: ../GUI/PauseMenu.h

@@ -112,7 +112,7 @@ void GameState::initVariables() {
 }
 
 void GameState::initPlayers() {
-    this->player = new Player(500.f,470.f, 200.f, this->textures["PLAYER_SHEET"]);
+    this->player = new Player(500.f,468.f, 200.f, this->textures["PLAYER_SHEET"]);
 
 }
 

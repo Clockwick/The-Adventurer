@@ -325,8 +325,7 @@ gui::TextureSelector::TextureSelector(float x, float y, float width, float heigh
             &font, text, 24,
             sf::Color(255,255,255,200),sf::Color(255,255,255,250),sf::Color(255,255,255,50),
             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50)
-    );;
-
+    );
 
 }
 
@@ -574,7 +573,7 @@ gui::Status::Status(float x, float y, float width, float height,float gridSize, 
     this->active = false;
     this->statusActive = false;
     this->hidden = true;
-    this->statusFont = font;
+    this->statusFont = &font;
 
     float offset = gridSize;
 
@@ -630,7 +629,7 @@ gui::Status::~Status() {
 void gui::Status::initText()
 {
     this->name = new gui::TextGui(this->bounds.getPosition().x + this->bounds.getGlobalBounds().width/2.f,
-            this->bounds.getPosition().y + 10.f, this->statusFont, 12, sf::Color::White, sf::Color::Black, "Name");
+            this->bounds.getPosition().y + 150.f, this->statusFont, 36, sf::Color::White, sf::Color::Black, "Name: ", "Kuy");
 
 }
 
@@ -713,6 +712,7 @@ void gui::Status::render(sf::RenderTarget &target) {
         target.draw(this->bounds);
         target.draw(this->statusTag);
         target.draw(this->statusText);
+        this->name->render(target);
     }
 
     this->hide_button->render(target);
@@ -727,8 +727,7 @@ void gui::Status::allText() {
 //                          Text Gui                               //
 
 gui::TextGui::TextGui(float x, float y, sf::Font *font, unsigned char_size, sf::Color text_color,
-                      sf::Color outline_color, std::string text, AttributeComponent* value) {
-    this->initVariables();
+                      sf::Color outline_color, std::string text, std::string value) {
     this->textFont = font;
 
     this->text.setFont(*this->textFont);
@@ -739,29 +738,22 @@ gui::TextGui::TextGui(float x, float y, sf::Font *font, unsigned char_size, sf::
     this->text.setPosition(x, y);
     this->text.setString(text);
 
-    this->text.setPosition(x + 3, y);
-    this->text.setString(*value);
-
-
-
-
-
-
+    this->value.setFont(*this->textFont);
+    this->value.setFillColor(text_color);
+    this->value.setOutlineThickness(0.5f);
+    this->value.setOutlineColor(outline_color);
+    this->value.setCharacterSize(char_size);
+    this->value.setPosition(x + 125,y);
+    this->value.setString(value);
 
 
 }
 
 gui::TextGui::~TextGui() {
-    delete this->attributeComponent;
+
 }
 
-AttributeComponent *gui::TextGui::getAtr() {
-    return this->attributeComponent;
-}
 
-void gui::TextGui::initVariables() {
-    this->attributeComponent = new AttributeComponent(1);
-}
 void gui::TextGui::update()
 {
 
@@ -770,4 +762,5 @@ void gui::TextGui::update()
 void gui::TextGui::render(sf::RenderTarget& target)
 {
     target.draw(this->text);
+    target.draw(this->value);
 }
