@@ -17,10 +17,11 @@ Mainmenu::~Mainmenu() {
     for (auto it = this->buttons.begin(); it != this->buttons.end();++it){
         delete it->second;
     }
+    delete this->nameState;
 }
 //Initializer
 void Mainmenu::initVariables() {
-
+    this->showBox = false;
 }
 void Mainmenu::initFonts() {
     if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
@@ -76,6 +77,14 @@ void Mainmenu::update(const float &dt) {
     this->updateMousePos();
     this->updateButtons();
 
+    if (this->showBox && !this->getQuit())
+    {
+        this->nameState->update(dt);
+        this->getQuit();
+    }
+
+
+
 }
 
 void Mainmenu::render(sf::RenderTarget *target) {
@@ -86,6 +95,16 @@ void Mainmenu::render(sf::RenderTarget *target) {
     target->draw(this->background);
     target->draw(this->btnBackground);
     this->renderButtons(*target);
+
+    if (this->showBox && !this->getQuit())
+    {
+        this->getQuit();
+        this->nameState->render(target);
+    }
+    std::cout << this->getQuit() << std::endl;
+//    std::cout << this->getQuit() << "\n";
+
+
 
     //For Checking (x,y) from Mouse
     /*
@@ -121,7 +140,8 @@ void Mainmenu::updateButtons() {
     {
         this->soundBt.play();
         this->musicBG.stop();
-        this->states->push(new GameState(this->state_data));
+        this->showBox = true;
+        this->nameState = new NameState(this->state_data);
 
     }
     if (this->buttons["SETTINGS_STATE"]->isPressed())
@@ -151,6 +171,7 @@ void Mainmenu::renderButtons(sf::RenderTarget &target) {
 
         it.second->render(target) ;
     }
+
 }
 
 void Mainmenu::initAudio() {

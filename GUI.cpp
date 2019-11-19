@@ -609,19 +609,19 @@ gui::Status::Status(float x, float y, float width, float height,float gridSize, 
 
 gui::Status::~Status() {
     delete this->hide_button;
-    delete this-> vitText;
-    delete this-> strText;
-    delete this-> dexText;
-    delete this-> agiText;
-    delete this-> luckText;
-    delete this-> intText;
-
+//    delete this-> vitText;
+//    delete this-> strText;
+//    delete this-> dexText;
+//    delete this-> agiText;
+//    delete this-> luckText;
+//    delete this-> intText;
+//
     delete this-> name;
-    delete this-> levelText;
-    delete this-> levelNextText;
-    delete this-> statPoints;
-    delete this-> hpText;
-    delete this-> dmgText;
+//    delete this-> levelText;
+//    delete this-> levelNextText;
+//    delete this-> statPoints;
+//    delete this-> hpText;
+//    delete this-> dmgText;
 
 
 }
@@ -666,14 +666,7 @@ void gui::Status::update(const sf::Vector2i& mousePosWindow, const float &dt) {
     this->hide_button->update(mousePosWindow);
     if (this->hide_button->isPressed() && this->getKeytime())
     {
-        if(this->hidden)
-        {
-            this->hidden = false;
-        }
-        else
-        {
-            this->hidden = true;
-        }
+        this->hidden = !this->hidden;
     }
     if (!this->hidden)
     {
@@ -750,7 +743,6 @@ gui::TextGui::TextGui(float x, float y, sf::Font *font, unsigned char_size, sf::
 }
 
 gui::TextGui::~TextGui() {
-
 }
 
 

@@ -5,8 +5,7 @@
 #ifndef GUJARUNSFML_NAMESTATE_H
 #define GUJARUNSFML_NAMESTATE_H
 #include "../Precom.h"
-#include "State.h"
-
+#include "GameState.h"
 class NameState : public State
 {
 private:
@@ -19,13 +18,19 @@ private:
 
 
 
+
 public:
     NameState(StateData* state_data);
     virtual ~NameState();
 
     void initBox();
     void update(const float& dt);
-    void render(sf::RenderTarget& target);
+    void render(sf::RenderTarget* target);
+    void updateInput(const float& dt);
+
+    bool* getQuit();
+    bool quit;
+
 };
 
 

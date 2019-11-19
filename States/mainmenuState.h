@@ -4,6 +4,7 @@
 #include "EditorState.h"
 #include "SettingsState.h"
 #include "../GraphicsSettings.h"
+#include "NameState.h"
 
 #ifndef GUJARUNSFML_MAINMENUSTATE_H
 #define GUJARUNSFML_MAINMENUSTATE_H
@@ -40,6 +41,10 @@ private:
     void initVariables();
     void initAudio();
     void resetGui();
+
+    //bool
+    bool showBox;
+    NameState* nameState;
 
 
 

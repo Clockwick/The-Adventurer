@@ -1,5 +1,4 @@
 #include "Precom.h"
-#include "Components/AttributeComponent.h"
 #ifndef GUJARUNSFML_BUTTON_H
 #define GUJARUNSFML_BUTTON_H
 
@@ -172,8 +171,6 @@ namespace gui {
     class TextGui
     {
     private:
-        AttributeComponent* attributeComponent;
-        AttributeComponent* getAtr();
 
         //Text
         sf::Font* textFont;
@@ -236,19 +233,19 @@ namespace gui {
         sf::IntRect profilePlayer;
 
         //Text
-        gui::TextGui* vitText;
-        gui::TextGui* strText;
-        gui::TextGui* dexText;
-        gui::TextGui* agiText;
-        gui::TextGui* luckText;
-        gui::TextGui* intText;
+//        gui::TextGui* vitText;
+//        gui::TextGui* strText;
+//        gui::TextGui* dexText;
+//        gui::TextGui* agiText;
+//        gui::TextGui* luckText;
+//        gui::TextGui* intText;
 
         gui::TextGui* name;
-        gui::TextGui* levelText;
-        gui::TextGui* levelNextText;
-        gui::TextGui* statPoints;
-        gui::TextGui* hpText;
-        gui::TextGui* dmgText;
+//        gui::TextGui* levelText;
+//        gui::TextGui* levelNextText;
+//        gui::TextGui* statPoints;
+//        gui::TextGui* hpText;
+//        gui::TextGui* dmgText;
 
 
         //Font
