@@ -151,10 +151,21 @@ void TileMap::update(Entity *entity, const float &dt) {
                 if (this->map[x][y][this->layer][k]->getCollision() &&
                     this->map[x][y][this->layer][k]->intersects(nextPositionBounds)) {
                     //Bottom collision
-                    if (playerBounds.top < wallBounds.top - 69.999f
-                        && playerBounds.top + playerBounds.height < wallBounds.top + wallBounds.height
-                        && playerBounds.left < wallBounds.left + wallBounds.width
-                        && playerBounds.left + playerBounds.width > wallBounds.left
+
+                    if (
+                        playerBounds.left < wallBounds.left + wallBounds.width
+                        && playerBounds.left + playerBounds.width  + 25> wallBounds.left && !entity->getMovementComponents()->faceRight && (entity->getAttack() || entity->getAttack1() || entity->getAttack2())
+                            ) {
+                        std::cout << "Case" << std::endl;
+                        this->canJump = true;
+                        entity->allowJump(&this->canJump);
+                        entity->stopVelocityY();
+                        entity->setPosition(entity->getPosition().x, wallBounds.top - playerBounds.height + 9);
+                    }
+                    else if (playerBounds.top < wallBounds.top - 69.999f
+                             && playerBounds.top + playerBounds.height < wallBounds.top + wallBounds.height
+                             && playerBounds.left < wallBounds.left + wallBounds.width
+                             && playerBounds.left + playerBounds.width > wallBounds.left
                             ) {
                         std::cout << "Bottom Collision" << std::endl;
                         this->canJump = true;
@@ -197,11 +208,9 @@ void TileMap::update(Entity *entity, const float &dt) {
                             ) {
                         std::cout << "Left Collision" << std::endl;
 
-
                         entity->stopVelocityX();
                         entity->setPosition(wallBounds.left + wallBounds.width, playerBounds.top + 10);
                     }
-
 
                 }
 

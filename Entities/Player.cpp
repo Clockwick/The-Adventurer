@@ -19,10 +19,6 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
     this->setPosition(x , y);
     this->initAnimation();
 
-
-//    std::cout << "Player.cpp: "<< this->isJump << std::endl;
-
-
 }
 
 Player::~Player() {
@@ -120,7 +116,6 @@ void Player::updateAttack()
             this->swordSound.play();
         this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type);// Modify
     }
-//    std::cout << this->sliding << "\n";
 
 }
 

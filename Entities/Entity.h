@@ -24,6 +24,10 @@ public:
     virtual void stopVelocityX();
     virtual void stopVelocityY();
     virtual void jump();
+    virtual MovementComponents* getMovementComponents();
+    virtual bool getAttack();
+    virtual bool getAttack1();
+    virtual bool getAttack2();
 
 
     void createMovementComponents(const float maxVelocity, const float acceleration, const float deceleration , const float& jumpHeight);

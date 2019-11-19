@@ -133,6 +133,23 @@ void Entity::allowJump(bool *canJump) {
 
 }
 
+MovementComponents* Entity::getMovementComponents() {
+    return nullptr;
+}
+
+bool Entity::getAttack() {
+    return false;
+
+}
+
+bool Entity::getAttack1() {
+    return false;
+}
+
+bool Entity::getAttack2() {
+    return false;
+}
+
 
 
 
