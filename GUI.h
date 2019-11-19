@@ -1,4 +1,5 @@
 #include "Precom.h"
+#include "Components/AttributeComponent.h"
 #ifndef GUJARUNSFML_BUTTON_H
 #define GUJARUNSFML_BUTTON_H
 
@@ -160,10 +161,35 @@ namespace gui {
         const float keytimeMax;
 
 
+
+
         //Sidebar
         sf::RectangleShape inventoryTag;
         bool inventoryActive;
         sf::Text inventoryText;
+
+    };
+    class TextGui
+    {
+    private:
+        AttributeComponent* attributeComponent;
+        AttributeComponent* getAtr();
+
+        //Text
+        sf::Font* textFont;
+        sf::Text text;
+
+        void initVariables();
+
+    public:
+        TextGui(float x, float y, sf::Font* font, unsigned char_size, sf::Color text_color, sf::Color outline_color, std::string text
+                , AttributeComponent* value);
+        virtual ~TextGui();
+
+        void update();
+        void render(sf::RenderTarget& target);
+
+
 
     };
     class Status
@@ -187,7 +213,6 @@ namespace gui {
 
     private:
         sf::RectangleShape bounds;
-        sf::RectangleShape selector;
         sf::Vector2u mousePosGrid;
         sf::IntRect textureRect;
         gui::Button* hide_button;
@@ -205,7 +230,39 @@ namespace gui {
         sf::Text statusText;
 
 
+        //Main
+        sf::RectangleShape profileShape;
+        sf::Texture profileTexture;
+        sf::IntRect profilePlayer;
+
+        //Text
+        gui::TextGui* vitText;
+        gui::TextGui* strText;
+        gui::TextGui* dexText;
+        gui::TextGui* agiText;
+        gui::TextGui* luckText;
+        gui::TextGui* intText;
+
+        gui::TextGui* name;
+        gui::TextGui* levelText;
+        gui::TextGui* levelNextText;
+        gui::TextGui* statPoints;
+        gui::TextGui* hpText;
+        gui::TextGui* dmgText;
+
+
+        //Font
+        sf::Font *statusFont;
+        void allText();
+        void initText();
+
+
+
+
     };
+
+
+
 }
 
 

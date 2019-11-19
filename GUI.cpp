@@ -574,6 +574,7 @@ gui::Status::Status(float x, float y, float width, float height,float gridSize, 
     this->active = false;
     this->statusActive = false;
     this->hidden = true;
+    this->statusFont = font;
 
     float offset = gridSize;
 
@@ -583,11 +584,6 @@ gui::Status::Status(float x, float y, float width, float height,float gridSize, 
     this->bounds.setOutlineThickness(1.f);
     this->bounds.setOutlineColor(sf::Color(255,255,255,200));
 
-    this->selector.setPosition(x, y);
-    this->selector.setSize(sf::Vector2f(gridSize, gridSize));
-    this->selector.setFillColor(sf::Color::Transparent);
-    this->selector.setOutlineThickness(1.f);
-    this->selector.setOutlineColor(sf::Color::White);
 
     this->textureRect.width = static_cast<int>(gridSize);
     this->textureRect.height = static_cast<int>(gridSize);
@@ -607,12 +603,34 @@ gui::Status::Status(float x, float y, float width, float height,float gridSize, 
     this->statusText.setString(text);
     this->statusText.setCharacterSize(36.f);
     this->statusText.setPosition(this->bounds.getPosition().x + this->bounds.getGlobalBounds().width/2.f - 50.f, this->bounds.getPosition().y + 20.f);
+    this->initText();
 
 
 }
 
 gui::Status::~Status() {
     delete this->hide_button;
+    delete this-> vitText;
+    delete this-> strText;
+    delete this-> dexText;
+    delete this-> agiText;
+    delete this-> luckText;
+    delete this-> intText;
+
+    delete this-> name;
+    delete this-> levelText;
+    delete this-> levelNextText;
+    delete this-> statPoints;
+    delete this-> hpText;
+    delete this-> dmgText;
+
+
+}
+
+void gui::Status::initText()
+{
+    this->name = new gui::TextGui(this->bounds.getPosition().x + this->bounds.getGlobalBounds().width/2.f,
+            this->bounds.getPosition().y + 10.f, this->statusFont, 12, sf::Color::White, sf::Color::Black, "Name");
 
 }
 
@@ -669,11 +687,6 @@ void gui::Status::update(const sf::Vector2i& mousePosWindow, const float &dt) {
 
             this->mousePosGrid.x = (mousePosWindow.x - static_cast<int>(this->bounds.getPosition().x)) / static_cast<unsigned>(this->gridSize);
             this->mousePosGrid.y = (mousePosWindow.y - static_cast<int>(this->bounds.getPosition().y)) / static_cast<unsigned>(this->gridSize);
-            this->selector.setPosition(this->bounds.getPosition().x + this->mousePosGrid.x * this->gridSize,
-                                       this->bounds.getPosition().y + this->mousePosGrid.y * this->gridSize);
-            //Update TextureRect
-            this->textureRect.left = static_cast<int>(this->selector.getPosition().x - this->bounds.getPosition().x);
-            this->textureRect.top = static_cast<int>(this->selector.getPosition().y - this->bounds.getPosition().y);
         }
         if (this->statusTag.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosWindow)))
         {
@@ -700,12 +713,61 @@ void gui::Status::render(sf::RenderTarget &target) {
         target.draw(this->bounds);
         target.draw(this->statusTag);
         target.draw(this->statusText);
-        if (this->active && !this->statusActive)
-            target.draw(this->selector);
     }
 
     this->hide_button->render(target);
 }
 
+void gui::Status::allText() {
+
+}
 
 
+/*=================================================================*/
+//                          Text Gui                               //
+
+gui::TextGui::TextGui(float x, float y, sf::Font *font, unsigned char_size, sf::Color text_color,
+                      sf::Color outline_color, std::string text, AttributeComponent* value) {
+    this->initVariables();
+    this->textFont = font;
+
+    this->text.setFont(*this->textFont);
+    this->text.setFillColor(text_color);
+    this->text.setOutlineThickness(0.5f);
+    this->text.setOutlineColor(outline_color);
+    this->text.setCharacterSize(char_size);
+    this->text.setPosition(x, y);
+    this->text.setString(text);
+
+    this->text.setPosition(x + 3, y);
+    this->text.setString(*value);
+
+
+
+
+
+
+
+
+}
+
+gui::TextGui::~TextGui() {
+    delete this->attributeComponent;
+}
+
+AttributeComponent *gui::TextGui::getAtr() {
+    return this->attributeComponent;
+}
+
+void gui::TextGui::initVariables() {
+    this->attributeComponent = new AttributeComponent(1);
+}
+void gui::TextGui::update()
+{
+
+}
+
+void gui::TextGui::render(sf::RenderTarget& target)
+{
+    target.draw(this->text);
+}
