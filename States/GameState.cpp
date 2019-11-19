@@ -344,7 +344,7 @@ void GameState::updateView(const float &dt) {
 
     if (this->inventorySelector->getActive() || this->status->getActive())
     {
-        this->view.setCenter(this->player->getPosition());
+        this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y);
 
         if (this->player->sliding)
         {
@@ -357,9 +357,8 @@ void GameState::updateView(const float &dt) {
             this->view.setCenter(this->player->getPosition().x, this->player->getPosition().y );
         }
     }
+
     else {
-
-
         this->view.setCenter(
                 std::floor(this->player->getPosition().x + (static_cast<float>(this->mousePosWindow.x) -
                                                             static_cast<float>(
@@ -393,8 +392,40 @@ void GameState::updateView(const float &dt) {
                 static_cast<int>(this->view.getCenter().x) / static_cast<int>(this->state_data->gridSize);
         this->viewGridPosition.y =
                 static_cast<int>(this->view.getCenter().y) / static_cast<int>(this->state_data->gridSize);
-    }
 
+        if (!this->player->getMovementComponents()->faceRight && (this->player->getAttack() || this->player->getAttack1() || this->player->getAttack2()) )
+        {
+            this->view.setCenter(
+                    std::floor(25 + this->player->getPosition().x + (static_cast<float>(this->mousePosWindow.x) -
+                                                                static_cast<float>(
+                                                                        this->state_data->gfxSettings->resolution.width /
+                                                                        2)) / 10.f),
+                    std::floor(this->player->getPosition().y + (static_cast<float>(this->mousePosWindow.y) -
+                                                                static_cast<float>(
+                                                                        this->state_data->gfxSettings->resolution.height /
+                                                                        2)) / 10.f)
+            );
+
+            if (this->tileMap->getMaxSizeF().x >= this->view.getSize().x) {
+                if (this->view.getCenter().x - this->view.getSize().x / 2.f < 0.f) {
+                    this->view.setCenter(0.f + this->view.getSize().x / 2.f, this->view.getCenter().y);
+                } else if (this->view.getCenter().x + this->view.getSize().x / 2.f > this->tileMap->getMaxSizeF().x) {
+                    this->view.setCenter(this->tileMap->getMaxSizeF().x - this->view.getSize().x / 2.f,
+                                         this->view.getCenter().y);
+                }
+            }
+
+            if (this->tileMap->getMaxSizeF().y >= this->view.getSize().y) {
+                if (this->view.getCenter().y - this->view.getSize().y / 2.f < 0.f) {
+                    this->view.setCenter(this->view.getCenter().x, 0.f + this->view.getSize().y / 2.f);
+                } else if (this->view.getCenter().y + this->view.getSize().y / 2.f > this->tileMap->getMaxSizeF().y) {
+                    this->view.setCenter(this->view.getCenter().x,
+                                         this->tileMap->getMaxSizeF().y - this->view.getSize().y / 2.f);
+                }
+            }
+        }
+
+    }
 }
 
 

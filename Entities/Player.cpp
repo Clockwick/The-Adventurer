@@ -85,7 +85,7 @@ void Player::updateAttack()
         this->attacking = true;
         if (this->playSound)
             this->swordSound.play();
-        this->createHitboxComponents(this->sprite,-20.f,10.f,80.f,65.f, this->type); // Modify
+        this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type); // Modify
 
     }
     if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump && this->getMovementComponents()->faceRight)
