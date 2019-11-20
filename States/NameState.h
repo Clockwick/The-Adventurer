@@ -30,11 +30,13 @@ private:
 
     void initBox();
     void initVariables();
+    sf::Event event;
 
 
 
 public:
     NameState(StateData* state_data);
+//    NameState();
     virtual ~NameState();
 
 
@@ -42,6 +44,7 @@ public:
     void render(sf::RenderTarget* target);
     void updateInput(const float& dt);
     void updateCursor();
+    void getEvent(sf::Event* event);
 
     const bool& getQuit();
 

@@ -6,6 +6,7 @@
 #define GUJARUNSFML_GAME_H
 #include "States/mainmenuState.h"
 #include "States/GameState.h"
+#include "States/NameState.h"
 class Game{
 public:
 
@@ -46,6 +47,8 @@ private:
 
     float deltaTime;
     float gridSize;
+
+    NameState* nameState;
 
 
 

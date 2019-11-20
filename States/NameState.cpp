@@ -10,7 +10,11 @@ NameState::NameState(StateData *state_data)
     this->initVariables();
     this->initBox();
 }
-
+//NameState::NameState()
+//: State(state_data)
+//{
+//
+//}
 NameState::~NameState() {
 
 }
@@ -96,7 +100,6 @@ void NameState::initVariables() {
 
 void NameState::updateCursor() {
     this->totalTime += this->clock.getElapsedTime().asSeconds();
-    sf::Event event;
     if (this->totalTime >= this->blinkq)
     {
         this->totalTime = 0.f;
@@ -121,5 +124,10 @@ void NameState::updateCursor() {
 
 
 
+
+}
+
+void NameState::getEvent(sf::Event *event) {
+    this->event = *event;
 
 }
