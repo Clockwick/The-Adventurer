@@ -463,9 +463,14 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
     std::cout << this->slimeTime << " " << this->slimeBlink << "\n";
     if (this->slimeTime > 1.f && this->slimeBlink)
     {
-        this->enemyAI->setColor(sf::Color::White);
-        this->slimeBlink = false;
-        this->slimeClock.restart();
+        for (int i = 0; i < this->hitEnemies.size(); i++)
+        {
+            this->hitEnemies[i]->setColor(sf::Color::White);
+            this->slimeBlink = false;
+            this->slimeClock.restart();
+        }
+
+
     }
 
 
@@ -489,6 +494,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
                 {
                     this->player->gainEXP(10);
+                    this->hitEnemies.erase(this->hitEnemies.begin() + i);
                     this->activeEnemies.erase(this->activeEnemies.begin() + i);
                 }
 
@@ -508,6 +514,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
                 {
                     this->player->gainEXP(10);
+                    this->hitEnemies.erase(this->hitEnemies.begin() + i);
                     this->activeEnemies.erase(this->activeEnemies.begin() + i);
                 }
 
@@ -613,6 +620,7 @@ void GameState::updateMovementAI(const float &dt) {
 
 void GameState::setAI(Enemy *enemy) {
     this->enemyAI = enemy;
+    this->hitEnemies.push_back(this->enemyAI);
 }
 void GameState::playDead(const float& dt)
 {

@@ -114,6 +114,8 @@ private:
     bool isDead;
     bool reallyDead;
 
+    std::vector<Enemy*> hitEnemies;
+
     //Functions
     void initVariables();
     void initDeferredRender();
