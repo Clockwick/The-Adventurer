@@ -1099,6 +1099,13 @@ CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/The-Adventurer.dir/GUI.cpp.o
+ /Users/arthris/CLionProjects/The-Adventurer/Components/AnimationComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/AttributeComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/HitboxComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
+ /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
  /Users/arthris/CLionProjects/The-Adventurer/GUI.cpp
  /Users/arthris/CLionProjects/The-Adventurer/GUI.h
  /Users/arthris/CLionProjects/The-Adventurer/Precom.h
@@ -1206,6 +1213,13 @@ CMakeFiles/The-Adventurer.dir/GUI.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o
+ /Users/arthris/CLionProjects/The-Adventurer/Components/AnimationComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/AttributeComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/HitboxComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
+ /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
  /Users/arthris/CLionProjects/The-Adventurer/GUI.h
  /Users/arthris/CLionProjects/The-Adventurer/GUI/Dead.cpp
  /Users/arthris/CLionProjects/The-Adventurer/GUI/Dead.h
@@ -1314,6 +1328,13 @@ CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowHandle.hpp
  /usr/local/cellar/sfml/2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/The-Adventurer.dir/GUI/PauseMenu.cpp.o
+ /Users/arthris/CLionProjects/The-Adventurer/Components/AnimationComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/AttributeComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/HitboxComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.h
+ /Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.h
+ /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
  /Users/arthris/CLionProjects/The-Adventurer/GUI.h
  /Users/arthris/CLionProjects/The-Adventurer/GUI/PauseMenu.cpp
  /Users/arthris/CLionProjects/The-Adventurer/GUI/PauseMenu.h

@@ -1,4 +1,5 @@
 #include "Precom.h"
+#include "Entities/Player.h"
 #ifndef GUJARUNSFML_BUTTON_H
 #define GUJARUNSFML_BUTTON_H
 
@@ -180,11 +181,11 @@ namespace gui {
         void initVariables();
 
     public:
-        TextGui(float x, float y, sf::Font* font, unsigned char_size, sf::Color text_color, sf::Color outline_color, std::string text, std::string value);
+        TextGui(float x, float y, sf::Font* font, unsigned char_size, sf::Color text_color, sf::Color outline_color, std::string text, std::string value, const short type = 0);
         virtual ~TextGui();
 
-        void update();
         void render(sf::RenderTarget& target);
+        void update(const std::string value);
 
 
 
@@ -192,7 +193,7 @@ namespace gui {
     class Status
     {
     public:
-        Status(float x, float y, float width, float height,float gridSize, sf::Font& font, std::string text);
+        Status(Player* player, float x, float y, float width, float height,float gridSize, sf::Font& font, std::string text);
         ~Status();
 
         //Accessor
@@ -220,6 +221,11 @@ namespace gui {
         float keytime;
         const float keytimeMax;
 
+        float spaceY;
+        float firstCol;
+        float secondCol;
+        float thirdCol;
+
 
         //Sidebar
         sf::RectangleShape statusTag;
@@ -233,25 +239,30 @@ namespace gui {
         sf::IntRect profilePlayer;
 
         //Text
-//        gui::TextGui* vitText;
-//        gui::TextGui* strText;
-//        gui::TextGui* dexText;
-//        gui::TextGui* agiText;
-//        gui::TextGui* luckText;
-//        gui::TextGui* intText;
+        gui::TextGui* vitText;
+        gui::TextGui* strText;
+        gui::TextGui* dexText;
+        gui::TextGui* agiText;
+        gui::TextGui* luckText;
+        gui::TextGui* intText;
 
         gui::TextGui* name;
-//        gui::TextGui* levelText;
-//        gui::TextGui* levelNextText;
-//        gui::TextGui* statPoints;
-//        gui::TextGui* hpText;
-//        gui::TextGui* dmgText;
+        gui::TextGui* levelText;
+        gui::TextGui* statPoints;
+        gui::TextGui* hpText;
+
+        gui::TextGui* dmgText;
+        gui::TextGui* levelNextText;
+
+        Player* player;
 
 
         //Font
         sf::Font *statusFont;
         void allText();
         void initText();
+        void initVariables();
+        void initProfile();
 
     };
 

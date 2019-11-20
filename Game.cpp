@@ -82,6 +82,8 @@ void Game::updateSFMLEvent() {
         if (event.type == event.Closed)
             this->window->close();
 
+
+
     }
 }
 
@@ -143,7 +145,6 @@ void Game::initVariables() {
 
 void Game::initGraphicsSettings() {
     this->gfxSettings.loadFromFile("config/graphics.ini");
-
 }
 
 void Game::initStateData() {

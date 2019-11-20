@@ -230,6 +230,7 @@ void Player::updateAnimation(const float &dt)
 
 
     this->hitboxComponents->update();
+//    std::cout << "Correct addr: "<< this << std::endl;
 
 }
 

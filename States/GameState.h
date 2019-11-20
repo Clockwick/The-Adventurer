@@ -42,6 +42,7 @@ private:
     //Player
     Player* player;
     PlayerGUI* playerGui;
+    const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
 
     //Enemy
     std::vector<Enemy*> activeEnemies;

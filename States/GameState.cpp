@@ -22,6 +22,11 @@ GameState::GameState(StateData* state_data)
     this->initDeadMenu();
     this->initTileMap();
 
+    this->status = new gui::Status(this->player,gui::p2pX(70.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
+                                   900.f, 900.f,
+                                   this->state_data->gridSize, this->font, "Status"
+    );
+
 
 }
 
@@ -69,7 +74,6 @@ void GameState::initFonts() {
 }
 
 void GameState::initGui() {
-    const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
 
     this->sidebar.setSize(sf::Vector2f(this->state_data->gfxSettings->resolution.width, 75.f));
     this->sidebar.setPosition(sf::Vector2f(0.f, this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y));
@@ -82,14 +86,6 @@ void GameState::initGui() {
             this->state_data->gridSize, this->font, "Inventory"
 
     );
-    this->status = new gui::Status(gui::p2pX(70.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
-                                                         900.f, 900.f,
-                                                         this->state_data->gridSize, this->font, "Status"
-
-    );
-
-
-
 
 
 }
@@ -107,7 +103,6 @@ void GameState::initVariables() {
     this->isDead = false;
     this->reallyDead = false;
     this->slimeBlink = false;
-
     this->inventoryRect = sf::IntRect(0, 0, static_cast<int>(this->state_data->gridSize) * 0.45,
                                     static_cast<int>(this->state_data->gridSize) * 0.45);
 }
@@ -258,7 +253,6 @@ void GameState::render(sf::RenderTarget *target) {
 
     target->draw(this->renderSprite);
 
-
 }
 
 
@@ -367,7 +361,7 @@ void GameState::updateView(const float &dt) {
                 std::floor(this->player->getPosition().x + (static_cast<float>(this->mousePosWindow.x) -
                                                             static_cast<float>(
                                                                     this->state_data->gfxSettings->resolution.width /
-                                                                    2)) / 10.f),
+                                                                    2.f)) / 10.f),
                 std::floor(this->player->getPosition().y + (static_cast<float>(this->mousePosWindow.y) -
                                                             static_cast<float>(
                                                                     this->state_data->gfxSettings->resolution.height /
@@ -445,6 +439,7 @@ void GameState::updateTileMap(const float &dt) {
 void GameState::updatePlayerGUI(const float &dt) {
     this->playerGui->update(dt);
 
+
 }
 
 void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
@@ -460,8 +455,8 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
         this->blink = false;
         this->blinkClock.restart();
     }
-    std::cout << this->slimeTime << " " << this->slimeBlink << "\n";
-    if (this->slimeTime > 1.f && this->slimeBlink)
+//    std::cout << this->slimeTime << " " << this->slimeBlink << "\n";
+    if (this->slimeTime > 0.3f && this->slimeBlink)
     {
         for (int i = 0; i < this->hitEnemies.size(); i++)
         {
@@ -491,7 +486,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 this->slimeClock.restart();
 //                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
 
-                if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
+                if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0)
                 {
                     this->player->gainEXP(10);
                     this->hitEnemies.erase(this->hitEnemies.begin() + i);
@@ -511,7 +506,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 this->slimeBlink = true;
                 this->slimeClock.restart();
 //                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
-                if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
+                if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0)
                 {
                     this->player->gainEXP(10);
                     this->hitEnemies.erase(this->hitEnemies.begin() + i);
@@ -611,10 +606,7 @@ void GameState::updateMovementAI(const float &dt) {
         else if (this->enemyAI->getPosition().x > this->player->getPosition().x)
             this->enemyAI->move(-1.0f, 0.f, dt);
 
-
-
     }
-
 
 }
 

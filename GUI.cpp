@@ -563,12 +563,12 @@ void gui::InventorySelector::render(sf::RenderTarget &target) {
 /*=================================================================*/
 //                          Status                                //
 
-gui::Status::Status(float x, float y, float width, float height,float gridSize, sf::Font& font, std::string text)
+gui::Status::Status(Player* player,float x, float y, float width, float height,float gridSize, sf::Font& font, std::string text)
         : keytimeMax(1.f), keytime(0.f)
 {
 
-
-
+    this->player = player;
+    this->initVariables();
     this->gridSize = gridSize;
     this->active = false;
     this->statusActive = false;
@@ -602,34 +602,72 @@ gui::Status::Status(float x, float y, float width, float height,float gridSize, 
     this->statusText.setString(text);
     this->statusText.setCharacterSize(36.f);
     this->statusText.setPosition(this->bounds.getPosition().x + this->bounds.getGlobalBounds().width/2.f - 50.f, this->bounds.getPosition().y + 20.f);
+    this->firstCol = this->bounds.getPosition().x + this->bounds.getGlobalBounds().width/2.f;
+    this->secondCol = this->bounds.getPosition().x + 100.f;
+    this->thirdCol = this->firstCol + 50.f;
+    this->initProfile();
     this->initText();
+
 
 
 }
 
 gui::Status::~Status() {
     delete this->hide_button;
-//    delete this-> vitText;
-//    delete this-> strText;
-//    delete this-> dexText;
-//    delete this-> agiText;
-//    delete this-> luckText;
-//    delete this-> intText;
+    delete this-> vitText;
+    delete this-> strText;
+    delete this-> dexText;
+    delete this-> agiText;
+    delete this-> luckText;
+    delete this-> intText;
 //
     delete this-> name;
-//    delete this-> levelText;
-//    delete this-> levelNextText;
-//    delete this-> statPoints;
-//    delete this-> hpText;
-//    delete this-> dmgText;
+    delete this-> levelText;
+    delete this-> statPoints;
+    delete this-> hpText;
+
+    delete this-> dmgText;
+    delete this-> levelNextText;
+
 
 
 }
+void gui::Status::initVariables() {
+    this->spaceY = 75.f;
+}
+void gui::Status::initProfile() {
+    this->profileShape.setSize(sf::Vector2f(275.f, 255.f));
+    this->profileShape.setFillColor(sf::Color::White);
+    this->profileShape.setPosition(sf::Vector2f(this->bounds.getPosition().x + 100.f, this->bounds.getPosition().y + 100.f));
+}
+
 
 void gui::Status::initText()
 {
-    this->name = new gui::TextGui(this->bounds.getPosition().x + this->bounds.getGlobalBounds().width/2.f,
-            this->bounds.getPosition().y + 150.f, this->statusFont, 36, sf::Color::White, sf::Color::Black, "Name: ", "Kuy");
+    this->name = new gui::TextGui(this->firstCol,this->bounds.getPosition().y + 125.f, this->statusFont, 36, sf::Color::White, sf::Color::Black, "Name: ", "Kuy");
+    this->levelText = new gui::TextGui(this->firstCol, this->bounds.getPosition().y + 125.f + this->spaceY, this->statusFont, 36
+    , sf::Color::White, sf::Color::Black, "Level: ", std::to_string(this->player->getAttributeComponents()->level));
+    this->hpText = new gui::TextGui(this->firstCol, this->bounds.getPosition().y + 125.f + (2 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "HP: ", std::to_string(this->player->getAttributeComponents()->hp));
+    this->statPoints = new gui::TextGui(this->secondCol, this->bounds.getPosition().y + 150.f + (3 * this->spaceY), this->statusFont, 40
+            , sf::Color::White, sf::Color::Black, "Stat Points Left: ", std::to_string(this->player->getAttributeComponents()->attributePoints), 1);
+    this->strText = new gui::TextGui(this->secondCol, this->bounds.getPosition().y + 150.f + (4 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "Str: ", std::to_string(this->player->getAttributeComponents()->Str));
+    this->vitText = new gui::TextGui(this->secondCol, this->bounds.getPosition().y + 150.f + (5 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "Vit: ", std::to_string(this->player->getAttributeComponents()->Vit));
+    this->agiText = new gui::TextGui(this->secondCol, this->bounds.getPosition().y + 150.f + (6 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "Agi: ", std::to_string(this->player->getAttributeComponents()->Agi));
+    this->dexText = new gui::TextGui(this->secondCol, this->bounds.getPosition().y + 150.f + (7 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "Dex: ", std::to_string(this->player->getAttributeComponents()->Dex));
+    this->intText = new gui::TextGui(this->secondCol, this->bounds.getPosition().y + 150.f + (8 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "Int: ", std::to_string(this->player->getAttributeComponents()->Int));
+    this->luckText = new gui::TextGui(this->secondCol, this->bounds.getPosition().y + 150.f + (9 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "Luck: ", std::to_string(this->player->getAttributeComponents()->luck));
+    this->dmgText = new gui::TextGui(this->thirdCol, this->bounds.getPosition().y + 150.f + (4 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "Dmg: ", std::to_string(this->player->getAttributeComponents()->damageMax));
+    this->levelNextText = new gui::TextGui(this->thirdCol, this->bounds.getPosition().y + 150.f + (5 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "ExpNext: ", std::to_string(this->player->getAttributeComponents()->expNext), 3);
+
 
 }
 
@@ -661,7 +699,7 @@ const bool gui::Status::getKeytime()
 
 //Functions
 void gui::Status::update(const sf::Vector2i& mousePosWindow, const float &dt) {
-
+//    std::cout << this->player << "\n";
     this->updateKeytime(dt);
     this->hide_button->update(mousePosWindow);
     if (this->hide_button->isPressed() && this->getKeytime())
@@ -687,6 +725,20 @@ void gui::Status::update(const sf::Vector2i& mousePosWindow, const float &dt) {
         }
 
     }
+    //Update value
+    this->vitText->update(std::to_string(this->player->getAttributeComponents()->Vit));
+    this->strText->update(std::to_string(this->player->getAttributeComponents()->Str));
+    this->dexText->update(std::to_string(this->player->getAttributeComponents()->Dex));
+    this->agiText->update(std::to_string(this->player->getAttributeComponents()->Agi));
+    this->luckText->update(std::to_string(this->player->getAttributeComponents()->luck));
+    this->intText->update(std::to_string(this->player->getAttributeComponents()->Int));
+
+    this->levelText->update(std::to_string(this->player->getAttributeComponents()->level));
+    this->statPoints->update(std::to_string(this->player->getAttributeComponents()->attributePoints));
+    this->hpText->update(std::to_string(this->player->getAttributeComponents()->hp));
+
+    this->dmgText->update(std::to_string(this->player->getAttributeComponents()->damageMax));
+    this->levelNextText->update(std::to_string(this->player->getAttributeComponents()->expNext));
 
 }
 
@@ -705,7 +757,19 @@ void gui::Status::render(sf::RenderTarget &target) {
         target.draw(this->bounds);
         target.draw(this->statusTag);
         target.draw(this->statusText);
+        target.draw(this->profileShape);
         this->name->render(target);
+        this->levelText->render(target);
+        this->hpText->render(target);
+        this->statPoints->render(target);
+        this->strText->render(target);
+        this->vitText->render(target);
+        this->agiText->render(target);
+        this->dexText->render(target);
+        this->intText->render(target);
+        this->luckText->render(target);
+        this->dmgText->render(target);
+        this->levelNextText->render(target);
     }
 
     this->hide_button->render(target);
@@ -716,11 +780,14 @@ void gui::Status::allText() {
 }
 
 
+
+
+
 /*=================================================================*/
 //                          Text Gui                               //
 
 gui::TextGui::TextGui(float x, float y, sf::Font *font, unsigned char_size, sf::Color text_color,
-                      sf::Color outline_color, std::string text, std::string value) {
+                      sf::Color outline_color, std::string text, std::string value, const short type) {
     this->textFont = font;
 
     this->text.setFont(*this->textFont);
@@ -736,7 +803,12 @@ gui::TextGui::TextGui(float x, float y, sf::Font *font, unsigned char_size, sf::
     this->value.setOutlineThickness(0.5f);
     this->value.setOutlineColor(outline_color);
     this->value.setCharacterSize(char_size);
-    this->value.setPosition(x + 125,y);
+    if (type == 0)
+        this->value.setPosition(x + 125,y);
+    if (type == 1)
+        this->value.setPosition(x + 290,y);
+    if (type == 3)
+        this->value.setPosition(x + 160, y);
     this->value.setString(value);
 
 
@@ -746,13 +818,14 @@ gui::TextGui::~TextGui() {
 }
 
 
-void gui::TextGui::update()
-{
 
-}
 
 void gui::TextGui::render(sf::RenderTarget& target)
 {
     target.draw(this->text);
     target.draw(this->value);
+}
+
+void gui::TextGui::update(const std::string value) {
+    this->value.setString(value);
 }

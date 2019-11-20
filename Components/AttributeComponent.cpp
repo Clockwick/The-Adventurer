@@ -17,6 +17,7 @@ AttributeComponent::AttributeComponent(int level) {
     this->Int = 1;
     this->Dex = 1;
     this->Agi = 1;
+    this->luck = 1;
 
     this->updateLevel();
     this->updateStats(true);
