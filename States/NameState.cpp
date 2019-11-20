@@ -43,6 +43,7 @@ void NameState::updateInput(const float &dt) {
 
 void NameState::update(const float &dt) {
     this->updateInput(dt);
+
 }
 
 void NameState::render(sf::RenderTarget *target) {
@@ -50,7 +51,7 @@ void NameState::render(sf::RenderTarget *target) {
     target->draw(this->textIntro);
 }
 
-bool* NameState::getQuit()
+const bool& NameState::getQuit()
 {
-    return &this->quit;
+    return this->quit;
 }

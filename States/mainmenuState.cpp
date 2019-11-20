@@ -77,10 +77,10 @@ void Mainmenu::update(const float &dt) {
     this->updateMousePos();
     this->updateButtons();
 
-    if (this->showBox && !this->getQuit())
+    if (this->showBox && !this->nameState->getQuit())
     {
         this->nameState->update(dt);
-        this->getQuit();
+        this->nameState->getQuit();
     }
 
 
@@ -96,13 +96,11 @@ void Mainmenu::render(sf::RenderTarget *target) {
     target->draw(this->btnBackground);
     this->renderButtons(*target);
 
-    if (this->showBox && !this->getQuit())
+    if (this->showBox && !this->nameState->getQuit())
     {
-        this->getQuit();
         this->nameState->render(target);
     }
-    std::cout << this->getQuit() << std::endl;
-//    std::cout << this->getQuit() << "\n";
+
 
 
 

@@ -106,6 +106,7 @@ void GameState::initVariables() {
     this->autoMoveRight = false;
     this->isDead = false;
     this->reallyDead = false;
+    this->slimeBlink = false;
 
     this->inventoryRect = sf::IntRect(0, 0, static_cast<int>(this->state_data->gridSize) * 0.45,
                                     static_cast<int>(this->state_data->gridSize) * 0.45);
@@ -120,10 +121,10 @@ void GameState::initPlayerGUI() {
     this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
 }
 void GameState::initEnemies() {
-    this->activeEnemies.push_back(new Slime(1900.f, 475.f, 40.f, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(2000.f , 280.f, 40.f, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(2100.f , 475.f, 40.f, this->textures["SLIME_SHEET"]));
-    this->activeEnemies.push_back(new Slime(2200.f , 475.f, 40.f, this->textures["SLIME_SHEET"]));
+    if (this->activeEnemies.size() < 6)
+    {
+        this->activeEnemies.push_back(new Slime(((rand()%30) * 100) + 1500, 475.f, 40.f, this->textures["SLIME_SHEET"]));
+    }
 }
 
 
@@ -155,7 +156,7 @@ void GameState::update(const float &dt) {
     this->updateKeytime(dt);
     this->updateInput(dt);
 
-    if (!this->paused && !this->reallyDead && !this->isDead)//Unpaused
+    if (!this->paused && !this->reallyDead && !this->isDead)//Unpausesd
     {
         this->updateView(dt);
         this->updatePlayerInput(dt);
@@ -164,6 +165,7 @@ void GameState::update(const float &dt) {
         this->player->update(dt);
         this->playerGui->update(dt);
         this->updateMovementAI(dt);
+        this->initEnemies();
 
         for (auto *i : this->activeEnemies)
         {
@@ -257,7 +259,6 @@ void GameState::render(sf::RenderTarget *target) {
     target->draw(this->renderSprite);
 
 
-
 }
 
 
@@ -317,7 +318,10 @@ void GameState::initDeadMenu() {
 
 void GameState::updatePauseMenuButtons() {
     if (this->pmenu->isButtonPressed(("QUIT")) && this->getKeyTime())
+    {
         this->endState();
+    }
+
 
 }
 void GameState::updateDeadMenuButtons() {
@@ -450,12 +454,19 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
     sf::FloatRect nextPositionBounds = entity->getNextPositionBounds(dt);
     this->time = this->clock.getElapsedTime().asSeconds();
     this->blinkTime = this->blinkClock.getElapsedTime().asSeconds();
+    this->slimeTime = this->slimeClock.getElapsedTime().asSeconds();
     if (this->blinkTime >= 2.f)
     {
         this->blink = false;
         this->blinkClock.restart();
     }
-
+    std::cout << this->slimeTime << " " << this->slimeBlink << "\n";
+    if (this->slimeTime > 1.f && this->slimeBlink)
+    {
+        this->enemyAI->setColor(sf::Color::White);
+        this->slimeBlink = false;
+        this->slimeClock.restart();
+    }
 
 
     for (int i = 0; i < this->activeEnemies.size(); i++) {
@@ -466,10 +477,13 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
                 && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 1.f)
             {
-                this->activeEnemies[i]->gotAttackRight();
-                this->activeEnemies[i]->loseHP(5);
                 this->autoMoveLeft = true;
                 this->setAI(this->activeEnemies[i]);
+                this->activeEnemies[i]->setColor(sf::Color::Red);
+                this->activeEnemies[i]->gotAttackRight();
+                this->activeEnemies[i]->loseHP(5);
+                this->slimeBlink = true;
+                this->slimeClock.restart();
 //                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
 
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
@@ -483,10 +497,13 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                      && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
                      && playerBounds.top < enemyBounds.top + enemyBounds.height
                      && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 1.f) {
-                this->activeEnemies[i]->gotAttackLeft();
-                this->activeEnemies[i]->loseHP(5);
                 this->autoMoveRight = true;
                 this->setAI(this->activeEnemies[i]);
+                this->activeEnemies[i]->gotAttackLeft();
+                this->activeEnemies[i]->loseHP(5);
+                this->activeEnemies[i]->setColor(sf::Color::Red);
+                this->slimeBlink = true;
+                this->slimeClock.restart();
 //                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0.f)
                 {
@@ -555,6 +572,15 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
 }
 
 void GameState::updateMovementAI(const float &dt) {
+    for (int i = 0; i < this->activeEnemies.size(); i++)
+    {
+        
+        if (this->player->getPosition().x > this->activeEnemies[i]->getPosition().x)
+            this->activeEnemies[i]->move(1.f,0.f,dt);
+        else if (this->player->getPosition().x - this->activeEnemies[i]->getPosition().x > -500.f)
+            this->activeEnemies[i]->move(-1.f,0.0f,dt);
+
+    }
     if (this->autoMoveLeft)
     {
 //        std::cout << "AutoMoveL" << "\n";
@@ -602,6 +628,8 @@ void GameState::playDead(const float& dt)
     }
 
 }
+
+
 
 
 

@@ -28,7 +28,7 @@ public:
     void render(sf::RenderTarget* target);
     void updateInput(const float& dt);
 
-    bool* getQuit();
+    const bool& getQuit();
     bool quit;
 
 };

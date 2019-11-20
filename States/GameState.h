@@ -35,6 +35,9 @@ public:
     void render(sf::RenderTarget* target = nullptr);
     void renderGui(sf::RenderTarget& target);
 
+
+    //Acessors
+
 private:
     //Player
     Player* player;
@@ -75,6 +78,9 @@ private:
     sf::Clock smallClock;
     float smallTime;
     int smallCount;
+    bool slimeBlink;
+    sf::Clock slimeClock;
+    float slimeTime;
 
     //Bot
     void updateMovementAI(const float &dt);
