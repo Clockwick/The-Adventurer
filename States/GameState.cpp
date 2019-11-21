@@ -516,7 +516,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
             }
 
 
-        }
+        }t
         else if (this->activeEnemies[i]->intersects(nextPositionBounds) && this->player->getType() == HitTypes::DEFAULT_COL) {
 
             //Right collision
