@@ -364,14 +364,7 @@ void gui::TextureSelector::update(const sf::Vector2i& mousePosWindow, const floa
     this->hide_button->update(mousePosWindow);
     if (this->hide_button->isPressed() && this->getKeytime())
     {
-        if(this->hidden)
-        {
-            this->hidden = false;
-        }
-        else
-        {
-            this->hidden = true;
-        }
+        this->hidden = !this->hidden;
     }
     if (!this->hidden)
     {
@@ -502,14 +495,7 @@ void gui::InventorySelector::update(const sf::Vector2i& mousePosWindow, const fl
     this->hide_button->update(mousePosWindow);
     if (this->hide_button->isPressed() && this->getKeytime())
     {
-        if(this->hidden)
-        {
-            this->hidden = false;
-        }
-        else
-        {
-            this->hidden = true;
-        }
+        this->hidden = !this->hidden;
     }
     if (!this->hidden)
     {

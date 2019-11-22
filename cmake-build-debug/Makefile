@@ -285,6 +285,33 @@ EnemySpawner.cpp.s:
 	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/EnemySpawner.cpp.s
 .PHONY : EnemySpawner.cpp.s
 
+Entities/Boss.o: Entities/Boss.cpp.o
+
+.PHONY : Entities/Boss.o
+
+# target to build an object file
+Entities/Boss.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Boss.cpp.o
+.PHONY : Entities/Boss.cpp.o
+
+Entities/Boss.i: Entities/Boss.cpp.i
+
+.PHONY : Entities/Boss.i
+
+# target to preprocess a source file
+Entities/Boss.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Boss.cpp.i
+.PHONY : Entities/Boss.cpp.i
+
+Entities/Boss.s: Entities/Boss.cpp.s
+
+.PHONY : Entities/Boss.s
+
+# target to generate assembly for a file
+Entities/Boss.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/Entities/Boss.cpp.s
+.PHONY : Entities/Boss.cpp.s
+
 Entities/Enemy.o: Entities/Enemy.cpp.o
 
 .PHONY : Entities/Enemy.o
@@ -1014,6 +1041,9 @@ help:
 	@echo "... EnemySpawner.o"
 	@echo "... EnemySpawner.i"
 	@echo "... EnemySpawner.s"
+	@echo "... Entities/Boss.o"
+	@echo "... Entities/Boss.i"
+	@echo "... Entities/Boss.s"
 	@echo "... Entities/Enemy.o"
 	@echo "... Entities/Enemy.i"
 	@echo "... Entities/Enemy.s"

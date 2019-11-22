@@ -55,14 +55,9 @@ void Player::initAnimation() {
 void Player::update(const float& dt)
 {
     this->updateJumping(dt);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-        this->attributeComponents->gainExp(20);
     this->movementComponents->update(dt);
     this->updateAttack();
     this->updateAnimation(dt);
-
-
-
 
 }
 

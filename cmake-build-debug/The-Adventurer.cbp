@@ -118,6 +118,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/EnemySpawner.h">
 			<Option target="The-Adventurer"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Entities/Boss.cpp">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Entities/Boss.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.cpp">
 			<Option target="The-Adventurer"/>
 		</Unit>

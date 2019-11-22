@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Components/MovementComponent.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/Components/SkillComponent.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Components/SkillComponent.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/EnemySpawner.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/EnemySpawner.cpp.o"
+  "/Users/arthris/CLionProjects/The-Adventurer/Entities/Boss.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Boss.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/Entities/Enemy.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Enemy.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/Entities/Entity.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Entity.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/Entities/Player.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.o"

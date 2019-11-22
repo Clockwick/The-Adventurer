@@ -1,7 +1,11 @@
-#include "Slime.h"
+//
+// Created by Paratthakorn Sribunyong on 22/11/2019 AD.
+//
 
-Slime::Slime(float x, float y, const float &jumpHeight, sf::Texture &texture_sheet)
-: Enemy(), jumpHeight(jumpHeight)
+#include "Boss.h"
+
+Boss::Boss(float x, float y, const float &jumpHeight, sf::Texture &texture_sheet)
+        : Enemy(), jumpHeight(jumpHeight)
 {
     this->initVariables();
     this->initAudio();
@@ -9,33 +13,33 @@ Slime::Slime(float x, float y, const float &jumpHeight, sf::Texture &texture_she
 
     this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f,HitTypes::ATTACK_COL);
     this->createMovementComponents(100, 1000.0f, 250.0f, this->jumpHeight);
-    this->createAttributeComponents(1);
+    this->createAttributeComponents(20);
     this->createSkillComponents();
     this->createAnimationComponents(texture_sheet);
     this->initAnimation();
     this->setPosition(x, y);
 }
 
-Slime::~Slime() {
+Boss::~Boss() {
 
 }
 //Initializer Function
 
-void Slime::initVariables() {
+void Boss::initVariables() {
     this->attacking = false;
     this->isJump = false;
     this->canJump = true;
     this->isAttacked = false;
 }
 
-void Slime::initAnimation() {
-    this->animationComponents->addAnimation("IDLE", 25.f, 0 , 1, 1, 1, 100, 74);
+void Boss::initAnimation() {
+    this->animationComponents->addAnimation("IDLE", 25.f, 0 , 0, 13, 0, 100, 74);
     this->animationComponents->addAnimation("RUN", 15.f, 0, 0, 3, 0, 100, 74);
     this->animationComponents->addAnimation("JUMP", 17.f, 0, 2, 8, 2, 100, 74);
 }
 
 
-void Slime::update(const float &dt) {
+void Boss::update(const float &dt) {
     this->updateHit();
     this->updateMoving(dt);
     this->updateJumping(dt);
@@ -44,18 +48,18 @@ void Slime::update(const float &dt) {
 
 }
 
-void Slime::render(sf::RenderTarget &target, const bool show_hitbox) {
+void Boss::render(sf::RenderTarget &target, const bool show_hitbox) {
 
     target.draw(this->sprite);
     if (show_hitbox)
         this->hitboxComponents->render(target);
 }
 
-void Slime::initAudio() {
+void Boss::initAudio() {
 
 }
 
-void Slime::updateAnimation(const float &dt) {
+void Boss::updateAnimation(const float &dt) {
 //    std::cout << this->isAttacked << std::endl;
 
 
@@ -76,7 +80,7 @@ void Slime::updateAnimation(const float &dt) {
         this->animationComponents->play("RUN", dt, this->movementComponents->getVelocity().x,
                                         this->movementComponents->getMaxVelocity());
     }
-     if (!this->canJump && this->movementComponents->getState(JUMP_LEFT)) {
+    if (!this->canJump && this->movementComponents->getState(JUMP_LEFT)) {
         this->sprite.setOrigin(100.f, 0.f);
         this->sprite.setScale(-1.f, 1.f);
         this->animationComponents->play("JUMP", dt);
@@ -89,17 +93,17 @@ void Slime::updateAnimation(const float &dt) {
     this->hitboxComponents->update();
 
 }
-void Slime::updateJumping(const float& dt) {
+void Boss::updateJumping(const float& dt) {
     this->isJump = this->movementComponents->getVelocity().y != 0;
 //    std::cout << this->getVelocity().x << std::endl;
 
 }
-const bool Slime::intersects(const sf::FloatRect bounds) const
+const bool Boss::intersects(const sf::FloatRect bounds) const
 {
     return this->sprite.getGlobalBounds().intersects(bounds);
 }
 
-void Slime::gotAttackLeft() {
+void Boss::gotAttackLeft() {
 //    this->getVelocity().x += 5;
 ////    if (this->getVelocity().x <= 0.f)
 ////        this->getVelocity().x = 0.f;
@@ -111,7 +115,7 @@ void Slime::gotAttackLeft() {
     this->jump();
 
 }
-void Slime::gotAttackRight() {
+void Boss::gotAttackRight() {
 //    this->getVelocity().x -= 5;
 ////    if (this->getVelocity().x <= -4.f)
 ////        this->getVelocity().x = -4.f;
@@ -122,14 +126,14 @@ void Slime::gotAttackRight() {
     this->getVelocity().x += 100.0f;
     this->jump();
 }
-void Slime::gainHP(const int hp) {
+void Boss::gainHP(const int hp) {
     this->attributeComponents->hp += hp;
 
     if (this->attributeComponents->hp > this->attributeComponents->hpMax)
         this->attributeComponents->hp = this->attributeComponents->hpMax;
 }
 
-void Slime::loseHP(const int hp) {
+void Boss::loseHP(const int hp) {
 
     if (this->isAttacked)
     {
@@ -142,20 +146,20 @@ void Slime::loseHP(const int hp) {
 
 }
 
-AttributeComponent *Slime::getAttributeComponents() {
+AttributeComponent *Boss::getAttributeComponents() {
     return this->attributeComponents;
 }
 
-MovementComponents *Slime::getMovementComponents() {
+MovementComponents *Boss::getMovementComponents() {
     return this->movementComponents;
 }
 
-void Slime::updateMoving(const float &dt) {
+void Boss::updateMoving(const float &dt) {
     this->sprite.move(this->getVelocity() * dt);
 
 }
 
-void Slime::updateHit() {
+void Boss::updateHit() {
     this->delayAttackedTime = this->delayAttackedClock.getElapsedTime().asSeconds();
 //    std::cout << this->delayAttackedTime << "\n";
     {
@@ -168,8 +172,5 @@ void Slime::updateHit() {
     }
 }
 
-void Slime::dropItem() {
-    std::cout << "Drop" << std::endl;
 
-}
 

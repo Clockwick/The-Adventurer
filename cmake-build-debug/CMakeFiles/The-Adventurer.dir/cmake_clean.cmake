@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/The-Adventurer.dir/Components/MovementComponent.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Components/SkillComponent.cpp.o"
   "CMakeFiles/The-Adventurer.dir/EnemySpawner.cpp.o"
+  "CMakeFiles/The-Adventurer.dir/Entities/Boss.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Entities/Enemy.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Entities/Entity.cpp.o"
   "CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.o"

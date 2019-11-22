@@ -5,16 +5,26 @@
 #ifndef GUJARUNSFML_ITEMS_H
 #define GUJARUNSFML_ITEMS_H
 #include "../Precom.h"
-
-class Item
+#include "../Entities/Entity.h"
+class Item : public Entity
 {
 private:
+    void initVariables();
+    void initAnimations();
 
+
+    bool isJump;
 
 
 public:
-    Item();
+    Item(float x, float y, sf::Texture& texture_sheet);
     virtual ~Item();
+
+    virtual void update(const float& dt);
+    virtual void render(sf::RenderTarget& target, const bool show_hitbox = false);
+    virtual void updateJumping(const float& dt);
+    virtual void updateAnimations(const float& dt);
+    const bool intersects(const sf::FloatRect bounds) const;
 };
 
 #endif //GUJARUNSFML_ITEMS_H

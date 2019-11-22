@@ -22,7 +22,6 @@ Game::Game()
 Game::~Game()
 {
     delete this->window;
-    delete this->nameState;
 
     while (!this->states.empty())
     {
@@ -140,8 +139,6 @@ void Game::initVariables() {
     this->window = NULL;
     this->deltaTime = 0.f;
     this->gridSize = 90.f;
-//    this->nameState = new NameState();
-//    this->nameState->getEvent(&event);
 
 }
 

@@ -7,6 +7,9 @@
 #include "../PlayerGUI.h"
 #include "../Entities/Enemy.h"
 #include "../GUI/Dead.h"
+#include "../Items/Items.h"
+#include "../Entities/Boss.h"
+
 #ifndef GUJARUNSFML_GAMESTATE_H
 #define GUJARUNSFML_GAMESTATE_H
 
@@ -29,7 +32,7 @@ public:
     void updateView(const float& dt);
     void updateTileMap(const float& dt);
     void updatePlayerGUI(const float& dt);
-    void updateCollision(Entity *entity, Enemy* enemy, const float& dt);
+    void updateCollision(Entity *entity, Entity* enemy, const float& dt);
 
     //Render
     void render(sf::RenderTarget* target = nullptr);
@@ -88,6 +91,7 @@ private:
     bool autoMoveLeft;
     bool autoMoveRight;
     Enemy* enemyAI;
+    Boss* boss;
     void setAI(Enemy* enemy);
 
 
@@ -115,6 +119,9 @@ private:
     bool isDead;
     bool reallyDead;
 
+    //Items
+    std::vector<Item*> itemElements;
+
     std::vector<Enemy*> hitEnemies;
 
     //Functions
@@ -133,6 +140,7 @@ private:
     void initGui();
     void initDeadMenu();
     void playDead(const float& dt);
+    void initItems();
 
 
 };

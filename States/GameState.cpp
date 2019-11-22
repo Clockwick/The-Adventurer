@@ -15,6 +15,7 @@ GameState::GameState(StateData* state_data)
     this->initView();
     this->initTextures();
     this->initEnemies();
+    this->initItems();
     this->initPlayers();
     this->initPlayerGUI();
     this->initFonts();
@@ -22,10 +23,17 @@ GameState::GameState(StateData* state_data)
     this->initDeadMenu();
     this->initTileMap();
 
+    this->inventorySelector = new gui::InventorySelector(gui::p2pX(60.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
+                                                         900.f, 900.f,
+                                                         this->state_data->gridSize, this->font, "Inventory"
+
+    );
     this->status = new gui::Status(this->player,gui::p2pX(70.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
                                    900.f, 900.f,
                                    this->state_data->gridSize, this->font, "Status"
     );
+
+
 
 
 }
@@ -42,6 +50,9 @@ GameState::~GameState() {
 
     for (size_t i = 0; i < this->activeEnemies.size(); i++)
         delete this->activeEnemies[i];
+    for (size_t j = 0; j < this->itemElements.size(); j++)
+        delete this->itemElements[j];
+
 
 }
 
@@ -60,6 +71,16 @@ void GameState::initTextures() {
     }
     std::cout << "Successfully Loaded Slime" << std::endl;
 
+    if (!this->textures["CANDY_1"].loadFromFile("resources/images/Assets/Map/16x16/Tilesets/MV Icons Halloween/Candy.png"))
+    {
+        std::cout << "Cannot Load Candy" << std::endl;
+    }
+    std::cout << "Successfully Loaded Candy_1" << std::endl;
+    if (!this->textures["BOSS_SHEET"].loadFromFile("resources/images/Assets/Monsters/Boss/Boss.png"))
+    {
+        std::cout << "Cannot Load Boss" << std::endl;
+    }
+    std::cout << "Successfully Loaded Boss" << std::endl;
 
 }
 void GameState::initFonts() {
@@ -80,12 +101,6 @@ void GameState::initGui() {
     this->sidebar.setFillColor(sf::Color(50, 50, 50, 100));
     this->sidebar.setOutlineColor(sf::Color(200, 200, 200, 150));
     this->sidebar.setOutlineThickness(1.f);
-
-    this->inventorySelector = new gui::InventorySelector(gui::p2pX(60.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
-            900.f, 900.f,
-            this->state_data->gridSize, this->font, "Inventory"
-
-    );
 
 
 }
@@ -109,16 +124,17 @@ void GameState::initVariables() {
 
 void GameState::initPlayers() {
     this->player = new Player(500.f,468.f, 200.f, this->textures["PLAYER_SHEET"]);
-
+    this->boss = new Boss(1000.f, 468.f, 200.f, this->textures["BOSS_SHEET"]);
 }
 
 void GameState::initPlayerGUI() {
     this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
 }
 void GameState::initEnemies() {
-    if (this->activeEnemies.size() < 6)
+    if (this->activeEnemies.size() < 10)
     {
         this->activeEnemies.push_back(new Slime(((rand()%30) * 100) + 1500, 475.f, 40.f, this->textures["SLIME_SHEET"]));
+
     }
 }
 
@@ -156,7 +172,6 @@ void GameState::update(const float &dt) {
         this->updateView(dt);
         this->updatePlayerInput(dt);
         this->updateGui(dt);
-        this->updateTileMap(dt);
         this->player->update(dt);
         this->playerGui->update(dt);
         this->updateMovementAI(dt);
@@ -167,6 +182,14 @@ void GameState::update(const float &dt) {
             this->updateCollision(this->player, i, dt);
             i->update(dt);
         }
+        for (auto *j : this->itemElements)
+        {
+            //Update Items Collision Here
+            this->updateCollision(this->player, j, dt);
+            j->update(dt);
+        }
+        this->boss->update(dt);
+        this->updateTileMap(dt);
     }
     else if (this->isDead)
     {
@@ -196,10 +219,16 @@ void GameState::render(sf::RenderTarget *target) {
     this->renderTexture.clear();
     this->renderTexture.setView(this->view);
     this->tileMap->render(this->renderTexture, this->player->getGridPosition(static_cast<int>(this->state_data->gridSize)), false);
+    for (auto *j : this->itemElements)
+    {
+        j->render(this->renderTexture, true);
+    }
     for (auto *i : this->activeEnemies)
     {
         i->render(this->renderTexture, true);
     }
+    this->boss->render(this->renderTexture, true);
+
     if (!this->blink)
     {
         this->player->setColor(sf::Color::White);
@@ -429,10 +458,15 @@ void GameState::updateView(const float &dt) {
 
 void GameState::updateTileMap(const float &dt) {
     this->tileMap->update(this->player, dt);
+    this->tileMap->update(this->boss, dt);
     for (auto *i : this->activeEnemies)
     {
         this->tileMap->update(i, dt);
     }
+//    for (auto *j : this->itemElements)
+//    {
+//        this->tileMap->update(j, dt);
+//    }
 
 }
 
@@ -442,7 +476,7 @@ void GameState::updatePlayerGUI(const float &dt) {
 
 }
 
-void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
+void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) {
 
     sf::FloatRect playerBounds = entity->getGlobalBounds();
     sf::FloatRect enemyBounds = enemy->getGlobalBounds();
@@ -489,6 +523,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0)
                 {
                     this->player->gainEXP(10);
+                    this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x, this->activeEnemies[i]->getPosition().y - 60, this->textures["CANDY_1"]));
                     this->hitEnemies.erase(this->hitEnemies.begin() + i);
                     this->activeEnemies.erase(this->activeEnemies.begin() + i);
                 }
@@ -509,6 +544,7 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0)
                 {
                     this->player->gainEXP(10);
+                    this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x, this->activeEnemies[i]->getPosition().y - 60, this->textures["CANDY_1"]));
                     this->hitEnemies.erase(this->hitEnemies.begin() + i);
                     this->activeEnemies.erase(this->activeEnemies.begin() + i);
                 }
@@ -566,9 +602,34 @@ void GameState::updateCollision(Entity *entity, Enemy* enemy, const float& dt) {
             }
 
 
+
+
         }
 
     }
+    for (int i = 0; i < this->itemElements.size(); i++) {
+        if (this->itemElements[i]->intersects(nextPositionBounds))
+        {
+            if (playerBounds.left < enemyBounds.left
+                && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
+                && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
+                && playerBounds.top + playerBounds.height > enemyBounds.top)
+            {
+
+                this->player->gainHP(30);
+                this->itemElements.erase(this->itemElements.begin() + i);
+            }
+            else if (playerBounds.left > enemyBounds.left
+                     && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
+                     && playerBounds.top < enemyBounds.top + enemyBounds.height
+                     && playerBounds.top + playerBounds.height > enemyBounds.top)
+            {
+                this->player->gainHP(30);
+                this->itemElements.erase(this->itemElements.begin() + i);
+            }
+            }
+
+        }
 
 
 }
@@ -626,6 +687,11 @@ void GameState::playDead(const float& dt)
         }
 
     }
+
+}
+
+void GameState::initItems() {
+
 
 }
 

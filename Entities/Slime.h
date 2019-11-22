@@ -17,6 +17,9 @@ private:
     float jumpHeight;
     bool attacking;
     bool isJump;
+    bool isAttacked;
+    sf::Clock delayAttackedClock;
+    float delayAttackedTime;
 
     //Hp
     void gainHP(const int hp);
@@ -41,6 +44,8 @@ public:
     void updateJumping(const float& dt);
     const bool intersects(const sf::FloatRect bounds) const;
     void updateMoving(const float& dt);
+    void updateHit();
+    void dropItem();
 
 
     //Got Attack

@@ -5,6 +5,7 @@
 #include "Entity.h"
 #include "../EnemySpawner.h"
 #include "../Components/AttributeComponent.h"
+#include "../Items/Items.h"
 
 class Enemy : public Entity
 {
@@ -41,6 +42,7 @@ public:
     //Hp
     virtual void gainHP(const int hp);
     virtual void loseHP(const int hp);
+    virtual void dropItem();
 
     virtual AttributeComponent* getAttributeComponents();
 

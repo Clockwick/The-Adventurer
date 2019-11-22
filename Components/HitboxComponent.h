@@ -3,7 +3,7 @@
 #define HITBOXCOMPONENT_H
 #include "../Precom.h"
 
-enum HitTypes {DEFAULT_COL = 0 , ATTACK_COL};
+enum HitTypes {DEFAULT_COL = 0 , ATTACK_COL, ITEMS_COL};
 
 class HitboxComponent
 {

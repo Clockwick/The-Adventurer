@@ -1,5 +1,6 @@
 
 #include "Enemy.h"
+#include "../Items/Items.h"
 
 //Constructor , DeConstructor
 Enemy::Enemy()
@@ -28,6 +29,11 @@ void Enemy::loseHP(const int hp) {
 
 AttributeComponent *Enemy::getAttributeComponents() {
     return nullptr;
+}
+
+void Enemy::dropItem() {
+
+
 }
 
 
