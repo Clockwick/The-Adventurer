@@ -653,7 +653,7 @@ void gui::Status::initText()
 {
     this->name = new gui::TextGui(this->firstCol,this->bounds.getPosition().y + 125.f, this->statusFont, 36, sf::Color::White, sf::Color::Black, "Name: ", "Kuy");
     this->levelText = new gui::TextGui(this->firstCol, this->bounds.getPosition().y + 125.f + this->spaceY, this->statusFont, 36
-    , sf::Color::White, sf::Color::Black, "Level: ", std::to_string(this->player->getAttributeComponents()->level));
+            , sf::Color::White, sf::Color::Black, "Level: ", std::to_string(this->player->getAttributeComponents()->level));
     this->hpText = new gui::TextGui(this->firstCol, this->bounds.getPosition().y + 125.f + (2 * this->spaceY), this->statusFont, 36
             , sf::Color::White, sf::Color::Black, "HP: ", std::to_string(this->player->getAttributeComponents()->hp));
     this->statPoints = new gui::TextGui(this->secondCol, this->bounds.getPosition().y + 150.f + (3 * this->spaceY), this->statusFont, 40
@@ -799,27 +799,27 @@ void gui::Status::allText() {
 
 void gui::Status::initButtons() {
     this->buttons["PLUS_STR"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (4 * this->spaceY),40.f, 40.f, this->statusFont, "+",
-            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
-            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+                                                40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                                sf::Color(250,250,250,200),sf::Color(250,250,250,200));
     this->buttons["PLUS_VIT"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (5 * this->spaceY),40.f, 40.f, this->statusFont, "+",
-                                            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
-                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+                                                40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                                sf::Color(250,250,250,200),sf::Color(250,250,250,200));
     this->buttons["PLUS_AGI"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (6 * this->spaceY),40.f, 40.f, this->statusFont, "+",
-                                            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
-                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+                                                40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                                sf::Color(250,250,250,200),sf::Color(250,250,250,200));
 
     this->buttons["PLUS_DEX"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (7 * this->spaceY),40.f, 40.f, this->statusFont, "+",
-                                            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
-                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+                                                40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                                sf::Color(250,250,250,200),sf::Color(250,250,250,200));
     this->buttons["PLUS_INT"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (8 * this->spaceY),40.f, 40.f, this->statusFont, "+",
-                                            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
-                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+                                                40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                                sf::Color(250,250,250,200),sf::Color(250,250,250,200));
     this->buttons["PLUS_LUCK"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (9 * this->spaceY),40.f, 40.f, this->statusFont, "+",
-                                            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
-                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+                                                 40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                                 sf::Color(250,250,250,200),sf::Color(250,250,250,200));
     this->buttons["SAVE"] = new gui::Button(this->thirdCol - 50.f,this->bounds.getPosition().y + 145.f + (9 * this->spaceY),90.f, 60.f, this->statusFont, "Save",
-                                             48.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
-                                             sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+                                            48.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
     this->buttons["RESET"] = new gui::Button(this->thirdCol + 200.f,this->bounds.getPosition().y + 145.f + (9 * this->spaceY),90.f, 60.f, this->statusFont, "Reset",
                                              48.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
                                              sf::Color(250,250,250,200),sf::Color(250,250,250,200));
@@ -920,7 +920,6 @@ void gui::Status::renderButtons(sf::RenderTarget &target) {
         it.second->render(target) ;
     }
 }
-
 
 
 /*=================================================================*/
