@@ -23,6 +23,7 @@ void DefaultMode::initVariables() {
     this->type = TileTypes::DEFAULT;
     this->layer = 0;
     this->tileAddLock = false;
+    this->ptr = &this->stateData->gridSize;
 }
 
 void DefaultMode::initGui() {
@@ -58,17 +59,20 @@ void DefaultMode::update(const float &dt) {
 
 void DefaultMode::updateInput(const float &dt) {
 //Add tile
+    this->selectorRect.setSize(sf::Vector2f(this->stateData->gridSize, this->stateData->gridSize));
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeyTime()) {
         if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(*this->editorStateData->mousePosWindow))) {
             if (!this->textureSelector->getActive()) {
                 if (this->tileAddLock) {
-                    if (this->tileMap->tileEmpty(this->editorStateData->mousePosGrid->x, this->editorStateData->mousePosGrid->y, 0)) {
-                        this->tileMap->addTile(this->editorStateData->mousePosGrid->x, this->editorStateData->mousePosGrid->y, 0, this->textureRect,
+                    if (this->tileMap->tileEmpty(this->editorStateData->mousePosGrid->x,
+                                                 this->editorStateData->mousePosGrid->y, 0)) {
+                        this->tileMap->addTile(this->editorStateData->mousePosGrid->x,
+                                               this->editorStateData->mousePosGrid->y, 0, this->textureRect,
                                                this->collision, this->type);
                     }
-                }
-                else {
-                    this->tileMap->addTile(this->editorStateData->mousePosGrid->x, this->editorStateData->mousePosGrid->y, 0, this->textureRect,
+                } else {
+                    this->tileMap->addTile(this->editorStateData->mousePosGrid->x,
+                                           this->editorStateData->mousePosGrid->y, 0, this->textureRect,
                                            this->collision, this->type);
                 }
 
@@ -82,7 +86,8 @@ void DefaultMode::updateInput(const float &dt) {
     else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeyTime()) {
         if (!this->sidebar.getGlobalBounds().contains(sf::Vector2f(*this->editorStateData->mousePosWindow))) {
             if (!this->textureSelector->getActive()) {
-                this->tileMap->removeTile(this->editorStateData->mousePosGrid->x, this->editorStateData->mousePosGrid->y, 0);
+                this->tileMap->removeTile(this->editorStateData->mousePosGrid->x,
+                                          this->editorStateData->mousePosGrid->y, 0);
 
             }
         }
@@ -100,13 +105,19 @@ void DefaultMode::updateInput(const float &dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::L) && this->getKeyTime()) {
         this->tileAddLock = !this->tileAddLock;
     }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) && this->getKeyTime())
+        *this->ptr *= 2;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2) && this->getKeyTime())
+        *this->ptr /= 2;
+
+//    std::cout << "gridSize" << this->stateData->gridSize << std::endl;
 }
 
 void DefaultMode::updateGui(const float &dt) {
     this->textureSelector->update(*this->editorStateData->mousePosWindow, dt);
     if (!this->textureSelector->getActive()) {
-        this->selectorRect.setPosition(this->editorStateData->mousePosGrid->x * this->stateData->gridSize,
-                                       this->editorStateData->mousePosGrid->y * this->stateData->gridSize);
+        this->selectorRect.setPosition(this->editorStateData->mousePosGrid->x * (this->stateData->gridSize/ (*this->ptr/90.f)),
+                                       this->editorStateData->mousePosGrid->y * (this->stateData->gridSize/ (*this->ptr/90.f)));
         this->selectorRect.setTextureRect(this->textureRect);
     }
 

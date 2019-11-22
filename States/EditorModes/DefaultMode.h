@@ -21,6 +21,7 @@ private:
     bool collision;
     int layer;
     bool tileAddLock;
+    float* ptr;
 
 
 public:
