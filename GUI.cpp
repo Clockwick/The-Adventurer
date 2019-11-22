@@ -607,6 +607,7 @@ gui::Status::Status(Player* player,float x, float y, float width, float height,f
     this->thirdCol = this->firstCol + 50.f;
     this->initProfile();
     this->initText();
+    this->initButtons();
 
 
 
@@ -630,10 +631,16 @@ gui::Status::~Status() {
     delete this-> levelNextText;
 
 
+    for (auto it = this->buttons.begin(); it != this->buttons.end();++it){
+        delete it->second;
+    }
+
+
 
 }
 void gui::Status::initVariables() {
     this->spaceY = 75.f;
+    this->activeButtons = false;
 }
 void gui::Status::initProfile() {
     this->profileShape.setSize(sf::Vector2f(275.f, 255.f));
@@ -671,60 +678,6 @@ void gui::Status::initText()
 
 }
 
-void gui::Status::initButtons() {
-    this->buttons["PLUS_STR"] = new gui::Button(this->secondCol + 200.f,
-                                                this->bounds.getPosition().y + 145.f + (4 * this->spaceY), 40.f, 40.f,
-                                                this->statusFont, "+",
-                                                40.f, sf::Color(255, 255, 255, 200), sf::Color(150, 150, 150, 250),
-                                                sf::Color(150, 150, 150, 50), sf::Color(250, 250, 250, 250),
-                                                sf::Color(250, 250, 250, 200), sf::Color(250, 250, 250, 200));
-    this->buttons["PLUS_VIT"] = new gui::Button(this->secondCol + 200.f,
-                                                this->bounds.getPosition().y + 145.f + (5 * this->spaceY), 40.f, 40.f,
-                                                this->statusFont, "+",
-                                                40.f, sf::Color(255, 255, 255, 200), sf::Color(150, 150, 150, 250),
-                                                sf::Color(150, 150, 150, 50), sf::Color(250, 250, 250, 250),
-                                                sf::Color(250, 250, 250, 200), sf::Color(250, 250, 250, 200));
-    this->buttons["PLUS_AGI"] = new gui::Button(this->secondCol + 200.f,
-                                                this->bounds.getPosition().y + 145.f + (6 * this->spaceY), 40.f, 40.f,
-                                                this->statusFont, "+",
-                                                40.f, sf::Color(255, 255, 255, 200), sf::Color(150, 150, 150, 250),
-                                                sf::Color(150, 150, 150, 50), sf::Color(250, 250, 250, 250),
-                                                sf::Color(250, 250, 250, 200), sf::Color(250, 250, 250, 200));
-
-    this->buttons["PLUS_DEX"] = new gui::Button(this->secondCol + 200.f,
-                                                this->bounds.getPosition().y + 145.f + (7 * this->spaceY), 40.f, 40.f,
-                                                this->statusFont, "+",
-                                                40.f, sf::Color(255, 255, 255, 200), sf::Color(150, 150, 150, 250),
-                                                sf::Color(150, 150, 150, 50), sf::Color(250, 250, 250, 250),
-                                                sf::Color(250, 250, 250, 200), sf::Color(250, 250, 250, 200));
-    this->buttons["PLUS_INT"] = new gui::Button(this->secondCol + 200.f,
-                                                this->bounds.getPosition().y + 145.f + (8 * this->spaceY), 40.f, 40.f,
-                                                this->statusFont, "+",
-                                                40.f, sf::Color(255, 255, 255, 200), sf::Color(150, 150, 150, 250),
-                                                sf::Color(150, 150, 150, 50), sf::Color(250, 250, 250, 250),
-                                                sf::Color(250, 250, 250, 200), sf::Color(250, 250, 250, 200));
-    this->buttons["PLUS_LUCK"] = new gui::Button(this->secondCol + 200.f,
-                                                 this->bounds.getPosition().y + 145.f + (9 * this->spaceY), 40.f, 40.f,
-                                                 this->statusFont, "+",
-                                                 40.f, sf::Color(255, 255, 255, 200), sf::Color(150, 150, 150, 250),
-                                                 sf::Color(150, 150, 150, 50), sf::Color(250, 250, 250, 250),
-                                                 sf::Color(250, 250, 250, 200), sf::Color(250, 250, 250, 200));
-    this->buttons["SAVE"] = new gui::Button(this->thirdCol - 50.f,
-                                            this->bounds.getPosition().y + 145.f + (9 * this->spaceY), 90.f, 60.f,
-                                            this->statusFont, "Save",
-                                            48.f, sf::Color(255, 255, 255, 200), sf::Color(150, 150, 150, 250),
-                                            sf::Color(150, 150, 150, 50), sf::Color(250, 250, 250, 250),
-                                            sf::Color(250, 250, 250, 200), sf::Color(250, 250, 250, 200));
-    this->buttons["RESET"] = new gui::Button(this->thirdCol + 200.f,
-                                             this->bounds.getPosition().y + 145.f + (9 * this->spaceY), 90.f, 60.f,
-                                             this->statusFont, "Reset",
-                                             48.f, sf::Color(255, 255, 255, 200), sf::Color(150, 150, 150, 250),
-                                             sf::Color(150, 150, 150, 50), sf::Color(250, 250, 250, 250),
-                                             sf::Color(250, 250, 250, 200), sf::Color(250, 250, 250, 200));
-}
-
-
-
 //Accessor
 const bool &gui::Status::getActive() {
     return this->active;
@@ -744,7 +697,6 @@ const bool gui::Status::getKeytime()
     {
         this->keytime = 0.f;
         return true;
-
     }
 
     return false;
@@ -759,6 +711,7 @@ void gui::Status::update(const sf::Vector2i& mousePosWindow, const float &dt) {
     if (this->hide_button->isPressed() && this->getKeytime())
     {
         this->hidden = !this->hidden;
+
     }
     if (!this->hidden)
     {
@@ -777,7 +730,6 @@ void gui::Status::update(const sf::Vector2i& mousePosWindow, const float &dt) {
             this->statusActive = true;
 
         }
-        this->updateButtons(mousePosWindow);
 
     }
     //Update value
@@ -795,6 +747,8 @@ void gui::Status::update(const sf::Vector2i& mousePosWindow, const float &dt) {
     this->dmgText->update(std::to_string(this->player->getAttributeComponents()->damageMax));
     this->levelNextText->update(std::to_string(this->player->getAttributeComponents()->expNext));
 
+    this->updateButtons(mousePosWindow);
+
 }
 
 void gui::Status::updateKeytime(const float& dt)
@@ -807,9 +761,15 @@ void gui::Status::updateKeytime(const float& dt)
 
 void gui::Status::render(sf::RenderTarget &target) {
     this->hide_button->render(target);
-    this->renderButtons(target);
 
     if (!this->hidden) {
+        this->statusStorage.push_back(this->player->getAttributeComponents()->Str);
+        this->statusStorage.push_back(this->player->getAttributeComponents()->Vit);
+        this->statusStorage.push_back(this->player->getAttributeComponents()->Agi);
+        this->statusStorage.push_back(this->player->getAttributeComponents()->Dex);
+        this->statusStorage.push_back(this->player->getAttributeComponents()->Int);
+        this->statusStorage.push_back(this->player->getAttributeComponents()->luck);
+        this->statusStorage.push_back(this->player->getAttributeComponents()->attributePoints);
         target.draw(this->bounds);
         target.draw(this->statusTag);
         target.draw(this->statusText);
@@ -826,53 +786,89 @@ void gui::Status::render(sf::RenderTarget &target) {
         this->luckText->render(target);
         this->dmgText->render(target);
         this->levelNextText->render(target);
+        this->renderButtons(target);
     }
 
-}
-void gui::Status::renderButtons(sf::RenderTarget &target) {
-    for (auto &it : this->buttons ){
-
-        it.second->render(target) ;
-    }
-
+    if (!this->statusStorage.empty() && this->hidden)
+        this->statusStorage.pop_back();
 }
 
 void gui::Status::allText() {
 
 }
 
+void gui::Status::initButtons() {
+    this->buttons["PLUS_STR"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (4 * this->spaceY),40.f, 40.f, this->statusFont, "+",
+            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+    this->buttons["PLUS_VIT"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (5 * this->spaceY),40.f, 40.f, this->statusFont, "+",
+                                            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+    this->buttons["PLUS_AGI"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (6 * this->spaceY),40.f, 40.f, this->statusFont, "+",
+                                            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+
+    this->buttons["PLUS_DEX"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (7 * this->spaceY),40.f, 40.f, this->statusFont, "+",
+                                            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+    this->buttons["PLUS_INT"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (8 * this->spaceY),40.f, 40.f, this->statusFont, "+",
+                                            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+    this->buttons["PLUS_LUCK"] = new gui::Button(this->secondCol + 200.f,this->bounds.getPosition().y + 145.f + (9 * this->spaceY),40.f, 40.f, this->statusFont, "+",
+                                            40.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                            sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+    this->buttons["SAVE"] = new gui::Button(this->thirdCol - 50.f,this->bounds.getPosition().y + 145.f + (9 * this->spaceY),90.f, 60.f, this->statusFont, "Save",
+                                             48.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                             sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+    this->buttons["RESET"] = new gui::Button(this->thirdCol + 200.f,this->bounds.getPosition().y + 145.f + (9 * this->spaceY),90.f, 60.f, this->statusFont, "Reset",
+                                             48.f, sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(150,150,150,50),sf::Color(250,250,250,250 ),
+                                             sf::Color(250,250,250,200),sf::Color(250,250,250,200));
+
+}
+
 void gui::Status::updateButtons(const sf::Vector2i& mousePosWindow) {
-    for (auto &it : this->buttons){
+    if (this->player->getAttributeComponents()->attributePoints > 0)
+    {
+        this->activeButtons = true;
+        for (auto &it : this->buttons){
 
-        it.second->update(mousePosWindow) ;
-    }
-    if (this->buttons["PLUS_STR"]->isPressed() && this->getKeytime()) {
-        this->player->getAttributeComponents()->Str++;
-        this->player->getAttributeComponents()->attributePoints--;
-    }
-    if (this->buttons["PLUS_VIT"]->isPressed() && this->getKeytime()) {
-        this->player->getAttributeComponents()->Vit++;
-        this->player->getAttributeComponents()->attributePoints--;
-    }
-    if (this->buttons["PLUS_AGI"]->isPressed() && this->getKeytime()) {
-        this->player->getAttributeComponents()->Agi++;
-        this->player->getAttributeComponents()->attributePoints--;
-    }
-    if (this->buttons["PLUS_DEX"]->isPressed() && this->getKeytime()) {
-        this->player->getAttributeComponents()->Dex++;
-        this->player->getAttributeComponents()->attributePoints--;
-    }
-    if (this->buttons["PLUS_INT"]->isPressed() && this->getKeytime()) {
-        this->player->getAttributeComponents()->Int++;
-        this->player->getAttributeComponents()->attributePoints--;
-    }
-    if (this->buttons["PLUS_LUCK"]->isPressed() && this->getKeytime()) {
-        this->player->getAttributeComponents()->luck++;
-        this->player->getAttributeComponents()->attributePoints--;
-    }
+            it.second->update(mousePosWindow);
+        }
+
+        if (this->buttons["PLUS_STR"]->isPressed() && this->getKeytime())
+        {
+            this->player->getAttributeComponents()->Str++;
+            this->player->getAttributeComponents()->attributePoints--;
+        }
+        if (this->buttons["PLUS_VIT"]->isPressed() && this->getKeytime())
+        {
+            this->player->getAttributeComponents()->Vit++;
+            this->player->getAttributeComponents()->attributePoints--;
+        }if (this->buttons["PLUS_AGI"]->isPressed() && this->getKeytime())
+        {
+            this->player->getAttributeComponents()->Agi++;
+            this->player->getAttributeComponents()->attributePoints--;
+        }
+        if (this->buttons["PLUS_DEX"]->isPressed() && this->getKeytime())
+        {
+            this->player->getAttributeComponents()->Dex++;
+            this->player->getAttributeComponents()->attributePoints--;
+        }
+        if (this->buttons["PLUS_INT"]->isPressed() && this->getKeytime())
+        {
+            this->player->getAttributeComponents()->Int++;
+            this->player->getAttributeComponents()->attributePoints--;
+        }
+        if (this->buttons["PLUS_LUCK"]->isPressed() && this->getKeytime())
+        {
+            this->player->getAttributeComponents()->luck++;
+            this->player->getAttributeComponents()->attributePoints--;
+        }
 
 
-    if (this->buttons["SAVE"]->isPressed() && this->getKeytime()) {
+    }
+    if (this->buttons["SAVE"]->isPressed() && this->getKeytime())
+    {
         if (!this->statusStorage.empty()) {
             for (int i = 0; i < this->statusStorage.size(); i++) {
                 this->statusStorage.pop_back();
@@ -887,7 +883,8 @@ void gui::Status::updateButtons(const sf::Vector2i& mousePosWindow) {
         this->saveStatusStorage.push_back(this->player->getAttributeComponents()->attributePoints);
 
     }
-    if (this->buttons["RESET"]->isPressed() && this->getKeytime()) {
+    if (this->buttons["RESET"]->isPressed() && this->getKeytime())
+    {
         if (!this->saveStatusStorage.empty()) {
             this->player->getAttributeComponents()->Str = this->saveStatusStorage[0];
             this->player->getAttributeComponents()->Vit = this->saveStatusStorage[1];
@@ -896,7 +893,8 @@ void gui::Status::updateButtons(const sf::Vector2i& mousePosWindow) {
             this->player->getAttributeComponents()->Int = this->saveStatusStorage[4];
             this->player->getAttributeComponents()->luck = this->saveStatusStorage[5];
             this->player->getAttributeComponents()->attributePoints = this->saveStatusStorage[6];
-        } else {
+        }
+        else {
             this->player->getAttributeComponents()->Str = 1;
             this->player->getAttributeComponents()->Vit = 1;
             this->player->getAttributeComponents()->Agi = 1;
@@ -905,11 +903,23 @@ void gui::Status::updateButtons(const sf::Vector2i& mousePosWindow) {
             this->player->getAttributeComponents()->luck = 1;
             this->player->getAttributeComponents()->attributePoints = 100;
         }
-
-
     }
+
+    else
+    {
+        this->activeButtons = false;
+    }
+
+
+
 }
 
+void gui::Status::renderButtons(sf::RenderTarget &target) {
+    for (auto &it : this->buttons){
+
+        it.second->render(target) ;
+    }
+}
 
 
 
