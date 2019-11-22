@@ -205,11 +205,18 @@ namespace gui {
 
         void update(const sf::Vector2i& mousePosWindow, const float& dt);
         void render(sf::RenderTarget& target);
+        void updateButtons(const sf::Vector2i& mousePosWindow);
+        void renderButtons(sf::RenderTarget &target);
 
         const bool getKeytime();
         void updateKeytime(const float& dt);
 
     private:
+        std::map <std::string,gui::Button*> buttons;
+        void initButtons();
+        bool activeButtons;
+        std::vector<int> statusStorage;
+        std::vector <int> saveStatusStorage;
         sf::RectangleShape bounds;
         sf::Vector2u mousePosGrid;
         sf::IntRect textureRect;
