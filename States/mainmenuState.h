@@ -12,7 +12,7 @@
 class Mainmenu : public State
 {
 public:
-    Mainmenu(StateData* state_data);
+    Mainmenu(StateData* state_data, sf::Event* event);
     virtual ~Mainmenu();
     void update(const float& dt);
     void render(sf::RenderTarget* target = nullptr);
@@ -41,6 +41,8 @@ private:
     void initVariables();
     void initAudio();
     void resetGui();
+
+    sf::Event* event;
 
     //bool
     bool showBox;

@@ -1,12 +1,10 @@
-//
-// Created by Paratthakorn Sribunyong on 19/11/2019 AD.
-//
-
 #include "NameState.h"
 
-NameState::NameState(StateData *state_data)
-: State(state_data)
+
+NameState::NameState(StateData *state_data, sf::Event* event)
+        : State(state_data)
 {
+    this->event = event;
     this->initVariables();
     this->initBox();
 }
@@ -25,10 +23,7 @@ void NameState::initBox() {
         std::cout << "Can't Load Font" << "\n";
 
 
-    this->inputText.setFont(this->font);
-    this->inputText.setCharacterSize(36.f);
-    this->inputText.setFillColor(sf::Color(50,50,50));
-    this->inputText.setPosition(this->cursorText.getPosition().x + 5, this->cursorText.getPosition().y);
+
 
     this->bg.setSize(sf::Vector2f(static_cast<float>(vm.width), static_cast<float>(vm.height)));
     this->bg.setFillColor(sf::Color(50,50,50,100));
@@ -46,12 +41,16 @@ void NameState::initBox() {
     this->inputBox.setSize(sf::Vector2f(1000.f, 100.f));
     this->inputBox.setFillColor(sf::Color::White);
     this->inputBox.setPosition(sf::Vector2f(this->box.getPosition().x + this->box.getGlobalBounds().width * 0.15f,
-            this->box.getPosition().y + this->box.getGlobalBounds().height * 0.4));
+                                            this->box.getPosition().y + this->box.getGlobalBounds().height * 0.4));
 
     this->cursorText.setSize(sf::Vector2f(5.f, this->inputBox.getSize().y * 0.6));
     this->cursorText.setPosition(sf::Vector2f(this->inputBox.getPosition().x + 12.f, this->inputBox.getPosition().y + 15.f));
     this->cursorText.setFillColor(sf::Color::Black);
 
+    this->inputText.setFont(this->font);
+    this->inputText.setCharacterSize(48.f);
+    this->inputText.setFillColor(sf::Color(50,50,50));
+    this->inputText.setPosition(this->cursorText.getPosition().x + 5, this->cursorText.getPosition().y);
 
 }
 
@@ -107,27 +106,31 @@ void NameState::updateCursor() {
         this->clock.restart();
     }
 
-        if (event.type == sf::Event::EventType::TextEntered)
+    if (event->type == sf::Event::EventType::TextEntered)
+    {
+        if (this->last_char != event->text.unicode && ((event->text.unicode >= 'a' && event->text.unicode <= 'z') ||
+                                                       (event->text.unicode >= 'A' && event->text.unicode <= 'Z') ||
+                                                       (event->text.unicode >= '0' && event->text.unicode <= '9')))
         {
-            if (this->last_char != event.text.unicode)
-            {
-                this->last_char = event.text.unicode;
-                this->input += event.text.unicode;
-                std::cout << this->input << std::endl;
-                this->inputText.setString(this->input);
-            }
+            this->last_char = event->text.unicode;
+            this->input += event->text.unicode;
+            this->inputText.setString(this->input);
+            this->cursorText.setPosition(950.f + this->inputText.getGlobalBounds().width + 5.f, this->cursorText.getPosition().y);
         }
-        if (event.type == sf::Event::EventType::KeyReleased && this->last_char != ' ')
+        if (this->last_char != event->text.unicode && event->text.unicode == 8 && this->input.length() > 0)
         {
-            this->last_char = ' ';
+            this->last_char = event->text.unicode;
+            this->input.erase(this->input.length() - 1);
+            inputText.setString(this->input);
+            this->cursorText.setPosition(950.0f + this->inputText.getGlobalBounds().width + 5, this->cursorText.getPosition().y);
         }
+    }
+    if (event->type == sf::Event::EventType::KeyReleased && this->last_char != ' ')
+    {
+        this->last_char = ' ';
+    }
 
+//    std::cout << "NameState: " << this->event << "\n";
 
-
-
-}
-
-void NameState::getEvent(sf::Event *event) {
-    this->event = *event;
 
 }

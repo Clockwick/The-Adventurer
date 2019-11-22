@@ -12,7 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/GUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/NameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/NameState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/NameState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/NameState.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -126,7 +126,7 @@ void Game::initWindow() {
 }
 
 void Game::initstates() {
-    this->states.push(new Mainmenu(&this->state_data));
+    this->states.push(new Mainmenu(&this->state_data, &this->event));
 
 }
 

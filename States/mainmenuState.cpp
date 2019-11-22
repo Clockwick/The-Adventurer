@@ -1,7 +1,7 @@
 
 #include "mainmenuState.h"
 
-Mainmenu::Mainmenu(StateData* state_data)
+Mainmenu::Mainmenu(StateData* state_data, sf::Event* event)
 : State(state_data)
 {
     this->initVariables();
@@ -9,6 +9,7 @@ Mainmenu::Mainmenu(StateData* state_data)
     this->initFonts();
     this->initGui();
     this->resetGui();
+    this->event = event;
 
 
 }
@@ -139,7 +140,7 @@ void Mainmenu::updateButtons() {
         this->soundBt.play();
         this->musicBG.stop();
         this->showBox = true;
-        this->nameState = new NameState(this->state_data);
+        this->nameState = new NameState(this->state_data, this->event);
 
     }
     if (this->buttons["SETTINGS_STATE"]->isPressed())

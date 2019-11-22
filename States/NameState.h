@@ -30,12 +30,12 @@ private:
 
     void initBox();
     void initVariables();
-    sf::Event event;
+    sf::Event* event;
 
 
 
 public:
-    NameState(StateData* state_data);
+    NameState(StateData* state_data, sf::Event* event);
 //    NameState();
     virtual ~NameState();
 

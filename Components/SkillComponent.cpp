@@ -20,7 +20,7 @@ SkillComponent::~SkillComponent()
 const int SkillComponent::getSkill(const int skill) const
 {
     if (skills.empty() || skill < 0 || skill >= this->skills.size())
-        std::cout << "ERROR::SKILLCOMPONENT::GETSKILL::SKILL DOES NOT EXIST: " + skill;
+        std::cout << &"ERROR::SKILLCOMPONENT::GETSKILL::SKILL DOES NOT EXIST: " [ skill];
     else
         return this->skills[skill].getLevel();
 }
@@ -28,7 +28,7 @@ const int SkillComponent::getSkill(const int skill) const
 const void SkillComponent::gainExp(const int skill, const int exp)
 {
     if (skills.empty() || skill < 0 || skill >= this->skills.size())
-        std::cout << "ERROR::SKILLCOMPONENT::GAINEXP::SKILL DOES NOT EXIST: " + skill;
+        std::cout << &"ERROR::SKILLCOMPONENT::GAINEXP::SKILL DOES NOT EXIST: " [ skill];
     else
     {
         this->skills[skill].gainExp(exp);
