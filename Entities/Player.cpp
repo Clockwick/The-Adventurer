@@ -112,6 +112,7 @@ void Player::updateAttack()
         this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type);// Modify
     }
 
+
 }
 
 void Player::updateAnimation(const float &dt)
@@ -208,6 +209,11 @@ void Player::updateAnimation(const float &dt)
         this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
         this->animationComponents->play("SIT", dt);
     }
+    if (!this->canJump && this->movementComponents->getState(ATTACK))
+    {
+        this->movementComponents->stopVelocityX();
+        this->type = HitTypes::ATTACK_COL;
+    }
     else if (!this->canJump && this->movementComponents->getState(JUMP_LEFT)) {
         this->type = HitTypes::DEFAULT_COL;
         this->sliding = false;
@@ -223,9 +229,8 @@ void Player::updateAnimation(const float &dt)
         this->animationComponents->play("JUMP", dt, 120, 100);
     }
 
-
+//    std::cout << this->movementComponents->getState(ATTACK) << "\n";
     this->hitboxComponents->update();
-//    std::cout << "Correct addr: "<< this << std::endl;
 
 }
 

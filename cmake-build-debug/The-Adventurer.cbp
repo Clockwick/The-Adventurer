@@ -253,6 +253,12 @@
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/NameState.h">
 			<Option target="The-Adventurer"/>
 		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/ScoreState.cpp">
+			<Option target="The-Adventurer"/>
+		</Unit>
+		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/ScoreState.h">
+			<Option target="The-Adventurer"/>
+		</Unit>
 		<Unit filename="/Users/arthris/CLionProjects/The-Adventurer/States/SettingsState.cpp">
 			<Option target="The-Adventurer"/>
 		</Unit>

@@ -9,7 +9,6 @@ MovementComponents::MovementComponents(sf::Sprite &sprite, float maxVelocity, fl
         : sprite(sprite), maxVelocity(maxVelocity), acceleration(accerelation), deceleration(deceleration),
           jumpHeight(jumpHeight) {
 
-
 }
 
 MovementComponents::~MovementComponents() {

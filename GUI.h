@@ -97,7 +97,7 @@ namespace gui {
     {
 
     public:
-        TextureSelector(float x, float y, float width, float height,float gridSize, const sf::Texture* texture_sheet, sf::Font& font, std::string text);
+        TextureSelector(float x, float y, float width, float height,float* gridSize, const sf::Texture* texture_sheet, sf::Font& font, std::string text);
         ~TextureSelector();
 
         //Accessor
@@ -125,6 +125,7 @@ namespace gui {
         float gridSize;
         float keytime;
         const float keytimeMax;
+        float* ptr;
 
     };
 
@@ -193,7 +194,7 @@ namespace gui {
     class Status
     {
     public:
-        Status(Player* player, float x, float y, float width, float height,float gridSize, sf::Font& font, std::string text);
+        Status(Player* player, float x, float y, float width, float height,float gridSize, sf::Font& font, std::string text, const std::string player_name);
         ~Status();
 
         //Accessor
@@ -262,6 +263,7 @@ namespace gui {
         gui::TextGui* levelNextText;
 
         Player* player;
+        std::string playerName;
 
 
         //Font

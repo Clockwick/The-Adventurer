@@ -47,7 +47,7 @@ void DefaultMode::initGui() {
     this->selectorRect.setTextureRect(this->textureRect);
 
     this->textureSelector = new gui::TextureSelector(10.f, 10.f, 2250.f, 2250.f,
-                                                     this->stateData->gridSize, this->tileMap->getTileSheet(),
+                                                     &this->stateData->gridSize, this->tileMap->getTileSheet(),
                                                      *this->editorStateData->font, "Edit"
     );
     //Buttons
@@ -75,8 +75,6 @@ void DefaultMode::updateInput(const float &dt) {
                                            this->editorStateData->mousePosGrid->y, 0, this->textureRect,
                                            this->collision, this->type);
                 }
-
-
             } else {
                 this->textureRect = this->textureSelector->getTextureRect();
             }

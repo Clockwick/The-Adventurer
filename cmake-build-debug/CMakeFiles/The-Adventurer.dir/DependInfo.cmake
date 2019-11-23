@@ -32,6 +32,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/arthris/CLionProjects/The-Adventurer/States/EditorState.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/States/GameState.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/States/NameState.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/NameState.cpp.o"
+  "/Users/arthris/CLionProjects/The-Adventurer/States/ScoreState.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/States/SettingsState.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/SettingsState.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/States/State.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/State.cpp.o"
   "/Users/arthris/CLionProjects/The-Adventurer/States/mainmenuState.cpp" "/Users/arthris/CLionProjects/The-Adventurer/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o"

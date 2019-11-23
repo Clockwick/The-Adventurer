@@ -45,6 +45,7 @@ public:
     void updateInput(const float& dt);
     void updateCursor();
     void getEvent(sf::Event* event);
+    void saveToFile(const std::string file_name);
 
     const bool& getQuit();
 

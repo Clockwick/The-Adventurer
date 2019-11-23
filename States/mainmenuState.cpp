@@ -50,23 +50,28 @@ void Mainmenu::initGui() {
 
     this->buttons["GAME_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(33.22f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
                                              &this->font, "New Game", gui::calcCharSize(vm),
-                                             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                             sf::Color(70,70,70,0),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
+                                             sf::Color(0,0,0),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                             sf::Color(70,70,70,100),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
     this->buttons["SETTINGS_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(44.33, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
                                                 &this->font, "Settings", gui::calcCharSize(vm),
-                                                sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                                sf::Color(70,70,70,0 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
+                                                sf::Color(0,0,0),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                                sf::Color(70,70,70,100 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
     this->buttons["EDITOR_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(55.44, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
                                                &this->font, "Editor", gui::calcCharSize(vm),
-                                               sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                               sf::Color(70,70,70,0 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
+                                               sf::Color(0,0,0),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                               sf::Color(70,70,70,100 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["EXIT_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(66.55f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
+    this->buttons["SCORE_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(66.55, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
+                                                    &this->font, "Score", gui::calcCharSize(vm),
+                                                    sf::Color(0,0,0),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                                    sf::Color(70,70,70,100 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
+    );
+    this->buttons["EXIT_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(77.66f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
                                              &this->font, "Exit", gui::calcCharSize(vm),
-                                             sf::Color(70,70,70,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
-                                             sf::Color(70,70,70,0),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
+                                             sf::Color(0,0,0),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                             sf::Color(70,70,70,100),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
 
 
     );
@@ -154,6 +159,12 @@ void Mainmenu::updateButtons() {
         this->soundBt.play();
         this->states->push(new EditorState(this->state_data));
 
+
+    }
+    if (this->buttons["SCORE_STATE"]->isPressed())
+    {
+        this->soundBt.play();
+        this->states->push(new ScoreState(this->state_data));
     }
 
     if (this->buttons["EXIT_STATE"]->isPressed())

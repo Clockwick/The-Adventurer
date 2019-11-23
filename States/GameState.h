@@ -38,6 +38,8 @@ public:
     void render(sf::RenderTarget* target = nullptr);
     void renderGui(sf::RenderTarget& target);
 
+    //Save && Load
+    void loadFromFile(const std::string file_name);
 
     //Acessors
 
@@ -45,6 +47,7 @@ private:
     //Player
     Player* player;
     PlayerGUI* playerGui;
+    std::string playerName;
     const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
 
     //Enemy

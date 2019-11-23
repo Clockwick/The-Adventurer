@@ -30,7 +30,7 @@ gui::Button::Button(float x, float y, float width, float height, sf::Font *font,
     this->id = id;
     this->shape.setPosition(sf::Vector2f(x, y));
     this->shape.setSize(sf::Vector2f(width, height));
-    this->shape.setFillColor(this->idleColor);
+    this->shape.setFillColor(outline_idle_color);
     this->shape.setOutlineThickness(1.f);
     this->shape.setOutlineColor(outline_idle_color);
 
@@ -284,15 +284,16 @@ gui::DropDownList::~DropDownList() {
 
 /*=================================================================*/
 //                      Texture Selector                          //
-gui::TextureSelector::TextureSelector(float x, float y, float width, float height,float gridSize, const sf::Texture* texture_sheet, sf::Font& font, std::string text)
+gui::TextureSelector::TextureSelector(float x, float y, float width, float height,float* gridSize, const sf::Texture* texture_sheet, sf::Font& font, std::string text)
 : keytimeMax(1.f), keytime(0.f)
 {
 
-    this->gridSize = gridSize;
+    this->gridSize = *gridSize;
     this->active = false;
     this->hidden = false;
 
-    float offset = gridSize;
+    float offset = *gridSize;
+    this->ptr = gridSize;
 
     this->bounds.setSize(sf::Vector2f(width, height));
     this->bounds.setPosition(x + offset, y);
@@ -313,13 +314,13 @@ gui::TextureSelector::TextureSelector(float x, float y, float width, float heigh
     }
 
     this->selector.setPosition(x, y);
-    this->selector.setSize(sf::Vector2f(gridSize, gridSize));
+    this->selector.setSize(sf::Vector2f(*this->ptr, *this->ptr));
     this->selector.setFillColor(sf::Color::Transparent);
     this->selector.setOutlineThickness(1.f);
     this->selector.setOutlineColor(sf::Color::Red);
 
-    this->textureRect.width = static_cast<int>(gridSize);
-    this->textureRect.height = static_cast<int>(gridSize);
+    this->textureRect.width = static_cast<int>(*this->ptr);
+    this->textureRect.height = static_cast<int>(*this->ptr);
 
     this->hide_button = new gui::Button(x,y,50.f,50.f,
             &font, text, 24,
@@ -374,10 +375,10 @@ void gui::TextureSelector::update(const sf::Vector2i& mousePosWindow, const floa
         {
             this->active = true;
 
-            this->mousePosGrid.x = (mousePosWindow.x - static_cast<int>(this->bounds.getPosition().x)) / static_cast<unsigned>(this->gridSize);
-            this->mousePosGrid.y = (mousePosWindow.y - static_cast<int>(this->bounds.getPosition().y)) / static_cast<unsigned>(this->gridSize);
-            this->selector.setPosition(this->bounds.getPosition().x + this->mousePosGrid.x * this->gridSize,
-                                       this->bounds.getPosition().y + this->mousePosGrid.y * this->gridSize);
+            this->mousePosGrid.x = (mousePosWindow.x - static_cast<int>(this->bounds.getPosition().x)) / static_cast<unsigned>(*this->ptr);
+            this->mousePosGrid.y = (mousePosWindow.y - static_cast<int>(this->bounds.getPosition().y)) / static_cast<unsigned>(*this->ptr);
+            this->selector.setPosition(this->bounds.getPosition().x + this->mousePosGrid.x * *this->ptr,
+                                       this->bounds.getPosition().y + this->mousePosGrid.y * *this->ptr);
             //Update TextureRect
             this->textureRect.left = static_cast<int>(this->selector.getPosition().x - this->bounds.getPosition().x);
             this->textureRect.top = static_cast<int>(this->selector.getPosition().y - this->bounds.getPosition().y);
@@ -549,9 +550,10 @@ void gui::InventorySelector::render(sf::RenderTarget &target) {
 /*=================================================================*/
 //                          Status                                //
 
-gui::Status::Status(Player* player,float x, float y, float width, float height,float gridSize, sf::Font& font, std::string text)
+gui::Status::Status(Player* player,float x, float y, float width, float height,float gridSize, sf::Font& font, std::string text, const std::string player_name)
         : keytimeMax(1.f), keytime(0.f)
 {
+    this->playerName = player_name;
 
     this->player = player;
     this->initVariables();
@@ -637,7 +639,7 @@ void gui::Status::initProfile() {
 
 void gui::Status::initText()
 {
-    this->name = new gui::TextGui(this->firstCol,this->bounds.getPosition().y + 125.f, this->statusFont, 36, sf::Color::White, sf::Color::Black, "Name: ", "Kuy");
+    this->name = new gui::TextGui(this->firstCol,this->bounds.getPosition().y + 125.f, this->statusFont, 36, sf::Color::White, sf::Color::Black, "Name: ", this->playerName);
     this->levelText = new gui::TextGui(this->firstCol, this->bounds.getPosition().y + 125.f + this->spaceY, this->statusFont, 36
             , sf::Color::White, sf::Color::Black, "Level: ", std::to_string(this->player->getAttributeComponents()->level));
     this->hpText = new gui::TextGui(this->firstCol, this->bounds.getPosition().y + 125.f + (2 * this->spaceY), this->statusFont, 36
@@ -657,7 +659,7 @@ void gui::Status::initText()
     this->luckText = new gui::TextGui(this->secondCol, this->bounds.getPosition().y + 150.f + (9 * this->spaceY), this->statusFont, 36
             , sf::Color::White, sf::Color::Black, "Luck: ", std::to_string(this->player->getAttributeComponents()->luck));
     this->dmgText = new gui::TextGui(this->thirdCol, this->bounds.getPosition().y + 150.f + (4 * this->spaceY), this->statusFont, 36
-            , sf::Color::White, sf::Color::Black, "Dmg: ", std::to_string(this->player->getAttributeComponents()->damageMax));
+            , sf::Color::White, sf::Color::Black, "Dmg: ", std::to_string(this->player->getAttributeComponents()->damageMin));
     this->levelNextText = new gui::TextGui(this->thirdCol, this->bounds.getPosition().y + 150.f + (5 * this->spaceY), this->statusFont, 36
             , sf::Color::White, sf::Color::Black, "ExpNext: ", std::to_string(this->player->getAttributeComponents()->expNext), 3);
 
@@ -730,7 +732,7 @@ void gui::Status::update(const sf::Vector2i& mousePosWindow, const float &dt) {
     this->statPoints->update(std::to_string(this->player->getAttributeComponents()->attributePoints));
     this->hpText->update(std::to_string(this->player->getAttributeComponents()->hp));
 
-    this->dmgText->update(std::to_string(this->player->getAttributeComponents()->damageMax));
+    this->dmgText->update(std::to_string(this->player->getAttributeComponents()->damageMin));
     this->levelNextText->update(std::to_string(this->player->getAttributeComponents()->expNext));
 
     this->updateButtons(mousePosWindow);
@@ -813,13 +815,12 @@ void gui::Status::initButtons() {
 }
 
 void gui::Status::updateButtons(const sf::Vector2i& mousePosWindow) {
+    for (auto &it : this->buttons){
+        it.second->update(mousePosWindow);
+    }
     if (this->player->getAttributeComponents()->attributePoints > 0)
     {
         this->activeButtons = true;
-        for (auto &it : this->buttons){
-
-            it.second->update(mousePosWindow);
-        }
 
         if (this->buttons["PLUS_STR"]->isPressed() && this->getKeytime())
         {
@@ -887,7 +888,7 @@ void gui::Status::updateButtons(const sf::Vector2i& mousePosWindow) {
             this->player->getAttributeComponents()->Dex = 1;
             this->player->getAttributeComponents()->Int = 1;
             this->player->getAttributeComponents()->luck = 1;
-            this->player->getAttributeComponents()->attributePoints = 100;
+            this->player->getAttributeComponents()->attributePoints = 3;
         }
     }
 

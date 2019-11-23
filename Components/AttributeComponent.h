@@ -34,6 +34,7 @@ public:
 
     //Functions
     void updateStats(const bool reset);
+    void updateStats();
     void updateLevel();
     void update();
     std::string debugPrint() const;

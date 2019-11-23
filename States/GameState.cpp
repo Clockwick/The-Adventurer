@@ -22,6 +22,7 @@ GameState::GameState(StateData* state_data)
     this->initPauseMenu();
     this->initDeadMenu();
     this->initTileMap();
+    this->loadFromFile("kit.txt");
 
     this->inventorySelector = new gui::InventorySelector(gui::p2pX(60.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
                                                          900.f, 900.f,
@@ -30,7 +31,7 @@ GameState::GameState(StateData* state_data)
     );
     this->status = new gui::Status(this->player,gui::p2pX(70.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
                                    900.f, 900.f,
-                                   this->state_data->gridSize, this->font, "Status"
+                                   this->state_data->gridSize, this->font, "Status", this->playerName
     );
 
 
@@ -102,7 +103,6 @@ void GameState::initGui() {
     this->sidebar.setOutlineColor(sf::Color(200, 200, 200, 150));
     this->sidebar.setOutlineThickness(1.f);
 
-
 }
 
 
@@ -123,8 +123,8 @@ void GameState::initVariables() {
 }
 
 void GameState::initPlayers() {
-    this->player = new Player(500.f,468.f, 200.f, this->textures["PLAYER_SHEET"]);
-    this->boss = new Boss(1000.f, 468.f, 200.f, this->textures["BOSS_SHEET"]);
+    this->player = new Player(500.f,475.f, 200.f, this->textures["PLAYER_SHEET"]);
+    this->boss = new Boss(1000.f, 475.f, 200.f, this->textures["BOSS_SHEET"]);
 }
 
 void GameState::initPlayerGUI() {
@@ -170,6 +170,7 @@ void GameState::update(const float &dt) {
     if (!this->paused && !this->reallyDead && !this->isDead)//Unpausesd
     {
         this->updateView(dt);
+        this->player->getAttributeComponents()->update();
         this->updatePlayerInput(dt);
         this->updateGui(dt);
         this->player->update(dt);
@@ -472,8 +473,6 @@ void GameState::updateTileMap(const float &dt) {
 
 void GameState::updatePlayerGUI(const float &dt) {
     this->playerGui->update(dt);
-
-
 }
 
 void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) {
@@ -515,7 +514,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 this->setAI(this->activeEnemies[i]);
                 this->activeEnemies[i]->setColor(sf::Color::Red);
                 this->activeEnemies[i]->gotAttackRight();
-                this->activeEnemies[i]->loseHP(5);
+                this->activeEnemies[i]->loseHP((this->player->getAttributeComponents()->damageMax + this->player->getAttributeComponents()->damageMin) / 2);
                 this->slimeBlink = true;
                 this->slimeClock.restart();
 //                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
@@ -523,7 +522,9 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0)
                 {
                     this->player->gainEXP(10);
-                    this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x, this->activeEnemies[i]->getPosition().y - 60, this->textures["CANDY_1"]));
+                    int chance = rand()%5 + 1;
+                    if (chance == 2)
+                            this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x, this->activeEnemies[i]->getPosition().y - 60, this->textures["CANDY_1"]));
                     this->hitEnemies.erase(this->hitEnemies.begin() + i);
                     this->activeEnemies.erase(this->activeEnemies.begin() + i);
                 }
@@ -536,7 +537,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 this->autoMoveRight = true;
                 this->setAI(this->activeEnemies[i]);
                 this->activeEnemies[i]->gotAttackLeft();
-                this->activeEnemies[i]->loseHP(5);
+                this->activeEnemies[i]->loseHP((this->player->getAttributeComponents()->damageMax + this->player->getAttributeComponents()->damageMin) / 2);
                 this->activeEnemies[i]->setColor(sf::Color::Red);
                 this->slimeBlink = true;
                 this->slimeClock.restart();
@@ -544,7 +545,9 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0)
                 {
                     this->player->gainEXP(10);
-                    this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x, this->activeEnemies[i]->getPosition().y - 60, this->textures["CANDY_1"]));
+                    int chance = rand()%5 + 1;
+                    if (chance == 2)
+                        this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x, this->activeEnemies[i]->getPosition().y - 60, this->textures["CANDY_1"]));
                     this->hitEnemies.erase(this->hitEnemies.begin() + i);
                     this->activeEnemies.erase(this->activeEnemies.begin() + i);
                 }
@@ -561,7 +564,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
                 && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 2.f) {
 //                std::cout << "Right Collision" << std::endl;
-                this->player->loseHP(4);
+                this->player->loseHP((this->activeEnemies[i]->getAttributeComponents()->damageMin + this->activeEnemies[i]->getAttributeComponents()->damageMax) / 2);
                 this->player->stopVelocityX();
                 this->isHit = true;
 
@@ -585,7 +588,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                      && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 2.f) {
 //                std::cout << "Left Collision" << std::endl;
 
-                this->player->loseHP(4);
+                this->player->loseHP((this->activeEnemies[i]->getAttributeComponents()->damageMin + this->activeEnemies[i]->getAttributeComponents()->damageMax) / 2);
                 this->player->stopVelocityX();
                 this->isHit = true;
                 if (this->isHit) {
@@ -695,13 +698,21 @@ void GameState::initItems() {
 
 }
 
+void GameState::loadFromFile(const std::string file_name) {
+    std::ifstream in_file;
+    in_file.open(file_name);
+    if (in_file.is_open())
+    {
+        std::string player_name = "Easy";
+        //Load
+        in_file >> player_name;
+
+        this->playerName = player_name;
+
+    }
+    in_file.close();
 
 
-
-
-
-
-
-
+}
 
 

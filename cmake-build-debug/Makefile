@@ -879,6 +879,33 @@ States/NameState.cpp.s:
 	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/NameState.cpp.s
 .PHONY : States/NameState.cpp.s
 
+States/ScoreState.o: States/ScoreState.cpp.o
+
+.PHONY : States/ScoreState.o
+
+# target to build an object file
+States/ScoreState.cpp.o:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o
+.PHONY : States/ScoreState.cpp.o
+
+States/ScoreState.i: States/ScoreState.cpp.i
+
+.PHONY : States/ScoreState.i
+
+# target to preprocess a source file
+States/ScoreState.cpp.i:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.i
+.PHONY : States/ScoreState.cpp.i
+
+States/ScoreState.s: States/ScoreState.cpp.s
+
+.PHONY : States/ScoreState.s
+
+# target to generate assembly for a file
+States/ScoreState.cpp.s:
+	$(MAKE) -f CMakeFiles/The-Adventurer.dir/build.make CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.s
+.PHONY : States/ScoreState.cpp.s
+
 States/SettingsState.o: States/SettingsState.cpp.o
 
 .PHONY : States/SettingsState.o
@@ -1107,6 +1134,9 @@ help:
 	@echo "... States/NameState.o"
 	@echo "... States/NameState.i"
 	@echo "... States/NameState.s"
+	@echo "... States/ScoreState.o"
+	@echo "... States/ScoreState.i"
+	@echo "... States/ScoreState.s"
 	@echo "... States/SettingsState.o"
 	@echo "... States/SettingsState.i"
 	@echo "... States/SettingsState.s"

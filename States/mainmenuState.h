@@ -5,6 +5,7 @@
 #include "SettingsState.h"
 #include "../GraphicsSettings.h"
 #include "NameState.h"
+#include "ScoreState.h"
 
 #ifndef GUJARUNSFML_MAINMENUSTATE_H
 #define GUJARUNSFML_MAINMENUSTATE_H
