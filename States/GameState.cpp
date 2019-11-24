@@ -53,6 +53,9 @@ GameState::~GameState() {
         delete this->activeEnemies[i];
     for (size_t j = 0; j < this->itemElements.size(); j++)
         delete this->itemElements[j];
+    for (size_t k = 0; k < this->itemElements.size(); k++)
+        delete this->fireRed[k];
+
 
 
 }
@@ -82,6 +85,11 @@ void GameState::initTextures() {
         std::cout << "Cannot Load Boss" << std::endl;
     }
     std::cout << "Successfully Loaded Boss" << std::endl;
+    if (!this->textures["SKILL_1"].loadFromFile("resources/images/Assets/Effect/Skill1.png"))
+    {
+        std::cout << "Cannot Load Skill_1" << std::endl;
+    }
+    std::cout << "Successfully Loaded Skill_1" << std::endl;
 
 }
 void GameState::initFonts() {
@@ -107,6 +115,8 @@ void GameState::initGui() {
 
 
 void GameState::initVariables() {
+    this->shootFire = false;
+    this->activeFire = false;
     this->attacking = false;
     this->attacking1 = false;
     this->attacking2 = false;
@@ -120,6 +130,12 @@ void GameState::initVariables() {
     this->slimeBlink = false;
     this->inventoryRect = sf::IntRect(0, 0, static_cast<int>(this->state_data->gridSize) * 0.45,
                                     static_cast<int>(this->state_data->gridSize) * 0.45);
+    this->playerState = SKILLS::DEFAULT_SKILL;
+    this->skillShape.setSize(sf::Vector2f(30.f,10.f));
+    this->skillShape.setPosition(20000, 20000);
+    this->skillShape.setFillColor(sf::Color::Transparent);
+    this->skillShape.setOutlineThickness(1.f);
+    this->skillShape.setOutlineColor(sf::Color::Red);
 }
 
 void GameState::initPlayers() {
@@ -176,6 +192,7 @@ void GameState::update(const float &dt) {
         this->player->update(dt);
         this->playerGui->update(dt);
         this->player->getAttributeComponents()->update();
+        this->updatePlayerState(dt);
         this->updateMovementAI(dt);
         this->initEnemies();
 
@@ -189,6 +206,10 @@ void GameState::update(const float &dt) {
             //Update Items Collision Here
             this->updateCollision(this->player, j, dt);
             j->update(dt);
+        }
+        for (auto *k : this->fireRed)
+        {
+            k->update(dt);
         }
 //        this->boss->update(dt);
         this->updateTileMap(dt);
@@ -229,6 +250,10 @@ void GameState::render(sf::RenderTarget *target) {
     {
         i->render(this->renderTexture, true);
     }
+    for (auto *k : this->fireRed)
+    {
+        k->render(this->renderTexture, true);
+    }
 //    this->boss->render(this->renderTexture, true);
 
     if (!this->blink)
@@ -260,6 +285,7 @@ void GameState::render(sf::RenderTarget *target) {
         }
 
     }
+    this->renderPlayerState(this->renderTexture);
 
 
     this->renderTexture.setView(this->renderTexture.getDefaultView());
@@ -485,16 +511,13 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
     this->time = this->clock.getElapsedTime().asSeconds();
     this->blinkTime = this->blinkClock.getElapsedTime().asSeconds();
     this->slimeTime = this->slimeClock.getElapsedTime().asSeconds();
-    if (this->blinkTime >= 2.f)
-    {
+    if (this->blinkTime >= 2.f) {
         this->blink = false;
         this->blinkClock.restart();
     }
 //    std::cout << this->slimeTime << " " << this->slimeBlink << "\n";
-    if (this->slimeTime > 0.3f && this->slimeBlink)
-    {
-        for (int i = 0; i < this->hitEnemies.size(); i++)
-        {
+    if (this->slimeTime > 0.3f && this->slimeBlink) {
+        for (int i = 0; i < this->hitEnemies.size(); i++) {
             this->hitEnemies[i]->setColor(sf::Color::White);
             this->slimeBlink = false;
             this->slimeClock.restart();
@@ -505,51 +528,64 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
 
 
     for (int i = 0; i < this->activeEnemies.size(); i++) {
-        if (this->activeEnemies[i]->intersects(nextPositionBounds) && this->player->getType() == HitTypes::ATTACK_COL)
-        {
+        if (this->activeEnemies[i]->intersects(nextPositionBounds) && this->player->getType() == HitTypes::ATTACK_COL) {
             if (playerBounds.left < enemyBounds.left
                 && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
-                && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 1.f)
-            {
+                && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 1.f) {
                 this->autoMoveLeft = true;
                 this->setAI(this->activeEnemies[i]);
                 this->activeEnemies[i]->setColor(sf::Color::Red);
                 this->activeEnemies[i]->gotAttackRight();
-                this->activeEnemies[i]->loseHP((this->player->getAttributeComponents()->damageMax + this->player->getAttributeComponents()->damageMin) / 2);
+                this->activeEnemies[i]->loseHP((this->player->getAttributeComponents()->damageMax +
+                                                this->player->getAttributeComponents()->damageMin) / 2);
                 this->slimeBlink = true;
                 this->slimeClock.restart();
                 std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
 
-                if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0)
-                {
+                if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0) {
                     this->player->gainEXP(10);
-                    int chance = rand()%5 + 1;
+                    int chance = rand() % 5 + 1;
                     if (chance == 2)
-                            this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x, this->activeEnemies[i]->getPosition().y - 60, this->textures["CANDY_1"]));
+                        this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                              this->activeEnemies[i]->getPosition().y - 60,
+                                                              this->textures["CANDY_1"]));
+                    if (chance == 3) {
+                        this->fireRed.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                         this->activeEnemies[i]->getPosition().y - 60,
+                                                         this->textures["SKILL_1"], 1));
+
+                    }
                     this->hitEnemies.erase(this->hitEnemies.begin() + i);
                     this->activeEnemies.erase(this->activeEnemies.begin() + i);
                 }
 
-            }
-            else if (playerBounds.left > enemyBounds.left
-                     && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
-                     && playerBounds.top < enemyBounds.top + enemyBounds.height
-                     && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 1.f) {
+            } else if (playerBounds.left > enemyBounds.left
+                       && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
+                       && playerBounds.top < enemyBounds.top + enemyBounds.height
+                       && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 1.f) {
                 this->autoMoveRight = true;
                 this->setAI(this->activeEnemies[i]);
                 this->activeEnemies[i]->gotAttackLeft();
-                this->activeEnemies[i]->loseHP((this->player->getAttributeComponents()->damageMax + this->player->getAttributeComponents()->damageMin) / 2);
+                this->activeEnemies[i]->loseHP((this->player->getAttributeComponents()->damageMax +
+                                                this->player->getAttributeComponents()->damageMin) / 2);
                 this->activeEnemies[i]->setColor(sf::Color::Red);
                 this->slimeBlink = true;
                 this->slimeClock.restart();
                 std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
-                if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0)
-                {
+                if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0) {
                     this->player->gainEXP(10);
-                    int chance = rand()%5 + 1;
+                    int chance = rand() % 5 + 1;
                     if (chance == 2)
-                        this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x, this->activeEnemies[i]->getPosition().y - 60, this->textures["CANDY_1"]));
+                        this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                              this->activeEnemies[i]->getPosition().y - 60,
+                                                              this->textures["CANDY_1"]));
+                    if (chance == 3) {
+                        this->fireRed.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                         this->activeEnemies[i]->getPosition().y - 60,
+                                                         this->textures["SKILL_1"], 1));
+
+                    }
                     this->hitEnemies.erase(this->hitEnemies.begin() + i);
                     this->activeEnemies.erase(this->activeEnemies.begin() + i);
                 }
@@ -557,8 +593,8 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
             }
 
 
-        }
-        else if (this->activeEnemies[i]->intersects(nextPositionBounds) && this->player->getType() == HitTypes::DEFAULT_COL) {
+        } else if (this->activeEnemies[i]->intersects(nextPositionBounds) &&
+                   this->player->getType() == HitTypes::DEFAULT_COL) {
 
             //Right collision
             if (playerBounds.left < enemyBounds.left
@@ -566,7 +602,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
                 && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 2.f) {
 //                std::cout << "Right Collision" << std::endl;
-                this->player->loseHP((this->activeEnemies[i]->getAttributeComponents()->damageMin + this->activeEnemies[i]->getAttributeComponents()->damageMax) / 2);
+                this->player->loseHP(3);
                 this->player->stopVelocityX();
                 this->isHit = true;
 
@@ -576,8 +612,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                     this->isHit = false;
                     this->clock.restart();
                 }
-                if (this->player->getAttributeComponents()->hp <= 0)
-                {
+                if (this->player->getAttributeComponents()->hp <= 0) {
                     this->player->loseEXP(50);
                     this->isDead = true;
                 }
@@ -590,7 +625,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                      && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 2.f) {
 //                std::cout << "Left Collision" << std::endl;
 
-                this->player->loseHP((this->activeEnemies[i]->getAttributeComponents()->damageMin + this->activeEnemies[i]->getAttributeComponents()->damageMax) / 2);
+                this->player->loseHP(3);
                 this->player->stopVelocityX();
                 this->isHit = true;
                 if (this->isHit) {
@@ -599,21 +634,38 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                     this->isHit = false;
                     this->clock.restart();
                 }
-                if (this->player->getAttributeComponents()->hp <= 0)
-                {
+                if (this->player->getAttributeComponents()->hp <= 0) {
                     this->player->loseEXP(50);
                     this->isDead = true;
                 }
             }
 
 
-
-
         }
 
     }
     for (int i = 0; i < this->itemElements.size(); i++) {
-        if (this->itemElements[i]->intersects(nextPositionBounds))
+        if (this->itemElements[i]->intersects(nextPositionBounds)) {
+            if (playerBounds.left < enemyBounds.left
+                && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
+                && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
+                && playerBounds.top + playerBounds.height > enemyBounds.top) {
+
+                this->player->gainHP(30);
+                this->itemElements.erase(this->itemElements.begin() + i);
+            } else if (playerBounds.left > enemyBounds.left
+                       && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
+                       && playerBounds.top < enemyBounds.top + enemyBounds.height
+                       && playerBounds.top + playerBounds.height > enemyBounds.top) {
+                this->player->gainHP(30);
+                this->itemElements.erase(this->itemElements.begin() + i);
+            }
+        }
+
+    }
+
+    for (int i = 0; i < this->fireRed.size(); i++) {
+        if (this->fireRed[i]->intersects(nextPositionBounds))
         {
             if (playerBounds.left < enemyBounds.left
                 && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
@@ -621,20 +673,20 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 && playerBounds.top + playerBounds.height > enemyBounds.top)
             {
 
-                this->player->gainHP(30);
-                this->itemElements.erase(this->itemElements.begin() + i);
+                this->playerState = SKILLS::FIRE_BLUE;
+                this->fireRed.erase(this->fireRed.begin() + i);
             }
             else if (playerBounds.left > enemyBounds.left
                      && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
                      && playerBounds.top < enemyBounds.top + enemyBounds.height
                      && playerBounds.top + playerBounds.height > enemyBounds.top)
             {
-                this->player->gainHP(30);
-                this->itemElements.erase(this->itemElements.begin() + i);
+                this->playerState = SKILLS::FIRE_BLUE;
+                this->fireRed.erase(this->fireRed.begin() + i);
             }
-            }
-
         }
+
+    }
 
 
 }
@@ -705,7 +757,7 @@ void GameState::loadFromFile(const std::string file_name) {
     in_file.open(file_name);
     if (in_file.is_open())
     {
-        std::string player_name = "Easy";
+        std::string player_name = "TU";
         //Load
         in_file >> player_name;
 
@@ -714,6 +766,33 @@ void GameState::loadFromFile(const std::string file_name) {
     }
     in_file.close();
 
+
+}
+
+void GameState::updatePlayerState(const float& dt) {
+    if (this->playerState == SKILLS::FIRE_BLUE)
+    {
+        if (this->player->getMovementComponents()->getState(ATTACK)) {
+            this->skillShape.setPosition(
+                    sf::Vector2f(this->player->getPosition().x, this->player->getPosition().y + 50));
+            this->activeFire = true;
+            this->shootFire = true;
+        }
+    }
+    this->updateFireBall();
+
+
+
+}
+
+void GameState::renderPlayerState(sf::RenderTarget &target){
+    if (this->activeFire)
+        target.draw(this->skillShape);
+}
+
+void GameState::updateFireBall() {
+    if (this->shootFire)
+        this->skillShape.move(3.f,0.f);
 
 }
 

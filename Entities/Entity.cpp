@@ -32,9 +32,9 @@ void Entity::move(const float dir_x, const float dir_y, const float& dt) {
         this->movementComponents->move(dir_x,dir_y, dt);
 
     }
-    if (this->skillComponents) {
-        this->skillComponents->gainExp(SKILLS::ENDURANCE, 1);
-    }
+//    if (this->skillComponents) {
+//        this->skillComponents->gainExp(SKILLS::ENDURANCE, 1);
+//    }
 
 }
 //Component Functions

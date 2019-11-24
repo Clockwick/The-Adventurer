@@ -14,10 +14,11 @@ private:
 
 
     bool isJump;
+    short type;
 
 
 public:
-    Item(float x, float y, sf::Texture& texture_sheet);
+    Item(float x, float y, sf::Texture& texture_sheet, short type = 0);
     virtual ~Item();
 
     virtual void update(const float& dt);

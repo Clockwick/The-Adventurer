@@ -6,10 +6,10 @@
 
 SkillComponent::SkillComponent()
 {
-    this->skills.push_back(Skill(SKILLS::BOOM));
-    this->skills.push_back(Skill(SKILLS::BANG));
-    this->skills.push_back(Skill(SKILLS::WALA));
-    this->skills.push_back(Skill(SKILLS::ENDURANCE));
+//    this->skills.push_back(Skill(SKILLS::BOOM));
+//    this->skills.push_back(Skill(SKILLS::BANG));
+//    this->skills.push_back(Skill(SKILLS::WALA));
+//    this->skills.push_back(Skill(SKILLS::ENDURANCE));
 }
 
 SkillComponent::~SkillComponent()

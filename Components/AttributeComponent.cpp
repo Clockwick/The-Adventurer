@@ -53,6 +53,7 @@ void AttributeComponent::updateStats(const bool reset) {
 
 
 
+
 void AttributeComponent::update() {
     this->updateStats(false);
     this->updateLevel();

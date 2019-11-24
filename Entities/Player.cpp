@@ -58,6 +58,7 @@ void Player::update(const float& dt)
     this->movementComponents->update(dt);
     this->updateAttack();
     this->updateAnimation(dt);
+    std::cout << this->movementComponents->getVelocity().y << "\n";
 
 }
 

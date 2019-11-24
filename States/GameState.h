@@ -33,6 +33,9 @@ public:
     void updateTileMap(const float& dt);
     void updatePlayerGUI(const float& dt);
     void updateCollision(Entity *entity, Entity* enemy, const float& dt);
+    void updatePlayerState(const float &dt);
+    void renderPlayerState(sf::RenderTarget& target);
+    void updateFireBall();
 
     //Render
     void render(sf::RenderTarget* target = nullptr);
@@ -96,6 +99,13 @@ private:
     Enemy* enemyAI;
     Boss* boss;
     void setAI(Enemy* enemy);
+
+    int playerState;
+    sf::RectangleShape skillShape;
+    std::vector <Item*> fireRed;
+    bool shootFire;
+    bool activeFire;
+
 
 
 

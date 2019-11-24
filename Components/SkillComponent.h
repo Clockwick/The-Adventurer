@@ -1,7 +1,7 @@
 #include "../Precom.h"
 #ifndef GUJARUNSFML_SKILLCOMPONENT_H
 #define GUJARUNSFML_SKILLCOMPONENT_H
-enum SKILLS {BOOM = 0, BANG, WALA, ENDURANCE};
+enum SKILLS {DEFAULT_SKILL = 0,FIRE_RED, FIRE_BLUE, FIRE_GREEN};
 class SkillComponent
 {
 private:

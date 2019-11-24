@@ -4,8 +4,9 @@
 
 #include "Items.h"
 
-Item::Item(float x, float y, sf::Texture& texture_sheet) {
+Item::Item(float x, float y, sf::Texture& texture_sheet, short type) {
     this->initVariables();
+    this->type = type;
     this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
 //    this->createMovementComponents(300, 1500.0f, 500.0f, 0);
     this->createAnimationComponents( texture_sheet);
@@ -19,8 +20,10 @@ Item::~Item() {
 
 }
 void Item::initAnimations() {
-    this->animationComponents->addAnimation("DROP", 100.f, 0, 0, 1, 0, 100, 74);
-
+    if (type == 0)
+        this->animationComponents->addAnimation("DROP", 100.f, 0, 0, 1, 0, 100, 74);
+    if (type == 1)
+        this->animationComponents->addAnimation("DROP_SKILL", 100, 0, 0 , 0, 0, 100, 74);
 }
 
 void Item::initVariables() {
@@ -41,8 +44,10 @@ void Item::render(sf::RenderTarget &target, const bool show_hitbox) {
 }
 
 void Item::updateAnimations(const float &dt) {
-
-    this->animationComponents->play("DROP", dt);
+    if (type == 0)
+        this->animationComponents->play("DROP", dt);
+    if (type == 1)
+        this->animationComponents->play("DROP_SKILL", dt);
     this->createHitboxComponents(this->sprite,20.f, 10.f, 55.f, 65.f);
 
     this->hitboxComponents->update();

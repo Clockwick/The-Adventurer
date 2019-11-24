@@ -12,37 +12,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/images/Assets/Effect/Skill1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/AttributeComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AttributeComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/AttributeComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AttributeComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Boss.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Boss.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/SkillComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/SkillComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/SkillComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Components/SkillComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entities/Entity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Entity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Slime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Slime.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Items/Items.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Items/Items.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Items/Items.h" beforeDir="false" afterPath="$PROJECT_DIR$/Items/Items.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/GameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/GameState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Components/AttributeComponent.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Components/AttributeComponent.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Boss.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Boss.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Enemy.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Enemy.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Entity.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Entity.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Player.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Slime.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/GUI.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/GUI.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Items/Inventory.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Items/Items.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Items/Items.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Map/TileMap.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Map/TileMap.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/PlayerGUI.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/PlayerGUI.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/DefaultMode.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EditorMode.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorModes/EnemyEditorMode.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/EditorState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/The-Adventurer" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/The-Adventurer" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kit.txt" beforeDir="false" afterPath="$PROJECT_DIR$/kit.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Monsters/Boss/Boss.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Assets/Monsters/Boss/Boss.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/images/Assets/Monsters/Boss/Boss.xcf" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Assets/Monsters/Boss/Boss.xcf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -231,6 +220,7 @@
       <workItem from="1574411739443" duration="18748000" />
       <workItem from="1574524735592" duration="4619000" />
       <workItem from="1574532297769" duration="825000" />
+      <workItem from="1574570687929" duration="6407000" />
     </task>
     <servers />
   </component>
