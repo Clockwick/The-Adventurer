@@ -33,9 +33,9 @@ void Boss::initVariables() {
 }
 
 void Boss::initAnimation() {
-    this->animationComponents->addAnimation("IDLE", 25.f, 0 , 0, 13, 0, 100, 74);
-    this->animationComponents->addAnimation("RUN", 15.f, 0, 0, 3, 0, 100, 74);
-    this->animationComponents->addAnimation("JUMP", 17.f, 0, 2, 8, 2, 100, 74);
+    this->animationComponents->addAnimation("IDLE", 25.f, 0 , 0, 8, 0, 100, 74);
+    this->animationComponents->addAnimation("RUN", 15.f, 0, 1, 7, 1, 100, 74);
+    
 }
 
 

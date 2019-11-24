@@ -124,7 +124,7 @@ void GameState::initVariables() {
 
 void GameState::initPlayers() {
     this->player = new Player(500.f,475.f, 200.f, this->textures["PLAYER_SHEET"]);
-    this->boss = new Boss(1000.f, 475.f, 200.f, this->textures["BOSS_SHEET"]);
+//    this->boss = new Boss(1000.f, 475.f, 200.f, this->textures["BOSS_SHEET"]);
 }
 
 void GameState::initPlayerGUI() {
@@ -133,7 +133,7 @@ void GameState::initPlayerGUI() {
 void GameState::initEnemies() {
     if (this->activeEnemies.size() < 10)
     {
-        this->activeEnemies.push_back(new Slime(((rand()%30) * 100) + 1500, 475.f, 40.f, this->textures["SLIME_SHEET"]));
+        this->activeEnemies.push_back(new Slime(((rand()%30 + 1) * 100) + 1500, 475.f, 40.f, this->textures["SLIME_SHEET"]));
 
     }
 }
@@ -167,14 +167,15 @@ void GameState::update(const float &dt) {
     this->updateKeytime(dt);
     this->updateInput(dt);
 
+
     if (!this->paused && !this->reallyDead && !this->isDead)//Unpausesd
     {
         this->updateView(dt);
-        this->player->getAttributeComponents()->update();
         this->updatePlayerInput(dt);
         this->updateGui(dt);
         this->player->update(dt);
         this->playerGui->update(dt);
+        this->player->getAttributeComponents()->update();
         this->updateMovementAI(dt);
         this->initEnemies();
 
@@ -189,7 +190,7 @@ void GameState::update(const float &dt) {
             this->updateCollision(this->player, j, dt);
             j->update(dt);
         }
-        this->boss->update(dt);
+//        this->boss->update(dt);
         this->updateTileMap(dt);
     }
     else if (this->isDead)
@@ -228,7 +229,7 @@ void GameState::render(sf::RenderTarget *target) {
     {
         i->render(this->renderTexture, true);
     }
-    this->boss->render(this->renderTexture, true);
+//    this->boss->render(this->renderTexture, true);
 
     if (!this->blink)
     {
@@ -291,6 +292,7 @@ void GameState::updatePlayerInput(const float &dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !this->player->getAttack()&& !this->player->getAttack1()&& !this->player->getAttack2())
     {
         this->player->move(-1.0f, 0.0f, dt);
+
 
 //        for (auto *i : this->activeEnemies)
 //            i->move(-1.0f, 0.0f, dt);
@@ -459,7 +461,7 @@ void GameState::updateView(const float &dt) {
 
 void GameState::updateTileMap(const float &dt) {
     this->tileMap->update(this->player, dt);
-    this->tileMap->update(this->boss, dt);
+//    this->tileMap->update(this->boss, dt);
     for (auto *i : this->activeEnemies)
     {
         this->tileMap->update(i, dt);
@@ -517,7 +519,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 this->activeEnemies[i]->loseHP((this->player->getAttributeComponents()->damageMax + this->player->getAttributeComponents()->damageMin) / 2);
                 this->slimeBlink = true;
                 this->slimeClock.restart();
-//                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
+                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
 
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0)
                 {
@@ -541,7 +543,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 this->activeEnemies[i]->setColor(sf::Color::Red);
                 this->slimeBlink = true;
                 this->slimeClock.restart();
-//                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
+                std::cout << "Enemy HP: " << this->activeEnemies[i]->getAttributeComponents()->hp << "\n";
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0)
                 {
                     this->player->gainEXP(10);

@@ -182,7 +182,7 @@ namespace gui {
         void initVariables();
 
     public:
-        TextGui(float x, float y, sf::Font* font, unsigned char_size, sf::Color text_color, sf::Color outline_color, std::string text, std::string value, const short type = 0);
+        TextGui(float x, float y, sf::Font* font, unsigned char_size, sf::Color text_color, sf::Color outline_color, std::string text, std::string value = "", const short type = 0);
         virtual ~TextGui();
 
         void render(sf::RenderTarget& target);
@@ -260,7 +260,11 @@ namespace gui {
         gui::TextGui* hpText;
 
         gui::TextGui* dmgText;
+        gui::TextGui* dmgMaxText;
         gui::TextGui* levelNextText;
+        gui::TextGui* pvmText;
+        gui::TextGui* accuracyText;
+        gui::TextGui* defenceText;
 
         Player* player;
         std::string playerName;

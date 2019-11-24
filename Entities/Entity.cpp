@@ -66,8 +66,8 @@ void Entity::createHitboxComponents(sf::Sprite& sprite, float offset_x,
     this->hitboxComponents = new HitboxComponent(sprite, offset_x,offset_y, width, height, type);
 }
 
-void Entity::createAttributeComponents(int level) {
-    this->attributeComponents = new AttributeComponent(level);
+void Entity::createAttributeComponents(int level, int hp) {
+    this->attributeComponents = new AttributeComponent(level, hp);
 }
 void Entity::createSkillComponents() {
     this->skillComponents = new SkillComponent();

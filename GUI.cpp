@@ -616,7 +616,10 @@ gui::Status::~Status() {
     delete this-> hpText;
 
     delete this-> dmgText;
+    delete this-> dmgMaxText;
     delete this-> levelNextText;
+    delete this-> accuracyText;
+    delete this-> defenceText;
 
 
     for (auto it = this->buttons.begin(); it != this->buttons.end();++it){
@@ -660,8 +663,16 @@ void gui::Status::initText()
             , sf::Color::White, sf::Color::Black, "Luck: ", std::to_string(this->player->getAttributeComponents()->luck));
     this->dmgText = new gui::TextGui(this->thirdCol, this->bounds.getPosition().y + 150.f + (4 * this->spaceY), this->statusFont, 36
             , sf::Color::White, sf::Color::Black, "Dmg: ", std::to_string(this->player->getAttributeComponents()->damageMin));
+    this->dmgMaxText = new gui::TextGui(this->thirdCol + 90, this->bounds.getPosition().y + 150.f + (4 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "", std::to_string(this->player->getAttributeComponents()->damageMax));
+    this->pvmText = new gui::TextGui(this->thirdCol + 170, this->bounds.getPosition().y + 150.f + (4 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "~");
     this->levelNextText = new gui::TextGui(this->thirdCol, this->bounds.getPosition().y + 150.f + (5 * this->spaceY), this->statusFont, 36
             , sf::Color::White, sf::Color::Black, "ExpNext: ", std::to_string(this->player->getAttributeComponents()->expNext), 3);
+    this->defenceText = new gui::TextGui(this->thirdCol, this->bounds.getPosition().y + 150.f + (6 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "Defense: ", std::to_string(this->player->getAttributeComponents()->defence), 3);
+    this->accuracyText = new gui::TextGui(this->thirdCol, this->bounds.getPosition().y + 150.f + (7 * this->spaceY), this->statusFont, 36
+            , sf::Color::White, sf::Color::Black, "Accuracy: ", std::to_string(this->player->getAttributeComponents()->accuracy), 3);
 
 
 }
@@ -732,8 +743,13 @@ void gui::Status::update(const sf::Vector2i& mousePosWindow, const float &dt) {
     this->statPoints->update(std::to_string(this->player->getAttributeComponents()->attributePoints));
     this->hpText->update(std::to_string(this->player->getAttributeComponents()->hp));
 
+
     this->dmgText->update(std::to_string(this->player->getAttributeComponents()->damageMin));
+    this->dmgMaxText->update(std::to_string(this->player->getAttributeComponents()->damageMax));
     this->levelNextText->update(std::to_string(this->player->getAttributeComponents()->expNext));
+    this->defenceText->update(std::to_string(this->player->getAttributeComponents()->defence));
+    this->accuracyText->update(std::to_string(this->player->getAttributeComponents()->accuracy));
+
 
     this->updateButtons(mousePosWindow);
 
@@ -773,7 +789,11 @@ void gui::Status::render(sf::RenderTarget &target) {
         this->intText->render(target);
         this->luckText->render(target);
         this->dmgText->render(target);
+        this->pvmText->render(target);
+        this->dmgMaxText->render(target);
         this->levelNextText->render(target);
+        this->defenceText->render(target);
+        this->accuracyText->render(target);
         this->renderButtons(target);
     }
 

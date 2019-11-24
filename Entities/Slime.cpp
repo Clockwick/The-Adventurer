@@ -9,7 +9,7 @@ Slime::Slime(float x, float y, const float &jumpHeight, sf::Texture &texture_she
 
     this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f,HitTypes::ATTACK_COL);
     this->createMovementComponents(100, 1000.0f, 250.0f, this->jumpHeight);
-    this->createAttributeComponents(1);
+    this->createAttributeComponents(1, 500);
     this->createSkillComponents();
     this->createAnimationComponents(texture_sheet);
     this->initAnimation();
