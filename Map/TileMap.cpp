@@ -156,7 +156,7 @@ void TileMap::update(Entity *entity, const float &dt) {
                         playerBounds.left < wallBounds.left + wallBounds.width
                         && playerBounds.left + playerBounds.width  + 25> wallBounds.left && !entity->getMovementComponents()->faceRight && (entity->getAttack() || entity->getAttack1() || entity->getAttack2())
                             ) {
-                        std::cout << "Case" << std::endl;
+//                        std::cout << "Case" << std::endl;
                         this->canJump = true;
                         entity->allowJump(&this->canJump);
                         entity->stopVelocityY();
@@ -167,7 +167,7 @@ void TileMap::update(Entity *entity, const float &dt) {
                              && playerBounds.left < wallBounds.left + wallBounds.width
                              && playerBounds.left + playerBounds.width > wallBounds.left
                             ) {
-                        std::cout << "Bottom Collision" << std::endl;
+//                        std::cout << "Bottom Collision" << std::endl;
                         this->canJump = true;
                         entity->allowJump(&this->canJump);
                         entity->stopVelocityY();
@@ -180,7 +180,7 @@ void TileMap::update(Entity *entity, const float &dt) {
                              && playerBounds.left < wallBounds.left + wallBounds.width
                              && playerBounds.left + playerBounds.width > wallBounds.left
                             ) {
-                        std::cout << "Top Collision" << std::endl;
+//                        std::cout << "Top Collision" << std::endl;
 
                         entity->stopVelocityY();
                         entity->setPosition(playerBounds.left + 20, wallBounds.top + wallBounds.height);
@@ -192,7 +192,7 @@ void TileMap::update(Entity *entity, const float &dt) {
                         && playerBounds.top < wallBounds.top + wallBounds.height + 5
                         && playerBounds.top + playerBounds.height > wallBounds.top
                             ) {
-                        std::cout << "Right Collision" << std::endl;
+//                        std::cout << "Right Collision" << std::endl;
 
                         entity->stopVelocityX();
                         entity->setPosition(wallBounds.left - playerBounds.width + 45, playerBounds.top + 10);
@@ -206,7 +206,7 @@ void TileMap::update(Entity *entity, const float &dt) {
                              && playerBounds.top < wallBounds.top + wallBounds.height
                              && playerBounds.top + playerBounds.height > wallBounds.top
                             ) {
-                        std::cout << "Left Collision" << std::endl;
+//                        std::cout << "Left Collision" << std::endl;
 
                         entity->stopVelocityX();
                         entity->setPosition(wallBounds.left + wallBounds.width, playerBounds.top + 10);

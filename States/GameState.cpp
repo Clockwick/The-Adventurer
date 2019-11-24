@@ -131,11 +131,12 @@ void GameState::initVariables() {
     this->inventoryRect = sf::IntRect(0, 0, static_cast<int>(this->state_data->gridSize) * 0.45,
                                     static_cast<int>(this->state_data->gridSize) * 0.45);
     this->playerState = SKILLS::DEFAULT_SKILL;
-    this->skillShape.setSize(sf::Vector2f(30.f,10.f));
+    this->skillShape.setSize(sf::Vector2f(68.f,9.f));
     this->skillShape.setPosition(20000, 20000);
     this->skillShape.setFillColor(sf::Color::Transparent);
     this->skillShape.setOutlineThickness(1.f);
     this->skillShape.setOutlineColor(sf::Color::Red);
+//    this->playerCenter = sf::Vector2f(this->player->getPosition().x + this->player->getGlobalBounds().width / 2.f, this->player->getPosition().y + this->player->getGlobalBounds().height / 2.f);
 }
 
 void GameState::initPlayers() {
@@ -147,10 +148,11 @@ void GameState::initPlayerGUI() {
     this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
 }
 void GameState::initEnemies() {
-    if (this->activeEnemies.size() < 10)
+    this->spawnTime = this->spawnClock.getElapsedTime().asSeconds();
+    if (this->activeEnemies.size() < 10 && this->spawnTime > 5.f)
     {
         this->activeEnemies.push_back(new Slime(((rand()%30 + 1) * 100) + 1500, 475.f, 40.f, this->textures["SLIME_SHEET"]));
-
+        this->spawnClock.restart();
     }
 }
 
@@ -286,7 +288,7 @@ void GameState::render(sf::RenderTarget *target) {
 
     }
     this->renderPlayerState(this->renderTexture);
-
+    this->renderFireBall(this->renderTexture);
 
     this->renderTexture.setView(this->renderTexture.getDefaultView());
     this->renderGui(this->renderTexture);
@@ -334,6 +336,15 @@ void GameState::updatePlayerInput(const float &dt) {
 //        for (auto *i : this->activeEnemies)
 //            i->jump();
     }
+
+    //Player Center
+
+    this->playerCenter = sf::Vector2f(this->player->getPosition().x + (this->player->getGlobalBounds().width / 2.f), this->player->getPosition().y + (this->player->getGlobalBounds().height / 2.f));
+
+    this->aimDir = static_cast<sf::Vector2f>(this->mousePosWindow) - this->playerCenter;
+    this->aimDirNorm = this->aimDir / sqrtf(pow(this->aimDir.x, 2) + pow(this->aimDir.y, 2));
+
+    fireBalls.push_back(FireBall(f1));
 
 }
 
@@ -773,13 +784,14 @@ void GameState::updatePlayerState(const float& dt) {
     if (this->playerState == SKILLS::FIRE_BLUE)
     {
         if (this->player->getMovementComponents()->getState(ATTACK)) {
-            this->skillShape.setPosition(
-                    sf::Vector2f(this->player->getPosition().x, this->player->getPosition().y + 50));
+            this->f1.fireball.setPosition(this->playerCenter);
+            this->f1.currVelocity = aimDirNorm * f1.maxSpeed;
+            this->fireBalls.push_back(FireBall(f1));
             this->activeFire = true;
             this->shootFire = true;
         }
     }
-    this->updateFireBall();
+    this->updateFireBall(dt);
 
 
 
@@ -790,10 +802,19 @@ void GameState::renderPlayerState(sf::RenderTarget &target){
         target.draw(this->skillShape);
 }
 
-void GameState::updateFireBall() {
-    if (this->shootFire)
-        this->skillShape.move(3.f,0.f);
+void GameState::renderFireBall(sf::RenderTarget& target) {
+    for (size_t i = 0; i < fireBalls.size(); i++)
+    {
+         target.draw(fireBalls[i].fireball);
+    }
 
+}
+
+void GameState::updateFireBall(const float& dt) {
+    if (this->shootFire)
+        for (int i = 0; i < fireBalls.size(); i++) {
+            fireBalls[i].fireball.move(fireBalls[i].currVelocity * dt);
+        }
 }
 
 

@@ -19,6 +19,20 @@ class TileMap;
 class PlayerGUI;
 
 
+class FireBall
+{
+public:
+    sf::RectangleShape fireball;
+    sf::Vector2f currVelocity;
+    float maxSpeed;
+
+    FireBall(float width, float height)
+    : currVelocity(0.f,0.f), maxSpeed(15.f)
+    {
+        this->fireball.setSize(sf::Vector2f(width,height));
+        this->fireball.setFillColor(sf::Color::Red);
+    }
+};
 class GameState : public State
 {
 
@@ -35,7 +49,8 @@ public:
     void updateCollision(Entity *entity, Entity* enemy, const float& dt);
     void updatePlayerState(const float &dt);
     void renderPlayerState(sf::RenderTarget& target);
-    void updateFireBall();
+    void updateFireBall(const float& dt);
+    void renderFireBall(sf::RenderTarget& target);
 
     //Render
     void render(sf::RenderTarget* target = nullptr);
@@ -51,6 +66,7 @@ private:
     Player* player;
     PlayerGUI* playerGui;
     std::string playerName;
+    sf::Vector2f playerCenter;
     const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
 
     //Enemy
@@ -101,10 +117,21 @@ private:
     void setAI(Enemy* enemy);
 
     int playerState;
+
+    //Fireball
     sf::RectangleShape skillShape;
     std::vector <Item*> fireRed;
     bool shootFire;
     bool activeFire;
+    sf::Vector2f aimDir;
+    sf::Vector2f aimDirNorm;
+    FireBall f1;
+    std::vector<FireBall*> fireBalls;
+
+
+    //Spawn
+    sf::Clock spawnClock;
+    float spawnTime;
 
 
 
