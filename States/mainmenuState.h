@@ -25,11 +25,14 @@ public:
 
 private:
     //Variables
-    sf::Font font;
+    std::map <std::string,sf::Font> fonts;
     sf::RectangleShape background;
     sf::RectangleShape btnBackground;
     std::map <std::string, gui::Button*> buttons;
     sf::Texture backgroundTexture;
+    sf::RectangleShape backgroundLogo;
+
+    sf::Text logoText;
 
     //Audio
 
@@ -42,12 +45,15 @@ private:
     void initVariables();
     void initAudio();
     void resetGui();
+    void initLogo();
+    const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
 
     sf::Event* event;
 
     //bool
     bool showBox;
     NameState* nameState;
+
 
 
 

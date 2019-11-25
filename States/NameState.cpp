@@ -1,8 +1,8 @@
 #include "NameState.h"
 
 
-NameState::NameState(StateData *state_data, sf::Event* event)
-        : State(state_data)
+NameState::NameState(StateData *state_data, sf::Event* event, sf::Sound& sound)
+        : State(state_data), sound(sound)
 {
     this->event = event;
     this->initVariables();
@@ -58,7 +58,7 @@ void NameState::updateInput(const float &dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
     {
         this->saveToFile("kit.txt");
-        this->states->push(new GameState(this->state_data));
+        this->states->push(new GameState(this->state_data, this->sound));
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {

@@ -30,6 +30,7 @@ private:
     sf::RectangleShape background;
     sf::RectangleShape container;
 
+
     std::map<std::string, gui::Button*> buttons;
 
 

@@ -13,6 +13,13 @@ void DeadMenu::update(const sf::Vector2i &mousePosWindow) {
     {
         i.second->update(mousePosWindow);
     }
+//    this->youDead.play();
+//
+//    this->youDeadTime = this->youDeadClock.getElapsedTime().asSeconds();
+//    if (this->youDeadTime > 8)
+//    {
+//        this->youDead.stop();
+//    }
 }
 
 void DeadMenu::render(sf::RenderTarget &target) {

@@ -9,6 +9,7 @@
 class NameState : public State
 {
 private:
+
     sf::RectangleShape bg;
     sf::RectangleShape box;
     sf::RectangleShape inputBox;
@@ -20,7 +21,7 @@ private:
     float totalTime;
     bool blink;
     float blinkq;
-
+    sf::Sound sound;
     bool quit;
     char last_char;
     std::string input;
@@ -49,6 +50,7 @@ public:
 
     const bool& getQuit();
 
+    NameState(StateData *state_data, sf::Event *event, sf::Sound &sound);
 };
 
 

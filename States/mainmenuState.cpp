@@ -5,6 +5,7 @@ Mainmenu::Mainmenu(StateData* state_data, sf::Event* event)
 : State(state_data)
 {
     this->initVariables();
+    this->initLogo();
     this->initAudio();
     this->initFonts();
     this->initGui();
@@ -18,22 +19,24 @@ Mainmenu::~Mainmenu() {
     for (auto it = this->buttons.begin(); it != this->buttons.end();++it){
         delete it->second;
     }
-    delete this->nameState;
 }
 //Initializer
 void Mainmenu::initVariables() {
     this->showBox = false;
 }
 void Mainmenu::initFonts() {
-    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
+    if (!this->fonts["NORMAL"].loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
     {
         std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
+    }
+    if (!this->fonts["LOGO"].loadFromFile("fonts/karma.ttf"))
+    {
+        std::cout << "ERROR::MAINMENU::COULD NOT LOAD LOGO FONT" << std::endl;
     }
 
 }
 
 void Mainmenu::initGui() {
-    const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
     this->background.setSize(
             sf::Vector2f(
                     static_cast<float>(vm.width),
@@ -48,28 +51,28 @@ void Mainmenu::initGui() {
     this->background.setTexture(&this->backgroundTexture);
 
 
-    this->buttons["GAME_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(33.22f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
-                                             &this->font, "New Game", gui::calcCharSize(vm),
+    this->buttons["GAME_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(36.22f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
+                                             &this->fonts["LOGO"], "New Game", gui::calcCharSize(vm),
                                              sf::Color(0,0,0),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                              sf::Color(70,70,70,100),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["SETTINGS_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(44.33, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
-                                                &this->font, "Settings", gui::calcCharSize(vm),
+    this->buttons["SETTINGS_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(47.33, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
+                                                      &this->fonts["LOGO"], "Settings", gui::calcCharSize(vm),
                                                 sf::Color(0,0,0),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                                 sf::Color(70,70,70,100 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["EDITOR_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(55.44, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
-                                               &this->font, "Editor", gui::calcCharSize(vm),
+    this->buttons["EDITOR_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(58.44, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
+                                                    &this->fonts["LOGO"], "Editor", gui::calcCharSize(vm),
                                                sf::Color(0,0,0),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                                sf::Color(70,70,70,100 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["SCORE_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(66.55, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
-                                                    &this->font, "Score", gui::calcCharSize(vm),
+    this->buttons["SCORE_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(69.55, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
+                                                   &this->fonts["LOGO"], "Score", gui::calcCharSize(vm),
                                                     sf::Color(0,0,0),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                                     sf::Color(70,70,70,100 ),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
     );
-    this->buttons["EXIT_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(77.66f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
-                                             &this->font, "Exit", gui::calcCharSize(vm),
+    this->buttons["EXIT_STATE"] = new gui::Button(gui::p2pX(44.44f, vm),gui::p2pY(80.66f, vm),gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm),
+                                                  &this->fonts["LOGO"], "Exit", gui::calcCharSize(vm),
                                              sf::Color(0,0,0),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                              sf::Color(70,70,70,100),sf::Color(150,150,150,0),sf::Color(20,20,20,0)
 
@@ -99,6 +102,8 @@ void Mainmenu::render(sf::RenderTarget *target) {
         target = this->window;
 
     target->draw(this->background);
+    target->draw(this->backgroundLogo);
+    target->draw(this->logoText);
     target->draw(this->btnBackground);
     this->renderButtons(*target);
 
@@ -145,7 +150,7 @@ void Mainmenu::updateButtons() {
         this->soundBt.play();
         this->musicBG.stop();
         this->showBox = true;
-        this->nameState = new NameState(this->state_data, this->event);
+        this->nameState = new NameState(this->state_data, this->event, this->soundBt);
 
     }
     if (this->buttons["SETTINGS_STATE"]->isPressed())
@@ -190,7 +195,7 @@ void Mainmenu::initAudio() {
 
     //Init Background Audio
     this->musicBG.openFromFile("resources/Audio/Theforestawake.ogg");
-//    this->musicBG.play();
+    this->musicBG.play();
 
 }
 
@@ -209,6 +214,19 @@ void Mainmenu::resetGui() {
     }
     this->buttons.clear();
     this->initGui();
+
+}
+
+void Mainmenu::initLogo() {
+    this->logoText.setPosition(gui::p2pX(29.f, vm), gui::p2pY(16.f,vm));
+    this->logoText.setCharacterSize(gui::calcCharSize(vm, 30));
+    this->logoText.setFont(this->fonts["LOGO"]);
+    this->logoText.setString("The Adventurer");
+
+    this->backgroundLogo.setSize(sf::Vector2f(gui::p2pX(44.f, vm), gui::p2pY(15.f ,vm)));
+    this->backgroundLogo.setPosition(this->logoText.getPosition().x - gui::p2pX(3.f, vm), this->logoText.getPosition().y);
+    this->backgroundLogo.setFillColor(sf::Color(0,0,0,200));
+
 
 }
 

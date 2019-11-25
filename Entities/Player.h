@@ -27,6 +27,7 @@ public:
     bool getAttack1();
     bool getAttack2();
     void setColor(sf::Color color);
+    const bool& getJump() const;
 
     const short& getType() const;
     //Variables

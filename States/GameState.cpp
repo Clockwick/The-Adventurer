@@ -6,10 +6,11 @@
 #include "../Entities/Slime.h"
 
 
-GameState::GameState(StateData* state_data)
-: State(state_data)
+GameState::GameState(StateData* state_data, sf::Sound& sound)
+: State(state_data), pressSound(sound)
 {
     this->initVariables();
+    this->initAudio();
     this->initGui();
     this->initDeferredRender();
     this->initView();
@@ -26,12 +27,12 @@ GameState::GameState(StateData* state_data)
 
     this->inventorySelector = new gui::InventorySelector(gui::p2pX(60.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
                                                          900.f, 900.f,
-                                                         this->state_data->gridSize, this->font, "Inventory"
+                                                         this->state_data->gridSize, this->fonts["NORMAL"], "Inventory"
 
     );
     this->status = new gui::Status(this->player,gui::p2pX(70.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
                                    900.f, 900.f,
-                                   this->state_data->gridSize, this->font, "Status", this->playerName
+                                   this->state_data->gridSize, this->fonts["NORMAL"], "Status", this->playerName
     );
 
 
@@ -93,11 +94,15 @@ void GameState::initTextures() {
 
 }
 void GameState::initFonts() {
-    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
+    if (!this->fonts["NORMAL"].loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
     {
-        std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
+        std::cout << "ERROR::GAMESTATE::COULD NOT LOAD FONT" << std::endl;
     }
 
+    if (!this->fonts["HOT"].loadFromFile("fonts/ENDEAVOURFOREVER.ttf"))
+    {
+        std::cout << "ERROR::GAMESTATE::COULD NOT LOAD FONT" << std::endl;
+    }
     std::cout << "Successfully Loaded Fonts" << std::endl;
 
 
@@ -136,7 +141,34 @@ void GameState::initVariables() {
     this->skillShape.setFillColor(sf::Color::Transparent);
     this->skillShape.setOutlineThickness(1.f);
     this->skillShape.setOutlineColor(sf::Color::Red);
+
+
 //    this->playerCenter = sf::Vector2f(this->player->getPosition().x + this->player->getGlobalBounds().width / 2.f, this->player->getPosition().y + this->player->getGlobalBounds().height / 2.f);
+}
+
+void GameState::initAudio() {
+    //Walk
+    this->soundBufferWalk.loadFromFile("resources/Audio/walk.wav");
+    this->walkSound.setBuffer(this->soundBufferWalk);
+    this->walkSound.setVolume(20.f);
+
+    //Jump
+    this->soundBufferJump.loadFromFile("resources/Audio/jump.wav");
+    this->jumpSound.setBuffer(this->soundBufferJump);
+
+    //Collect
+    this->soundBufferCollect.loadFromFile("resources/Audio/collectItem.ogg");
+    this->collectSound.setBuffer(this->soundBufferCollect);
+
+
+    //GET HIT
+    this->getHitBuffer.loadFromFile("resources/Audio/getHit.wav");
+    this->getHitSound.setBuffer(this->getHitBuffer);
+
+
+    //DEAD
+    this->youDeadBuffer.loadFromFile("resources/Audio/youDead.ogg");
+    this->youDead.setBuffer(this->youDeadBuffer);
 }
 
 void GameState::initPlayers() {
@@ -194,7 +226,6 @@ void GameState::update(const float &dt) {
         this->player->update(dt);
         this->playerGui->update(dt);
         this->player->getAttributeComponents()->update();
-        this->updatePlayerState(dt);
         this->updateMovementAI(dt);
         this->initEnemies();
 
@@ -287,8 +318,6 @@ void GameState::render(sf::RenderTarget *target) {
         }
 
     }
-    this->renderPlayerState(this->renderTexture);
-    this->renderFireBall(this->renderTexture);
 
     this->renderTexture.setView(this->renderTexture.getDefaultView());
     this->renderGui(this->renderTexture);
@@ -319,20 +348,39 @@ void GameState::updatePlayerInput(const float &dt) {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !this->player->getAttack()&& !this->player->getAttack1()&& !this->player->getAttack2())
     {
+        this->walkTime = this->walkClock.getElapsedTime().asSeconds();
+        if (this->walkTime > 0.5f && !this->player->getJump())
+        {
+            this->walkSound.play();
+            this->walkClock.restart();
+        }
         this->player->move(-1.0f, 0.0f, dt);
-
 
 //        for (auto *i : this->activeEnemies)
 //            i->move(-1.0f, 0.0f, dt);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !this->player->getAttack()&& !this->player->getAttack1()&& !this->player->getAttack2())
     {
+        this->walkTime = this->walkClock.getElapsedTime().asSeconds();
+        if (this->walkTime > 0.5f && !this->player->getJump())
+        {
+            this->walkSound.play();
+            this->walkClock.restart();
+        }
         this->player->move(1.0f, 0.0f, dt);
 //        for (auto *i : this->activeEnemies)
 //            i->move(1.0f,0.0f, dt);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         this->player->jump();
+        this->jumpTime = this->jumpClock.getElapsedTime().asSeconds();
+        if (this->jumpTime > 1.5f)
+        {
+            this->jumpSound.play();
+            this->jumpClock.restart();
+
+        }
+
 //        for (auto *i : this->activeEnemies)
 //            i->jump();
     }
@@ -344,7 +392,6 @@ void GameState::updatePlayerInput(const float &dt) {
     this->aimDir = static_cast<sf::Vector2f>(this->mousePosWindow) - this->playerCenter;
     this->aimDirNorm = this->aimDir / sqrtf(pow(this->aimDir.x, 2) + pow(this->aimDir.y, 2));
 
-    fireBalls.push_back(FireBall(f1));
 
 }
 
@@ -364,7 +411,7 @@ void GameState::updateInput(const float &dt) {
 
 void GameState::initPauseMenu() {
     const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
-    this->pmenu = new PauseMenu(this->state_data->gfxSettings->resolution, this->font);
+    this->pmenu = new PauseMenu(this->state_data->gfxSettings->resolution, this->fonts["NORMAL"]);
 
     this->pmenu->addButton("QUIT",gui::p2pY(61.11f, vm), gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm), gui::calcCharSize(vm), "Quit");
 
@@ -372,7 +419,7 @@ void GameState::initPauseMenu() {
 
 void GameState::initDeadMenu() {
     const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
-    this->deadmenu = new DeadMenu(this->state_data->gfxSettings->resolution, this->font);
+    this->deadmenu = new DeadMenu(this->state_data->gfxSettings->resolution,this->fonts["NORMAL"]);
 
     this->deadmenu->addButton("QUIT",gui::p2pY(61.11f, vm), gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm), gui::calcCharSize(vm), "Exit");
 
@@ -557,11 +604,11 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0) {
                     this->player->gainEXP(10);
                     int chance = rand() % 5 + 1;
-                    if (chance == 2)
+                    if (chance == 2 || chance == 1)
                         this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x,
                                                               this->activeEnemies[i]->getPosition().y - 60,
                                                               this->textures["CANDY_1"]));
-                    if (chance == 3) {
+                    if (chance == 3 || chance == 4) {
                         this->fireRed.push_back(new Item(this->activeEnemies[i]->getPosition().x,
                                                          this->activeEnemies[i]->getPosition().y - 60,
                                                          this->textures["SKILL_1"], 1));
@@ -587,11 +634,11 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0) {
                     this->player->gainEXP(10);
                     int chance = rand() % 5 + 1;
-                    if (chance == 2)
+                    if (chance == 2 || chance == 1)
                         this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x,
                                                               this->activeEnemies[i]->getPosition().y - 60,
                                                               this->textures["CANDY_1"]));
-                    if (chance == 3) {
+                    if (chance == 3 || chance == 4) {
                         this->fireRed.push_back(new Item(this->activeEnemies[i]->getPosition().x,
                                                          this->activeEnemies[i]->getPosition().y - 60,
                                                          this->textures["SKILL_1"], 1));
@@ -613,6 +660,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
                 && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 2.f) {
 //                std::cout << "Right Collision" << std::endl;
+                this->getHitSound.play();
                 this->player->loseHP(3);
                 this->player->stopVelocityX();
                 this->isHit = true;
@@ -636,6 +684,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                      && playerBounds.top + playerBounds.height > enemyBounds.top && this->time > 2.f) {
 //                std::cout << "Left Collision" << std::endl;
 
+                this->getHitSound.play();
                 this->player->loseHP(3);
                 this->player->stopVelocityX();
                 this->isHit = true;
@@ -664,12 +713,14 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
 
                 this->player->gainHP(30);
                 this->itemElements.erase(this->itemElements.begin() + i);
+                this->collectSound.play();
             } else if (playerBounds.left > enemyBounds.left
                        && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
                        && playerBounds.top < enemyBounds.top + enemyBounds.height
                        && playerBounds.top + playerBounds.height > enemyBounds.top) {
                 this->player->gainHP(30);
                 this->itemElements.erase(this->itemElements.begin() + i);
+                this->collectSound.play();
             }
         }
 
@@ -686,6 +737,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
 
                 this->playerState = SKILLS::FIRE_BLUE;
                 this->fireRed.erase(this->fireRed.begin() + i);
+                this->collectSound.play();
             }
             else if (playerBounds.left > enemyBounds.left
                      && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
@@ -694,6 +746,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
             {
                 this->playerState = SKILLS::FIRE_BLUE;
                 this->fireRed.erase(this->fireRed.begin() + i);
+                this->collectSound.play();
             }
         }
 
@@ -750,6 +803,14 @@ void GameState::playDead(const float& dt)
         this->view.setCenter(this->player->getPosition());
         if (this->player->getAnimationComponents()->play("Dead",dt, 25 ,100, true))
         {
+            this->youDead.play();
+
+//            this->youDeadTime = this->youDeadClock.getElapsedTime().asSeconds();
+//            if (this->youDeadTime > 8)
+//            {
+//                this->youDead.stop();
+//            }
+
             this->reallyDead = true;
             this->isDead = false;
         }
@@ -780,41 +841,7 @@ void GameState::loadFromFile(const std::string file_name) {
 
 }
 
-void GameState::updatePlayerState(const float& dt) {
-    if (this->playerState == SKILLS::FIRE_BLUE)
-    {
-        if (this->player->getMovementComponents()->getState(ATTACK)) {
-            this->f1.fireball.setPosition(this->playerCenter);
-            this->f1.currVelocity = aimDirNorm * f1.maxSpeed;
-            this->fireBalls.push_back(FireBall(f1));
-            this->activeFire = true;
-            this->shootFire = true;
-        }
-    }
-    this->updateFireBall(dt);
 
 
-
-}
-
-void GameState::renderPlayerState(sf::RenderTarget &target){
-    if (this->activeFire)
-        target.draw(this->skillShape);
-}
-
-void GameState::renderFireBall(sf::RenderTarget& target) {
-    for (size_t i = 0; i < fireBalls.size(); i++)
-    {
-         target.draw(fireBalls[i].fireball);
-    }
-
-}
-
-void GameState::updateFireBall(const float& dt) {
-    if (this->shootFire)
-        for (int i = 0; i < fireBalls.size(); i++) {
-            fireBalls[i].fireball.move(fireBalls[i].currVelocity * dt);
-        }
-}
 
 

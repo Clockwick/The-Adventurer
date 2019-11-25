@@ -39,7 +39,7 @@ void SettingsState::initVariables() {
 }
 
 void SettingsState::initFonts() {
-    if (!this->font.loadFromFile("fonts/RobotoCondensed-Regular.ttf"))
+    if (!this->font.loadFromFile("fonts/karma.ttf"))
     {
         std::cout << "ERROR::MAINMENU::COULD NOT LOAD FONT" << std::endl;
     }

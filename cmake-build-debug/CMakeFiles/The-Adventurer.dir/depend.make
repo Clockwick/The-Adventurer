@@ -3158,6 +3158,7 @@ CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o: ../Components/MovementCom
 CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o: ../Components/SkillComponent.h
 CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o: ../Entities/Entity.h
 CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o: ../Entities/Player.h
+CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o: ../GUI.h
 CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o: ../GraphicsSettings.h
 CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o: ../Precom.h
 CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o: ../States/ScoreState.cpp

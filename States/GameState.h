@@ -19,25 +19,12 @@ class TileMap;
 class PlayerGUI;
 
 
-class FireBall
-{
-public:
-    sf::RectangleShape fireball;
-    sf::Vector2f currVelocity;
-    float maxSpeed;
 
-    FireBall(float width, float height)
-    : currVelocity(0.f,0.f), maxSpeed(15.f)
-    {
-        this->fireball.setSize(sf::Vector2f(width,height));
-        this->fireball.setFillColor(sf::Color::Red);
-    }
-};
 class GameState : public State
 {
 
 public:
-    GameState(StateData* state_data);
+    GameState(StateData* state_data, sf::Sound& sound);
     virtual ~GameState();
     void update(const float& dt);
     void updateGui(const float& dt);
@@ -47,10 +34,6 @@ public:
     void updateTileMap(const float& dt);
     void updatePlayerGUI(const float& dt);
     void updateCollision(Entity *entity, Entity* enemy, const float& dt);
-    void updatePlayerState(const float &dt);
-    void renderPlayerState(sf::RenderTarget& target);
-    void updateFireBall(const float& dt);
-    void renderFireBall(sf::RenderTarget& target);
 
     //Render
     void render(sf::RenderTarget* target = nullptr);
@@ -82,8 +65,9 @@ private:
     sf::RenderTexture renderTexture;
     sf::Sprite renderSprite;
 
-    sf::Font font;
-
+    std::map <std::string, sf::Font> fonts;
+    sf::Clock youDeadClock;
+    float youDeadTime;
     bool canJump;
     bool attacking;
     bool attacking1;
@@ -125,8 +109,6 @@ private:
     bool activeFire;
     sf::Vector2f aimDir;
     sf::Vector2f aimDirNorm;
-    FireBall f1;
-    std::vector<FireBall*> fireBalls;
 
 
     //Spawn
@@ -164,8 +146,27 @@ private:
 
     std::vector<Enemy*> hitEnemies;
 
+    //Sound
+    sf::Sound pressSound;
+    sf::Sound walkSound;
+    sf::SoundBuffer soundBufferWalk;
+    sf::SoundBuffer soundBufferJump;
+    sf::SoundBuffer soundBufferCollect;
+    sf::Sound collectSound;
+    sf::Sound jumpSound;
+    sf::Clock walkClock;
+    sf::Clock jumpClock;
+    sf::Sound youDead;
+    sf::SoundBuffer youDeadBuffer;
+    sf::SoundBuffer getHitBuffer;
+    sf::Sound getHitSound;
+    float jumpTime;
+    float walkTime;
+
+    sf::Text damage2x;
     //Functions
     void initVariables();
+    void initAudio();
     void initDeferredRender();
     void initView();
     void initTextures();

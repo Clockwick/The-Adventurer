@@ -320,6 +320,11 @@ AnimationComponent *Player::getAnimationComponents() {
     return this->animationComponents;
 }
 
+const bool &Player::getJump() const {
+    return this->isJump;
+
+}
+
 
 
 

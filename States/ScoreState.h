@@ -7,6 +7,7 @@
 
 #include "State.h"
 #include "../Precom.h"
+#include "../GUI.h"
 
 class ScoreState : public State {
 public:
@@ -25,6 +26,12 @@ public:
 
 private:
     void initVariables();
+    void initGui();
+    sf::Font font;
+    sf::RectangleShape background;
+    std::map <std::string, gui::Button*> buttons;
+    std::map <std::string, gui::DropDownList*> dropDownLists;
+    sf::Texture backgroundTexture;
 
 };
 
