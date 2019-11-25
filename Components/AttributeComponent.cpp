@@ -3,6 +3,8 @@
 //
 
 #include "AttributeComponent.h"
+std::vector <int> firstVec;
+std::vector <int> secondVec;
 
 
 AttributeComponent::AttributeComponent(int level, int hp) {
@@ -23,6 +25,7 @@ AttributeComponent::AttributeComponent(int level, int hp) {
     this->updateLevel();
     if (hp != 500)
         this->updateStats(true);
+
 }
 
 AttributeComponent::~AttributeComponent() {

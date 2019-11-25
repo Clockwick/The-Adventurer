@@ -613,9 +613,9 @@ void GameState::updateTileMap(const float &dt) {
 }
 
 void GameState::updatePlayerGUI(const float &dt) {
-    this->playerGui->update(dt);
-//    this->player->getAttributeComponents()->hp, this->player->getAttributeComponents()->exp, this->player->getAttributeComponents()->level,
-//            this->player->getAttributeComponents()->hpMax, this->player->getAttributeComponents()->expNext,
+    this->playerGui->update(this->player->getAttributeComponents()->hp, this->player->getAttributeComponents()->exp, this->player->getAttributeComponents()->level,
+            this->player->getAttributeComponents()->hpMax, this->player->getAttributeComponents()->expNext, dt);
+//    ,
 //    this->newStorage[0],this->newStorage[1], this->newStorage[2], this->newStorage[3], this->newStorage[4],
 }
 

@@ -46,10 +46,10 @@ void PlayerGUI::initHpbar() {
 }
 
 
-void PlayerGUI::update(int& hp, int& exp, int& level, int& hp_max, int& exp_next, const float &dt){
+void PlayerGUI::update(int& hp, int& exp, int& level, int& hp_max, int& exp_next,const float &dt){
     this->hp = hp;
-    this->level = level;
     this->exp = exp;
+    this->level = level;
     this->hpMax = hp_max;
     this->expNext = exp_next;
     this->updateHpbar();
@@ -58,7 +58,7 @@ void PlayerGUI::update(int& hp, int& exp, int& level, int& hp_max, int& exp_next
 }
 
 void PlayerGUI::updateHpbar() {
-//    std::cout << "Player HP{GUI}: " << this->hp << std::endl;
+//    std::cout << "Player HP{GUI}: " << this->player->getAttributeComponents()->hp << std::endl;
     float percent = static_cast<float>(this->hp) / static_cast<float>(this->hpMax);
     this->hpBarInner.setSize(sf::Vector2f(static_cast<float>(std::floor(this->hpBarMaxWidth * percent)), this->hpBarInner.getSize().y));
 

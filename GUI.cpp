@@ -634,9 +634,15 @@ void gui::Status::initVariables() {
     this->activeButtons = false;
 }
 void gui::Status::initProfile() {
+    if (!this->profileTexture.loadFromFile("resources/images/Assets/Player/Adventurer/playerProfile.png"))
+    {
+        std::cout << "Could not load profile" << std::endl;
+    }
     this->profileShape.setSize(sf::Vector2f(275.f, 255.f));
     this->profileShape.setFillColor(sf::Color::White);
-    this->profileShape.setPosition(sf::Vector2f(this->bounds.getPosition().x + 100.f, this->bounds.getPosition().y + 100.f));
+    this->profileShape.setPosition(sf::Vector2f(this->bounds.getPosition().x + 100.f, this->bounds.getPosition().y + 75.f));
+    this->profileShape.setTexture(&this->profileTexture);
+
 }
 
 

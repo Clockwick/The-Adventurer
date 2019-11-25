@@ -55,7 +55,6 @@ private:
     sf::Vector2f velocity;
     short type;
     std::map <std::string, sf::Texture> textureSheet;
-
     //Audio
     sf::SoundBuffer swordSoundBF;
     sf::Sound swordSound;

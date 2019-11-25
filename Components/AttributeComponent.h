@@ -31,6 +31,7 @@ public:
     int luck;
     int defence;
 
+    bool checking;
 
     //Functions
     void updateStats(const bool reset);

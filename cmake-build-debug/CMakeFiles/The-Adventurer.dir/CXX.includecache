@@ -112,31 +112,17 @@ Enemy.h
 ../Components/MovementComponent.h
 /Users/arthris/CLionProjects/The-Adventurer/Components/MovementComponent.h
 
-/Users/arthris/CLionProjects/The-Adventurer/GUI.cpp
-GUI.h
-/Users/arthris/CLionProjects/The-Adventurer/GUI.h
-
 /Users/arthris/CLionProjects/The-Adventurer/GUI.h
 Precom.h
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
 Entities/Player.h
 /Users/arthris/CLionProjects/The-Adventurer/Entities/Player.h
 
-/Users/arthris/CLionProjects/The-Adventurer/GUI/Dead.cpp
-Dead.h
-/Users/arthris/CLionProjects/The-Adventurer/GUI/Dead.h
-
 /Users/arthris/CLionProjects/The-Adventurer/GUI/Dead.h
 ../Precom.h
 /Users/arthris/CLionProjects/The-Adventurer/Precom.h
 ../GUI.h
 /Users/arthris/CLionProjects/The-Adventurer/GUI.h
-
-/Users/arthris/CLionProjects/The-Adventurer/GUI/PauseMenu.cpp
-SFML/Graphics/RenderWindow.hpp
--
-PauseMenu.h
-/Users/arthris/CLionProjects/The-Adventurer/GUI/PauseMenu.h
 
 /Users/arthris/CLionProjects/The-Adventurer/GUI/PauseMenu.h
 ../GUI.h
@@ -244,15 +230,7 @@ SFML/Audio.hpp
 SFML/Network.hpp
 -
 
-/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/DefaultMode.cpp
-DefaultMode.h
 /Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/DefaultMode.h
-
-/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/DefaultMode.h
-EditorMode.h
-/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EditorMode.h
-
-/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EditorMode.cpp
 EditorMode.h
 /Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EditorMode.h
 
@@ -270,19 +248,11 @@ DefaultMode.h
 EnemyEditorMode.h
 /Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EnemyEditorMode.h
 
-/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EnemyEditorMode.cpp
-EnemyEditorMode.h
-/Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EnemyEditorMode.h
-
 /Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EnemyEditorMode.h
 EditorMode.h
 /Users/arthris/CLionProjects/The-Adventurer/States/EditorModes/EditorMode.h
 ../../EnemySpawner.h
 /Users/arthris/CLionProjects/The-Adventurer/EnemySpawner.h
-
-/Users/arthris/CLionProjects/The-Adventurer/States/EditorState.cpp
-EditorState.h
-/Users/arthris/CLionProjects/The-Adventurer/States/EditorState.h
 
 /Users/arthris/CLionProjects/The-Adventurer/States/EditorState.h
 State.h
@@ -330,10 +300,6 @@ NameState.h
 GameState.h
 /Users/arthris/CLionProjects/The-Adventurer/States/GameState.h
 
-/Users/arthris/CLionProjects/The-Adventurer/States/ScoreState.cpp
-ScoreState.h
-/Users/arthris/CLionProjects/The-Adventurer/States/ScoreState.h
-
 /Users/arthris/CLionProjects/The-Adventurer/States/ScoreState.h
 State.h
 /Users/arthris/CLionProjects/The-Adventurer/States/State.h
@@ -342,19 +308,11 @@ State.h
 ../GUI.h
 /Users/arthris/CLionProjects/The-Adventurer/GUI.h
 
-/Users/arthris/CLionProjects/The-Adventurer/States/SettingsState.cpp
-SettingsState.h
-/Users/arthris/CLionProjects/The-Adventurer/States/SettingsState.h
-
 /Users/arthris/CLionProjects/The-Adventurer/States/SettingsState.h
 State.h
 /Users/arthris/CLionProjects/The-Adventurer/States/State.h
 ../GUI.h
 /Users/arthris/CLionProjects/The-Adventurer/GUI.h
-
-/Users/arthris/CLionProjects/The-Adventurer/States/State.cpp
-State.h
-/Users/arthris/CLionProjects/The-Adventurer/States/State.h
 
 /Users/arthris/CLionProjects/The-Adventurer/States/State.h
 ../Entities/Player.h
