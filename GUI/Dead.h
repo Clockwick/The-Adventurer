@@ -17,23 +17,29 @@ public:
     void update(const sf::Vector2i& mousePosWindow);
     void render(sf::RenderTarget& target);
     void addButton(const std::string key, const float y,  const float width, const float height, const unsigned char_size, const std::string text);
+    void getMessage(const std::string score);
 
     //Accessor
     std::map<std::string, gui::Button*>& getButtons();
 
 
-
+    void saveToFile(const std::string file_name);
+    void loadFromFile(const std::string file_name);
 
 private:
     sf::Font& font;
     sf::Text deadText;
     sf::RectangleShape background;
     sf::RectangleShape container;
+    sf::Text scoreText;
+    sf::Text scoreText2;
+    std::string scoreString;
 
 
     std::map<std::string, gui::Button*> buttons;
 
 
+    const sf::VideoMode& vm;
 
 
 };

@@ -31,7 +31,7 @@ public:
     bool getAttack2();
     void setColor(sf::Color color);
     const bool& getJump() const;
-    void changeAttackType(const short& attack_type);
+    void changeAttackType(const short attack_type);
     const short& getAttackType() const;
     const short& getType() const;
     //Variables
@@ -60,6 +60,8 @@ private:
     sf::Sound swordSound;
     sf::Sound burnSound;
     sf::SoundBuffer burnSoundBuffer;
+    sf::SoundBuffer waterBuf;
+    sf::Sound waterSound;
 
 
 

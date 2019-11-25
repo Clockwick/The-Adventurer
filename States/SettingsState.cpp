@@ -89,11 +89,20 @@ void SettingsState::initGui() {
     }
 
     //DropDownList
-    this->dropDownLists["RESOLUTION"] = new gui::DropDownList(gui::p2pX(15.625f, vm), gui::p2pY(5.55f, vm), gui::p2pX(10.416f, vm), gui::p2pY(3.05f, vm), font, modes_str.data(), modes_str.size());
+    this->dropDownLists["RESOLUTION"] = new gui::DropDownList(gui::p2pX(15.625f, vm), gui::p2pY(5.55f, vm),
+            gui::p2pX(10.416f, vm), gui::p2pY(3.05f, vm), this->font, modes_str.data(), modes_str.size());
     this->optionsText.setFont(this->font);
     this->optionsText.setPosition(sf::Vector2f(gui::p2pX(3.5f, vm),gui::p2pY(5.5f, vm)));
     this->optionsText.setCharacterSize(gui::calcCharSize(vm));
     this->optionsText.setFillColor(sf::Color(0,0,0,200));
+
+    std::string onoff [] = {"ON", "OFF"};
+    this->dropDownLists["FULLSCREEN"] = new gui::DropDownList(gui::p2pX(15.625f, vm), gui::p2pY(12.55f, vm),
+            gui::p2pX(10.416f, vm), gui::p2pY(3.05f, vm), this->font, onoff, 2);
+    this->dropDownLists["ANTI"] = new gui::DropDownList(gui::p2pX(15.625f, vm), gui::p2pY(19.55f, vm),
+                                                              gui::p2pX(10.416f, vm), gui::p2pY(3.05f, vm), this->font, onoff, 2);
+    this->dropDownLists["VSYNC"] = new gui::DropDownList(gui::p2pX(15.625f, vm), gui::p2pY(26.55f, vm),
+                                                         gui::p2pX(10.416f, vm), gui::p2pY(3.05f, vm), this->font, onoff, 2);
 
 
     this->optionsText.setString(
@@ -170,6 +179,8 @@ void SettingsState::updateGui(const float& dt) {
     {
         this->state_data->gfxSettings->resolution = this->modes[this->dropDownLists["RESOLUTION"]->getActiveElementId()];
         this->window->create(this->state_data->gfxSettings->resolution, this->state_data->gfxSettings->title, sf::Style::Default);
+        this->state_data->gfxSettings->fullscreen = true;
+        this->state_data->gfxSettings->vsync = false;
         this->resetGui();
     }
     //Drop Down Lists
@@ -179,8 +190,6 @@ void SettingsState::updateGui(const float& dt) {
     }
 
     //Drop Down Lists
-
-
 
 
 }

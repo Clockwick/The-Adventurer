@@ -146,6 +146,9 @@ void GameState::initGui() {
 
 
 void GameState::initVariables() {
+
+    this->maxEnemiesSize = 6;
+
     this->score = 0;
     this->multiply = 1;
     this->playerTime = 0;
@@ -165,6 +168,7 @@ void GameState::initVariables() {
     this->inventoryRect = sf::IntRect(0, 0, static_cast<int>(this->state_data->gridSize) * 0.45,
                                     static_cast<int>(this->state_data->gridSize) * 0.45);
     this->playerState = SKILLS::DEFAULT_SKILL;
+    this->scoreTime = this->scoreClock.getElapsedTime().asSeconds();
 
 
 
@@ -200,6 +204,7 @@ void GameState::initAudio() {
 void GameState::initPlayers() {
 
     this->player = new Player(500.f,475.f, 200.f, this->textures["EARTH"]);
+//    this->player->changeAttackType(ATTACK_TYPE::EARTH);
 //    this->boss = new Boss(1000.f, 475.f, 200.f, this->textures["BOSS_SHEET"]);
 }
 
@@ -220,11 +225,14 @@ void GameState::initPlayerGUI() {
 }
 void GameState::initEnemies() {
     this->spawnTime = this->spawnClock.getElapsedTime().asSeconds();
-    if (this->activeEnemies.size() < 10 && this->spawnTime > 2.f)
+    if (this->activeEnemies.size() < this->maxEnemiesSize && this->spawnTime > 2.f)
     {
         this->activeEnemies.push_back(new Slime(((rand()%5 + 1) * 100) + 400, 475.f, 40.f, this->textures["SLIME_SHEET"]));
+        this->maxEnemiesSize++;
         this->spawnClock.restart();
     }
+    std::cout << this->score << std::endl;
+
 }
 
 
@@ -387,6 +395,8 @@ void GameState::render(sf::RenderTarget *target) {
     }
     if (this->reallyDead)
     {
+        std::cout << this->calScore() << std::endl;
+        this->deadmenu->getMessage(std::to_string(this->calScore()));
         this->renderTexture.setView(this->renderTexture.getDefaultView());
         this->deadmenu->render(renderTexture);
     }
@@ -671,6 +681,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 this->activeEnemies[i]->setColor(sf::Color::Red);
                 this->activeEnemies[i]->gotAttackRight();
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0) {
+                    this->score++;
                     this->player->gainEXP(100);
                     int chance = rand() % 5 + 1;
                     if (chance == 2)
@@ -720,6 +731,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                                                      this->player->getAttributeComponents()->damageMin) / 2) * 2);
 
                 if (this->activeEnemies[i]->getAttributeComponents()->hp <= 0) {
+                    this->score++;
                     this->player->gainEXP(100);
                     int chance = rand() % 5 + 1;
                     if (chance == 2)
@@ -982,10 +994,8 @@ void GameState::loadFromFile(const std::string file_name) {
         in_file >> player_name;
 
         this->playerName = player_name;
-
     }
     in_file.close();
-
 
 }
 
@@ -1049,7 +1059,7 @@ void GameState::updatePlayerElements() {
 
 int GameState::calScore() {
     this->multiply = 120 + (rand()%5 + 5);
-    return this->score * this->multiply;
+    return this->score * this->multiply + this->scoreTime;
 }
 
 

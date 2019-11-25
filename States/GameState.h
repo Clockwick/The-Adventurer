@@ -41,6 +41,7 @@ public:
     void renderGui(sf::RenderTarget& target);
 
     //Save && Load
+    void saveToFile(const std::string file_name);
     void loadFromFile(const std::string file_name);
 
     //Acessors
@@ -118,8 +119,13 @@ private:
     sf::Clock spawnClock;
     float spawnTime;
 
+    sf::Clock scoreClock;
+    float scoreTime;
+    int kk;
+
 
     std::vector <int> newStorage;
+    int maxEnemiesSize;
 
 
 

@@ -13,6 +13,19 @@ void DeadMenu::update(const sf::Vector2i &mousePosWindow) {
     {
         i.second->update(mousePosWindow);
     }
+    static bool initialized;
+    if (!initialized) {
+        initialized = true;
+        this->scoreText2.setFont(font);
+        this->scoreText2.setFillColor(sf::Color(255, 255, 255, 200));
+        this->scoreText2.setCharacterSize(gui::calcCharSize(vm, 100));
+        this->scoreText2.setPosition(this->container.getPosition().x + this->container.getSize().x / 2.f -
+                                     this->deadText.getGlobalBounds().width / 2.f + 175.f,
+                                     this->container.getPosition().y + gui::p2pY(17.f, vm));
+        this->scoreText2.setString(this->scoreString);
+        this->saveToFile("score.txt");
+    }
+
 //    this->youDead.play();
 //
 //    this->youDeadTime = this->youDeadClock.getElapsedTime().asSeconds();
@@ -32,6 +45,8 @@ void DeadMenu::render(sf::RenderTarget &target) {
     }
 
     target.draw(this->deadText);
+    target.draw(this->scoreText);
+    target.draw(this->scoreText2);
 }
 
 void DeadMenu::addButton(const std::string key, const float y, const float width, const float height,
@@ -49,7 +64,7 @@ std::map<std::string, gui::Button *> &DeadMenu::getButtons() {
     return this->buttons;
 }
 
-DeadMenu::DeadMenu(sf::VideoMode &vm, sf::Font &font) : font(font){
+DeadMenu::DeadMenu(sf::VideoMode &vm, sf::Font &font) : font(font), vm(vm){
     //Init Background
     this->background.setSize(
             sf::Vector2f(static_cast<float>(vm.width),
@@ -73,6 +88,19 @@ DeadMenu::DeadMenu(sf::VideoMode &vm, sf::Font &font) : font(font){
     this->deadText.setString("You're already dead");
     this->deadText.setPosition(this->container.getPosition().x + this->container.getSize().x / 2.f - this->deadText.getGlobalBounds().width/2.f, this->container.getPosition().y + gui::p2pY(10.f, vm));
 
+    this->scoreText.setFont(font);
+    this->scoreText.setFillColor(sf::Color(255,255,255,200));
+    this->scoreText.setCharacterSize(gui::calcCharSize(vm, 100));
+    this->scoreText.setPosition(this->container.getPosition().x + this->container.getSize().x / 2.f - this->deadText.getGlobalBounds().width/2.f, this->container.getPosition().y + gui::p2pY(17.f, vm));
+    this->scoreText.setString("Score: ");
+
+
+
+
+
+
+
+
 }
 
 DeadMenu::~DeadMenu() {
@@ -81,4 +109,18 @@ DeadMenu::~DeadMenu() {
         delete it->second;
 
     }
+}
+
+void DeadMenu::getMessage(const std::string score) {
+    this->scoreString = score;
+}
+
+void DeadMenu::saveToFile(const std::string file_name) {
+    std::ofstream in_file(file_name);
+    if (in_file.is_open())
+    {
+        in_file << this->scoreString << " " << "\n";
+    }
+
+
 }

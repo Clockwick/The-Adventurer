@@ -3,6 +3,7 @@
 //
 
 #include "Player.h"
+int o = 1;
 //Constructor , DeConstructor
 Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_sheet)
 : jumpHeight(jumpHeight)
@@ -12,11 +13,13 @@ Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_s
     this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);
     this->createMovementComponents(300, 1500.0f, 500.0f, this->jumpHeight);
     this->createAnimationComponents( texture_sheet);
-    this->createAttributeComponents(1);
+    this->createAttributeComponents(o);
     this->createSkillComponents();
     this->animationComponents->getptr(&this->isJump);
     this->setPosition(x , y);
     this->initAnimation();
+    o++;
+
 
 }
 
@@ -67,54 +70,162 @@ void Player::update(const float& dt)
 
 void Player::updateAttack()
 {
-    if(this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump && this->getMovementComponents()->faceRight) {
-        this->type = HitTypes::ATTACK_COL;
-        this->attacking = true;
-        if (this->playSound)
-            this->burnSound.play();
-        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type); // Attack type
-    }
-    else if (this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump && !this->getMovementComponents()->faceRight)
+    if (this->attackType == ATTACK_TYPE::EARTH)
     {
-        this->type = HitTypes::ATTACK_COL;
-        this->attacking = true;
-        if (this->playSound)
-            this->burnSound.play();
-        this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type); // Modify
+        if (this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump &&
+            this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking = true;
+            if (this->playSound)
+                this->swordSound.play();
+            this->createHitboxComponents(this->sprite, 20.f, 10.f, 80.f, 65.f, this->type); // Attack type
+        } else if (this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump &&
+                   !this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking = true;
+            if (this->playSound)
+                this->swordSound.play();
+            this->createHitboxComponents(this->sprite, -5.f, 10.f, 80.f, 65.f, this->type); // Modify
 
+        }
+        if (this->movementComponents->getState(ATTACK1) && !this->sliding && !this->isJump &&
+            this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking1 = true;
+            if (this->playSound)
+                this->swordSound.play();
+            this->createHitboxComponents(this->sprite, 20.f, 10.f, 80.f, 65.f, this->type);// Attack type
+        } else if (this->movementComponents->getState(ATTACK1) && !this->sliding && !this->isJump &&
+                   !this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking1 = true;
+            if (this->playSound)
+                this->swordSound.play();
+            this->createHitboxComponents(this->sprite, -5.f, 10.f, 80.f, 65.f, this->type);// Modify
+        }
+        if (this->movementComponents->getState(ATTACK2) && !this->sliding && !this->isJump &&
+            this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking2 = true;
+            if (this->playSound)
+                this->swordSound.play();
+            this->createHitboxComponents(this->sprite, 20.f, 10.f, 80.f, 65.f, this->type);// Attack type
+        }
+        if (this->movementComponents->getState(ATTACK2) && !this->sliding && !this->isJump &&
+            !this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking2 = true;
+            if (this->playSound)
+                this->swordSound.play();
+            this->createHitboxComponents(this->sprite, -5.f, 10.f, 80.f, 65.f, this->type);// Modify
+        }
     }
-    if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump && this->getMovementComponents()->faceRight)
+    //FIRE
+    if (this->attackType == ATTACK_TYPE::FIRE || this->attackType == ATTACK_TYPE::TROPHY) {
+        if (this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump &&
+            this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking = true;
+            if (this->playSound)
+                this->burnSound.play();
+            this->createHitboxComponents(this->sprite, 20.f, 10.f, 80.f, 65.f, this->type); // Attack type
+        } else if (this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump &&
+                   !this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking = true;
+            if (this->playSound)
+                this->burnSound.play();
+            this->createHitboxComponents(this->sprite, -5.f, 10.f, 80.f, 65.f, this->type); // Modify
+
+        }
+        if (this->movementComponents->getState(ATTACK1) && !this->sliding && !this->isJump &&
+            this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking1 = true;
+            if (this->playSound)
+                this->burnSound.play();
+            this->createHitboxComponents(this->sprite, 20.f, 10.f, 80.f, 65.f, this->type);// Attack type
+        } else if (this->movementComponents->getState(ATTACK1) && !this->sliding && !this->isJump &&
+                   !this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking1 = true;
+            if (this->playSound)
+                this->burnSound.play();
+            this->createHitboxComponents(this->sprite, -5.f, 10.f, 80.f, 65.f, this->type);// Modify
+        }
+        if (this->movementComponents->getState(ATTACK2) && !this->sliding && !this->isJump &&
+            this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking2 = true;
+            if (this->playSound)
+                this->burnSound.play();
+            this->createHitboxComponents(this->sprite, 20.f, 10.f, 80.f, 65.f, this->type);// Attack type
+        }
+        if (this->movementComponents->getState(ATTACK2) && !this->sliding && !this->isJump &&
+            !this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking2 = true;
+            if (this->playSound)
+                this->burnSound.play();
+            this->createHitboxComponents(this->sprite, -5.f, 10.f, 80.f, 65.f, this->type);// Modify
+        }
+    }
+    //ICE
+    if (this->attackType == ATTACK_TYPE::ICE)
     {
-        this->type = HitTypes::ATTACK_COL;
-        this->attacking1 = true;
-        if (this->playSound)
-            this->burnSound.play();
-        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type);// Attack type
+        if (this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump &&
+            this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking = true;
+            if (this->playSound)
+                this->waterSound.play();
+            this->createHitboxComponents(this->sprite, 20.f, 10.f, 80.f, 65.f, this->type); // Attack type
+        } else if (this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump &&
+                   !this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking = true;
+            if (this->playSound)
+                this->waterSound.play();
+            this->createHitboxComponents(this->sprite, -5.f, 10.f, 80.f, 65.f, this->type); // Modify
+
+        }
+        if (this->movementComponents->getState(ATTACK1) && !this->sliding && !this->isJump &&
+            this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking1 = true;
+            if (this->playSound)
+                this->waterSound.play();
+            this->createHitboxComponents(this->sprite, 20.f, 10.f, 80.f, 65.f, this->type);// Attack type
+        } else if (this->movementComponents->getState(ATTACK1) && !this->sliding && !this->isJump &&
+                   !this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking1 = true;
+            if (this->playSound)
+                this->waterSound.play();
+            this->createHitboxComponents(this->sprite, -5.f, 10.f, 80.f, 65.f, this->type);// Modify
+        }
+        if (this->movementComponents->getState(ATTACK2) && !this->sliding && !this->isJump &&
+            this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking2 = true;
+            if (this->playSound)
+                this->waterSound.play();
+            this->createHitboxComponents(this->sprite, 20.f, 10.f, 80.f, 65.f, this->type);// Attack type
+        }
+        if (this->movementComponents->getState(ATTACK2) && !this->sliding && !this->isJump &&
+            !this->getMovementComponents()->faceRight) {
+            this->type = HitTypes::ATTACK_COL;
+            this->attacking2 = true;
+            if (this->playSound)
+                this->waterSound.play();
+            this->createHitboxComponents(this->sprite, -5.f, 10.f, 80.f, 65.f, this->type);// Modify
+        }
     }
-    else if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump && !this->getMovementComponents()->faceRight)
-    {
-        this->type = HitTypes::ATTACK_COL;
-        this->attacking1 = true;
-        if (this->playSound)
-            this->burnSound.play();
-        this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type);// Modify
-    }
-    if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump&& this->getMovementComponents()->faceRight)
-    {
-        this->type = HitTypes::ATTACK_COL;
-        this->attacking2 = true;
-        if (this->playSound)
-            this->burnSound.play();
-        this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type);// Attack type
-    }
-    if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump&& !this->getMovementComponents()->faceRight)
-    {
-        this->type = HitTypes::ATTACK_COL;
-        this->attacking2 = true;
-        if (this->playSound)
-            this->burnSound.play();
-        this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type);// Modify
-    }
+
+
+
+
+
 
 
 }
@@ -243,7 +354,7 @@ void Player::render(sf::RenderTarget& target, const bool show_hitbox) {
     if (show_hitbox)
         this->hitboxComponents->render(target);
 
-
+//    std::cout << this->attackType << std::endl;
 }
 
 void Player::initAudio() {
@@ -255,6 +366,9 @@ void Player::initAudio() {
     this->burnSound.setBuffer(this->burnSoundBuffer);
     this->burnSound.setVolume(50.f);
 
+    //Water
+    this->waterBuf.loadFromFile("resources/Audio/waterSplash.wav");
+    this->waterSound.setBuffer(this->waterBuf);
 }
 
 void Player::updateJumping(const float& dt) {
@@ -333,7 +447,7 @@ const bool &Player::getJump() const {
 
 }
 
-void Player::changeAttackType(const short& attack_type) {
+void Player::changeAttackType(const short attack_type) {
     this->attackType = attack_type;
 
 }
