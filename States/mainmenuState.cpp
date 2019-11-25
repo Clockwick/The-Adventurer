@@ -44,7 +44,7 @@ void Mainmenu::initGui() {
             )
     );
 
-    if(!this->backgroundTexture.loadFromFile("resources/images/background/Testbackground.jpg"))
+    if(!this->backgroundTexture.loadFromFile("resources/images/background/MainmenuBg.jpg"))
     {
         std::cout << "Failed to load BackgroundImage" << std::endl;
     }

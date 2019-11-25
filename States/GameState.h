@@ -34,6 +34,7 @@ public:
     void updateTileMap(const float& dt);
     void updatePlayerGUI(const float& dt);
     void updateCollision(Entity *entity, Entity* enemy, const float& dt);
+    void updatePlayerElements();
 
     //Render
     void render(sf::RenderTarget* target = nullptr);
@@ -105,6 +106,8 @@ private:
     //Fireball
     sf::RectangleShape skillShape;
     std::vector <Item*> fireRed;
+    std::vector <Item*> fireBlue;
+    std::vector <Item*> fireYellow;
     bool shootFire;
     bool activeFire;
     sf::Vector2f aimDir;
@@ -160,9 +163,17 @@ private:
     sf::SoundBuffer youDeadBuffer;
     sf::SoundBuffer getHitBuffer;
     sf::Sound getHitSound;
+
     float jumpTime;
     float walkTime;
 
+    int score;
+    int multiply;
+    int calScore();
+
+
+    sf::Clock playerClock;
+    float playerTime;
     sf::Text damage2x;
     //Functions
     void initVariables();

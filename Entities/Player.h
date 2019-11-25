@@ -5,11 +5,14 @@
 #ifndef GUJARUNSFML_PLAYER_H
 #define GUJARUNSFML_PLAYER_H
 
-
+enum ATTACK_TYPE {
+    EARTH = 0,
+    FIRE, ICE, TROPHY
+};
 class Player : public Entity
 {
 public:
-    Player(float x,  float y, const float& jumpHeight, sf::Texture& texture_sheet);
+    Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_sheet);
     virtual ~Player();
 
     void loseHP(const int hp);
@@ -28,7 +31,8 @@ public:
     bool getAttack2();
     void setColor(sf::Color color);
     const bool& getJump() const;
-
+    void changeAttackType(const short& attack_type);
+    const short& getAttackType() const;
     const short& getType() const;
     //Variables
     bool sliding;
@@ -44,12 +48,13 @@ private:
     bool attacking;
     bool attacking1;
     bool attacking2;
+    short attackType;
     const float jumpHeight;
     bool isJump;
     bool playSound;
     sf::Vector2f velocity;
     short type;
-
+    std::map <std::string, sf::Texture> textureSheet;
 
 
 
@@ -57,6 +62,8 @@ private:
     //Audio
     sf::SoundBuffer swordSoundBF;
     sf::Sound swordSound;
+    sf::Sound burnSound;
+    sf::SoundBuffer burnSoundBuffer;
 
 
 

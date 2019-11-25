@@ -61,7 +61,7 @@ void SettingsState::initGui() {
             )
     );
 
-    if(!this->backgroundTexture.loadFromFile("resources/images/background/Testbackground.jpg"))
+    if(!this->backgroundTexture.loadFromFile("resources/images/background/MainmenuBg.jpg"))
     {
         std::cout << "Failed to load BackgroundImage" << std::endl;
 
@@ -73,12 +73,12 @@ void SettingsState::initGui() {
     //Buttons
     this->buttons["BACK"] = new gui::Button(gui::p2pX(19.1f, vm), gui::p2pY(84.44, vm), gui::p2pX(10.416f, vm), gui::p2pY(8.33f, vm),
                                              &this->font, "Back", gui::calcCharSize(vm),
-                                            sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                            sf::Color(0,0,0,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                             sf::Color(250,250,250,100),sf::Color(150,150,150,50),sf::Color(150,150,150,50)
     );
     this->buttons["APPLY"] = new gui::Button(gui::p2pX(4.65f, vm), gui::p2pY(84.44f, vm), gui::p2pX(10.416f, vm), gui::p2pY(8.33f, vm),
                                             &this->font, "Apply", gui::calcCharSize(vm),
-                                             sf::Color(255,255,255,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
+                                             sf::Color(0,0,0,200),sf::Color(150,150,150,250),sf::Color(20,20,20,50),
                                              sf::Color(250,250,250,100),sf::Color(150,150,150,50),sf::Color(150,150,150,50)
     );
     //Modes
@@ -93,7 +93,7 @@ void SettingsState::initGui() {
     this->optionsText.setFont(this->font);
     this->optionsText.setPosition(sf::Vector2f(gui::p2pX(3.5f, vm),gui::p2pY(5.5f, vm)));
     this->optionsText.setCharacterSize(gui::calcCharSize(vm));
-    this->optionsText.setFillColor(sf::Color(255,255,255,200));
+    this->optionsText.setFillColor(sf::Color(0,0,0,200));
 
 
     this->optionsText.setString(

@@ -19,7 +19,7 @@ NameState::~NameState() {
 
 void NameState::initBox() {
 
-    if (!this->font.loadFromFile("Fonts/RobotoCondensed-Regular.ttf"))
+    if (!this->font.loadFromFile("Fonts/karma.ttf"))
         std::cout << "Can't Load Font" << "\n";
 
 
@@ -33,7 +33,7 @@ void NameState::initBox() {
     this->box.setPosition(sf::Vector2f(gui::p2pX(25.f, vm),gui::p2pY(20.f,vm)));
 
     this->textIntro.setFont(this->font);
-    this->textIntro.setPosition(sf::Vector2f(this->box.getPosition().x + this->box.getGlobalBounds().width/3.f + 50.f, this->box.getPosition().y + 20.f));
+    this->textIntro.setPosition(sf::Vector2f(this->box.getPosition().x + this->box.getGlobalBounds().width/3.f + 50.f, this->box.getPosition().y + 40.f));
     this->textIntro.setFillColor(sf::Color::White);
     this->textIntro.setCharacterSize(48);
     this->textIntro.setString("Enter Player Name");

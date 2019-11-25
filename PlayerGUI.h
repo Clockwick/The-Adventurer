@@ -12,7 +12,7 @@ class Player;
 
 class PlayerGUI {
 public:
-    PlayerGUI(Player* player, sf::VideoMode& vm);
+    PlayerGUI(Player* player, sf::VideoMode& vm, int& hp_bar, int& exp_bar, int& level_bar);
     virtual ~PlayerGUI();
 
     //Functions

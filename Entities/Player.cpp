@@ -29,6 +29,7 @@ Player::~Player() {
 
 
 void Player::initVariables() {
+    this->attackType = ATTACK_TYPE::EARTH;
     this->attacking = false;
     this->attacking1 = false;
     this->attacking2 = false;
@@ -40,6 +41,7 @@ void Player::initVariables() {
     this->type = HitTypes::DEFAULT_COL;
 }
 void Player::initAnimation() {
+
     this->animationComponents->addAnimation("IDLE", 15.f, 0, 0, 3, 0, 100, 74);
     this->animationComponents->addAnimation("RUN", 15.f, 0, 1, 5, 1, 100, 74);
     this->animationComponents->addAnimation("SLIDE", 15.f, 0, 3, 3, 3, 100, 74);
@@ -56,8 +58,10 @@ void Player::update(const float& dt)
 {
     this->updateJumping(dt);
     this->movementComponents->update(dt);
+    this->attributeComponents->update();
     this->updateAttack();
     this->updateAnimation(dt);
+
 //    std::cout << this->movementComponents->getVelocity().y << "\n";
 
 }
@@ -68,7 +72,7 @@ void Player::updateAttack()
         this->type = HitTypes::ATTACK_COL;
         this->attacking = true;
         if (this->playSound)
-            this->swordSound.play();
+            this->burnSound.play();
         this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type); // Attack type
     }
     else if (this->movementComponents->getState(ATTACK) && !this->sliding && !this->isJump && !this->getMovementComponents()->faceRight)
@@ -76,7 +80,7 @@ void Player::updateAttack()
         this->type = HitTypes::ATTACK_COL;
         this->attacking = true;
         if (this->playSound)
-            this->swordSound.play();
+            this->burnSound.play();
         this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type); // Modify
 
     }
@@ -85,7 +89,7 @@ void Player::updateAttack()
         this->type = HitTypes::ATTACK_COL;
         this->attacking1 = true;
         if (this->playSound)
-            this->swordSound.play();
+            this->burnSound.play();
         this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type);// Attack type
     }
     else if (this->movementComponents->getState(ATTACK1) && !this->sliding&& !this->isJump && !this->getMovementComponents()->faceRight)
@@ -93,7 +97,7 @@ void Player::updateAttack()
         this->type = HitTypes::ATTACK_COL;
         this->attacking1 = true;
         if (this->playSound)
-            this->swordSound.play();
+            this->burnSound.play();
         this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type);// Modify
     }
     if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump&& this->getMovementComponents()->faceRight)
@@ -101,7 +105,7 @@ void Player::updateAttack()
         this->type = HitTypes::ATTACK_COL;
         this->attacking2 = true;
         if (this->playSound)
-            this->swordSound.play();
+            this->burnSound.play();
         this->createHitboxComponents(this->sprite,20.f,10.f,80.f,65.f, this->type);// Attack type
     }
     if (this->movementComponents->getState(ATTACK2) && !this->sliding&& !this->isJump&& !this->getMovementComponents()->faceRight)
@@ -109,7 +113,7 @@ void Player::updateAttack()
         this->type = HitTypes::ATTACK_COL;
         this->attacking2 = true;
         if (this->playSound)
-            this->swordSound.play();
+            this->burnSound.play();
         this->createHitboxComponents(this->sprite,-5.f,10.f,80.f,65.f, this->type);// Modify
     }
 
@@ -247,6 +251,11 @@ void Player::initAudio() {
     this->swordSoundBF.loadFromFile("resources/Audio/swordswing.wav");
     this->swordSound.setBuffer(swordSoundBF);
 
+    //FIRE
+    this->burnSoundBuffer.loadFromFile("resources/Audio/burning.wav");
+    this->burnSound.setBuffer(this->burnSoundBuffer);
+    this->burnSound.setVolume(50.f);
+
 }
 
 void Player::updateJumping(const float& dt) {
@@ -324,6 +333,17 @@ const bool &Player::getJump() const {
     return this->isJump;
 
 }
+
+void Player::changeAttackType(const short& attack_type) {
+    this->attackType = attack_type;
+
+}
+
+const short &Player::getAttackType() const {
+    return this->attackType;
+}
+
+
 
 
 

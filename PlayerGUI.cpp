@@ -4,7 +4,7 @@
 
 #include "PlayerGUI.h"
 
-PlayerGUI::PlayerGUI(Player *player, sf::VideoMode& vm)
+PlayerGUI::PlayerGUI(Player *player, sf::VideoMode& vm, int& hp_bar, int& exp_bar, int& level_bar)
 : vm(vm)
 {
     this->player = player;
@@ -53,6 +53,7 @@ void PlayerGUI::update(const float &dt){
 }
 
 void PlayerGUI::updateHpbar() {
+    std::cout << "Player HP{GUI}: " << this->player->getAttributeComponents()->hp << std::endl;
     float percent = static_cast<float>(this->player->getAttributeComponents()->hp) / static_cast<float>(this->player->getAttributeComponents()->hpMax);
     this->hpBarInner.setSize(sf::Vector2f(static_cast<float>(std::floor(this->hpBarMaxWidth * percent)), this->hpBarInner.getSize().y));
 
