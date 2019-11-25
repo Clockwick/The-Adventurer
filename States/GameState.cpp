@@ -198,12 +198,25 @@ void GameState::initAudio() {
 }
 
 void GameState::initPlayers() {
+
     this->player = new Player(500.f,475.f, 200.f, this->textures["EARTH"]);
 //    this->boss = new Boss(1000.f, 475.f, 200.f, this->textures["BOSS_SHEET"]);
 }
 
 void GameState::initPlayerGUI() {
+//    this->newStorage.push_back(this->player->getAttributeComponents()->hp);
+//    this->newStorage.push_back(this->player->getAttributeComponents()->exp);
+//    this->newStorage.push_back(this->player->getAttributeComponents()->level);
+//    this->newStorage.push_back(this->player->getAttributeComponents()->hpMax);
+//    this->newStorage.push_back(this->player->getAttributeComponents()->expNext);
     this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
+//    if (!this->newStorage.empty())
+//    {
+//        for (int i  = 0; i < this->newStorage.size();i++)
+//        {
+//            this->newStorage.pop_back();
+//        }
+//    }
 }
 void GameState::initEnemies() {
     this->spawnTime = this->spawnClock.getElapsedTime().asSeconds();
@@ -601,6 +614,9 @@ void GameState::updateTileMap(const float &dt) {
 
 void GameState::updatePlayerGUI(const float &dt) {
     this->playerGui->update(dt);
+//    this->player->getAttributeComponents()->hp, this->player->getAttributeComponents()->exp, this->player->getAttributeComponents()->level,
+//            this->player->getAttributeComponents()->hpMax, this->player->getAttributeComponents()->expNext,
+//    this->newStorage[0],this->newStorage[1], this->newStorage[2], this->newStorage[3], this->newStorage[4],
 }
 
 void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) {
@@ -888,7 +904,8 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
         }
 
     }
-    std::cout << "Player HP(GS): " << this->player->getAttributeComponents()->hp << std::endl;
+//    std::cout << "Player HP(GS): " << this->player->getAttributeComponents()->hp << std::endl;
+
 
 
 }
@@ -977,23 +994,57 @@ void GameState::updatePlayerElements() {
     if (this->player->getAttackType() == ATTACK_TYPE::FIRE)
     {
         this->playerTime = this->playerClock.getElapsedTime().asSeconds();
+//        this->newStorage.push_back(this->player->getAttributeComponents()->hp);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->exp);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->level);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->hpMax);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->expNext);
+//        this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
         this->player = new Player(this->player->getPosition().x,this->player->getPosition().y, 200.f, this->textures["FIRE"]);
-        this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
+//        if (!this->newStorage.empty())
+//        {
+//            for (int i =  0; i < this->newStorage.size();i++)
+//            {
+//                this->newStorage.pop_back();
+//            }
+//        }
     }
     else if (this->player->getAttackType() == ATTACK_TYPE::ICE)
     {
         this->playerTime = this->playerClock.getElapsedTime().asSeconds();
+//        this->newStorage.push_back(this->player->getAttributeComponents()->hp);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->exp);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->level);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->hpMax);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->expNext);
+//        this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
         this->player = new Player(this->player->getPosition().x,this->player->getPosition().y, 200.f, this->textures["ICE"]);
-        this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
+//        if (!this->newStorage.empty())
+//        {
+//            for (int i  = 0; i < this->newStorage.size();i++)
+//            {
+//                this->newStorage.pop_back();
+//            }
+//        }
     }
     else if (this->player->getAttackType() == ATTACK_TYPE::TROPHY)
     {
-        this->playerTime = this->playerClock.getElapsedTime().asSeconds();
+//        this->playerTime = this->playerClock.getElapsedTime().asSeconds();
+//        this->newStorage.push_back(this->player->getAttributeComponents()->hp);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->exp);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->level);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->hpMax);
+//        this->newStorage.push_back(this->player->getAttributeComponents()->expNext);
+//        this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
         this->player = new Player(this->player->getPosition().x,this->player->getPosition().y, 200.f, this->textures["TROPHY"]);
-        this->playerGui = new PlayerGUI(this->player,this->state_data->gfxSettings->resolution);
+//        if (!this->newStorage.empty())
+//        {
+//            for (int i  = 0; i < this->newStorage.size();i++)
+//            {
+//                this->newStorage.pop_back();
+//            }
+//        }
     }
-
-
 }
 
 int GameState::calScore() {

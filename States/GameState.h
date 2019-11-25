@@ -119,7 +119,7 @@ private:
     float spawnTime;
 
 
-
+    std::vector <int> newStorage;
 
 
 

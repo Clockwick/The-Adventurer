@@ -7,7 +7,6 @@
 Player::Player(float x,  float y, const float& jumpHeight,sf::Texture& texture_sheet)
 : jumpHeight(jumpHeight)
 {
-
     this->initVariables();
     this->initAudio();
     this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f);

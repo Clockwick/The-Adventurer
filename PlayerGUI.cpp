@@ -4,7 +4,7 @@
 
 #include "PlayerGUI.h"
 
-PlayerGUI::PlayerGUI(Player *player, sf::VideoMode& vm, int& hp_bar, int& exp_bar, int& level_bar)
+PlayerGUI::PlayerGUI(Player *player, sf::VideoMode& vm)
 : vm(vm)
 {
     this->player = player;
@@ -46,18 +46,23 @@ void PlayerGUI::initHpbar() {
 }
 
 
-void PlayerGUI::update(const float &dt){
+void PlayerGUI::update(int& hp, int& exp, int& level, int& hp_max, int& exp_next, const float &dt){
+    this->hp = hp;
+    this->level = level;
+    this->exp = exp;
+    this->hpMax = hp_max;
+    this->expNext = exp_next;
     this->updateHpbar();
     this->updateExpbar();
     this->updateLevelBar();
 }
 
 void PlayerGUI::updateHpbar() {
-    std::cout << "Player HP{GUI}: " << this->player->getAttributeComponents()->hp << std::endl;
-    float percent = static_cast<float>(this->player->getAttributeComponents()->hp) / static_cast<float>(this->player->getAttributeComponents()->hpMax);
+//    std::cout << "Player HP{GUI}: " << this->hp << std::endl;
+    float percent = static_cast<float>(this->hp) / static_cast<float>(this->hpMax);
     this->hpBarInner.setSize(sf::Vector2f(static_cast<float>(std::floor(this->hpBarMaxWidth * percent)), this->hpBarInner.getSize().y));
 
-    this->hpBarString = std::to_string(this->player->getAttributeComponents()->hp) + " / " + std::to_string(this->player->getAttributeComponents()->hpMax);
+    this->hpBarString = std::to_string(this->hp) + " / " + std::to_string(this->hpMax);
 
     this->hpBarText.setString(this->hpBarString);
 }
@@ -77,10 +82,10 @@ void PlayerGUI::renderHpbar(sf::RenderTarget &target) {
 }
 
 void PlayerGUI::updateExpbar() {
-    float percent = static_cast<float>(this->player->getAttributeComponents()->exp) / static_cast<float>(this->player->getAttributeComponents()->expNext);
+    float percent = static_cast<float>(this->exp) / static_cast<float>(this->expNext);
     this->expBarInner.setSize(sf::Vector2f(static_cast<float>(std::floor(this->expBarMaxWidth * percent)), this->expBarInner.getSize().y));
 
-    this->expBarString = std::to_string(this->player->getAttributeComponents()->exp) + " / " + std::to_string(this->player->getAttributeComponents()->expNext);
+    this->expBarString = std::to_string(this->exp) + " / " + std::to_string(this->expNext);
 
     this->expBarText.setString(this->expBarString);
 }
@@ -130,7 +135,7 @@ void PlayerGUI::initLevelBar() {
 }
 
 void PlayerGUI::updateLevelBar() {
-    this->levelBarString = std::to_string(this->player->getAttributeComponents()->level);
+    this->levelBarString = std::to_string(this->level);
     this->levelBarText.setString(this->levelBarString);
 
 }

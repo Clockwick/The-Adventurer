@@ -12,11 +12,11 @@ class Player;
 
 class PlayerGUI {
 public:
-    PlayerGUI(Player* player, sf::VideoMode& vm, int& hp_bar, int& exp_bar, int& level_bar);
+    PlayerGUI(Player* player, sf::VideoMode& vm);
     virtual ~PlayerGUI();
 
     //Functions
-    void update(const float &dt);
+    void update(int& hp, int& exp, int& level,int& hp_max, int& exp_next,const float &dt);
     void updateHpbar();
     void updateExpbar();
     void updateLevelBar();
@@ -30,6 +30,11 @@ public:
 private:
     Player* player;
     sf::VideoMode& vm;
+    int hp;
+    int level;
+    int exp;
+    int expNext;
+    int hpMax;
 
     //Level
     std::string levelBarString;
