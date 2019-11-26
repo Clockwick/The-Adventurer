@@ -64,7 +64,7 @@ std::map<std::string, gui::Button *> &DeadMenu::getButtons() {
     return this->buttons;
 }
 
-DeadMenu::DeadMenu(sf::VideoMode &vm, sf::Font &font) : font(font), vm(vm){
+DeadMenu::DeadMenu(sf::VideoMode &vm, sf::Font &font, const std::string player_name) : font(font), vm(vm), playerName(player_name){
     //Init Background
     this->background.setSize(
             sf::Vector2f(static_cast<float>(vm.width),
@@ -119,7 +119,7 @@ void DeadMenu::saveToFile(const std::string file_name) {
     std::ofstream in_file(file_name);
     if (in_file.is_open())
     {
-        in_file << this->scoreString << " " << "\n";
+        in_file << this->playerName << "\n" << this->scoreString;
     }
 
 

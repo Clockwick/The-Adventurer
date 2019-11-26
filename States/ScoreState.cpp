@@ -8,15 +8,30 @@ ScoreState::ScoreState(StateData *state_data) : State(state_data) {
     this->initVariables();
     this->initFonts();
     this->initGui();
-
-    this->loadFromFile("kit.txt");
     this->loadFromFile1("score.txt");
+    this->loadFromFile("kit.txt");
     this->createTexts();
+
 
 }
 
 ScoreState::~ScoreState() {
+    auto it = this->buttons.begin();
+    for (it = this->buttons.begin(); it != this->buttons.end();++it){
+        delete it->second;
 
+    }
+    auto it2 = this->dropDownLists.begin();
+    for (it2 = this->dropDownLists.begin(); it2 != this->dropDownLists.end();++it2){
+        delete it2->second;
+
+
+    }
+    auto it3 = this->texts.begin();
+    for (it3 = this->texts.begin(); it3 != this->texts.end();++it3)
+    {
+        delete it3->second;
+    }
 }
 
 void ScoreState::update(const float &dt) {
@@ -33,10 +48,24 @@ void ScoreState::render(sf::RenderTarget *target) {
         target = this->window;
     }
     target->draw(this->background);
+//    for (int i = 0; i < 5;i++)
+//    {
+//        target->draw(this->playerText[i]);
+//        target->draw(this->scoreText[i]);
+//    }
     target->draw(this->playerList);
     target->draw(this->scoreList);
-    target->draw(this->playerText);
-    target->draw(this->scoreText);
+    target->draw(this->playerList1);
+    target->draw(this->scoreList1);
+    target->draw(this->playerList2);
+    target->draw(this->scoreList2);
+    target->draw(this->playerList3);
+    target->draw(this->scoreList3);
+    target->draw(this->playerList4);
+    target->draw(this->scoreList4);
+    target->draw(this->playerList5);
+    target->draw(this->scoreList5);
+
 
     this->renderGui(*target);
 
@@ -50,53 +79,48 @@ void ScoreState::updateInput(const float &dt) {
 }
 
 void ScoreState::loadFromFile(const std::string file_name) {
-        std::ifstream in_file;
-        in_file.open(file_name);
-        if (in_file.is_open())
-        {
-            std::string player_name = "TU";
-            std::string player_name1 = "";
-            std::string player_name2 = "";
-            std::string player_name3 = "";
-            std::string player_name4 = "";
-            //Load
-            in_file >> player_name;
-//            while (in_file >> player_name >> player_name1 >> player_name2 >> player_name3 >> player_name4)
-//            {
-                this->playerName = player_name;
-//                this->playerName1 = player_name1;
-//                this->playerName2 = player_name2;
-//                this->playerName3 = player_name3;
-//                this->playerName4 = player_name4;
 
-//            }
-        }
-        in_file.close();
-}
-void ScoreState::loadFromFile1(const std::string file_name) {
-    std::ifstream in_file;
-    in_file.open(file_name);
-    if (in_file.is_open())
+    std::fstream myFile;
+
+    myFile.open(file_name,std::ios::in);
+    std::string temp;
+    std::string tempString;
+    int tempInt,p=1;
+    bool S_state =false;
+    while(getline(myFile,temp))
     {
-        int score = 0;
-        int score1 = 0;
-        int score2 = 0;
-        int score3 = 0;
-        int score4 = 0;
-
-//        while(in_file >> score >> score1 >> score2 >> score3 >> score4)
-//        {
-        in_file >> score;
-        this->score = score;
-//            this->score1 = score1;
-//            this->score2 = score2;
-//            this->score3 = score3;
-//            this->score4 = score4;
-//        }
-
+        if(!S_state)
+        {
+            tempString = temp;
+        }
+        else
+        {
+            p=1;
+            tempInt = 0;
+            for(int i=temp.length()-1;i>=0;i--)
+            {
+                tempInt += (temp[i]-'0')*p;
+                p*=10;
+            }
+            list.push_back(std::make_pair(tempInt,tempString));
+        }
+        S_state = !S_state;
     }
-    in_file.close();
+    myFile.close();
+
+    //
+    list.push_back(std::make_pair(score,playerName));
+    std::sort(list.begin(),list.end());
+
+    myFile.open(file_name,std::ios::out);
+    for(int i=5;i>=1;i--)
+    {
+        myFile << list[i].second << std::endl << list[i].first << std::endl;
+    }
+    myFile.close();
+
 }
+
 
 
 
@@ -160,17 +184,94 @@ void ScoreState::createTexts() {
     this->scoreList.setFillColor(sf::Color::Black);
     this->scoreList.setString("Score");
 
-    this->scoreText.setFont(this->font);
-    this->scoreText.setPosition(gui::p2pX(60.f, vm), gui::p2pY(20.f, vm));
-    this->scoreText.setCharacterSize(gui::calcCharSize(vm));
-    this->scoreText.setFillColor(sf::Color::Black);
-    this->scoreText.setString(std::to_string(this->score));
 
-    this->playerText.setFont(this->font);
-    this->playerText.setPosition(gui::p2pX(30.f, vm), gui::p2pY(20.f, vm));
-    this->playerText.setCharacterSize(gui::calcCharSize(vm));
-    this->playerText.setFillColor(sf::Color::Black);
-    this->playerText.setString(this->playerName);
+    //1
+    this->playerList1.setFont(this->font);
+    this->playerList1.setPosition(gui::p2pX(30.f, vm), gui::p2pY(20.f, vm));
+    this->playerList1.setCharacterSize(gui::calcCharSize(vm));
+    this->playerList1.setFillColor(sf::Color::Black);
+    this->playerList1.setString(this->list[4].second);
+    this->scoreList1.setFont(this->font);
+    this->scoreList1.setPosition(gui::p2pX(60.f, vm), gui::p2pY(20.f, vm));
+    this->scoreList1.setCharacterSize(gui::calcCharSize(vm));
+    this->scoreList1.setFillColor(sf::Color::Black);
+    this->scoreList1.setString(std::to_string(this->list[4].first));
+
+    //2
+    this->playerList2.setFont(this->font);
+    this->playerList2.setPosition(gui::p2pX(30.f, vm), gui::p2pY(30.f, vm));
+    this->playerList2.setCharacterSize(gui::calcCharSize(vm));
+    this->playerList2.setFillColor(sf::Color::Black);
+    this->playerList2.setString(this->list[3].second);
+    this->scoreList2.setFont(this->font);
+    this->scoreList2.setPosition(gui::p2pX(60.f, vm), gui::p2pY(30.f, vm));
+    this->scoreList2.setCharacterSize(gui::calcCharSize(vm));
+    this->scoreList2.setFillColor(sf::Color::Black);
+    this->scoreList2.setString(std::to_string(this->list[3].first));
+
+
+
+    //3
+    this->playerList3.setFont(this->font);
+    this->playerList3.setPosition(gui::p2pX(30.f, vm), gui::p2pY(40.f, vm));
+    this->playerList3.setCharacterSize(gui::calcCharSize(vm));
+    this->playerList3.setFillColor(sf::Color::Black);
+    this->playerList3.setString(this->list[2].second);
+    this->scoreList3.setFont(this->font);
+    this->scoreList3.setPosition(gui::p2pX(60.f, vm), gui::p2pY(40.f, vm));
+    this->scoreList3.setCharacterSize(gui::calcCharSize(vm));
+    this->scoreList3.setFillColor(sf::Color::Black);
+    this->scoreList3.setString(std::to_string(this->list[2].first));
+
+
+
+    //4
+    this->playerList4.setFont(this->font);
+    this->playerList4.setPosition(gui::p2pX(30.f, vm), gui::p2pY(50.f, vm));
+    this->playerList4.setCharacterSize(gui::calcCharSize(vm));
+    this->playerList4.setFillColor(sf::Color::Black);
+    this->playerList4.setString(this->list[1].second);
+    this->scoreList4.setFont(this->font);
+    this->scoreList4.setPosition(gui::p2pX(60.f, vm), gui::p2pY(50.f, vm));
+    this->scoreList4.setCharacterSize(gui::calcCharSize(vm));
+    this->scoreList4.setFillColor(sf::Color::Black);
+    this->scoreList4.setString(std::to_string(this->list[1].first));
+
+
+
+    //5
+    this->playerList5.setFont(this->font);
+    this->playerList5.setPosition(gui::p2pX(30.f, vm), gui::p2pY(60.f, vm));
+    this->playerList5.setCharacterSize(gui::calcCharSize(vm));
+    this->playerList5.setFillColor(sf::Color::Black);
+    this->playerList5.setString(this->list[0].second);
+    this->scoreList5.setFont(this->font);
+    this->scoreList5.setPosition(gui::p2pX(60.f, vm), gui::p2pY(60.f, vm));
+    this->scoreList5.setCharacterSize(gui::calcCharSize(vm));
+    this->scoreList5.setFillColor(sf::Color::Black);
+    this->scoreList5.setString(std::to_string(this->list[0].first));
+
+
+
+
+//    for (int i = 0; i < 5;i++)
+//    {
+//        this->scoreText[i].setFont(*this->font);
+//        this->scoreText[i].setPosition(gui::p2pX(60.f, vm), gui::p2pY(20.f + (i * 10), vm));
+//        this->scoreText[i].setCharacterSize(gui::calcCharSize(vm));
+//        this->scoreText[i].setFillColor(sf::Color::Black);
+//        this->scoreText[i].setString(std::to_string(this->list[i].first));
+//
+//        this->playerText[i].setFont(*this->font);
+//        this->playerText[i].setPosition(gui::p2pX(30.f, vm), gui::p2pY(20.f + (i * 10), vm));
+//        this->playerText[i].setCharacterSize(gui::calcCharSize(vm));
+//        this->playerText[i].setFillColor(sf::Color::Black);
+//        this->playerText[i].setString(this->list[i].second);
+////        std::cout  << this->list[i].first << " " << this->list[i].second << std::endl;
+//    }
+
+
+
 
     this->texts["1"] = new gui::TextGui(gui::p2pX(10.f, vm) , gui::p2pY(20.f, vm), &this->font, gui::calcCharSize(vm), sf::Color::Black, sf::Color::Transparent, "1.");
     this->texts["2"] = new gui::TextGui(gui::p2pX(10.f, vm) , gui::p2pY(30.f, vm), &this->font, gui::calcCharSize(vm), sf::Color::Black, sf::Color::Transparent, "2.");
@@ -180,14 +281,10 @@ void ScoreState::createTexts() {
 
 
 
-
-
-
 }
 
 void ScoreState::updateGui(const float &dt) {
     for (auto &it : this->buttons){
-
         it.second->update(this->mousePosWindow) ;
     }
 
@@ -208,4 +305,16 @@ void ScoreState::renderGui(sf::RenderTarget&target) {
     for (auto &it2 : this->texts){
         it2.second->render(target);
     }
+
+}
+
+void ScoreState::loadFromFile1(const std::string file_name) {
+    std::fstream in_file;
+    in_file.open(file_name);
+    if (in_file.is_open())
+    {
+        in_file >> this->playerName >> this->score;
+    }
+    in_file.close();
+
 }

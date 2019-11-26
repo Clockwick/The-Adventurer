@@ -40,16 +40,10 @@ private:
     std::map <std::string, gui::DropDownList*> dropDownLists;
     std::map <std::string, gui::TextGui*> texts;
     sf::Texture backgroundTexture;
+
     std::string playerName;
-    std::string playerName1;
-    std::string playerName2;
-    std::string playerName3;
-    std::string playerName4;
     int score;
-    int score1;
-    int score2;
-    int score3;
-    int score4;
+
 
     const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
 
@@ -58,6 +52,17 @@ private:
 
     sf::Text scoreList;
     sf::Text playerList;
+    sf::Text scoreList1;
+    sf::Text playerList1;
+    sf::Text scoreList2;
+    sf::Text playerList2;
+    sf::Text scoreList3;
+    sf::Text playerList3;
+    sf::Text scoreList4;
+    sf::Text playerList4;
+    sf::Text scoreList5;
+    sf::Text playerList5;
+    std::vector<std::pair<int,std::string>> list;
 
 
 

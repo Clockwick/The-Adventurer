@@ -6,8 +6,8 @@
 #include "../Entities/Slime.h"
 
 
-GameState::GameState(StateData* state_data, sf::Sound& sound)
-: State(state_data), pressSound(sound)
+GameState::GameState(StateData* state_data, sf::Sound& sound, const std::string player_name)
+: State(state_data), pressSound(sound), playerName(player_name)
 {
     this->initVariables();
     this->initAudio();
@@ -23,7 +23,6 @@ GameState::GameState(StateData* state_data, sf::Sound& sound)
     this->initPauseMenu();
     this->initDeadMenu();
     this->initTileMap();
-    this->loadFromFile("kit.txt");
 
     this->inventorySelector = new gui::InventorySelector(gui::p2pX(60.f, vm), this->state_data->gfxSettings->resolution.height - this->sidebar.getSize().y + 20,
                                                          900.f, 900.f,
@@ -481,11 +480,12 @@ void GameState::initPauseMenu() {
 
     this->pmenu->addButton("QUIT",gui::p2pY(61.11f, vm), gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm), gui::calcCharSize(vm), "Quit");
 
+
 }
 
 void GameState::initDeadMenu() {
     const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
-    this->deadmenu = new DeadMenu(this->state_data->gfxSettings->resolution,this->fonts["NORMAL"]);
+    this->deadmenu = new DeadMenu(this->state_data->gfxSettings->resolution,this->fonts["NORMAL"], this->playerName);
 
     this->deadmenu->addButton("QUIT",gui::p2pY(61.11f, vm), gui::p2pX(6.94f, vm),gui::p2pY(3.61f, vm), gui::calcCharSize(vm), "Exit");
 

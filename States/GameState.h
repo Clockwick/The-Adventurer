@@ -24,7 +24,7 @@ class GameState : public State
 {
 
 public:
-    GameState(StateData* state_data, sf::Sound& sound);
+    GameState(StateData* state_data, sf::Sound& sound, const std::string player_name);
     virtual ~GameState();
     void update(const float& dt);
     void updateGui(const float& dt);

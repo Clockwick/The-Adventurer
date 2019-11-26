@@ -61,16 +61,16 @@ AttributeComponent::~AttributeComponent() {
 
 void AttributeComponent::updateStats(const bool reset) {
     //DAMAGE
-    this->damageMax = this->Str + 2  + this->Str / 2 + this->Int / 5 + this->Agi / 2 + this->Agi / 4 + this->luck * 2;
-    this->damageMin = this->Str + this->Str / 8 + this->Int / 5 + this->Agi / 3 + this->Agi / 4 + this->luck / 4;
+    this->damageMax = this->Str + 2  + this->Str / 2 + this->Int / 5 + this->Agi / 2 + this->Agi / 4 + this->luck * 2 + this->level;
+    this->damageMin = this->Str + this->Str / 8 + this->Int / 5 + this->Agi / 3 + this->Agi / 4 + this->luck / 4 + this->level/2;
 
     //HP
 //    this->hpMax = 100.f;
-    this->hpMax = this->Vit * 8 + this->Vit + this->Str/2 + this->Int / 5;
+    this->hpMax = this->Vit * 8 + this->Vit + this->Str/2 + this->Int / 5 + this->level + this->level/2 + this->level/4;
 
     //ACCURACY
-    this->accuracy = this->Dex * 3 + this->Dex / 3 + this->Int / 5 + this->Agi/3 + this->Agi;
-    this->defence = this->Str/2 + this->Str/6 + this->Vit/2 + this->Agi / 4 + this->Int / 5;
+    this->accuracy = this->Dex * 3 + this->Dex / 3 + this->Int / 5 + this->Agi/3 + this->Agi + this->level/2;
+    this->defence = this->Str/2 + this->Str/6 + this->Vit/2 + this->Agi / 4 + this->Int / 5 + this->level + this->level / 2;
 
     if (reset)
     {

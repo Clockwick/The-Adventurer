@@ -57,8 +57,7 @@ void NameState::initBox() {
 void NameState::updateInput(const float &dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
     {
-        this->saveToFile("kit.txt");
-        this->states->push(new GameState(this->state_data, this->sound));
+        this->states->push(new GameState(this->state_data, this->sound, this->input));
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
@@ -141,7 +140,7 @@ void NameState::saveToFile(const std::string file_name) {
     ofs.open(file_name);
     if (ofs.is_open())
     {
-        ofs << this->input << " ";
+        ofs << this->input << "\n";
     }
     ofs.close();
 

@@ -9,7 +9,8 @@
 class DeadMenu
 {
 public:
-    DeadMenu(sf::VideoMode& vm, sf::Font& font);
+    DeadMenu(sf::VideoMode& vm, sf::Font& font, const std::string player_name);
+
     virtual ~DeadMenu();
 
 public:
@@ -34,6 +35,7 @@ private:
     sf::Text scoreText;
     sf::Text scoreText2;
     std::string scoreString;
+    std::string playerName;
 
 
     std::map<std::string, gui::Button*> buttons;
