@@ -55,10 +55,20 @@ void ScoreState::loadFromFile(const std::string file_name) {
         if (in_file.is_open())
         {
             std::string player_name = "TU";
+            std::string player_name1 = "";
+            std::string player_name2 = "";
+            std::string player_name3 = "";
+            std::string player_name4 = "";
             //Load
-            in_file >> player_name;
+            while (in_file >> player_name >> player_name1 >> player_name2 >> player_name3 >> player_name4)
+            {
+                this->playerName = player_name;
+                this->playerName1 = player_name1;
+                this->playerName2 = player_name2;
+                this->playerName3 = player_name3;
+                this->playerName4 = player_name4;
 
-            this->playerName = player_name;
+            }
         }
         in_file.close();
 }
@@ -68,9 +78,20 @@ void ScoreState::loadFromFile1(const std::string file_name) {
     if (in_file.is_open())
     {
         int score = 0;
-        in_file >> score;
+        int score1 = 0;
+        int score2 = 0;
+        int score3 = 0;
+        int score4 = 0;
 
-        this->score = score;
+        while(in_file >> score >> score1 >> score2 >> score3 >> score4)
+        {
+            this->score = score;
+            this->score1 = score1;
+            this->score2 = score2;
+            this->score3 = score3;
+            this->score4 = score4;
+        }
+
     }
     in_file.close();
 }
@@ -154,6 +175,7 @@ void ScoreState::createTexts() {
     this->texts["3"] = new gui::TextGui(gui::p2pX(10.f, vm) , gui::p2pY(40.f, vm), &this->font, gui::calcCharSize(vm), sf::Color::Black, sf::Color::Transparent, "3.");
     this->texts["4"] = new gui::TextGui(gui::p2pX(10.f, vm) , gui::p2pY(50.f, vm), &this->font, gui::calcCharSize(vm), sf::Color::Black, sf::Color::Transparent, "4.");
     this->texts["5"] = new gui::TextGui(gui::p2pX(10.f, vm) , gui::p2pY(60.f, vm), &this->font, gui::calcCharSize(vm), sf::Color::Black, sf::Color::Transparent, "5.");
+
 
 
 

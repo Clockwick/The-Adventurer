@@ -41,7 +41,16 @@ private:
     std::map <std::string, gui::TextGui*> texts;
     sf::Texture backgroundTexture;
     std::string playerName;
+    std::string playerName1;
+    std::string playerName2;
+    std::string playerName3;
+    std::string playerName4;
     int score;
+    int score1;
+    int score2;
+    int score3;
+    int score4;
+
     const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
 
     sf::Text playerText;

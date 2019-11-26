@@ -205,7 +205,7 @@ void GameState::initPlayers() {
 
     this->player = new Player(500.f,475.f, 200.f, this->textures["EARTH"]);
 //    this->player->changeAttackType(ATTACK_TYPE::EARTH);
-//    this->boss = new Boss(1000.f, 475.f, 200.f, this->textures["BOSS_SHEET"]);
+    this->boss = new Boss(1000.f, 475.f, 200.f, this->textures["BOSS_SHEET"]);
 }
 
 void GameState::initPlayerGUI() {
@@ -227,7 +227,7 @@ void GameState::initEnemies() {
     this->spawnTime = this->spawnClock.getElapsedTime().asSeconds();
     if (this->activeEnemies.size() < this->maxEnemiesSize && this->spawnTime > 2.f)
     {
-        this->activeEnemies.push_back(new Slime(((rand()%5 + 1) * 100) + 400, 475.f, 40.f, this->textures["SLIME_SHEET"]));
+        this->activeEnemies.push_back(new Slime(((rand()%5 + 1) * 100) + 1500, 475.f, 40.f, this->textures["SLIME_SHEET"]));
         this->maxEnemiesSize++;
         this->spawnClock.restart();
     }
@@ -299,7 +299,8 @@ void GameState::update(const float &dt) {
         {
             b->update(dt);
         }
-//        this->boss->update(dt);
+        this->boss->update(dt);
+
         this->updateTileMap(dt);
     }
     else if (this->isDead)
@@ -350,7 +351,7 @@ void GameState::render(sf::RenderTarget *target) {
     {
         b->render(this->renderTexture, false);
     }
-//    this->boss->render(this->renderTexture, true);
+    this->boss->render(this->renderTexture, false);
 
     if (!this->blink)
     {
@@ -610,7 +611,7 @@ void GameState::updateView(const float &dt) {
 
 void GameState::updateTileMap(const float &dt) {
     this->tileMap->update(this->player, dt);
-//    this->tileMap->update(this->boss, dt);
+    this->tileMap->update(this->boss, dt);
     for (auto *i : this->activeEnemies)
     {
         this->tileMap->update(i, dt);
@@ -651,8 +652,6 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
 
 
     }
-//    std::cout << this->player->getAttackType() << std::endl;
-
 
     for (int i = 0; i < this->activeEnemies.size(); i++) {
         if (this->activeEnemies[i]->intersects(nextPositionBounds) && this->player->getType() == HitTypes::ATTACK_COL) {
