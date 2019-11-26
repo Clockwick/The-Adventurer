@@ -60,15 +60,16 @@ void ScoreState::loadFromFile(const std::string file_name) {
             std::string player_name3 = "";
             std::string player_name4 = "";
             //Load
-            while (in_file >> player_name >> player_name1 >> player_name2 >> player_name3 >> player_name4)
-            {
+            in_file >> player_name;
+//            while (in_file >> player_name >> player_name1 >> player_name2 >> player_name3 >> player_name4)
+//            {
                 this->playerName = player_name;
-                this->playerName1 = player_name1;
-                this->playerName2 = player_name2;
-                this->playerName3 = player_name3;
-                this->playerName4 = player_name4;
+//                this->playerName1 = player_name1;
+//                this->playerName2 = player_name2;
+//                this->playerName3 = player_name3;
+//                this->playerName4 = player_name4;
 
-            }
+//            }
         }
         in_file.close();
 }
@@ -83,14 +84,15 @@ void ScoreState::loadFromFile1(const std::string file_name) {
         int score3 = 0;
         int score4 = 0;
 
-        while(in_file >> score >> score1 >> score2 >> score3 >> score4)
-        {
-            this->score = score;
-            this->score1 = score1;
-            this->score2 = score2;
-            this->score3 = score3;
-            this->score4 = score4;
-        }
+//        while(in_file >> score >> score1 >> score2 >> score3 >> score4)
+//        {
+        in_file >> score;
+        this->score = score;
+//            this->score1 = score1;
+//            this->score2 = score2;
+//            this->score3 = score3;
+//            this->score4 = score4;
+//        }
 
     }
     in_file.close();

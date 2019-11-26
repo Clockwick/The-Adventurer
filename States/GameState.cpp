@@ -205,7 +205,7 @@ void GameState::initPlayers() {
 
     this->player = new Player(500.f,475.f, 200.f, this->textures["EARTH"]);
 //    this->player->changeAttackType(ATTACK_TYPE::EARTH);
-    this->boss = new Boss(1000.f, 475.f, 200.f, this->textures["BOSS_SHEET"]);
+    this->boss = new Boss(6000.f, 475.f, 200.f, this->textures["BOSS_SHEET"]);
 }
 
 void GameState::initPlayerGUI() {
