@@ -146,8 +146,10 @@ void GameState::initGui() {
 
 void GameState::initVariables() {
 
+    this->bossBlink = false;
     this->maxEnemiesSize = 6;
-
+    this->autoMoveBossRight = false;
+    this->autoMoveBossLeft = false;
     this->score = 0;
     this->multiply = 1;
     this->playerTime = 0;
@@ -204,7 +206,7 @@ void GameState::initPlayers() {
 
     this->player = new Player(500.f,475.f, 200.f, this->textures["EARTH"]);
 //    this->player->changeAttackType(ATTACK_TYPE::EARTH);
-    this->boss = new Boss(6000.f, 475.f, 200.f, this->textures["BOSS_SHEET"]);
+
 }
 
 void GameState::initPlayerGUI() {
@@ -224,13 +226,20 @@ void GameState::initPlayerGUI() {
 }
 void GameState::initEnemies() {
     this->spawnTime = this->spawnClock.getElapsedTime().asSeconds();
+
     if (this->activeEnemies.size() < this->maxEnemiesSize && this->spawnTime > 2.f)
     {
-        this->activeEnemies.push_back(new Slime(((rand()%5 + 1) * 100) + 1500, 475.f, 40.f, this->textures["SLIME_SHEET"]));
+        this->activeEnemies.push_back(new Slime(((rand()%30 + 1) * 100) + 1500, 475.f, 30.f, this->textures["SLIME_SHEET"]));
         this->maxEnemiesSize++;
         this->spawnClock.restart();
     }
-    std::cout << this->score << std::endl;
+    if (this->boss.size() < 1)
+    {
+        this->boss.push_back(new Boss((rand()%9+1)*100 + 5000, 475.f, 10.f, this->textures["BOSS_SHEET"]));
+
+    }
+
+//    std::cout << this->score << std::endl;
 
 }
 
@@ -298,7 +307,10 @@ void GameState::update(const float &dt) {
         {
             b->update(dt);
         }
-        this->boss->update(dt);
+        for (auto *c : this->boss)
+        {
+            c->update(dt);
+        }
 
         this->updateTileMap(dt);
     }
@@ -350,7 +362,10 @@ void GameState::render(sf::RenderTarget *target) {
     {
         b->render(this->renderTexture, false);
     }
-    this->boss->render(this->renderTexture, false);
+    for (auto *c : this->boss)
+    {
+        c->render(this->renderTexture, false);
+    }
 
     if (!this->blink)
     {
@@ -611,7 +626,10 @@ void GameState::updateView(const float &dt) {
 
 void GameState::updateTileMap(const float &dt) {
     this->tileMap->update(this->player, dt);
-    this->tileMap->update(this->boss, dt);
+    for (auto *j : this->boss)
+    {
+        this->tileMap->update(j,dt);
+    }
     for (auto *i : this->activeEnemies)
     {
         this->tileMap->update(i, dt);
@@ -652,6 +670,15 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
 
 
     }
+    if (this->bossTime > 0.3f && this->bossBlink) {
+        for (int i = 0; i < this->boss.size(); i++) {
+            this->boss[i]->setColor(sf::Color::White);
+            this->bossBlink = false;
+            this->bossClock.restart();
+        }
+
+
+    }
 
     for (int i = 0; i < this->activeEnemies.size(); i++) {
         if (this->activeEnemies[i]->intersects(nextPositionBounds) && this->player->getType() == HitTypes::ATTACK_COL) {
@@ -662,7 +689,7 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
 
                 if (this->player->getAttackType() == ATTACK_TYPE::EARTH)
                     this->activeEnemies[i]->loseHP((this->player->getAttributeComponents()->damageMax +
-                                                this->player->getAttributeComponents()->damageMin) / 2);
+                                                    this->player->getAttributeComponents()->damageMin) / 2);
                 else if (this->player->getAttackType() == ATTACK_TYPE::FIRE)
                     this->activeEnemies[i]->loseHP(((this->player->getAttributeComponents()->damageMax +
                                                      this->player->getAttributeComponents()->damageMin) / 2) * 2);
@@ -689,8 +716,8 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                                                               this->textures["CANDY_1"]));
                     if (chance == 1)
                         this->fireYellow.push_back(new Item(this->activeEnemies[i]->getPosition().x,
-                                                         this->activeEnemies[i]->getPosition().y - 60,
-                                                         this->textures["SKILL_1"], 1));
+                                                            this->activeEnemies[i]->getPosition().y - 60,
+                                                            this->textures["SKILL_1"], 1));
 
 
                     if (chance == 3)
@@ -701,8 +728,8 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
 //                    }
                     if (chance == 4)
                         this->fireBlue.push_back(new Item(this->activeEnemies[i]->getPosition().x,
-                                                         this->activeEnemies[i]->getPosition().y - 60,
-                                                         this->textures["SKILL_3"], 1));
+                                                          this->activeEnemies[i]->getPosition().y - 60,
+                                                          this->textures["SKILL_3"], 1));
 
                     this->hitEnemies.erase(this->hitEnemies.begin() + i);
                     this->activeEnemies.erase(this->activeEnemies.begin() + i);
@@ -718,10 +745,10 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
                 this->activeEnemies[i]->gotAttackLeft();
                 if (this->player->getAttackType() == ATTACK_TYPE::EARTH)
                     this->activeEnemies[i]->loseHP((this->player->getAttributeComponents()->damageMax +
-                                                this->player->getAttributeComponents()->damageMin) / 2);
+                                                    this->player->getAttributeComponents()->damageMin) / 2);
                 else if (this->player->getAttackType() == ATTACK_TYPE::FIRE)
                     this->activeEnemies[i]->loseHP(((this->player->getAttributeComponents()->damageMax +
-                                                    this->player->getAttributeComponents()->damageMin) / 2) * 2);
+                                                     this->player->getAttributeComponents()->damageMin) / 2) * 2);
                 else if (this->player->getAttackType() == ATTACK_TYPE::ICE)
                     this->activeEnemies[i]->loseHP(((this->player->getAttributeComponents()->damageMax +
                                                      this->player->getAttributeComponents()->damageMin) / 2) * 2);
@@ -815,6 +842,168 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
         }
 
     }
+    for (int i = 0; i < this->boss.size(); i++) {
+        if (this->boss[i]->intersects(nextPositionBounds) && this->player->getType() == HitTypes::ATTACK_COL) {
+            if (playerBounds.left < enemyBounds.left
+                && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
+                && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
+                && playerBounds.top + playerBounds.height > enemyBounds.top) {
+
+                if (this->player->getAttackType() == ATTACK_TYPE::EARTH)
+                    this->boss[i]->loseHP((this->player->getAttributeComponents()->damageMax +
+                                                    this->player->getAttributeComponents()->damageMin) / 2);
+                else if (this->player->getAttackType() == ATTACK_TYPE::FIRE)
+                    this->boss[i]->loseHP(((this->player->getAttributeComponents()->damageMax +
+                                                     this->player->getAttributeComponents()->damageMin) / 2) * 3);
+                else if (this->player->getAttackType() == ATTACK_TYPE::ICE)
+                    this->boss[i]->loseHP(((this->player->getAttributeComponents()->damageMax +
+                                                     this->player->getAttributeComponents()->damageMin) / 2));
+                else if (this->player->getAttackType() == ATTACK_TYPE::TROPHY)
+                    this->boss[i]->loseHP(((this->player->getAttributeComponents()->damageMax +
+                                                     this->player->getAttributeComponents()->damageMin) / 2) * 2);
+                this->bossBlink = true;
+                this->bossClock.restart();
+                this->setAiBoss(this->boss[i]);
+                this->autoMoveBossLeft = true;
+                this->boss[i]->setColor(sf::Color::Red);
+                this->boss[i]->gotAttackRight();
+                if (this->boss[i]->getAttributeComponents()->hp <= 0) {
+                    this->score += 10;
+                    this->player->gainEXP(1000);
+                    int chance = rand() % 5 + 1;
+                    if (chance == 2)
+                        this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                              this->activeEnemies[i]->getPosition().y - 60,
+                                                              this->textures["CANDY_1"]));
+                    if (chance == 1)
+                        this->fireYellow.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                            this->activeEnemies[i]->getPosition().y - 60,
+                                                            this->textures["SKILL_1"], 1));
+
+
+                    if (chance == 3)
+                        this->fireRed.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                         this->activeEnemies[i]->getPosition().y - 60,
+                                                         this->textures["SKILL_2"], 1));
+
+//                    }
+                    if (chance == 4)
+                        this->fireBlue.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                          this->activeEnemies[i]->getPosition().y - 60,
+                                                          this->textures["SKILL_3"], 1));
+
+                    this->boss.erase(this->boss.begin() + i);
+
+                }
+            } else if (playerBounds.left > enemyBounds.left
+                       && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
+                       && playerBounds.top < enemyBounds.top + enemyBounds.height
+                       && playerBounds.top + playerBounds.height > enemyBounds.top) {
+
+                if (this->player->getAttackType() == ATTACK_TYPE::EARTH)
+                    this->boss[i]->loseHP((this->player->getAttributeComponents()->damageMax +
+                                                    this->player->getAttributeComponents()->damageMin) / 2);
+                else if (this->player->getAttackType() == ATTACK_TYPE::FIRE)
+                    this->boss[i]->loseHP(((this->player->getAttributeComponents()->damageMax +
+                                                     this->player->getAttributeComponents()->damageMin) / 2) * 3);
+                else if (this->player->getAttackType() == ATTACK_TYPE::ICE)
+                    this->boss[i]->loseHP(((this->player->getAttributeComponents()->damageMax +
+                                                     this->player->getAttributeComponents()->damageMin) / 2));
+                else if (this->player->getAttackType() == ATTACK_TYPE::TROPHY)
+                    this->boss[i]->loseHP(((this->player->getAttributeComponents()->damageMax +
+                                                     this->player->getAttributeComponents()->damageMin) / 2) * 2);
+                this->bossBlink = true;
+                this->bossClock.restart();
+                this->setAiBoss(this->boss[i]);
+                this->autoMoveBossRight = true;
+                this->boss[i]->setColor(sf::Color::Red);
+                this->boss[i]->gotAttackLeft();
+                if (this->boss[i]->getAttributeComponents()->hp <= 0) {
+                    this->score += 10;
+                    this->player->gainEXP(1000);
+                    int chance = rand() % 5 + 1;
+                    if (chance == 2)
+                        this->itemElements.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                              this->activeEnemies[i]->getPosition().y - 60,
+                                                              this->textures["CANDY_1"]));
+                    if (chance == 1)
+                        this->fireYellow.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                            this->activeEnemies[i]->getPosition().y - 60,
+                                                            this->textures["SKILL_1"], 1));
+
+
+                    if (chance == 3)
+                        this->fireRed.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                         this->activeEnemies[i]->getPosition().y - 60,
+                                                         this->textures["SKILL_2"], 1));
+
+//                    }
+                    if (chance == 4)
+                        this->fireBlue.push_back(new Item(this->activeEnemies[i]->getPosition().x,
+                                                          this->activeEnemies[i]->getPosition().y - 60,
+                                                          this->textures["SKILL_3"], 1));
+
+                    this->boss.erase(this->boss.begin() + i);
+                }
+            }
+        }
+        else if (this->boss[i]->intersects(nextPositionBounds) &&
+                 this->player->getType() == HitTypes::DEFAULT_COL) {
+
+            //Right collision
+            if (playerBounds.left < enemyBounds.left
+                && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
+                && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
+                && playerBounds.top + playerBounds.height > enemyBounds.top) {
+//                std::cout << "Right Collision" << std::endl;
+                this->getHitSound.play();
+                this->player->loseHP(15);
+                this->player->stopVelocityX();
+                this->isHit = true;
+
+                if (this->isHit) {
+                    this->blink = true;
+                    this->blinkClock.restart();
+                    this->isHit = false;
+                    this->clock.restart();
+                }
+                if (this->player->getAttributeComponents()->hp <= 0) {
+                    this->player->loseEXP(50);
+                    this->isDead = true;
+                }
+
+            }
+
+                //Left collision
+            else if (playerBounds.left > enemyBounds.left
+                     && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
+                     && playerBounds.top < enemyBounds.top + enemyBounds.height
+                     && playerBounds.top + playerBounds.height > enemyBounds.top) {
+//                std::cout << "Left Collision" << std::endl;
+
+                this->getHitSound.play();
+                this->player->loseHP(15);
+                this->player->stopVelocityX();
+                this->isHit = true;
+                if (this->isHit) {
+                    this->blink = true;
+                    this->blinkClock.restart();
+                    this->isHit = false;
+                    this->clock.restart();
+                }
+                if (this->player->getAttributeComponents()->hp <= 0) {
+                    this->player->loseEXP(50);
+                    this->isDead = true;
+                }
+
+            }
+
+
+        }
+
+    }
+
+
     for (int i = 0; i < this->itemElements.size(); i++) {
         if (this->itemElements[i]->intersects(nextPositionBounds)) {
             if (playerBounds.left < enemyBounds.left
@@ -838,23 +1027,19 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
     }
 
     for (int i = 0; i < this->fireRed.size(); i++) {
-        if (this->fireRed[i]->intersects(nextPositionBounds))
-        {
+        if (this->fireRed[i]->intersects(nextPositionBounds)) {
             if (playerBounds.left < enemyBounds.left
                 && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
-                && playerBounds.top + playerBounds.height > enemyBounds.top)
-            {
+                && playerBounds.top + playerBounds.height > enemyBounds.top) {
 //                delete this->player;
                 this->player->changeAttackType(ATTACK_TYPE::FIRE);
                 this->fireRed.erase(this->fireRed.begin() + i);
                 this->collectSound.play();
-            }
-            else if (playerBounds.left > enemyBounds.left
-                     && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
-                     && playerBounds.top < enemyBounds.top + enemyBounds.height
-                     && playerBounds.top + playerBounds.height > enemyBounds.top)
-            {
+            } else if (playerBounds.left > enemyBounds.left
+                       && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
+                       && playerBounds.top < enemyBounds.top + enemyBounds.height
+                       && playerBounds.top + playerBounds.height > enemyBounds.top) {
 //                delete this->player;
                 this->player->changeAttackType(ATTACK_TYPE::FIRE);
                 this->fireRed.erase(this->fireRed.begin() + i);
@@ -864,23 +1049,19 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
 
     }
     for (int i = 0; i < this->fireBlue.size(); i++) {
-        if (this->fireBlue[i]->intersects(nextPositionBounds))
-        {
+        if (this->fireBlue[i]->intersects(nextPositionBounds)) {
             if (playerBounds.left < enemyBounds.left
                 && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
-                && playerBounds.top + playerBounds.height > enemyBounds.top)
-            {
+                && playerBounds.top + playerBounds.height > enemyBounds.top) {
 //                delete this->player;
                 this->player->changeAttackType(ATTACK_TYPE::ICE);
                 this->fireBlue.erase(this->fireBlue.begin() + i);
                 this->collectSound.play();
-            }
-            else if (playerBounds.left > enemyBounds.left
-                     && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
-                     && playerBounds.top < enemyBounds.top + enemyBounds.height
-                     && playerBounds.top + playerBounds.height > enemyBounds.top)
-            {
+            } else if (playerBounds.left > enemyBounds.left
+                       && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
+                       && playerBounds.top < enemyBounds.top + enemyBounds.height
+                       && playerBounds.top + playerBounds.height > enemyBounds.top) {
 //                delete this->player;
                 this->player->changeAttackType(ATTACK_TYPE::ICE);
                 this->fireBlue.erase(this->fireBlue.begin() + i);
@@ -890,23 +1071,19 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
 
     }
     for (int i = 0; i < this->fireYellow.size(); i++) {
-        if (this->fireYellow[i]->intersects(nextPositionBounds))
-        {
+        if (this->fireYellow[i]->intersects(nextPositionBounds)) {
             if (playerBounds.left < enemyBounds.left
                 && playerBounds.left + playerBounds.width < enemyBounds.left + enemyBounds.width
                 && playerBounds.top < enemyBounds.top + enemyBounds.height + 5
-                && playerBounds.top + playerBounds.height > enemyBounds.top)
-            {
+                && playerBounds.top + playerBounds.height > enemyBounds.top) {
 //                delete this->player;
                 this->player->changeAttackType(ATTACK_TYPE::TROPHY);
                 this->fireYellow.erase(this->fireYellow.begin() + i);
                 this->collectSound.play();
-            }
-            else if (playerBounds.left > enemyBounds.left
-                     && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
-                     && playerBounds.top < enemyBounds.top + enemyBounds.height
-                     && playerBounds.top + playerBounds.height > enemyBounds.top)
-            {
+            } else if (playerBounds.left > enemyBounds.left
+                       && playerBounds.left + playerBounds.width > enemyBounds.left + enemyBounds.width
+                       && playerBounds.top < enemyBounds.top + enemyBounds.height
+                       && playerBounds.top + playerBounds.height > enemyBounds.top) {
 //                delete this->player;
                 this->player->changeAttackType(ATTACK_TYPE::TROPHY);
                 this->fireYellow.erase(this->fireYellow.begin() + i);
@@ -915,19 +1092,32 @@ void GameState::updateCollision(Entity *entity, Entity* enemy, const float& dt) 
         }
 
     }
+}
+
 //    std::cout << "Player HP(GS): " << this->player->getAttributeComponents()->hp << std::endl;
 
 
 
-}
+
+
 
 void GameState::updateMovementAI(const float &dt) {
+    std::cout << this->boss[0]->getAttributeComponents()->hp << std::endl;
     for (int i = 0; i < this->activeEnemies.size(); i++)
     {
         
         if (this->player->getPosition().x > this->activeEnemies[i]->getPosition().x)
             this->activeEnemies[i]->move(1.f,0.f,dt);
         else if (this->player->getPosition().x - this->activeEnemies[i]->getPosition().x > -500.f)
+            this->activeEnemies[i]->move(-1.f,0.0f,dt);
+
+    }
+    for (int i = 0; i < this->boss.size(); i++)
+    {
+
+        if (this->player->getPosition().x > this->boss[i]->getPosition().x)
+            this->activeEnemies[i]->move(1.f,0.f,dt);
+        else if (this->player->getPosition().x - this->boss[i]->getPosition().x > -500.f)
             this->activeEnemies[i]->move(-1.f,0.0f,dt);
 
     }
@@ -955,6 +1145,28 @@ void GameState::updateMovementAI(const float &dt) {
             this->enemyAI->move(-1.0f, 0.f, dt);
 
     }
+
+    if (this->autoMoveBossRight)
+    {
+
+        if (this->enemyAI2->getPosition().x < this->player->getPosition().x)
+            this->enemyAI2->move(1.0f, 0.f, dt);
+
+        else if (this->enemyAI2->getPosition().x > this->player->getPosition().x)
+            this->enemyAI2->move(-1.0f, 0.f, dt);
+    }
+    if (this->autoMoveBossLeft)
+    {
+
+        if (this->enemyAI2->getPosition().x < this->player->getPosition().x)
+            this->enemyAI2->move(1.0f, 0.f, dt);
+
+        else if (this->enemyAI2->getPosition().x > this->player->getPosition().x)
+            this->enemyAI2->move(-1.0f, 0.f, dt);
+
+    }
+
+
 
 }
 
@@ -1059,6 +1271,10 @@ void GameState::updatePlayerElements() {
 int GameState::calScore() {
     this->multiply = 120 + (rand()%5 + 5);
     return this->score * this->multiply + this->scoreTime;
+}
+
+void GameState::setAiBoss(Enemy *enemy) {
+    this->enemyAI2 = enemy;
 }
 
 

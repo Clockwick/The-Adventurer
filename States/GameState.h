@@ -48,6 +48,7 @@ public:
 
 private:
     //Player
+    std::vector<Enemy*> boss;
     Player* player;
     PlayerGUI* playerGui;
     std::string playerName;
@@ -56,6 +57,7 @@ private:
 
     //Enemy
     std::vector<Enemy*> activeEnemies;
+
     PauseMenu* pmenu;
     TileMap* tileMap;
     DeadMenu* deadmenu;
@@ -94,13 +96,22 @@ private:
     sf::Clock slimeClock;
     float slimeTime;
 
+    bool bossBlink;
+    sf::Clock bossClock;
+    float bossTime;
+
     //Bot
     void updateMovementAI(const float &dt);
     bool autoMoveLeft;
     bool autoMoveRight;
     Enemy* enemyAI;
-    Boss* boss;
+    Enemy* enemyAI2;
+
+    sf::Clock spawnClockBoss;
+    float spawnTimeBoss;
+
     void setAI(Enemy* enemy);
+    void setAiBoss(Enemy* enemy);
 
     int playerState;
 
@@ -121,12 +132,14 @@ private:
 
     sf::Clock scoreClock;
     float scoreTime;
-    int kk;
+
 
 
     std::vector <int> newStorage;
     int maxEnemiesSize;
 
+    bool autoMoveBossLeft;
+    bool autoMoveBossRight;
 
 
     //Gui Staff
@@ -152,7 +165,6 @@ private:
 
     //Items
     std::vector<Item*> itemElements;
-
     std::vector<Enemy*> hitEnemies;
 
     //Sound

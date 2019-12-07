@@ -1,0 +1,3 @@
+/Users/arthris/CLionProjects/The-Adventurer/cmake-build-release/CMakeFiles/rebuild_cache.dir
+/Users/arthris/CLionProjects/The-Adventurer/cmake-build-release/CMakeFiles/edit_cache.dir
+/Users/arthris/CLionProjects/The-Adventurer/cmake-build-release/CMakeFiles/The-Adventurer.dir

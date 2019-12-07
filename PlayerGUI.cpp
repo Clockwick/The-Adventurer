@@ -118,8 +118,8 @@ void PlayerGUI::initExpBar() {
 }
 
 void PlayerGUI::initLevelBar() {
-    float width = gui::p2pX(1.4f,vm);
-    float height = gui::p2pY(2.2f,vm);
+    float width = gui::p2pX(2.f,vm);
+    float height = gui::p2pY(2.5f,vm);
     float x = gui::p2pX(0.7f, vm);
     float y = gui::p2pY(1.7f,vm);
 

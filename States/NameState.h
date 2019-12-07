@@ -51,6 +51,7 @@ public:
     const bool& getQuit();
 
     NameState(StateData *state_data, sf::Event *event, sf::Sound &sound);
+
 };
 
 

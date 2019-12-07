@@ -13,7 +13,7 @@ Boss::Boss(float x, float y, const float &jumpHeight, sf::Texture &texture_sheet
 
     this->createHitboxComponents(this->sprite, 20.f, 10.f, 55.f, 65.f,HitTypes::ATTACK_COL);
     this->createMovementComponents(100, 1000.0f, 250.0f, this->jumpHeight);
-    this->createAttributeComponents(20);
+    this->createAttributeComponents(50, 10000);
     this->createSkillComponents();
     this->createAnimationComponents(texture_sheet);
     this->initAnimation();
@@ -35,6 +35,7 @@ void Boss::initVariables() {
 void Boss::initAnimation() {
     this->animationComponents->addAnimation("IDLE", 25.f, 0 , 0, 8, 0, 100, 74);
     this->animationComponents->addAnimation("RUN", 15.f, 0, 1, 7, 1, 100, 74);
+    this->animationComponents->addAnimation("JUMP", 15.f, 0, 1, 7, 1, 100, 74);
     
 }
 
@@ -111,8 +112,9 @@ void Boss::gotAttackLeft() {
 ////        this->getVelocity().x = 4.f;
 //    this->getVelocity().y = 10 * abs(-pow(this->getVelocity().x - 2,2)+4);
     this->isAttacked = true;
-    this->getVelocity().x -= 100.0f;
     this->jump();
+    this->getVelocity().x -= 100.0f;
+
 
 }
 void Boss::gotAttackRight() {
@@ -123,8 +125,9 @@ void Boss::gotAttackRight() {
 ////        this->getVelocity().x = 0.f;
 //    this->getVelocity().y = 10 * abs(-pow(this->getVelocity().x + 2,2)+4);
     this->isAttacked = true;
-    this->getVelocity().x += 100.0f;
     this->jump();
+    this->getVelocity().x += 100.0f;
+
 }
 void Boss::gainHP(const int hp) {
     this->attributeComponents->hp += hp;

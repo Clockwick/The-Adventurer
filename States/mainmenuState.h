@@ -47,7 +47,7 @@ private:
     void resetGui();
     void initLogo();
     const sf::VideoMode& vm = this->state_data->gfxSettings->resolution;
-
+    sf::Text myName;
     sf::Event* event;
 
     //bool

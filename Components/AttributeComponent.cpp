@@ -12,6 +12,8 @@ AttributeComponent::AttributeComponent(int level, int hp) {
 //    static bool initialized;
 //    if (!initialized) {
 //        initialized = true;
+    if (hp != 500 || hp != 10000)
+        this->updateStats(true);
         this->hp = hp;
         this->level = level;
         this->exp = 0;
@@ -27,8 +29,7 @@ AttributeComponent::AttributeComponent(int level, int hp) {
         this->luck = 1;
 
         this->updateLevel();
-        if (hp != 500)
-            this->updateStats(true);
+
 
 //        std::cout << "If" << std::endl;
 //    }
@@ -65,7 +66,7 @@ void AttributeComponent::updateStats(const bool reset) {
     this->damageMin = this->Str + this->Str / 8 + this->Int / 5 + this->Agi / 3 + this->Agi / 4 + this->luck / 4 + this->level/2;
 
     //HP
-//    this->hpMax = 100.f;
+//    this->hpMax = 10000.f;
     this->hpMax = this->Vit * 8 + this->Vit + this->Str/2 + this->Int / 5 + this->level + this->level/2 + this->level/4;
 
     //ACCURACY

@@ -78,6 +78,13 @@ void Mainmenu::initGui() {
 
 
     );
+    this->myName.setFont(this->fonts["LOGO"]);
+    this->myName.setFillColor(sf::Color(50,50,50,100));
+    this->myName.setPosition(gui::p2pX(60,vm), gui::p2pY(90,vm));
+    this->myName.setCharacterSize(gui::calcCharSize(vm, 80));
+    this->myName.setString("Paratthakorn Sribunyong 62010535");
+
+
 
 }
 void Mainmenu::update(const float &dt) {
@@ -105,6 +112,7 @@ void Mainmenu::render(sf::RenderTarget *target) {
     target->draw(this->backgroundLogo);
     target->draw(this->logoText);
     target->draw(this->btnBackground);
+    target->draw(this->myName);
     this->renderButtons(*target);
 
     if (this->showBox && !this->nameState->getQuit())

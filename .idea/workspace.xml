@@ -7,32 +7,44 @@
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Release" CONFIG_NAME="Release" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14bcc328-63fe-4309-8d43-f384504000c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/AttributeComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AttributeComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Dead.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Dead.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Dead.h" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Dead.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Boss.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Boss.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayerGUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerGUI.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/GameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameState.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/GameState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/NameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/NameState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/ScoreState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/ScoreState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/ScoreState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/ScoreState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/NameState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/NameState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/mainmenuState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/States/mainmenuState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/mainmenuState.h" beforeDir="false" afterPath="$PROJECT_DIR$/States/mainmenuState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Components/AttributeComponent.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Components/AttributeComponent.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/GUI/Dead.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Boss.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Entities/Boss.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Game.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/Game.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/PlayerGUI.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/PlayerGUI.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/GameState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/NameState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/NameState.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/ScoreState.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/States/mainmenuState.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/The-Adventurer.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/The-Adventurer" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/The-Adventurer" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kit.txt" beforeDir="false" afterPath="$PROJECT_DIR$/kit.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/score.txt" beforeDir="false" afterPath="$PROJECT_DIR$/score.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text.slmp" beforeDir="false" afterPath="$PROJECT_DIR$/text.slmp" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,8 +79,14 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -78,7 +96,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -89,25 +107,13 @@
       <recent name="$PROJECT_DIR$/resources/images/Assets/Map/16x16 Fantasy Platformer Pack/Tile" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="CMake Application.The-Adventurer">
     <configuration name="GujarunSFML" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="The-Adventurer" TARGET_NAME="GujarunSFML" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="The-Adventurer" RUN_TARGET_NAME="GujarunSFML">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="The-Adventurer" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="The-Adventurer" TARGET_NAME="The-Adventurer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="The-Adventurer" RUN_TARGET_NAME="The-Adventurer">
+    <configuration name="The-Adventurer" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="The-Adventurer" TARGET_NAME="The-Adventurer" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="The-Adventurer" RUN_TARGET_NAME="The-Adventurer">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -116,6 +122,18 @@
       <item itemvalue="CMake Application.GujarunSFML" />
       <item itemvalue="CMake Application.The-Adventurer" />
     </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -227,7 +245,14 @@
       <workItem from="1574711073876" duration="111000" />
       <workItem from="1574718227616" duration="983000" />
       <workItem from="1574804074270" duration="354000" />
-      <workItem from="1574804463577" duration="4122000" />
+      <workItem from="1574804463577" duration="10685000" />
+      <workItem from="1574829791868" duration="1489000" />
+      <workItem from="1574971740230" duration="265000" />
+      <workItem from="1574972056921" duration="91000" />
+      <workItem from="1575086457128" duration="76000" />
+      <workItem from="1575653676131" duration="29000" />
+      <workItem from="1575694545496" duration="883000" />
+      <workItem from="1575695626691" duration="149000" />
     </task>
     <servers />
   </component>
@@ -249,5 +274,31 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1358" height="251" key="GridCell.Tab.0.bottom" timestamp="1575695912301">
+      <screen x="0" y="23" width="1680" height="980" />
+    </state>
+    <state width="1358" height="251" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1680.980@0.23.1680.980" timestamp="1575695912301" />
+    <state width="1358" height="251" key="GridCell.Tab.0.center" timestamp="1575695912300">
+      <screen x="0" y="23" width="1680" height="980" />
+    </state>
+    <state width="1358" height="251" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1680.980@0.23.1680.980" timestamp="1575695912300" />
+    <state width="1358" height="251" key="GridCell.Tab.0.left" timestamp="1575695912299">
+      <screen x="0" y="23" width="1680" height="980" />
+    </state>
+    <state width="1358" height="251" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1680.980@0.23.1680.980" timestamp="1575695912299" />
+    <state width="1358" height="251" key="GridCell.Tab.0.right" timestamp="1575695912300">
+      <screen x="0" y="23" width="1680" height="980" />
+    </state>
+    <state width="1358" height="251" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1680.980@0.23.1680.980" timestamp="1575695912300" />
+    <state x="394" y="153" key="SettingsEditor" timestamp="1575695797864">
+      <screen x="0" y="23" width="1680" height="980" />
+    </state>
+    <state x="394" y="153" key="SettingsEditor/-1920.23.1920.1057/0.23.1680.980@0.23.1680.980" timestamp="1575695797864" />
+    <state x="494" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1575695626583">
+      <screen x="0" y="23" width="1680" height="980" />
+    </state>
+    <state x="494" y="347" key="com.intellij.ide.util.TipDialog/-1920.23.1920.1057/0.23.1680.980@0.23.1680.980" timestamp="1575695626583" />
   </component>
 </project>
